@@ -1,4 +1,5 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
+//引入nodejs中路径模块
 var path = require('path')
 
 module.exports = {
@@ -23,7 +24,7 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 8888,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
