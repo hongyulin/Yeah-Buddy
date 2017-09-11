@@ -5,7 +5,7 @@
 				<span class="spinCircle"></span>
 				<span class="spinImg"></span>
 			</div>
-			<span>正在用力加载中...</span>
+			<span>{{loadingText}}</span>
 		</div>
 	</div>
 </template>
