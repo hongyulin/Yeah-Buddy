@@ -7,13 +7,13 @@ export default new Router({
     routes: [
         {
             path: '/',
-            name: 'hello',
-            component: resolve => require(['@/components/Hello'], resolve)
+            name: 'login',
+            component: resolve => require(['@/views/login/login'], resolve)
         },
         {
             path: '/loading',
             name: 'loading',
-            component: resolve => require(['@/components/mobileLoading'], resolve)
+            component: resolve => require(['@/components/loadingIcon'], resolve)
         }
     ]
 })

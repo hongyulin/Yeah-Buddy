@@ -14,7 +14,7 @@
 		name:"mobileLoading",
 		data(){
 			return{
-
+				isLoading:false,
 			}
 		},
 		computed:{
