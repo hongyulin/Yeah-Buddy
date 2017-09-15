@@ -3,8 +3,52 @@
   <head>
     <meta charset="utf-8">
     <title>yeahbuddy</title>
+    <!-- 清除緩存 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cash-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- uc強制橫屏 -->
+    <meta name="screen-orientation" content="portrait"/>
+    <!-- 刪除苹果工具栏和菜单 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 苹果电话号码显示为拨号的超链接-->
+    <meta name="format-detection" content="telephone=no">
+    <!--  -->
+    <meta name=format-detection content="email=no">
+    <!-- uc强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- qq强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <!-- uc应用模式 -->
+    <meta name=browsermode content=application>
+    <!-- qq强制竖屏 -->
+    <meta name=x5-orientation content=portrait>
+    <!-- qq强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- qq应用模式 -->
+    <meta name=x5-page-mode content=app>
+    <meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
     <link rel="stylesheet" type="text/css" href="static/css/yeah-buddy-style.css">
     <link rel="shortcut icon" href="./static/img/icon.svg" type="image/x-icon">
+    <script>
+      (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+    </script>
   </head>
   <body>
     <div id="app"></div>

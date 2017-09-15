@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/index'
+import data from './data/mock'
 //iview和mt使用哪一个待选
 import iview from 'iview'
 import MintUI from 'mint-ui'
@@ -13,6 +14,14 @@ Vue.use(iview)
 Vue.use(MintUI)
 import { Tosat } from 'mint-ui'
 
+/*双击事件*/
+/*import FastClick from 'fastclick'
+
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}*/
 //没有写完
 
 Vue.config.productionTip = false
