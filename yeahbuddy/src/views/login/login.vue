@@ -1,15 +1,35 @@
+<!-- login界面包括登录按钮和背景动画 -->
 <template>
 	<div>
-		<div class="videoWrap" >
+		<div class="videoWrap" v-show="pageVideoShow">
 			<video src="../../../static/openVideo.mp4" muted autoplay="autoplay" loop="loop" :style="videoStyle"></video>
 			<div class="videoBg">
-				<div>
+				<div id="logo">
 					<img src="../../../static/img/logo.svg" alt="logo">
 					<span>Yeah,Buddy</span>
 				</div>
-				<Button>登录</Button>
-				<a>先逛逛</a>
+				<div id="login">
+					<Button @click.native="login">登录</Button>
+					<a>先逛逛</a>
+				</div>
 			</div>
+		</div>
+		<div v-show="pageMobileShow" id="mobileWrap">
+			<img src="../../../static/img/logo.svg" alt="logo" class="pageMobileLogo">
+			<span class="pageMobileSpan">Yeah,Buddy</span>
+			<Input placeholder="+86      手机号" size="large" class="mobile">
+				<Icon type="iphone" slot="prepend" size="20" color="#F90"></Icon>
+			</Input>
+			<section id="idCode">
+				<Input placeholder="验证码" size="large" class="idCode">
+					<Icon type="iphone" slot="prepend" size="20" color="#F90"></Icon>
+				</Input>
+				<Button class="idButton">获取验证码</Button>
+			</section>
+			<Button long type="warning">登录</Button>
+			<span class="line">其它登录方式</span>
+			<Button long type="success"><img src="../../../static/img/wechat.svg">微信快速登录</Button>
+				
 		</div>
 	</div>
 </template>
@@ -19,17 +39,22 @@
 		data(){
 			return {
 				videoStyle:{
-					height:document.documentElement.clientHeight+'px',
-					width:document.documentElement.clientWidth+'px',
+					height:document.documentElement.clientHeight,
+					width:document.documentElement.clientWidth,
 					objectFit: "fill"
-				}			
+				},
+				pageVideoShow:false,
+				pageMobileShow:true,
 			}
 		},
 		created(){
 
 		},
 		mounted(){
-
+			window.onresize = () => {
+				this.videoStyle.height = `${document.documentElement.clientHeight}px`;
+				this.videoStyle.width = `${document.documentElement.clientWidth}px`;
+			}
 		},
 		components:{
 
@@ -37,26 +62,110 @@
 		computed: {
 
 		},
-		mathods:{
-
+		methods:{
+			login(){
+				this.pageVideoShow = false;
+				this.pageMobileShow = true;
+			},
 		}
 	}
 </script>
 <style lang="scss" scoped>
+	$rgba:rgba(255,255,255,0.6);
+	.common{
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+	}
 	.videoWrap{
-		width: 100%;
-		height: 100%;
 		position:absolute;
 		left:0;
-		top:0;
+		top:0; 
 		.videoBg{
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0,0,0,0.9);
-		position:absolute;
-		left:0;
-		top:0;
+		background-color: rgba(0,0,0,0.6);
+		@extend .videoWrap;
 	}
 	}
+	#logo{
+		@extend .common;
+		height:4rem;
+		margin-bottom: 1.5rem;
+		.logo{
+			background-color:$rgba;
+			border-radius:10%;
+			width:0.75rem;
+		}
+		span{
+			margin-top:0.2rem;
+			color:$rgba;
+			font-size:0.3rem;
+		}
+	}
+	#login{
+		@extend .common;
+		button{
+			color:$rgba;
+			background-color:$rgba;
+			width:80%;
+			display:block;
+			font-size:0.15rem;
+		}
+		a{
+			color:white;
+			font-size:0.15rem;
+			margin-top:0.1rem;
+		}
+	}
+	#mobileWrap{
+		@extend .common;
+		padding: 0.1rem;
+		width:3.7rem;
+		height:100%;
+		.mobile{
+			width:100%;
+			margin: 0.1rem;
+		}
+		
+		#idCode{
+			width:60%;
+			align-self:flex-start;
+			display:flex;
+			flex-direction:row;
+			.idCode{
+				margin-right:0.2rem;
+			}
+			.idButton{
+				background-color:white;
+				border-color:#F90;
+				color:#F90;
+				width:3rem;
+			}
+		}
+		.line{//中间的“其它登录方式”
+			display:block;
+			text-align:center;
+			line-height:1px;
+			border:{
+				left:solid 1.3rem #ddd;
+				right:solid 1.3rem #ddd;
+			}
+			margin:20px 0
+		}
+		.pageMobileLogo{
+			background-color:#F90;
+			border-radius:10%;
+			width:0.75rem;
+		}
+		.pageMobileSpan{
+			color:#F90;
+			margin-top:0.2rem;
+			font-size:0.2rem;
+		}
+
+	}
+
 	
 </style>

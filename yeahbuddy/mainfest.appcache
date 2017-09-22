@@ -1,0 +1,8 @@
+CACHE MANIFEST
+# 2017-09-22 v1.0.0对开机登录视频进行缓存
+/static/openVideo.mp4
+
+NETWORK:
+
+
+FALLBACK:
