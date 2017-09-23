@@ -26,10 +26,11 @@
 				</Input>
 				<Button class="idButton">获取验证码</Button>
 			</section>
-			<Button long type="warning">登录</Button>
-			<span class="line">其它登录方式</span>
-			<Button long type="success"><img src="../../../static/img/wechat.svg">微信快速登录</Button>
-				
+			<section id="loginButton">
+				<Button long type="warning">登录</Button>
+				<span class="line">其它登录方式</span>
+				<Button long type="success"><img src="../../../static/img/wechat.svg">微信快速登录</Button>
+			</section>
 		</div>
 	</div>
 </template>
@@ -163,6 +164,11 @@
 			color:#F90;
 			margin-top:0.2rem;
 			font-size:0.2rem;
+		}
+		#loginButton{
+			//@extend .common;
+			//justify-content:flex-end;
+			align-items:flex-end;
 		}
 
 	}
