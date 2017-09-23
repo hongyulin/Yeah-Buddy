@@ -35,7 +35,7 @@ export function fetch(url, params) {
 }
 
 export default {
-    getlists(url,params) {
-        return fetch(url, params)
+    checkIn(params) {
+        return fetch('/api/checkIn', params)
     }
 }

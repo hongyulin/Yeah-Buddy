@@ -17,24 +17,26 @@
 		<div v-show="pageMobileShow" id="mobileWrap">
 			<img src="../../../static/img/logo.svg" alt="logo" class="pageMobileLogo">
 			<span class="pageMobileSpan">Yeah,Buddy</span>
-			<Input placeholder="+86      手机号" size="large" class="mobile">
+			<!-- 输入框内容背景色改为白色，body背景色换个颜色，未完成lhy -->
+			<Input placeholder="+86      手机号" size="large" class="mobile" v-model="mobile">
 				<Icon type="iphone" slot="prepend" size="20" color="#F90"></Icon>
 			</Input>
 			<section id="idCode">
-				<Input placeholder="验证码" size="large" class="idCode">
+				<Input placeholder="验证码" size="large" class="idCode" v-model="idCode">
 					<Icon type="iphone" slot="prepend" size="20" color="#F90"></Icon>
 				</Input>
-				<Button class="idButton">获取验证码</Button>
+				<Button class="idButton" @click.native="getIdCode">{{"getIdCode"}}</Button>
 			</section>
 			<section id="loginButton">
-				<Button long type="warning">登录</Button>
+				<Button long type="warning" @click.native='checkIn'>登录</Button>
 				<span class="line">其它登录方式</span>
-				<Button long type="success"><img src="../../../static/img/wechat.svg">微信快速登录</Button>
+				<Button long type="success" @click.native='checkInByWechat'><img src="../../../static/img/wechat.svg">微信快速登录</Button>
 			</section>
 		</div>
 	</div>
 </template>
 <script>
+	import api from '../../fetch/api'
 	export default{
 		name:'login',
 		data(){
@@ -44,8 +46,12 @@
 					width:document.documentElement.clientWidth,
 					objectFit: "fill"
 				},
+				mobile:'',
+				idCode:'',
+				getIdCode:'获取验证码',
 				pageVideoShow:false,
 				pageMobileShow:true,
+				sendTime:'',
 			}
 		},
 		created(){
@@ -64,10 +70,67 @@
 
 		},
 		methods:{
+			getIdCode(){
+				this.sendTime = 60;
+				this.getIdCode = `已发送${this.sendTime}秒`
+				let timer = setInterval(() => {
+					this.sendTime --;
+					if(this.sendTime == 0){
+						clearInterval(timer);
+						this.getIdCode = '获取验证码'
+					}
+				},1000)
+			},
 			login(){
 				this.pageVideoShow = false;
 				this.pageMobileShow = true;
 			},
+			checkIn(){
+				let data = {
+					mobile:this.mobile,
+					idCode:this.idCode
+				}
+				api.checkIn(data)
+					.then(res => {
+						if (res.result[0] == 'success') {
+							localStorage.setItem("loginSuccess",true)
+							this.$router.push({
+								path:''//登录进去页面的路径lhy
+							})
+						}
+					})
+					.catch((error) => {
+						let e =error.response.data.Message||error.response.data.message
+						if( e.indexOf('mobile: value is empty') != -1){
+		                	this.$toast({
+			                    message:'请填写账号',
+			                    position:'middle',
+			                    duration:2000
+			                });
+		                } else if(e.indexOf('passWord: value is empty') != -1){
+		                	this.$toast({
+			                    message:'请输入密码',
+			                    position:'middle',
+			                    duration:2000
+			                  })
+		                }else if(e.indexOf('user is not exist') != -1){
+			                this.$toast({
+			                    message:'账号没有注册',
+			                    position:'middle',
+			                    duration:2000
+			                })
+		                }else if(e.indexOf('passWord is error') != -1){
+		                  	this.$toast({
+			                    message:'密码错误',
+			                    position:'middle',
+			                    duration:2000
+			                })
+		                }
+					})
+			},
+			checkInByWechat(){
+				alert("尚未开发")/*待开发lhy*/
+			}
 		}
 	}
 </script>
