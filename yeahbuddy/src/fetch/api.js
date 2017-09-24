@@ -37,5 +37,8 @@ export function fetch(url, params) {
 export default {
     checkIn(params) {
         return fetch('/api/checkIn', params)
+    },
+    checkInByWechat(params) {
+        return fetch('/api/checkInByWechat', params)
     }
 }

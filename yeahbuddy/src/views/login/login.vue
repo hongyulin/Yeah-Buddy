@@ -25,12 +25,12 @@
 				<Input placeholder="验证码" size="large" class="idCode" v-model="idCode">
 					<Icon type="iphone" slot="prepend" size="20" color="#F90"></Icon>
 				</Input>
-				<Button class="idButton" @click.native="getIdCode">{{"getIdCode"}}</Button>
+				<Button class="idButton" @click.native="getIdCodeFn">{{getIdCode}}</Button>
 			</section>
 			<section id="loginButton">
 				<Button long type="warning" @click.native='checkIn'>登录</Button>
 				<span class="line">其它登录方式</span>
-				<Button long type="success" @click.native='checkInByWechat'><img src="../../../static/img/wechat.svg">微信快速登录</Button>
+				<Button long type="success" @click.native='checkInByWechat'><span class="checkIn"><img src="../../../static/img/wechat.svg">微信快速登录</span></Button>
 			</section>
 		</div>
 	</div>
@@ -70,12 +70,12 @@
 
 		},
 		methods:{
-			getIdCode(){
+			getIdCodeFn(){
 				this.sendTime = 60;
 				this.getIdCode = `已发送${this.sendTime}秒`
 				let timer = setInterval(() => {
-					this.sendTime --;
-					if(this.sendTime == 0){
+					this.getIdCode = `已发送${this.sendTime--}秒`
+					if(this.sendTime == -2){
 						clearInterval(timer);
 						this.getIdCode = '获取验证码'
 					}
@@ -92,14 +92,14 @@
 				}
 				api.checkIn(data)
 					.then(res => {
-						if (res.result[0] == 'success') {
+						if (res.string == 'success') {
 							localStorage.setItem("loginSuccess",true)
 							this.$router.push({
 								path:''//登录进去页面的路径lhy
 							})
 						}
 					})
-					.catch((error) => {
+					/*.catch((error) => {
 						let e =error.response.data.Message||error.response.data.message
 						if( e.indexOf('mobile: value is empty') != -1){
 		                	this.$toast({
@@ -126,10 +126,13 @@
 			                    duration:2000
 			                })
 		                }
-					})
+					})*/
 			},
 			checkInByWechat(){
-				alert("尚未开发")/*待开发lhy*/
+				api.checkInByWechat()
+				.then(res => {
+					alert("尚未开发")/*待开发lhy*/
+				})
 			}
 		}
 	}
@@ -216,7 +219,7 @@
 				left:solid 1.3rem #ddd;
 				right:solid 1.3rem #ddd;
 			}
-			margin:20px 0
+			margin:30px 0
 		}
 		.pageMobileLogo{
 			background-color:#F90;
@@ -229,9 +232,18 @@
 			font-size:0.2rem;
 		}
 		#loginButton{
-			//@extend .common;
-			//justify-content:flex-end;
-			align-items:flex-end;
+			margin-top:1.5rem;
+			.checkIn{
+				display:flex;
+				justify-content:center;
+				align-items:center;
+			}
+			img{
+				margin:{
+					right:0.3rem;
+				}
+				
+			} 
 		}
 
 	}
