@@ -95,7 +95,7 @@
 						if (res.string == 'success') {
 							localStorage.setItem("loginSuccess",true)
 							this.$router.push({
-								path:''//登录进去页面的路径lhy
+								path:'/getUserInfo'
 							})
 						}
 					})

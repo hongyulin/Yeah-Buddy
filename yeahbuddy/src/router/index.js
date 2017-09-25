@@ -14,6 +14,11 @@ export default new Router({
             path: '/loading',
             name: 'loading',
             component: resolve => require(['@/components/loadingIcon'], resolve)
+        },
+        {
+            path: '/getUserInfo',
+            name: 'getInfo',
+            component: resolve => require(['@/views/login/getUserInfo'], resolve)
         }
     ]
 })
