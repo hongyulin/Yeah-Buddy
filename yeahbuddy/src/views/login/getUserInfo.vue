@@ -25,11 +25,11 @@
 				            <Icon type="camera" size="25"></Icon>
 				        </div>
 				    </Upload>
-					<Avatar src="../../static/img/logo.svg">头像</Avatar>
+					<Avatar src="info.header">头像</Avatar>
 				</div>
 				<div class="nickname">
 					<h3>昵称</h3>
-					<input></input>
+					<input v-model="info.nickName"></input>
 				</div>
 				<span>昵称请控制在4-30个字符，支持中文、数字、横线和减号</span>
 				<Button type="ghost" shape="circle" @click="register" class="button">注册</Button>
@@ -40,12 +40,12 @@
 			<h2>欢迎你的加入</h2>
 			<p>hi{{"nickname"}},欢迎加入。为了帮助你量身制定训练计划，请花一分钟时间，帮助我们了解你。</p>
 			<h4>你的性别是？</h4>
-			<Button type="ghost" shape="circle" @click="storageSex(male)" class="button">男</Button>
-			<Button type="ghost" shape="circle" @click="storageSex(female)" class="button">女</Button>
+			<Button type="ghost" shape="circle" @click="goNext(sexShow,male)" class="button">男</Button>
+			<Button type="ghost" shape="circle" @click="goNext(sexShow,female)" class="button">女</Button>
 		</section>
 		<section id="level" v-show="levelShow">
 			<mt-header fixed style="background-color:white;">
-				<span @click="goBack" slot="left">
+				<span @click="goBack("levelShow")" slot="left">
 				    <Icon type="chevron-left" color="red" size="25"></Icon>
 				</span>
 		    </mt-header>
@@ -65,7 +65,7 @@
 		</section>
 		<section id="BFP" v-show="BFPShow">
 			<mt-header fixed style="background-color:white;">
-				<span @click="goBack" slot="left">
+				<span @click="goBack("BFPShow")" slot="left">
 				    <Icon type="chevron-left" color="red" size="25"></Icon>
 				</span>
 		    </mt-header>
@@ -76,7 +76,7 @@
 		</section>
 		<section id="target" v-show="targetShow">
 			<mt-header fixed style="background-color:white;">
-				<span @click="goBack" slot="left">
+				<span @click="goBack("targetShow")" slot="left">
 				    <Icon type="chevron-left" color="red" size="25"></Icon>
 				</span>
 		    </mt-header>
@@ -86,7 +86,7 @@
 		</section>
 		<section id="limbs" v-show="limbsShow">
 			<mt-header fixed style="background-color:white;">
-				<span @click="goBack" slot="left">
+				<span @click="goBack("limbsShow")" slot="left">
 				    <Icon type="chevron-left" color="red" size="25"></Icon>
 				</span>
 		    </mt-header>
@@ -99,7 +99,7 @@
 		</section>
 		<section id="ageWeiHei" v-show="AWHShow">
 			<mt-header fixed style="background-color:white;">
-				<span @click="goBack" slot="left">
+				<span @click="goBack("AWHShow")" slot="left">
 				    <Icon type="chevron-left" color="red" size="25"></Icon>
 				</span>
 		    </mt-header>
@@ -109,6 +109,7 @@
 			<label for="">生日</label>
 			<label for="">身高</label>
 			<label for="">体重</label>
+			<Button>完成</Button>
 		</section>
 	</div>
 </template>
@@ -125,8 +126,9 @@
 				targetShow:false,
 				limbsShow:false,
 				AWHShow:false,
+				showList:['nickNameShow','sexShow','levelShow','BFPShow','targetShow','limbsShow','AWHShow']
 				info:{
-					header:'',
+					header:'../../static/img/logo.svg',
 					nickName:'',
 					sex:'',
 					level:'',
@@ -152,8 +154,9 @@
 
 		},
 		mathods:{
-			goBack(){
-				this.$router.go(-1)
+			goBack(sec){
+				this.sec = false;
+				this.showList[showList.indexOf(sec)-1] = true;
 			},
 			handleSuccess(){
 
@@ -167,8 +170,34 @@
 			handleBeforeUpload(){
 
 			},
-			storageSex(){
-
+			goNext(sec,val){
+				infoEsc = sec.split("Show");
+				this.info.infoEsc = val;
+				this.sec = false;
+				this.showList[showList.indexOf(sec)+1] = true;
+			},
+			register(){
+				let data = {
+					nickName:this.info.nickName,
+					header:this.indo.header
+				}
+				api.register(data)
+				.then(res => {
+					this.$toast({
+						message:res,
+						pisition:'middle',
+						duration:1000
+					})
+					//this.$router.push()
+					this.nickNameShow = false;
+					this.sexShow = true;
+				}, res => {
+					this.$toast({
+						message:'注册失败',
+						pisition:'middle',
+						duration:1000
+					})
+				})
 			},
 
 		}

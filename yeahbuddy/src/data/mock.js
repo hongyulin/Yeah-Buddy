@@ -17,6 +17,12 @@ let data = [
 	{
 		'image':"@image('200x100', '#00405d', '#FFF', 'Mock.js')"
 	}
-]
+],
+[
+	'/api/register',
+	{
+		'string|1':"register success"
+	}
+],
 ]
 export default data.forEach(function(element){return mock.mock(...element)})
