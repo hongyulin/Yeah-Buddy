@@ -8,9 +8,15 @@ let data = [
 ],
 [
 	'/api/checkInByWechat',
-		{
-			'string|1' : 'successBywechat'
-		}
+	{
+		'string|1' : 'successBywechat'
+	}
+],
+[
+	'header/posts',
+	{
+		'image':"@image('200x100', '#00405d', '#FFF', 'Mock.js')"
+	}
 ]
 ]
 export default data.forEach(function(element){return mock.mock(...element)})

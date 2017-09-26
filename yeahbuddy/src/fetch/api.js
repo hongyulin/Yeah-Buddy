@@ -40,5 +40,6 @@ export default {
     },
     checkInByWechat(params) {
         return fetch('/api/checkInByWechat', params)
-    }
+    },
+    
 }
