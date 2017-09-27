@@ -41,17 +41,17 @@
 		name:'login',
 		data(){
 			return {
-				videoStyle:{
-					height:document.documentElement.clientHeight,
-					width:document.documentElement.clientWidth,
+				videoStyle: {
+					height: document.documentElement.clientHeight,
+					width: document.documentElement.clientWidth,
 					objectFit: "fill"
 				},
-				mobile:'',
-				idCode:'',
-				getIdCode:'获取验证码',
-				pageVideoShow:false,
-				pageMobileShow:true,
-				sendTime:'',
+				mobile: '',
+				idCode: '',
+				getIdCode: '获取验证码',
+				pageVideoShow: false,
+				pageMobileShow: true,
+				sendTime: '',
 			}
 		},
 		created(){
@@ -63,13 +63,13 @@
 				this.videoStyle.width = `${document.documentElement.clientWidth}px`;
 			}
 		},
-		components:{
+		components: {
 
 		},
 		computed: {
 
 		},
-		methods:{
+		methods: {
 			getIdCodeFn(){
 				this.sendTime = 60;
 				this.getIdCode = `已发送${this.sendTime}秒`
@@ -87,8 +87,8 @@
 			},
 			checkIn(){
 				let data = {
-					mobile:this.mobile,
-					idCode:this.idCode
+					mobile: this.mobile,
+					idCode: this.idCode
 				}
 				api.checkIn(data)
 					.then(res => {
@@ -138,109 +138,109 @@
 	}
 </script>
 <style lang="scss" scoped>
-	$rgba:rgba(255,255,255,0.6);
+	$rgba: rgba(255,255,255,0.6);
 	.common{
-		display:flex;
-		flex-direction:column;
-		justify-content:center;
-		align-items:center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 	.videoWrap{
-		position:absolute;
-		left:0;
-		top:0; 
+		position: absolute;
+		left: 0;
+		top: 0; 
 		.videoBg{
-		width: 100%;
-		height: 100%;
-		background-color: rgba(0,0,0,0.6);
+		width:  100%;
+		height:  100%;
+		background-color:  rgba(0,0,0,0.6);
 		@extend .videoWrap;
 	}
 	}
 	#logo{
 		@extend .common;
-		height:4rem;
-		margin-bottom: 1.5rem;
+		height: 4rem;
+		margin-bottom:  1.5rem;
 		.logo{
-			background-color:$rgba;
-			border-radius:10%;
-			width:0.75rem;
+			background-color: $rgba;
+			border-radius: 10%;
+			width: 0.75rem;
 		}
 		span{
-			margin-top:0.2rem;
-			color:$rgba;
-			font-size:0.3rem;
+			margin-top: 0.2rem;
+			color: $rgba;
+			font-size: 0.3rem;
 		}
 	}
 	#login{
 		@extend .common;
 		button{
-			color:$rgba;
-			background-color:$rgba;
-			width:80%;
-			display:block;
-			font-size:0.15rem;
+			color: $rgba;
+			background-color: $rgba;
+			width: 80%;
+			display: block;
+			font-size: 0.15rem;
 		}
 		a{
-			color:white;
-			font-size:0.15rem;
-			margin-top:0.1rem;
+			color: white;
+			font-size: 0.15rem;
+			margin-top: 0.1rem;
 		}
 	}
 	#mobileWrap{
 		@extend .common;
-		padding: 0.1rem;
-		width:3.7rem;
-		height:100%;
+		padding:  0.1rem;
+		width: 3.7rem;
+		height: 100%;
 		.mobile{
-			width:100%;
-			margin: 0.1rem;
+			width: 100%;
+			margin:  0.1rem;
 		}
 		
 		#idCode{
-			width:60%;
-			align-self:flex-start;
-			display:flex;
-			flex-direction:row;
+			width: 60%;
+			align-self: flex-start;
+			display: flex;
+			flex-direction: row;
 			.idCode{
-				margin-right:0.2rem;
+				margin-right: 0.2rem;
 			}
 			.idButton{
-				background-color:white;
-				border-color:#F90;
-				color:#F90;
-				width:3rem;
+				background-color: white;
+				border-color: #F90;
+				color: #F90;
+				width: 3rem;
 			}
 		}
 		.line{//中间的“其它登录方式”
-			display:block;
-			text-align:center;
-			line-height:1px;
-			border:{
-				left:solid 1.3rem #ddd;
-				right:solid 1.3rem #ddd;
+			display: block;
+			text-align: center;
+			line-height: 1px;
+			border: {
+				left: solid 1.3rem #ddd;
+				right: solid 1.3rem #ddd;
 			}
-			margin:30px 0
+			margin: 30px 0
 		}
 		.pageMobileLogo{
-			background-color:#F90;
-			border-radius:10%;
-			width:0.75rem;
+			background-color: #F90;
+			border-radius: 10%;
+			width: 0.75rem;
 		}
 		.pageMobileSpan{
-			color:#F90;
-			margin-top:0.2rem;
-			font-size:0.2rem;
+			color: #F90;
+			margin-top: 0.2rem;
+			font-size: 0.2rem;
 		}
 		#loginButton{
-			margin-top:1.5rem;
+			margin-top: 1.5rem;
 			.checkIn{
-				display:flex;
-				justify-content:center;
-				align-items:center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 			img{
-				margin:{
-					right:0.3rem;
+				margin: {
+					right: 0.3rem;
 				}
 				
 			} 
