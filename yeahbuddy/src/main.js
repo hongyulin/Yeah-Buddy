@@ -12,7 +12,7 @@ import 'iview/dist/styles/iview.css'
 import 'mint-ui/lib/style.css'
 Vue.use(iview)
 Vue.use(MintUI)
-import { Tosat } from 'mint-ui'
+import { Tosat  } from 'mint-ui'
 
 /*双击事件*/
 /*import FastClick from 'fastclick'
