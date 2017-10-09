@@ -24,5 +24,11 @@ let data = [
 		'string|1':"register success"
 	}
 ],
+/*[
+	'/api/get/Age',
+	{
+		
+	}
+],*/
 ]
 export default data.forEach(function(element){return mock.mock(...element)})

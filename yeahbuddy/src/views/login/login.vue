@@ -10,7 +10,7 @@
 				</div>
 				<div id="login">
 					<Button @click.native="login">登录</Button>
-					<a>先逛逛</a>
+					<a @click='tourist'>先逛逛</a>
 				</div>
 			</div>
 		</div>
@@ -85,6 +85,10 @@
 				this.pageVideoShow = false;
 				this.pageMobileShow = true;
 			},
+			tourist(){
+				this.$router.push('/date')
+				localStorage.setItem("loginSuccess", false)
+			},
 			checkIn(){
 				let data = {
 					mobile: this.mobile,
@@ -93,7 +97,7 @@
 				api.checkIn(data)
 					.then(res => {
 						if (res.string == 'success') {
-							localStorage.setItem("loginSuccess",true)
+							localStorage.setItem("loginSuccess", true)
 							this.$router.push({
 								path:'/getUserInfo'
 							})

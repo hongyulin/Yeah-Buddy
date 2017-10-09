@@ -1,19 +1,19 @@
 <template>
 	<mt-tabbar :selected.sync="selected">
 		<mt-tab-item id="秀">
-			<img slot="icon" src="../assets/100x100.png">
+			<img slot="icon" src="../../static/img/icon.svg">
 		秀
 		</mt-tab-item>
 		<mt-tab-item id="约">
-			<img slot="icon" src="../assets/100x100.png">
+			<img slot="icon" src="../../static/img/icon.svg">
 		约
 		</mt-tab-item>
 		<mt-tab-item id="圈">
-			<img slot="icon" src="../assets/100x100.png">
+			<img slot="icon" src="../../static/img/icon.svg">
 		圈
 		</mt-tab-item>
 		<mt-tab-item id="我">
-			<img slot="icon" src="../assets/100x100.png">
+			<img slot="icon" src="../../static/img/icon.svg">
 		我
 		</mt-tab-item>
 	</mt-tabbar>
@@ -42,7 +42,7 @@
 </template>
 <script>
 	export default{
-		name:'footer',
+		name:'myFooter',
 		data(){
 			return {
 

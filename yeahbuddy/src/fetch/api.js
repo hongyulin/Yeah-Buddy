@@ -44,5 +44,8 @@ export default {
     register(params) {
         return fetch('/api/register', params)
     },
+    /*getAge(params) {
+        return fetch('/api/get/Age', params)
+    },*/
     
 }
