@@ -15,13 +15,13 @@
 		mounted(){
 
 		},
-		components:{
+		components: {
 
 		},
 		computed: {
 
 		},
-		methods:{
+		methods: {
 
 		}
 	}

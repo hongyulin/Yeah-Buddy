@@ -3,7 +3,7 @@
 </template>
 <script>
 	export default{
-		name:'example',
+		name:'circle',
 		data(){
 			return {
 
@@ -15,13 +15,13 @@
 		mounted(){
 
 		},
-		components:{
+		components: {
 
 		},
 		computed: {
 
 		},
-		mathods:{
+		mathods: {
 
 		}
 	}

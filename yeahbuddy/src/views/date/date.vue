@@ -1,9 +1,11 @@
 <template>
-	
+	<div>
+		
+	</div>
 </template>
 <script>
 	export default{
-		name:'example',
+		name:'date',
 		data(){
 			return {
 
@@ -15,13 +17,13 @@
 		mounted(){
 
 		},
-		components:{
+		components: {
 
 		},
 		computed: {
 
 		},
-		methods:{
+		methods: {
 
 		}
 	}

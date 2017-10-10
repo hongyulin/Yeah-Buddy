@@ -321,7 +321,7 @@
 						break;
 					case "AWHShow":
 						localStorage.info = JSON.stringify(this.info);
-						this.$router.push('/date');
+						this.$router.push('/home');
 						break;
 				}
 			},
