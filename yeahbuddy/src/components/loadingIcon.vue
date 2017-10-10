@@ -11,7 +11,7 @@
 </template>
 <script>
 	export default{
-		name:"mobileLoading",
+		name: "mobileLoading",
 		data(){
 			return{
 				isLoading:false,

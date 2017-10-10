@@ -37,12 +37,12 @@
 			<Icon type="ios-person"></Icon>
 			<Icon type="ios-person-outline"></Icon>
 			<span>我</span>
-		</section> -->
-	</footer>
+		</section> 
+	</footer>-->
 </template>
 <script>
 	export default{
-		name:'myFooter',
+		name: 'myFooter',
 		data(){
 			return {
 
@@ -60,7 +60,7 @@
 		computed: {
 
 		},
-		mathods:{
+		methods:{
 
 		}
 	}

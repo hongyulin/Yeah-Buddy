@@ -21,7 +21,7 @@
 		computed: {
 
 		},
-		mathods:{
+		methods:{
 
 		}
 	}

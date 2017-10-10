@@ -15,7 +15,7 @@
 	import myHeader from "./header"
 	import myFooter from "./footer"
 	export default{
-		name:'layout',
+		name: 'layout',
 		components: {
 			myFooter, myHeader
 		},
@@ -30,13 +30,10 @@
 		mounted(){
 
 		},
-		components:{
-
-		},
 		computed: {
 
 		},
-		mathods:{
+		methods:{
 			
 		}
 	}

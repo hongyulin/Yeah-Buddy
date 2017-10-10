@@ -11,11 +11,11 @@
 		<Icon type="ios-navigate-outline"></Icon>
 		<Icon type="ios-eye"></Icon><!-- show -->
 		<Icon type="ios-eye-outline"></Icon>
-	</header>	
+	</header>
 </template>
 <script>
 	export default{
-		name:'myHeader',
+		name: 'myHeader',
 		data(){
 			return {
 
@@ -33,7 +33,7 @@
 		computed: {
 
 		},
-		mathods:{
+		methods:{
 
 		}
 	}

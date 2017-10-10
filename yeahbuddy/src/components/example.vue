@@ -31,7 +31,7 @@
 		computed: {
 
 		},
-		mathods:{
+		methods:{
 			search(){
 				let data = {
 					content:this.value
