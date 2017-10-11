@@ -1,7 +1,19 @@
 <template>
 	<!-- 火辣健身里面的发现，中的发现。这里面展示的动态是选择较为美观展示展示的， -->
+	<!-- 健身专题，人气榜，同城（去掉） -->
+	<!-- show身材（腿，胸，臀，背），秀记录，人气榜 -->
 	<div>
-		
+		<section>
+			<span>秀</span>
+			<span><Icon type="ios-camera-outline"></Icon></span>
+			<span><Icon type="ios-search"></Icon></span>
+		</section>
+		<section>
+			<Tabs value="show">
+				<TabPane label="精选" name="Boutique">精选的图片</TabPane>
+				<TabPane label="动态" name="trends">动态中内容</TabPane>
+			</Tabs>
+		</section>
 	</div>
 </template>
 <script>
