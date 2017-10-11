@@ -1,5 +1,6 @@
 # yeahbuddy
-决定开始搞一个大项目了，
+决定开始搞一个大项目了
+for test
 ###技术栈：
 vue + vuex + vue-router + webpack + axios + sass
 
