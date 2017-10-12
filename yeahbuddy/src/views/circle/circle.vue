@@ -4,7 +4,7 @@
 	<div>
 		<section>
 			<Tabs value="circle">
-				<TabPane label="圈子" name="Boutique">附近有哪些运动圈</TabPane>
+				<TabPane label="圈子" name="circle">附近有哪些运动圈</TabPane>
 				<TabPane label="动态" name="trends">动态中内容</TabPane>
 				<Icon type="ios-plus-empty"></Icon>
 			</Tabs>
