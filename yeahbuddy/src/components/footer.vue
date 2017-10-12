@@ -3,13 +3,13 @@
 		<div class="pageWrap">
 		<mt-tab-container class="page-tabbar-container" v-model="selected">
 			<mt-tab-container-item id="秀">
-
+				秀
 			</mt-tab-container-item>
 			<mt-tab-container-item id="约">
-
+				约<date></date>
 			</mt-tab-container-item>
 			<mt-tab-container-item id="圈">
-
+				圈
 			</mt-tab-container-item>
 			<mt-tab-container-item id="我">
 				<div class="page-part">
@@ -23,28 +23,29 @@
 		</div>
 		<mt-tabbar v-model="selected" fixed>
 			<mt-tab-item id="秀">
-				<img slot="icon" src="../../static/img/icon.svg">
+				<Icon type="ios-eye" size="28"></Icon><br/>
 			秀
 			</mt-tab-item>
 			<mt-tab-item id="约">
-				<Icon type="ios-people"></Icon><!-- date -->
-				<Icon type="ios-people-outline"></Icon>
+				<Icon type="ios-people" size="28"></Icon><br/>
+				<!-- <Icon type="ios-people-outline"></Icon> -->
 			约
 			</mt-tab-item>
 			<mt-tab-item id="圈">
-				<Icon type="ios-navigate"></Icon><!-- circle -->
-				<Icon type="ios-navigate-outline"></Icon>
+				<Icon type="ios-navigate" size="28"></Icon><br/>
+				<!-- <Icon type="ios-navigate-outline"></Icon> -->
 			圈
 			</mt-tab-item>
 			<mt-tab-item id="我">
-				<Icon type="ios-person"></Icon><!-- mine -->
-				<Icon type="ios-person-outline"></Icon>
+				<Icon type="ios-person" size="28"></Icon><br/>
+				<!-- <Icon type="ios-person-outline"></Icon> -->
 			我
 			</mt-tab-item>
 		</mt-tabbar>
 	</div>
 </template>
 <script>
+	import date from "../views/date/date"
 	export default{
 		name: 'myFooter',
 		data(){
@@ -59,7 +60,7 @@
 
 		},
 		components:{
-
+			date
 		},
 		computed: {
 
@@ -70,6 +71,13 @@
 	}
 </script>
 <style>
+/* 更改mt中tabar组件默认属性 */
+.mint-tabbar > .mint-tab-item.is-selected {
+    background-color: transparent;
+}
+a {
+	color: inherit;
+}
 .pageTabbar {
     overflow: hidden;
     height: 100vh;

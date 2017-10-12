@@ -10,7 +10,7 @@
 		</section>
 		<section>
 			<Tabs value="show">
-				<TabPane label="精选" name="Boutique">精选的图片</TabPane>
+				<TabPane label="精选" name="boutique">精选的图片</TabPane>
 				<TabPane label="动态" name="trends">动态中内容</TabPane>
 			</Tabs>
 		</section>
