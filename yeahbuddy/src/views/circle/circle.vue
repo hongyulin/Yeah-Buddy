@@ -5,15 +5,43 @@
 		<section>
 			<Tabs value="circle">
 				<TabPane label="圈子" name="circle">附近有哪些运动圈</TabPane>
-				<TabPane label="动态" name="trends">动态中内容</TabPane>
-				<Icon type="ios-plus-empty"></Icon>
-			</Tabs>
+				<TabPane label="动态" name="trends">动态中内容</TabPane>		
+			</Tabs>	
 		</section>
+		<section>
+			<!--加号中添加的内容  -->
+			<Icon type="ios-plus-empty" size="25"></Icon>
+			<!--style提取出来  -->
+			<div style="background-color:black;color:white">
+				<ul>
+					<li>
+						<Icon type="ios-chatbubble" color="white"></Icon>
+						发表话题
+					</li>
+					<li>
+						<Icon type="android-star" color="white"></Icon>
+						发布动态</li>
+					<li>
+						<Icon type="ios-plus-empty" color="white"></Icon>
+						加入圈子
+					</li>
+					<li>
+						<Icon type="radio-waves" color="white"></Icon>
+						发现好友
+					</li>
+					<li>
+						<Icon type="qr-scanner" color="white"></Icon>
+						扫一扫
+					</li>
+				</ul>
+			</div>
+		</section>
+		
 	</div>
 </template>
 <script>
 	export default{
-		name:'circle',
+		name: 'circle',
 		data(){
 			return {
 

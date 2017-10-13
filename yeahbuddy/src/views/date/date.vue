@@ -2,7 +2,7 @@
 	<!-- 悦动里面的发现很不错，有附近圈子，同城活动，陪跑等,,,可以吧训练计划放在这个里面 -->
 	<!-- 附近（附近圈子，同城活动，陪跑，户外会员），商城，微课堂（训练） -->
 	<div>
-		<section>
+		<section class="homeHeader">
 			<span>约</span>
 			<span><Icon type="ios-search"></Icon></span>
 		</section>
@@ -17,7 +17,7 @@
 </template>
 <script>
 	export default{
-		name:'date',
+		name: 'date',
 		data(){
 			return {
 
@@ -40,3 +40,16 @@
 		}
 	}
 </script>
+<style lang="scss" scoped>
+.homeHeader{
+	width: 100vw;
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	padding: {
+		top: 10px;
+		left: 20px;
+		right: 10px;
+	}
+}
+</style>

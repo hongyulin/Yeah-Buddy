@@ -3,7 +3,7 @@
 	<!-- 健身专题，人气榜，同城（去掉） -->
 	<!-- show身材（腿，胸，臀，背），秀记录，人气榜 -->
 	<div>
-		<section>
+		<section class="homeHeader">
 			<span>秀</span>
 			<span><Icon type="ios-camera-outline"></Icon></span>
 			<span><Icon type="ios-search"></Icon></span>
@@ -18,7 +18,7 @@
 </template>
 <script>
 	export default{
-		name:'show',
+		name: 'show',
 		data(){
 			return {
 
@@ -41,3 +41,19 @@
 		}
 	}
 </script>
+<style lang="scss" scoped>
+.homeHeader {
+	width: 100vw;
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	padding: {
+		top: 10px;
+		left: 20px;
+		right: 10px;
+	}
+}
+.ivu-tabs-nav .ivu-tabs-tab {
+	padding: 8px 60px;
+}
+</style>

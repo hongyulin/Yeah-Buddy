@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div>
+		<!-- <div>
 			<myHeader></myHeader>
-		</div>
+		</div> -->
 		<div>
 			<router-view></router-view>
 		</div>
@@ -12,12 +12,13 @@
 	</div>
 </template>
 <script>
-	import myHeader from "./header"
+	// import myHeader from "./header"
 	import myFooter from "./footer"
 	export default{
 		name: 'layout',
 		components: {
-			myFooter, myHeader
+			myFooter, 
+			// myHeader
 		},
 		data(){
 			return {

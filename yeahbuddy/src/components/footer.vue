@@ -1,26 +1,21 @@
 <template>
 	<div class="pageTabbar">
-		<div class="pageWrap">
-		<mt-tab-container class="page-tabbar-container" v-model="selected">
-			<mt-tab-container-item id="秀">
-				秀
-			</mt-tab-container-item>
-			<mt-tab-container-item id="约">
-				约<date></date>
-			</mt-tab-container-item>
-			<mt-tab-container-item id="圈">
-				圈
-			</mt-tab-container-item>
-			<mt-tab-container-item id="我">
-				<div class="page-part">
-
-				</div>
-				<router-link to="/">
-					<mt-button type="danger" size="large">退出</mt-button>
-				</router-link>
-			</mt-tab-container-item>
-		</mt-tab-container>
-		</div>
+		<!-- <div class="pageWrap">
+			<mt-tab-container class="page-tabbar-container" v-model="selected">
+				<mt-tab-container-item id="秀">
+					<show></show>
+				</mt-tab-container-item>
+				<mt-tab-container-item id="约">
+					<date></date>
+				</mt-tab-container-item>
+				<mt-tab-container-item id="圈">
+					<circ></circ>
+				</mt-tab-container-item>
+				<mt-tab-container-item id="我">
+					<mine></mine>
+				</mt-tab-container-item>
+			</mt-tab-container>
+		</div> -->
 		<mt-tabbar v-model="selected" fixed>
 			<mt-tab-item id="秀">
 				<Icon type="ios-eye" size="28"></Icon><br/>
@@ -46,6 +41,10 @@
 </template>
 <script>
 	import date from "../views/date/date"
+	// import circle from "../views/circle/circle"//不要和html标签重名
+	import circ from "../views/circle/circle"
+	import mine from "../views/mine/mine"
+	import show from "../views/show/show"
 	export default{
 		name: 'myFooter',
 		data(){
@@ -59,14 +58,17 @@
 		mounted(){
 
 		},
-		components:{
-			date
+		components: {
+			date, show, circ, mine
 		},
 		computed: {
 
 		},
-		methods:{
-
+		methods: {
+			// clicks(){
+			// 	console.log("45")
+			// 	this.$router.push("/home/mine")
+			// }
 		}
 	}
 </script>
