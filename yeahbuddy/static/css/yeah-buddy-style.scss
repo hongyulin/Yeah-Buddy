@@ -18,9 +18,7 @@ body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, l
 	&:focus{
         outline: none;
 	};
-	
 }
-
 .spin{
 	width: 70px;
 	position: relative;
@@ -32,14 +30,14 @@ body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, l
 	position: absolute;
 	top: 10px;
 	left: 10px;
-	background-image: url(../img/loading.svg); 
+	background-image: url(/static/img/loading.svg); 
 	background-size: 100% 100%;
 }
 .spinCircle{
 	width: 70px;
 	height: 70px;
 	display:block;
-	background-image: url(../img/circle.png);
+	background-image: url(/static/img/circle.png);
 	background-size: 100% 100%;
 	animation: spinCircleRotate linear 1s infinite;
 }
