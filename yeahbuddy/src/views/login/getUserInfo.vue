@@ -31,7 +31,7 @@
 					<input v-model="info.nickName"></input>
 				</div>
 				<span>昵称请控制在4-30个字符，支持中文、数字、横线和减号</span>
-				<Button type="ghost" shape="circle" @click="toRegister" class="button">注册</Button>
+				<button type="ghost" shape="circle" @click="toRegister" class="button">注册</button>
 			</div>
 		</section>
 		<!-- 如下内容可以把数据抽出来，用一个v-for加show来列表渲染lhy -->
@@ -40,8 +40,8 @@
 				<h2>欢迎你的加入</h2>
 				<p>hi{{"nickname"}},欢迎加入。为了帮助你量身制定训练计划，请花一分钟时间，帮助我们了解你。</p>
 				<h4>你的性别是？</h4>
-				<Button type="ghost" shape="circle" @click="goNext('sexShow','male')" class="button">男</Button>
-				<Button type="ghost" shape="circle" @click="goNext('sexShow','female')" class="button">女</Button>
+				<button type="ghost" shape="circle" @click="goNext('sexShow','male')" class="button">男</button>
+				<button type="ghost" shape="circle" @click="goNext('sexShow','female')" class="button">女</button>
 			</div>
 		</section>
 		<section id="level" v-show="levelShow">
@@ -52,18 +52,18 @@
 		    </mt-header>
 		    <div class="infoBody">
 				<h2>你的健身基础？</h2>
-				<Button type="ghost" shape="circle" @click="goNext('levelShow','beginner')" class="button">入门
+				<button type="ghost" shape="circle" @click="goNext('levelShow','beginner')" class="button">入门
 					<span>很久没有运动，需要通过适应性训练打好基础</span>
-				</Button>
-				<Button type="ghost" shape="circle" @click="goNext('levelShow','primary')" class="button">初级\
+				</button>
+				<button type="ghost" shape="circle" @click="goNext('levelShow','primary')" class="button">初级\
 					<span>偶尔运动，可以正式开始训练</span>
-				</Button>
-				<Button type="ghost" shape="circle" @click="goNext('levelShow','medium')" class="button">中级
+				</button>
+				<button type="ghost" shape="circle" @click="goNext('levelShow','medium')" class="button">中级
 					<span>体能不错，希望进行稍有强度的训练</span>
-				</Button>
-				<Button type="ghost" shape="circle" @click="goNext('levelShow','senior')" class="button">高级
+				</button>
+				<button type="ghost" shape="circle" @click="goNext('levelShow','senior')" class="button">高级
 					<span>训练规律，经验丰富，能进行高强度的许梿</span>
-				</Button>
+				</button>
 			</div>
 		</section>
 		<section id="BFP" v-show="BFPShow">
@@ -74,9 +74,9 @@
 		    </mt-header>
 		    <div class="infoBody">
 				<h2>你觉得自己的身材如何？</h2>
-				<Button type="ghost" shape="circle" @click="goNext('BFPShow','fat')" class="button">有点胖</Button>
-				<Button type="ghost" shape="circle" @click="goNext('BFPShow','thin')" class="button">有点瘦</Button>
-				<Button type="ghost" shape="circle" @click="goNext('BFPShow','standar')" class="button">身材标准</Button>
+				<button type="ghost" shape="circle" @click="goNext('BFPShow','fat')" class="button">有点胖</button>
+				<button type="ghost" shape="circle" @click="goNext('BFPShow','thin')" class="button">有点瘦</button>
+				<button type="ghost" shape="circle" @click="goNext('BFPShow','standar')" class="button">身材标准</button>
 			</div>
 		</section>
 		<section id="target" v-show="targetShow">
@@ -87,8 +87,8 @@
 		    </mt-header>
 		    <div class="infoBody">
 				<h2>你的健身目标是？</h2>
-				<Button type="ghost" shape="circle" @click="goNext('targetShow','all')" class="button">全身强壮</Button>
-				<Button type="ghost" shape="circle" @click="goNext('targetShow','part')" class="button">加强局部肌肉</Button>
+				<button type="ghost" shape="circle" @click="goNext('targetShow','all')" class="button">全身强壮</button>
+				<button type="ghost" shape="circle" @click="goNext('targetShow','part')" class="button">加强局部肌肉</button>
 			</div>
 		</section>
 		<section id="limbs" v-show="limbsShow">
@@ -99,11 +99,11 @@
 		    </mt-header>
 		    <div class="infoBody">
 				<h2>最想训练哪一个部位？</h2>
-				<Button type="ghost" shape="circle" @click="goNext('limbsShow','chest')" class="button">胸</Button>
-				<Button type="ghost" shape="circle" @click="goNext('limbsShow','backSide')" class="button">肩背</Button>
-				<Button type="ghost" shape="circle" @click="goNext('limbsShow','abdominal ')" class="button">腰腹</Button>
-				<Button type="ghost" shape="circle" @click="goNext('limbsShow','arm')" class="button">手臂</Button>
-				<Button type="ghost" shape="circle" @click="goNext('limbsShow','leg')" class="button">臀腿</Button>
+				<button type="ghost" shape="circle" @click="goNext('limbsShow','chest')" class="button">胸</button>
+				<button type="ghost" shape="circle" @click="goNext('limbsShow','backSide')" class="button">肩背</button>
+				<button type="ghost" shape="circle" @click="goNext('limbsShow','abdominal ')" class="button">腰腹</button>
+				<button type="ghost" shape="circle" @click="goNext('limbsShow','arm')" class="button">手臂</button>
+				<button type="ghost" shape="circle" @click="goNext('limbsShow','leg')" class="button">臀腿</button>
 			</div>
 		</section>
 		<section id="ageWeiHei" v-show="AWHShow">
@@ -115,7 +115,7 @@
 			<div class="infoBody">
 				<h2>补充信息</h2>
 				<label>生日
-					<Input @on-focus="ageShow = true" @on-blur="ageShow = false;" v-model="info.age"></Input> 
+					<input @on-focus="ageShow = true" @on-blur="ageShow = false;" v-model="info.age"></input> 
 					<mt-picker
 					:slots = "yearSlot" 
 					@change = "onYearChange" 
@@ -125,7 +125,7 @@
 					</mt-picker>
 				</label>
 				<label>身高
-					<Input @on-focus="heightShow = true" @on-blur="heightShow = false;" v-model="info.height"></Input>
+					<input @on-focus="heightShow = true" @on-blur="heightShow = false;" v-model="info.height"></input>
 					<mt-picker
 					:slots = "heightSlot" 
 					@change = "onHeightChange" 
@@ -135,7 +135,7 @@
 					</mt-picker>
 				</label>
 				<label>体重
-					<Input @on-focus="weightShow = true" @on-blur="weightShow = false;" v-model="info.weight"></Input>
+					<input @on-focus="weightShow = true" @on-blur="weightShow = false;" v-model="info.weight"></input>
 					<mt-picker
 					:slots = "weightSlot" 
 					@change = "onWeightChange" 
@@ -144,7 +144,7 @@
 					>					
 					</mt-picker>
 				</label>
-				<Button @click="goNext('AWHShow')" long>完成</Button>
+				<button @click="goNext('AWHShow')" long>完成</button>
 			</div>
 		</section>
 	</div>

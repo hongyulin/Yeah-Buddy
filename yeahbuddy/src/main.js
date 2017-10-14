@@ -5,14 +5,6 @@ import App from './App'
 import router from './router'
 import store from './store/index'
 import data from './data/mock'
-//iview和mt使用哪一个待选
-import iview from 'iview'
-import MintUI from 'mint-ui'
-//import { DatetimePicker  } from 'mint-ui'
-import 'iview/dist/styles/iview.css'
-import 'mint-ui/lib/style.css'
-Vue.use(iview)
-Vue.use(MintUI)
 
 /*双击事件*/
 /*import FastClick from 'fastclick'

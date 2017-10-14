@@ -9,7 +9,7 @@
 			<span><Icon type="ios-search"></Icon></span>
 		</section>
 		<section>
-			<Tabs value="show">
+			<Tabs value="boutique">
 				<TabPane label="精选" name="boutique">精选的图片</TabPane>
 				<TabPane label="动态" name="trends">动态中内容</TabPane>
 			</Tabs>
@@ -41,7 +41,7 @@
 		}
 	}
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .homeHeader {
 	width: 100vw;
 	font-size: 20px;

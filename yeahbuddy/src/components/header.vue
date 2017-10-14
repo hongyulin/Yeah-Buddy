@@ -1,8 +1,8 @@
 <template>
 	<header>
 		<slot name="title"></slot>
-		<Icon type="chevron-left"></Icon>
-		<Icon type="ios-search"></Icon>
+		<!-- <Icon type="chevron-left"></Icon> -->
+		<!-- <Icon type="ios-search"></Icon> -->
 	</header>
 </template>
 <script>

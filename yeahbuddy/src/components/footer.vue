@@ -1,50 +1,30 @@
 <template>
 	<div class="pageTabbar">
-		<!-- <div class="pageWrap">
-			<mt-tab-container class="page-tabbar-container" v-model="selected">
-				<mt-tab-container-item id="秀">
-					<show></show>
-				</mt-tab-container-item>
-				<mt-tab-container-item id="约">
-					<date></date>
-				</mt-tab-container-item>
-				<mt-tab-container-item id="圈">
-					<circ></circ>
-				</mt-tab-container-item>
-				<mt-tab-container-item id="我">
-					<mine></mine>
-				</mt-tab-container-item>
-			</mt-tab-container>
-		</div> -->
-		<mt-tabbar v-model="selected" fixed>
-			<mt-tab-item id="秀">
-				<Icon type="ios-eye" size="28"></Icon><br/>
-			秀
-			</mt-tab-item>
+		<!-- <mt-tabbar v-model="selected" fixed>
+				<mt-tab-item id="秀">
+					<section @click="goTo('/home/show')">
+						<Icon type="ios-eye" size="28"></Icon><br/>秀
+					</section>
+				</mt-tab-item>
 			<mt-tab-item id="约">
-				<Icon type="ios-people" size="28"></Icon><br/>
-				<!-- <Icon type="ios-people-outline"></Icon> -->
-			约
+				<section @click="goTo('/home')">
+					<Icon type="ios-people" size="28"></Icon><br/>约
+				</section>
 			</mt-tab-item>
 			<mt-tab-item id="圈">
-				<Icon type="ios-navigate" size="28"></Icon><br/>
-				<!-- <Icon type="ios-navigate-outline"></Icon> -->
-			圈
+				<section @click="goTo('/home/circle')">
+					<Icon type="ios-navigate" size="28"></Icon><br/>圈
+				</section>
 			</mt-tab-item>
 			<mt-tab-item id="我">
-				<Icon type="ios-person" size="28"></Icon><br/>
-				<!-- <Icon type="ios-person-outline"></Icon> -->
-			我
+				<section @click="goTo('/home/mine')">
+				<Icon type="ios-person" size="28"></Icon><br/>我
+			</section>
 			</mt-tab-item>
-		</mt-tabbar>
+		</mt-tabbar> -->
 	</div>
 </template>
 <script>
-	import date from "../views/date/date"
-	// import circle from "../views/circle/circle"//不要和html标签重名
-	import circ from "../views/circle/circle"
-	import mine from "../views/mine/mine"
-	import show from "../views/show/show"
 	export default{
 		name: 'myFooter',
 		data(){
@@ -59,16 +39,15 @@
 
 		},
 		components: {
-			date, show, circ, mine
+
 		},
 		computed: {
 
 		},
 		methods: {
-			// clicks(){
-			// 	console.log("45")
-			// 	this.$router.push("/home/mine")
-			// }
+			goTo(path){
+				this.$router.push(path)
+			}
 		}
 	}
 </script>

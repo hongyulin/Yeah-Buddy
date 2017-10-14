@@ -9,7 +9,7 @@
 					<span>Yeah,Buddy</span>
 				</div>
 				<div id="login">
-					<Button @click.native="login">登录</Button>
+					<button @click.native="login">登录</button>
 					<a @click='tourist'>先逛逛</a>
 				</div>
 			</div>
@@ -18,19 +18,19 @@
 			<img src="../../../static/img/logo.svg" alt="logo" class="pageMobileLogo">
 			<span class="pageMobileSpan">Yeah,Buddy</span>
 			<!-- 输入框内容背景色改为白色，body背景色换个颜色，未完成lhy -->
-			<Input placeholder="+86      手机号" size="large" class="mobile" v-model="mobile">
+			<input placeholder="+86      手机号" size="large" class="mobile" v-model="mobile">
 				<Icon type="iphone" slot="prepend" size="20" color="#F90"></Icon>
-			</Input>
+			</input>
 			<section id="idCode">
-				<Input placeholder="验证码" size="large" class="idCode" v-model="idCode">
+				<input placeholder="验证码" size="large" class="idCode" v-model="idCode">
 					<Icon type="iphone" slot="prepend" size="20" color="#F90"></Icon>
-				</Input>
-				<Button class="idButton" @click.native="getIdCodeFn">{{getIdCode}}</Button>
+				</input>
+				<button class="idButton" @click.native="getIdCodeFn">{{getIdCode}}</button>
 			</section>
 			<section id="loginButton">
-				<Button long type="warning" @click.native='checkIn'>登录</Button>
+				<button long type="warning" @click.native='checkIn'>登录</button>
 				<span class="line">其它登录方式</span>
-				<Button long type="success" @click.native='checkInByWechat'><span class="checkIn"><img src="../../../static/img/wechat.svg">微信快速登录</span></Button>
+				<button long type="success" @click.native='checkInByWechat'><span class="checkIn"><img src="../../../static/img/wechat.svg">微信快速登录</span></button>
 			</section>
 		</div>
 	</div>
@@ -49,8 +49,8 @@
 				mobile: '',
 				idCode: '',
 				getIdCode: '获取验证码',
-				pageVideoShow: false,
-				pageMobileShow: true,
+				pageVideoShow: true,
+				pageMobileShow: false,
 				sendTime: '',
 			}
 		},
@@ -178,6 +178,9 @@
 	#login{
 		@extend .common;
 		button{
+			height: 30px;
+			// outline: none;
+			// border: none;
 			color: $rgba;
 			background-color: $rgba;
 			width: 80%;
@@ -192,6 +195,7 @@
 	}
 	#mobileWrap{
 		@extend .common;
+		margin-top: 60px;
 		padding:  0.1rem;
 		width: 3.7rem;
 		height: 100%;
