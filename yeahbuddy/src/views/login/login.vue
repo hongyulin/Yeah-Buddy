@@ -20,20 +20,21 @@
 			<span class="pageMobileSpan">Yeah,Buddy</span>
 			<section class="idCode">
 				<img src="../../../static/img/mobile.svg" alt="mobileLogo">
-				<input placeholder="+86   |   手机号" v-model="mobile"/>
+				<span>+86&nbsp;&nbsp;|</span>
+				<input placeholder="手机号" v-model="mobile"/>
 			</section>
 			<section class="idCode">
 				<img src="../../../static/img/mobile.svg" alt="mobileLogo">
 				<input placeholder="验证码"  v-model="idCode"/>
-				<button @click.="getIdCodeFn">{{getIdCode}}</button>
+				<button @click="getIdCodeFn" class="idButton">{{getIdCode}}</button>
 			</section>
 			<section id="loginButton">
-				<button long type="warning" @click='checkIn'>登录</button>
+				<button @click='checkIn'>登录</button>
 				<span class="line">其它登录方式</span>
 				<button @click='checkInByWechat'>
 					<span class="checkIn">
 						<img src="../../../static/img/wechat.svg">
-						微信快速登录
+						&nbsp;&nbsp;微信快速登录
 					</span>
 				</button>
 			</section>
@@ -180,7 +181,7 @@
 	#login{
 		@extend .common;
 		button{
-			height: 30px;
+			height: 40px;
 			color: $rgba;
 			background-color: $rgba;
 			width: 80%;
@@ -206,26 +207,30 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: flex-start;
-			// width: 100vw;
-			// height: 30px;
+			width: 95vw;
+			height: .4rem;
 			background-color: white;
-			// .idButton{
-			// 	background-color: white;
-			// 	border-color: #F90;
-			// 	color: #F90;
-			// 	width: 3rem;
-			// }
+			margin: 10px;
+			span {
+				line-height: 0.4rem;
+				margin-right: 10px;
+			}
+			.idButton{
+				background-color: white;
+				border-color: #F90;
+				color: #F90;
+				width: 3rem;
+			}
 		}
 		.line{//中间的“其它登录方式”
-			font-size: 0.2rem;
-			// display: block;
-			// text-align: center;
-			// line-height: 1px;
-			// border: {
-			// 	left: solid 1.3rem #ddd;
-			// 	right: solid 1.3rem #ddd;
-			// }
-			// margin: 30px 0
+			display: block;
+			text-align: center;
+			line-height: 1px;
+			border: {
+				left: solid 1.3rem #808080;
+				right: solid 1.3rem #808080;
+			}
+			margin: 30px 0
 		}
 		.pageMobileLogo{
 			//margin-top: 15vh;
@@ -235,15 +240,32 @@
 		}
 		.pageMobileSpan{
 			color: #F90;
-			margin-top: 0.2rem;
+			margin: {
+				top: 0.2rem;
+				bottom: .4rem;
+			}
 			font-size: 0.2rem;
 		}
 		#loginButton{
-			// margin-top: 1.5rem;
+			@extend .common;
+			margin-top: 1.5rem;
+			button {
+				border-radius: 10px;
+				color: white;
+				font-size: 20px;
+				width: 80vw;
+				height: 50px;
+				background-color: #F90;
+			}
+			button:nth-child(3){
+				background-color: #0f0;
+			}
 			.checkIn{
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				color: white;
+				font-size: 18px;
 			}
 			
 		}
