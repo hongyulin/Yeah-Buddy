@@ -1,9 +1,12 @@
 <template>
 	<div>
 		<section id="nickName" v-show="nickNameShow">
-			<router-link to="/" slot="left">
-				<Icon type="chevron-left" color="red" size="25"></Icon>
-			</router-link>
+			<div class="header">
+				<router-link to="/" slot="left">
+					<img src="/static/img/left.svg" alt="goBack">
+				</router-link>
+			</div>
+			
 			<div class="infoBody">
 				<h1>上传头像</h1>
 				<div class="avatarGroup">
@@ -35,33 +38,33 @@
 			</div>
 		</section>
 		<section id="level" v-show="levelShow">
-			<mt-header fixed style="background-color:white;">
+			<div class="header">
 				<span @click="goBack('levelShow')" slot="left">
-					<Icon type="chevron-left" color="red" size="25"></Icon>
+					<img src="/static/img/left.svg" alt="goBack">
 				</span>
-			</mt-header>
+			</div>
 			<div class="infoBody">
 				<h2>你的健身基础？</h2>
-				<button  @click="goNext('levelShow','beginner')" class="button">入门
+				<button  @click="goNext('levelShow','beginner')" class="button">入门\
 					<span>很久没有运动，需要通过适应性训练打好基础</span>
 				</button>
 				<button  @click="goNext('levelShow','primary')" class="button">初级\
 					<span>偶尔运动，可以正式开始训练</span>
 				</button>
-				<button  @click="goNext('levelShow','medium')" class="button">中级
+				<button  @click="goNext('levelShow','medium')" class="button">中级\
 					<span>体能不错，希望进行稍有强度的训练</span>
 				</button>
-				<button  @click="goNext('levelShow','senior')" class="button">高级
+				<button  @click="goNext('levelShow','senior')" class="button">高级\
 					<span>训练规律，经验丰富，能进行高强度的许梿</span>
 				</button>
 			</div>
 		</section>
 		<section id="BFP" v-show="BFPShow">
-			<mt-header fixed style="background-color:white;">
+			<div class="header">
 				<span @click="goBack('BFPShow')" slot="left">
-					<Icon type="chevron-left" color="red" size="25"></Icon>
+					<img src="/static/img/left.svg" alt="goBack">
 				</span>
-			</mt-header>
+			</div>
 			<div class="infoBody">
 				<h2>你觉得自己的身材如何？</h2>
 				<button  @click="goNext('BFPShow','fat')" class="button">有点胖</button>
@@ -70,11 +73,11 @@
 			</div>
 		</section>
 		<section id="target" v-show="targetShow">
-			<mt-header fixed style="background-color:white;">
+			<div class="header">
 				<span @click="goBack('targetShow')" slot="left">
-					<Icon type="chevron-left" color="red" size="25"></Icon>
+					<img src="/static/img/left.svg" alt="goBack">
 				</span>
-			</mt-header>
+			</div>
 			<div class="infoBody">
 				<h2>你的健身目标是？</h2>
 				<button  @click="goNext('targetShow','all')" class="button">全身强壮</button>
@@ -82,11 +85,11 @@
 			</div>
 		</section>
 		<section id="limbs" v-show="limbsShow">
-			<mt-header fixed style="background-color:white;">
+			<div class="header">
 				<span @click="goBack('limbsShow')" slot="left">
-					<Icon type="chevron-left" color="red" size="25"></Icon>
+					<img src="/static/img/left.svg" alt="goBack">
 				</span>
-			</mt-header>
+			</div>
 			<div class="infoBody">
 				<h2>最想训练哪一个部位？</h2>
 				<button  @click="goNext('limbsShow','chest')" class="button">胸</button>
@@ -97,29 +100,30 @@
 			</div>
 		</section>
 		<section id="ageWeiHei" v-show="AWHShow">
-			<mt-header fixed style="background-color:white;">
+			<div class="header">
 				<span @click="goBack('AWHShow')" slot="left">
-					<Icon type="chevron-left" color="red" size="25"></Icon>
+					<img src="/static/img/left.svg" alt="goBack">
 				</span>
-			</mt-header>
+			</div>
 			<div class="infoBody">
 				<h2>补充信息</h2>
+				
 				<label>生日
 					<input @on-focus="ageShow = true" @on-blur="ageShow = false;" v-model="info.age"></input>
-					<mt-picker :slots="yearSlot" @change="onYearChange" :visible-item-count="5" v-show="ageShow">
-					</mt-picker>
+					<!-- <mt-picker :slots="yearSlot" @change="onYearChange" :visible-item-count="5" v-show="ageShow">
+					</mt-picker> -->
 				</label>
 				<label>身高
 					<input @on-focus="heightShow = true" @on-blur="heightShow = false;" v-model="info.height"></input>
-					<mt-picker :slots="heightSlot" @change="onHeightChange" :visible-item-count="5" v-show="heightShow">
-					</mt-picker>
+					<!-- <mt-picker :slots="heightSlot" @change="onHeightChange" :visible-item-count="5" v-show="heightShow">
+					</mt-picker> -->
 				</label>
 				<label>体重
 					<input @on-focus="weightShow = true" @on-blur="weightShow = false;" v-model="info.weight"></input>
-					<mt-picker :slots="weightSlot" @change="onWeightChange" :visible-item-count="5" v-show="weightShow">
-					</mt-picker>
+					<!-- <mt-picker :slots="weightSlot" @change="onWeightChange" :visible-item-count="5" v-show="weightShow"> -->
+					<!-- </mt-picker> -->
 				</label>
-				<button @click="goNext('AWHShow')" long>完成</button>
+				<button @click="goNext('AWHShow')" class="button">完成</button>
 			</div>
 		</section>
 	</div>
@@ -336,10 +340,14 @@ export default {
 }
 </script>
 <style  lang="scss" scoped>
+.header {
+	margin: .1rem 0 .1rem .1rem;			
+}
 .button {
 	width: 80vw;
-	border-radius: 20px;
-	height: 40px;
+	border-radius: 50px;
+	// height: 40px;
+	padding: 0.1rem;
 	background-color: white;
 	border: 1px solid red;
 	color: red;
@@ -349,6 +357,9 @@ export default {
 	display: flex;
 	flex-direction: column;
 	padding: 0.3rem 0.3rem;
+	p {
+		margin: .3rem 0;
+	}
 	.upload {
 		width: 20px;
 		height: 20px;
