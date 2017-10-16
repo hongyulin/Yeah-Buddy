@@ -7,7 +7,8 @@
 			<div class="infoBody">
 				<h1>上传头像</h1>
 				<div class="avatarGroup">
-					<input type="file">
+					<input type="file" class="upload">
+					<img src="/static/img/headPortrait.svg" alt="headPortrait"/>
 					<!-- <Upload ref="upload" :show-upload-list="false" :on-success="handleSuccess" :format="['jpg','jpeg','png']" :max-size="2048" :on-format-error="handleFormatError" :on-exceeded-size="handleMaxSize" :before-upload="handleBeforeUpload" action="header/posts" style="display: inline-block;width:58px;">
 								<div style="width: 58px;height:58px;line-height: 58px;">
 									<Icon type="camera" size="25"></Icon>
@@ -26,8 +27,8 @@
 		<!-- 如下内容可以把数据抽出来，用一个v-for加show来列表渲染lhy -->
 		<section id="sex" v-show="sexShow">
 			<div class="infoBody">
-				<h2>欢迎你的加入</h2>
-				<p>hi{{"nickname"}},欢迎加入。为了帮助你量身制定训练计划，请花一分钟时间，帮助我们了解你。</p>
+				<h1>欢迎你的加入</h1>
+				<p>hi,{{info.nickName}},欢迎加入。为了帮助你量身制定训练计划，请花一分钟时间，帮助我们了解你。</p>
 				<h4>你的性别是？</h4>
 				<button @click="goNext('sexShow','male')" class="button">男</button>
 				<button @click="goNext('sexShow','female')" class="button">女</button>
@@ -341,12 +342,20 @@ export default {
 	height: 40px;
 	background-color: white;
 	border: 1px solid red;
+	color: red;
 }
 
 .infoBody {
 	display: flex;
 	flex-direction: column;
 	padding: 0.3rem 0.3rem;
+	.upload {
+		width: 20px;
+		height: 20px;
+		opacity: 0;
+		// position: absolute;
+
+	}
 	.avatarGroup {
 		display: flex;
 		flex-direction: row;
@@ -354,7 +363,6 @@ export default {
 		align-items: center;
 	}
 	button {
-		color: red;
 		margin-top: 0.6rem;
 	}
 	.nickname {

@@ -7,7 +7,7 @@ body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, l
     border: none;
     color: #333;
 	font-weight: normal;
-	font-size: 14px;
+	font-size: .16rem;
     font-family: "Microsoft Yahei";
     box-sizing: border-box;
     -webkit-tap-highlight-color:transparent;
@@ -19,6 +19,15 @@ body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, l
 	&:focus{
         outline: none;
 	};
+}
+h1 {
+	font-size: .32rem;
+}
+h2 {
+	font-size: .24rem;
+}
+h3 {
+	font-size: .18rem;
 }
 .spin{
 	width: 70px;
