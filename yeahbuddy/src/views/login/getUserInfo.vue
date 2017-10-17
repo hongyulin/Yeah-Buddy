@@ -12,12 +12,6 @@
 				<div class="avatarGroup">
 					<input type="file" class="upload">
 					<img src="/static/img/headPortrait.svg" alt="headPortrait"/>
-					<!-- <Upload ref="upload" :show-upload-list="false" :on-success="handleSuccess" :format="['jpg','jpeg','png']" :max-size="2048" :on-format-error="handleFormatError" :on-exceeded-size="handleMaxSize" :before-upload="handleBeforeUpload" action="header/posts" style="display: inline-block;width:58px;">
-								<div style="width: 58px;height:58px;line-height: 58px;">
-									<Icon type="camera" size="25"></Icon>
-								</div>
-							</Upload> -->
-					<!-- <Avatar :src="info.header">头像</Avatar> -->
 				</div>
 				<div class="nickname">
 					<h3>昵称</h3>
@@ -109,19 +103,38 @@
 				<h2>补充信息</h2>
 				
 				<label>生日
-					<input @on-focus="ageShow = true" @on-blur="ageShow = false;" v-model="info.age"></input>
-					<!-- <mt-picker :slots="yearSlot" @change="onYearChange" :visible-item-count="5" v-show="ageShow">
-					</mt-picker> -->
+					<sapn @click="yearShow = true">{{info.year}}年
+					</sapn>
+					<select size="4" v-show="yearShow" v-model="info.year" @change="yearShow = false;">
+						<option v-for="item in yearSlotList" :value="item">{{item}}</option>
+					</select>
+
+					<sapn @click="monthShow = true">{{info.month}}月
+					</sapn>
+					<select size="4" v-show="monthShow" v-model="info.month" @change="monthShow = false;">
+						<option v-for="item in monthSlotList" :value="item">{{item}}</option>
+					</select>
+
+					<sapn @click="insertDay">{{info.day}}日
+					</sapn>
+					<select size="4" v-show="dayShow" v-model="info.day" @change="daySlotList = [];dayShow = false;">
+						<option v-for="item in daySlotList" :value="item">{{item}}</option>
+					</select>
+					
 				</label>
 				<label>身高
-					<input @on-focus="heightShow = true" @on-blur="heightShow = false;" v-model="info.height"></input>
-					<!-- <mt-picker :slots="heightSlot" @change="onHeightChange" :visible-item-count="5" v-show="heightShow">
-					</mt-picker> -->
+					<sapn @click="insertHeight">{{info.height}}cm
+					</sapn>
+					<select size="4" v-show="heightShow" v-model="info.height" @change="heightShow = false;">
+						<option v-for="item in heightSlotList" :value="item">{{item}}</option>
+					</select>					
 				</label>
 				<label>体重
-					<input @on-focus="weightShow = true" @on-blur="weightShow = false;" v-model="info.weight"></input>
-					<!-- <mt-picker :slots="weightSlot" @change="onWeightChange" :visible-item-count="5" v-show="weightShow"> -->
-					<!-- </mt-picker> -->
+				<sapn @click="insertWeight">{{info.weight}}kg
+					</sapn>
+					<select size="4" v-show="weightShow" v-model="info.weight" @change="weightShow = false;">
+						<option v-for="item in weightSlotList" :value="item">{{item}}</option>
+					</select>					
 				</label>
 				<button @click="goNext('AWHShow')" class="button">完成</button>
 			</div>
@@ -134,63 +147,23 @@ export default {
 	name: 'getUserInfo',
 	data() {
 		return {
-			nickNameShow: true,
+			nickNameShow: false,
 			sexShow: false,
 			levelShow: false,
 			BFPShow: false,
 			targetShow: false,
 			limbsShow: false,
-			AWHShow: false,
-			ageShow: false,
+			AWHShow: true,
+			yearShow: false,
+			monthShow: false,
+			dayShow: false,
 			heightShow: false,
 			weightShow: false,
-			yearSlot: [{
-				flex: 1,
-				values: [],
-				className: 'yearSlot1',
-				textAlign: 'left'
-			}, {
-				flex: 1,
-				divider: true,
-				content: '年',
-				className: 'yearSlot2',
-				textAlign: 'left'
-			}, {
-				flex: 1,
-				values: [],
-				className: 'yearSlot3',
-				textAlign: 'left'
-			}, {
-				flex: 1,
-				divider: true,
-				content: "月",
-				className: "yearSlot4",
-				textAlign: 'left'
-			}],
-			weightSlot: [{
-				flex: 1,
-				values: [],
-				className: 'weightSlot1',
-				textAlign: 'left'
-			}, {
-				flex: 1,
-				divider: true,
-				content: 'kg',
-				className: 'weightSlot2',
-				textAlign: 'left'
-			}],
-			heightSlot: [{
-				flex: 1,
-				values: [],
-				className: 'heigthSlot1',
-				textAlign: 'left'
-			}, {
-				flex: 1,
-				divider: true,
-				content: 'cm',
-				className: 'heigthSlot2',
-				textAlign: 'left'
-			}],
+			yearSlotList: [],
+			monthSlotList: [],
+			daySlotList: [],
+			weightSlotList: [],
+			heightSlotList: [],
 			info: {
 				header: '../../static/img/logo.svg',
 				nickName: '',
@@ -199,7 +172,9 @@ export default {
 				BFP: '',
 				target: '',
 				limbs: '',
-				age: '',
+				year: '',
+				month: '',
+				day: '',
 				height: '',
 				weight: '',
 			}
@@ -209,7 +184,10 @@ export default {
 
 	},
 	mounted() {
-
+		this.insertYear();
+		this.insertMonth();
+		this.insertWeight();
+		this.insertHeight();
 	},
 	components: {
 
@@ -246,15 +224,6 @@ export default {
 					break;
 			}
 		},
-		onYearChange(picker, values) {
-			this.info.age = values[0] + "年" + values[1] + "月";
-		},
-		onHeightChange(picker, values) {
-			this.info.height = values[0] + "cm";
-		},
-		onWeightChange(picker, values) {
-			this.info.weight = values[0] + "kg";
-		},
 		goNext(sec, val) {
 			switch (sec) {
 				case "sexShow":
@@ -289,27 +258,57 @@ export default {
 					break;
 			}
 		},
-		insertList() {//给年龄选项和身高体重动态插入数值。
-			let arrYear = this.yearSlot[0].values;
-			let arrMonth = this.yearSlot[2].values;
-			let arrHeight = this.heightSlot[0].values;
-			let arrWeight = this.weightSlot[0].values;
+		insertYear() {
 			for (let i = 1950; i < new Date().getFullYear(); i++) {
-				arrYear.push(i);
+				this.yearSlotList.push(i);
+			};	
+		},
+		insertMonth() {
+			for (let i = 1; i < 13; i++) {
+				this.monthSlotList.push(i);
+			};	
+		},
+		insertDay() {
+			switch (this.info.month) {
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					for (let i = 1; i < 31; i++) {
+						this.daySlotList.push(i);
+					};
+					break;
+				case 2:
+					for (let i = 1; i < 29; i++) {
+						this.daySlotList.push(i);
+					};
+					if(this.info.year%4 == 0) {
+						this.daySlotList.push(29);
+					}
+					break;
+				default:
+					for (let i = 1; i < 30; i++) {
+						this.daySlotList.push(i);
+					};
+					break;
+			}
+			for (let i = 1; i < 13; i++) {
+				this.monthSlotList.push(i);
 			};
-			for (let i = 1; i <= 12; i++) {
-				arrMonth.push(i);
+			this.dayShow = true;
+		},
+		insertWeight(){	
+			for (let i = 40; i < 130; i++) {
+				this.weightSlotList.push(i);
 			};
-			for (let i = 70; i <= 220; i++) {
-				arrHeight.push(i);
+		},
+		insertHeight(){	
+			for (let i = 120; i < 200; i++) {
+				this.heightSlotList.push(i);
 			};
-			for (let i = 50; i <= 150; i++) {
-				arrWeight.push(i);
-			};
-			/*插入数组时候，设置的defalutIndex失效，需要动态插入*/
-			this.yearSlot[0].defaultIndex = 45
-			this.heightSlot[0].defaultIndex = 100
-			this.weightSlot[0].defaultIndex = 20
 		},
 		toRegister() {
 			let data = {
@@ -318,21 +317,12 @@ export default {
 			};
 			api.register(data)
 				.then(res => {
-					// this.$toast({
-					// 	message: res.string,
-					// 	pisition: 'middle',
-					// 	duration: 1000
-					// })
+					
 					//this.$router.push()
 					this.nickNameShow = false;
 					this.sexShow = true;
 				}, res => {
-					// 改为头部弹出
-					// this.$toast({
-					// 	message: '注册失败',
-					// 	pisition: 'middle',
-					// 	duration: 1000
-					// })
+					
 				})
 		},
 

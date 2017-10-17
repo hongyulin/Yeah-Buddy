@@ -8,7 +8,8 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      component: resolve => require(['@/views/login/login'], resolve)
+      // component: resolve => require(['@/views/login/login'], resolve)
+      component: resolve => require(['@/views/login/getUserInfo'], resolve)
     },
     {
       path: '/loading',
