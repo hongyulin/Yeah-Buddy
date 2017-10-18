@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<tips :message="message"></tips>
+		<tips :message="message" :tips="showTips"></tips>
 		<section id="nickName" v-show="nickNameShow">
 			<div class="header">
 				<router-link to="/" slot="left">
@@ -106,22 +106,22 @@
 				<label>生日
 
 					<span @click="yearShow = true">{{info.year}}年</span>
-					<select size="4" v-show="yearShow" v-model="info.year" @change="yearShow = false;" @blur="yearShow = false;">
+					<select size="5" v-show="yearShow" v-model="info.year" @change="yearShow = false;" @blur="yearShow = false;">
 						<option v-for="item in yearSlotList" :value="item">{{item}}</option>
 					</select>
-					<label>
+					<!-- <label> -->
 						<span @click="monthShow = true">{{info.month}}月</span>
 						<select size="4" v-show="monthShow" v-model="info.month" @change="monthShow = false;" @blur="monthShow = false;">
 							<option v-for="item in monthSlotList" :value="item">{{item}}</option>
 						</select>
-					</label>
+					<!-- </label> -->
 					
-					<label>
+					<!-- <label> -->
 						<span @click="insertDay">{{info.day}}日</span>
 						<select size="4" v-show="dayShow" v-model="info.day" @change="daySlotList = [];dayShow = false;" @blur="dayShow = false;">
 							<option v-for="item in daySlotList" :value="item">{{item}}</option>
 						</select>
-					</label>
+					<!-- </label> -->
 					
 				</label>
 				<label>身高
@@ -166,6 +166,7 @@ export default {
 			weightSlotList: [],
 			heightSlotList: [],
 			message: "test",
+			showTips:false,
 			info: {
 				header: '../../static/img/logo.svg',
 				nickName: '',
@@ -190,12 +191,16 @@ export default {
 		this.insertMonth();
 		this.insertWeight();
 		this.insertHeight();
+		document.getElementsByTagName("select").onblur= ()=>(console.log("152"))
+		
+		
 	},
 	components: {
 		tips
 	},
 	computed: {
-
+		
+		
 	},
 	methods: {
 		goBack(sec) {
@@ -256,7 +261,13 @@ export default {
 					break;
 				case "AWHShow":
 					localStorage.info = JSON.stringify(this.info);
-					this.$router.push('/home');
+					this.showTips = true;
+					this.message = "注册成功";
+					setTimeout(() => {
+						this.showTips = false;
+						this.$router.push('/home');
+					}, 1000);
+					
 					break;
 			}
 		},
@@ -284,7 +295,7 @@ export default {
 				case 10:
 				case 12:
 					for (let i = 1; i < 31; i++) {
-						this.daySlotList.push();
+						this.daySlotList.push(i);
 					};
 					break;
 				case 2:
@@ -301,10 +312,6 @@ export default {
 					};
 					break;
 			}
-			for (let i = 1; i < 13; i++) {
-				this.monthSlotList.push(i);
-			};
-			
 		},
 		insertWeight(){	
 			this.weightSlotList = []
@@ -365,8 +372,11 @@ export default {
 	}
 	select {
 		position: fixed;
-		top: 2rem;
-		right: .5rem;
+		background-color: rgba(0,0,0,.1);
+		bottom: 0;
+		right: 0;
+		width: 100vw;
+		text-align: center;
 	}
 	p {
 		margin: .3rem 0;
