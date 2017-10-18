@@ -1,6 +1,6 @@
 <template>
     <transition name="up-fade" :durating="durating">
-        <span id="tips" v-show="show">{{message}}</span>
+        <span id="tips">{{message}}</span>
     </transition>
 </template>
 
@@ -9,13 +9,11 @@ export default {
     name: 'tips',
     data: function() {	
         return {
-            message: "",
             durating: 1000,
-            show: true,
         }
     },
     props: {
-        message: String;
+        message: String
     },
     methods: {
 
@@ -28,9 +26,12 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    height: 1rem;
-    weight: 100vw;
+    height: .5rem;
+    width: 100vw;
     color: white;
+    text-align: center;
+    line-height: .5rem;
+    font-size: .25rem;
     background-color: red;
 }
 .up-fade-enter-active {

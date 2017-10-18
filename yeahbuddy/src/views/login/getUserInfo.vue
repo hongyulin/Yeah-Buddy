@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<tips :message="message"></tips>
 		<section id="nickName" v-show="nickNameShow">
 			<div class="header">
 				<router-link to="/" slot="left">
@@ -103,36 +104,35 @@
 				<h2>补充信息</h2>
 				
 				<label>生日
-					<sapn @click="yearShow = true">{{info.year}}年
-					</sapn>
-					<select size="4" v-show="yearShow" v-model="info.year" @change="yearShow = false;">
+
+					<span @click="yearShow = true">{{info.year}}年</span>
+					<select size="4" v-show="yearShow" v-model="info.year" @change="yearShow = false;" @blur="yearShow = false;">
 						<option v-for="item in yearSlotList" :value="item">{{item}}</option>
 					</select>
-
-					<sapn @click="monthShow = true">{{info.month}}月
-					</sapn>
-					<select size="4" v-show="monthShow" v-model="info.month" @change="monthShow = false;">
-						<option v-for="item in monthSlotList" :value="item">{{item}}</option>
-					</select>
-
-					<sapn @click="insertDay">{{info.day}}日
-					</sapn>
-					<select size="4" v-show="dayShow" v-model="info.day" @change="daySlotList = [];dayShow = false;">
-						<option v-for="item in daySlotList" :value="item">{{item}}</option>
-					</select>
+					<label>
+						<span @click="monthShow = true">{{info.month}}月</span>
+						<select size="4" v-show="monthShow" v-model="info.month" @change="monthShow = false;" @blur="monthShow = false;">
+							<option v-for="item in monthSlotList" :value="item">{{item}}</option>
+						</select>
+					</label>
+					
+					<label>
+						<span @click="insertDay">{{info.day}}日</span>
+						<select size="4" v-show="dayShow" v-model="info.day" @change="daySlotList = [];dayShow = false;" @blur="dayShow = false;">
+							<option v-for="item in daySlotList" :value="item">{{item}}</option>
+						</select>
+					</label>
 					
 				</label>
 				<label>身高
-					<sapn @click="insertHeight">{{info.height}}cm
-					</sapn>
-					<select size="4" v-show="heightShow" v-model="info.height" @change="heightShow = false;">
+					<span @click="heightShow = true;">{{info.height}}cm</span>
+					<select size="4" v-show="heightShow" v-model="info.height" @change="heightShow = false;" @blur="heightShow = false;">
 						<option v-for="item in heightSlotList" :value="item">{{item}}</option>
 					</select>					
 				</label>
 				<label>体重
-				<sapn @click="insertWeight">{{info.weight}}kg
-					</sapn>
-					<select size="4" v-show="weightShow" v-model="info.weight" @change="weightShow = false;">
+				<span @click="weightShow = true;">{{info.weight}}kg</span>
+					<select size="4" v-show="weightShow" v-model="info.weight" @change="weightShow = false;" @blur="weightShow = false;">
 						<option v-for="item in weightSlotList" :value="item">{{item}}</option>
 					</select>					
 				</label>
@@ -143,6 +143,7 @@
 </template>
 <script>
 import api from '../../fetch/api'
+import tips from "../../components/tips.vue"
 export default {
 	name: 'getUserInfo',
 	data() {
@@ -164,6 +165,7 @@ export default {
 			daySlotList: [],
 			weightSlotList: [],
 			heightSlotList: [],
+			message: "test",
 			info: {
 				header: '../../static/img/logo.svg',
 				nickName: '',
@@ -172,11 +174,11 @@ export default {
 				BFP: '',
 				target: '',
 				limbs: '',
-				year: '',
-				month: '',
-				day: '',
-				height: '',
-				weight: '',
+				year: '---- ',
+				month: '-- ',
+				day: '-- ',
+				height: '--- ',
+				weight: '--- ',
 			}
 		}
 	},
@@ -190,7 +192,7 @@ export default {
 		this.insertHeight();
 	},
 	components: {
-
+		tips
 	},
 	computed: {
 
@@ -259,16 +261,20 @@ export default {
 			}
 		},
 		insertYear() {
+			this.yearSlotList = []
 			for (let i = 1950; i < new Date().getFullYear(); i++) {
 				this.yearSlotList.push(i);
 			};	
 		},
 		insertMonth() {
+			this.monthSlotList = []
 			for (let i = 1; i < 13; i++) {
 				this.monthSlotList.push(i);
 			};	
 		},
 		insertDay() {
+			this.daySlotList = []
+			this.dayShow = true;
 			switch (this.info.month) {
 				case 1:
 				case 3:
@@ -278,7 +284,7 @@ export default {
 				case 10:
 				case 12:
 					for (let i = 1; i < 31; i++) {
-						this.daySlotList.push(i);
+						this.daySlotList.push();
 					};
 					break;
 				case 2:
@@ -298,17 +304,21 @@ export default {
 			for (let i = 1; i < 13; i++) {
 				this.monthSlotList.push(i);
 			};
-			this.dayShow = true;
+			
 		},
 		insertWeight(){	
+			this.weightSlotList = []
 			for (let i = 40; i < 130; i++) {
 				this.weightSlotList.push(i);
 			};
+			
 		},
 		insertHeight(){	
+			this.heightSlotList = []
 			for (let i = 120; i < 200; i++) {
 				this.heightSlotList.push(i);
 			};
+			
 		},
 		toRegister() {
 			let data = {
@@ -347,6 +357,17 @@ export default {
 	display: flex;
 	flex-direction: column;
 	padding: 0.3rem 0.3rem;
+	span {
+		display: inline-block;
+		text-align: right;
+		width: .8rem;
+		height: .5rem;
+	}
+	select {
+		position: fixed;
+		top: 2rem;
+		right: .5rem;
+	}
 	p {
 		margin: .3rem 0;
 	}
