@@ -1,6 +1,6 @@
 <template>
-    <transition name="up-fade" :durating="durating">
-        <span id="tips">{{message}}</span>
+    <transition name="fade" :duration="duration">
+        <span id="tips" v-if="tips">{{message}}</span>
     </transition>
 </template>
 
@@ -9,14 +9,21 @@ export default {
     name: 'tips',
     data: function() {	
         return {
-            durating: 1000,
+            duration: 1000,
         }
     },
     props: {
-        message: String
+        message: String,
+        tips: Boolean
     },
     methods: {
-
+        // showMess(timer){
+        //     console.log(this.props.tips)
+        //     this.props.tips = true;
+        //     // setTimeout(() => {
+        //     //     self.tips = false;
+        //     // }, timer);
+        // }
     }
 }
 </script>
@@ -34,18 +41,38 @@ export default {
     font-size: .25rem;
     background-color: red;
 }
-.up-fade-enter-active {
-    -webkit-transition: all .5s line;
-    -moz-transition: all .5s line;
-    transition: all .5s line;
+.fade-enter-active {
+    -webkit-animation: tipsMoveIn 1s ease;
+    -moz-animation: tipsMoveIn 1s ease;
+    transition: tipsMoveIn 1s ease;
 }
-.up-fade-leave-active {
-    -webkit-transition: all .8s line ;
-    -moz-transition: all .8s line ;
-    transition: all .8s line ;
+.fade-leave-active {
+    -webkit-animation: tipsMoveOut 1s linear ;
+    -moz-animation: tipsMoveOut 1s linear ;
+    animation: tipsMoveOut 1s linear ;
 }
-.up-fade-enter, .up-fade-leave-to {
-    transform: translateY(10px);
+.fade-enter, .fade-leave-to {
     opacity: 0;
+    translateY: -0.5rem;
+}
+@keyframes tipsMoveIn {
+    0% {
+        opacity: 0;
+        translateY: -0.5rem;
+    }
+    50% {
+        opacity: 1;
+        translateY: 0;
+    }
+}
+@keyframes tipsMoveOut {
+    0% {
+        opacity: 1;
+        translateY: 0;
+    }
+    100% {
+        opacity: 0;
+        translateY: -0.5rem;
+    }
 }
 </style>
