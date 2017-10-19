@@ -8,8 +8,8 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      // component: resolve => require(['@/views/login/login'], resolve)
-      component: resolve => require(['@/views/login/getUserInfo'], resolve)
+      component: resolve => require(['@/views/login/login'], resolve)
+      // component: resolve => require(['@/views/date/date'], resolve)
     },
     {
       path: '/loading',
@@ -22,11 +22,11 @@ export default new Router({
       component: resolve => require(['@/views/login/getUserInfo'], resolve)
     },
     {
-      path: '/home',
+      path: '/home/date',
       name: 'home',
       component: resolve => require(['@/components/layout'], resolve),
       children: [{
-        path: '/home',
+        path: '/home/date',
         name: 'date',
         component: resolve => require(['@/views/date/date'], resolve)
       },

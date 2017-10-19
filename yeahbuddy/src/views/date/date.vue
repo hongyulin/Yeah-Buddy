@@ -4,14 +4,14 @@
 	<div>
 		<section class="homeHeader">
 			<span>约</span>
-			<span><Icon type="ios-search"></Icon></span>
+			<!-- <span><Icon type="ios-search"></Icon></span> -->
 		</section>
 		<section>
-			<Tabs value="dateCircle">
+			<!-- <Tabs value="dateCircle">
 				<TabPane label="附近圈子" name="dateCircle">附近圈子中内容</TabPane>
 				<TabPane label="商城" name="mall">商城中内容</TabPane>
 				<TabPane label="微课堂" name="classroom">微课堂中内容</TabPane>
-			</Tabs>
+			</Tabs> -->
 		</section>
 	</div>
 </template>

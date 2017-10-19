@@ -1,27 +1,25 @@
 <template>
 	<div class="pageTabbar">
-		<!-- <mt-tabbar v-model="selected" fixed>
-				<mt-tab-item id="秀">
-					<section @click="goTo('/home/show')">
-						<Icon type="ios-eye" size="28"></Icon><br/>秀
-					</section>
-				</mt-tab-item>
-			<mt-tab-item id="约">
-				<section @click="goTo('/home')">
-					<Icon type="ios-people" size="28"></Icon><br/>约
-				</section>
-			</mt-tab-item>
-			<mt-tab-item id="圈">
-				<section @click="goTo('/home/circle')">
-					<Icon type="ios-navigate" size="28"></Icon><br/>圈
-				</section>
-			</mt-tab-item>
-			<mt-tab-item id="我">
-				<section @click="goTo('/home/mine')">
-				<Icon type="ios-person" size="28"></Icon><br/>我
-			</section>
-			</mt-tab-item>
-		</mt-tabbar> -->
+		<section @click="goTo('/home/show')">
+			<img v-show="$route.path.indexOf('show') !== -1" src="../../static/img/show.svg" alt="show">
+			<img v-show="$route.path.indexOf('show') == -1" src="../../static/img/show_.svg" alt="show">
+			<span :class="$route.path.indexOf('show') !== -1 ? 'setColor' : ''">秀</span>
+		</section>
+		<section @click="goTo('/home/date')">
+			<img v-show="$route.path.indexOf('date') !== -1" src="../../static/img/date.svg" alt="date">
+			<img v-show="$route.path.indexOf('date') == -1" src="../../static/img/date_.svg" alt="date">
+			<span :class="$route.path.indexOf('date') !== -1 ? 'setColor' : ''">约</span>
+		</section>
+		<section @click="goTo('/home/circle')">
+			<img v-show="$route.path.indexOf('circle') !== -1" src="../../static/img/circle.svg" alt="circle">
+			<img v-show="$route.path.indexOf('circle') == -1" src="../../static/img/circle_.svg" alt="circle">
+			<span :class="$route.path.indexOf('circle') !== -1 ? 'setColor' : ''">圈</span>
+		</section>
+		<section @click="goTo('/home/mine')">
+			<img v-show="$route.path.indexOf('mine') !== -1" src="../../static/img/mine.svg" alt="mine">
+			<img v-show="$route.path.indexOf('mine') == -1" src="../../static/img/mine_.svg" alt="mine">
+			<span :class="$route.path.indexOf('mine') !== -1 ? 'setColor' : ''">我</span>
+		</section>
 	</div>
 </template>
 <script>
@@ -29,7 +27,10 @@
 		name: 'myFooter',
 		data(){
 			return {
-				selected: "约",
+				showSelected: false,
+				dateSelected: false,
+				circleSelected: false,
+				mineSelected: false,
 			}
 		},
 		created(){
@@ -51,18 +52,31 @@
 		}
 	}
 </script>
-<style>
-/* 更改mt中tabar组件默认属性 */
-.mint-tabbar > .mint-tab-item.is-selected {
-    background-color: transparent;
-}
-a {
-	color: inherit;
-}
+<style lang="scss" scoped>
 .pageTabbar {
-    overflow: hidden;
-    height: 100vh;
+	position: fixed;
+	bottom: 0;
+	/* height: 40px; */
+	display: flex;
+	display: -webkit-flex;
+	flex-direction: row;
+	justify-content: space-around;
+    width: 100vw;
+	padding-top: .1rem;
+	background-color: rgba(50,50,50,0.1);
+	section {
+		text-align: center;
+		span {
+			font-size: .14rem;
+			display: block;
+		}
+		
+	}
 }
+.setColor {
+	color: #00fa9a;
+}
+
 .pageWrap {
 	overflow: auto;
 	height: 100%;

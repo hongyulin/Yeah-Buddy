@@ -5,14 +5,14 @@
 	<div>
 		<section class="homeHeader">
 			<span>秀</span>
-			<span><Icon type="ios-camera-outline"></Icon></span>
-			<span><Icon type="ios-search"></Icon></span>
+			<!-- <span><Icon type="ios-camera-outline"></Icon></span> -->
+			<!-- <span><Icon type="ios-search"></Icon></span> -->
 		</section>
 		<section>
-			<Tabs value="boutique">
+			<!-- <Tabs value="boutique">
 				<TabPane label="精选" name="boutique">精选的图片</TabPane>
 				<TabPane label="动态" name="trends">动态中内容</TabPane>
-			</Tabs>
+			</Tabs> -->
 		</section>
 	</div>
 </template>
