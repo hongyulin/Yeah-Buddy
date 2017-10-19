@@ -265,11 +265,7 @@ export default {
 					this.message = "注册成功";
 					setTimeout(() => {
 						this.showTips = false;
-<<<<<<< HEAD
-						this.$router.push('/home');
-=======
 						this.$router.push('/home/date');
->>>>>>> 9c830cc2e25b9e3d027603b1611a9b788a98dd6a
 					}, 1000);
 					
 					break;

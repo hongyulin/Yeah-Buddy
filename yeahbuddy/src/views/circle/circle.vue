@@ -2,35 +2,49 @@
 	<!-- 悦动里面的圈子，这里面的动态是自己的，和关注的人的，还有圈子里面的动态，非选择性展示 -->
 	<!-- 圈子，动态 -->
 	<div>
-		<section>圈子
-			<!-- <Tabs value="circle">
-				<TabPane label="圈子" name="circle">附近有哪些运动圈</TabPane>
-				<TabPane label="动态" name="trends">动态中内容</TabPane>		
-			</Tabs>	 -->
+		<section class="homeHeader">
+			<span>圈子</span>
+			<img src="../../../static/img/plus.svg" alt="search">
 		</section>
+		
+		<section class="tabs">
+			<span :class="{activeShow: whichShow == 'circle'}" @click="whichShow = 'circle'">附近有哪些运动圈</span>
+			<span :class="{activeShow: whichShow == 'content'}" @click="whichShow = 'content'">动态中内容</span>
+		</section>
+		<transition name="fade">
+			<section v-show="whichShow == 'circle'">
+				1
+			</section>
+		</transition>
+		<transition name="fade">
+			<section v-show="whichShow == 'content'">
+				2
+			</section>
+		</transition>
 		<section>
 			<!--加号中添加的内容  -->
-			<!-- <Icon type="ios-plus-empty" size="25"></Icon> -->
+			
 			<!--style提取出来  -->
-			<div style="background-color:black;color:white;display:none;">
+			<div style="background-color:black;color:white;">
 				<ul>
 					<li>
-						<!-- <Icon type="ios-chatbubble" color="white"></Icon> -->
+						<img src="../../../static/img/chatbubbles.svg" alt="search">
 						发表话题
 					</li>
 					<li>
-						<!-- <Icon type="android-star" color="white"></Icon> -->
-						发布动态</li>
+						<img src="../../../static/img/start.svg" alt="search">
+						发布动态
+					</li>
 					<li>
-						<!-- <Icon type="ios-plus-empty" color="white"></Icon> -->
+						<img src="../../../static/img/plusEmpty.svg" alt="search">
 						加入圈子
 					</li>
 					<li>
-						<!-- <Icon type="radio-waves" color="white"></Icon> -->
+						<img src="../../../static/img/searchFriends.svg" alt="search">
 						发现好友
 					</li>
 					<li>
-						<!-- <Icon type="qr-scanner" color="white"></Icon> -->
+						<img src="../../../static/img/qr.svg" alt="search">
 						扫一扫
 					</li>
 				</ul>
@@ -44,7 +58,7 @@
 		name: 'circle',
 		data(){
 			return {
-
+				whichShow: "circle"
 			}
 		},
 		created(){
@@ -64,3 +78,38 @@
 		}
 	}
 </script>
+<style lang="scss" scoped>
+.homeHeader {
+	width: 100vw;
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	padding: {
+		top: 10px;
+		left: 20px;
+		right: 10px;
+	}
+}
+.tabs {
+	display: flex;
+	justify-content: space-around;
+	margin-top: .1rem;
+	span {
+		width: 1.5rem; 
+		height: .4rem;
+		line-height: .4rem;
+		text-align: center;
+	}
+	.activeShow {
+		color: red;
+		border-bottom: 1px solid red;
+	}
+}
+.fade-enter-active .fade-lave-active {
+	transition: all .3s ease;
+}
+.fade-enter .fade-leave-to {
+	transform: translateX(.1rem);
+	opacity: 0;
+}
+</style>

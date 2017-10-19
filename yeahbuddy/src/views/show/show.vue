@@ -5,15 +5,23 @@
 	<div>
 		<section class="homeHeader">
 			<span>秀</span>
-			<!-- <span><Icon type="ios-camera-outline"></Icon></span> -->
-			<!-- <span><Icon type="ios-search"></Icon></span> -->
+			<img src="../../../static/img/camera.svg" alt="search">
+			<img src="../../../static/img/search.svg" alt="search">
 		</section>
-		<section>
-			<!-- <Tabs value="boutique">
-				<TabPane label="精选" name="boutique">精选的图片</TabPane>
-				<TabPane label="动态" name="trends">动态中内容</TabPane>
-			</Tabs> -->
+		<section class="tabs">
+			<span :class="{activeShow: whichShow == 'picture'}" @click=" whichShow = 'picture'">精选的图片</span>
+			<span :class="{activeShow: whichShow == 'content'}" @click=" whichShow = 'content'">动态中内容</span>
 		</section>
+		<transition name="fade">
+			<section v-show="whichShow == 'picture'">
+				1
+			</section>
+		</transition>
+		<transition name="fade">
+			<section v-show="whichShow == 'content'">
+				2
+			</section>
+		</transition>
 	</div>
 </template>
 <script>
@@ -21,7 +29,7 @@
 		name: 'show',
 		data(){
 			return {
-
+				whichShow: 'picture'
 			}
 		},
 		created(){
@@ -41,7 +49,7 @@
 		}
 	}
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .homeHeader {
 	width: 100vw;
 	font-size: 20px;
@@ -53,7 +61,26 @@
 		right: 10px;
 	}
 }
-.ivu-tabs-nav .ivu-tabs-tab {
-	padding: 8px 60px;
+.tabs {
+	display: flex;
+	justify-content: space-around;
+	margin-top: .1rem;
+	span {
+		width: 1.5rem; 
+		height: .4rem;
+		line-height: .4rem;
+		text-align: center;
+	}
+	.activeShow {
+		color: red;
+		border-bottom: 1px solid red;
+	}
+}
+.fade-enter-active .fade-lave-active {
+	transition: all .3s ease;
+}
+.fade-enter .fade-leave-to {
+	transform: translateX(.1rem);
+	opacity: 0;
 }
 </style>
