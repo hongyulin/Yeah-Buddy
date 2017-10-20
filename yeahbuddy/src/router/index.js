@@ -28,21 +28,25 @@ export default new Router({
       children: [{
         path: '/home/date',
         name: 'date',
+        meta: {keepAlive: true},
         component: resolve => require(['@/views/date/date'], resolve)
       },
       {
         path: '/home/circle',
         name: 'circle',
+        meta: {keepAlive: true},
         component: resolve => require(['@/views/circle/circle'], resolve)
       },
       {
         path: '/home/mine',
         name: 'mine',
+        meta: {keepAlive: true},
         component: resolve => require(['@/views/mine/mine'], resolve)
       },
       {
         path: '/home/show',
         name: 'show',
+        meta: {keepAlive: true},
         component: resolve => require(['@/views/show/show'], resolve)
       }]
     }
