@@ -15,16 +15,20 @@
 		<transition name="fade">
 			<section v-show="whichShow == 'picture'">
 				1
+				<boutique></boutique>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'content'">
 				2
+				<trends></trends>
 			</section>
 		</transition>
 	</div>
 </template>
 <script>
+import boutique from "./showBoutique"
+import trends from "./showTrends"
 	export default{
 		name: 'show',
 		data(){
@@ -39,7 +43,7 @@
 
 		},
 		components: {
-
+			boutique, trends
 		},
 		computed: {
 

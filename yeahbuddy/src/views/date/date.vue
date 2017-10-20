@@ -14,22 +14,28 @@
 		<transition name="fade">
 			<section v-show="whichShow == 'nearCircle'">
 				1
+				<nearCircle></nearCircle>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'shop'">
 				2
+				<mall></mall>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'classRoom'">
 				3
+				<classRoom></classRoom>
 			</section>
 		</transition>
 		
 	</div>
 </template>
 <script>
+import nearCircle from './dateCircle'
+import classRoom from './dateClassroom'
+import mall from './dateMall'
 	export default{
 		name: 'date',
 		data(){
@@ -44,7 +50,7 @@
 
 		},
 		components: {
-
+			nearCircle, classRoom, mall
 		},
 		computed: {
 

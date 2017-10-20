@@ -14,11 +14,13 @@
 		<transition name="fade">
 			<section v-show="whichShow == 'circle'">
 				1
+				<fCircle></fCircle>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'content'">
 				2
+				<trends></trends>
 			</section>
 		</transition>
 		<section>
@@ -54,6 +56,8 @@
 	</div>
 </template>
 <script>
+import fCircle from "./circleC"
+import trends from "./circleTrends"
 	export default{
 		name: 'circle',
 		data(){
@@ -68,7 +72,7 @@
 
 		},
 		components: {
-
+			fCircle, trends
 		},
 		computed: {
 
