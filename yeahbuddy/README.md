@@ -8,6 +8,8 @@ vue + vuex + vue-router + webpack + axios + sass
 + ~~做一个提示框，提示登录成功失败或者别的消息，显示于头部的一个方框~~
 + ~~时间选择器~~
 + getUserInfo页面中select的@blur浏览器不兼容
++ 实现轮播可以左右滑动，
++ 实现无滚动条better-scroll
 1. 登录
 + ~~登录页面动画，轮播~~
 + 微信，~~手机号~~，自动登录，

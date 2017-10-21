@@ -1,6 +1,20 @@
 <template>
 	<div>
+		<section>
+			<!-- 走马灯 -->
+		</section>
+		<section>
+			
+		</section>
+		<section>
 
+		</section>
+		<section>
+
+		</section>
+		<section>
+
+		</section>
 	</div>
 </template>
 <script>
