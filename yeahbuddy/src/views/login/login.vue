@@ -2,10 +2,10 @@
 <template>
 	<div>
 		<div class="videoWrap" v-show="pageVideoShow">
-			<video src="../../../static/openVideo.mp4" muted autoplay="autoplay" loop="loop" class="videoStyle"></video>
+			<video src="static/openVideo.mp4" muted autoplay="autoplay" loop="loop" class="videoStyle"></video>
 			<div class="videoBg">
 				<div id="logo">
-					<img src="../../../static/img/logo.svg" alt="logo">
+					<img src="static/img/logo.svg" alt="logo">
 					<span>Yeah,Buddy</span>
 				</div>
 				<div id="login">
@@ -16,15 +16,15 @@
 		</div>
 		
 		<div v-show="pageMobileShow" id="mobileWrap">
-			<img src="../../../static/img/logo.svg" alt="logo" class="pageMobileLogo">
+			<img src="static/img/logo.svg" alt="logo" class="pageMobileLogo">
 			<span class="pageMobileSpan">Yeah,Buddy</span>
 			<section class="idCode">
-				<img src="../../../static/img/mobile.svg" alt="mobileLogo">
+				<img src="static/img/mobile.svg" alt="mobileLogo">
 				<span>+86&nbsp;&nbsp;|</span>
 				<input placeholder="手机号" v-model="mobile"/>
 			</section>
 			<section class="idCode">
-				<img src="../../../static/img/mobile.svg" alt="mobileLogo">
+				<img src="static/img/mobile.svg" alt="mobileLogo">
 				<input placeholder="验证码"  v-model="idCode"/>
 				<button @click="getIdCodeFn" class="idButton">{{getIdCode}}</button>
 			</section>
@@ -33,7 +33,7 @@
 				<span class="line">其它登录方式</span>
 				<button @click='checkInByWechat'>
 					<span class="checkIn">
-						<img src="../../../static/img/wechat.svg">
+						<img src="static/img/wechat.svg">
 						&nbsp;&nbsp;微信快速登录
 					</span>
 				</button>

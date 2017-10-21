@@ -4,7 +4,7 @@
 		<section id="nickName" v-show="nickNameShow">
 			<div class="header">
 				<router-link to="/" slot="left">
-					<img src="/static/img/left.svg" alt="goBack">
+					<img src="static/img/left.svg" alt="goBack">
 				</router-link>
 			</div>
 			
@@ -12,7 +12,7 @@
 				<h1>上传头像</h1>
 				<div class="avatarGroup">
 					<input type="file" class="upload">
-					<img src="/static/img/headPortrait.svg" alt="headPortrait"/>
+					<img src="static/img/headPortrait.svg" alt="headPortrait"/>
 				</div>
 				<div class="nickname">
 					<h3>昵称</h3>
@@ -35,7 +35,7 @@
 		<section id="level" v-show="levelShow">
 			<div class="header">
 				<span @click="goBack('levelShow')" slot="left">
-					<img src="/static/img/left.svg" alt="goBack">
+					<img src="static/img/left.svg" alt="goBack">
 				</span>
 			</div>
 			<div class="infoBody">
@@ -57,7 +57,7 @@
 		<section id="BFP" v-show="BFPShow">
 			<div class="header">
 				<span @click="goBack('BFPShow')" slot="left">
-					<img src="/static/img/left.svg" alt="goBack">
+					<img src="static/img/left.svg" alt="goBack">
 				</span>
 			</div>
 			<div class="infoBody">
@@ -70,7 +70,7 @@
 		<section id="target" v-show="targetShow">
 			<div class="header">
 				<span @click="goBack('targetShow')" slot="left">
-					<img src="/static/img/left.svg" alt="goBack">
+					<img src="static/img/left.svg" alt="goBack">
 				</span>
 			</div>
 			<div class="infoBody">
@@ -82,7 +82,7 @@
 		<section id="limbs" v-show="limbsShow">
 			<div class="header">
 				<span @click="goBack('limbsShow')" slot="left">
-					<img src="/static/img/left.svg" alt="goBack">
+					<img src="static/img/left.svg" alt="goBack">
 				</span>
 			</div>
 			<div class="infoBody">
@@ -97,7 +97,7 @@
 		<section id="ageWeiHei" v-show="AWHShow">
 			<div class="header">
 				<span @click="goBack('AWHShow')" slot="left">
-					<img src="/static/img/left.svg" alt="goBack">
+					<img src="static/img/left.svg" alt="goBack">
 				</span>
 			</div>
 			<div class="infoBody">
@@ -168,7 +168,7 @@ export default {
 			message: "test",
 			showTips:false,
 			info: {
-				header: '../../static/img/logo.svg',
+				header: '../..static/img/logo.svg',
 				nickName: '',
 				sex: '',
 				level: '',

@@ -1,23 +1,23 @@
 <template>
 	<div class="pageTabbar">
 		<section @click="goTo('/home/show')">
-			<img v-show="$route.path.indexOf('show') !== -1" src="../../static/img/show.svg" alt="show">
-			<img v-show="$route.path.indexOf('show') == -1" src="../../static/img/show_.svg" alt="show">
+			<img v-show="$route.path.indexOf('show') !== -1" src="static/img/show.svg" alt="show">
+			<img v-show="$route.path.indexOf('show') == -1" src="static/img/show_.svg" alt="show">
 			<span :class="$route.path.indexOf('show') !== -1 ? 'setColor' : ''">秀</span>
 		</section>
 		<section @click="goTo('/home/date')">
-			<img v-show="$route.path.indexOf('date') !== -1" src="../../static/img/date.svg" alt="date">
-			<img v-show="$route.path.indexOf('date') == -1" src="../../static/img/date_.svg" alt="date">
+			<img v-show="$route.path.indexOf('date') !== -1" src="static/img/date.svg" alt="date">
+			<img v-show="$route.path.indexOf('date') == -1" src="static/img/date_.svg" alt="date">
 			<span :class="$route.path.indexOf('date') !== -1 ? 'setColor' : ''">约</span>
 		</section>
 		<section @click="goTo('/home/circle')">
-			<img v-show="$route.path.indexOf('circle') !== -1" src="../../static/img/circle.svg" alt="circle">
-			<img v-show="$route.path.indexOf('circle') == -1" src="../../static/img/circle_.svg" alt="circle">
+			<img v-show="$route.path.indexOf('circle') !== -1" src="static/img/circle.svg" alt="circle">
+			<img v-show="$route.path.indexOf('circle') == -1" src="static/img/circle_.svg" alt="circle">
 			<span :class="$route.path.indexOf('circle') !== -1 ? 'setColor' : ''">圈</span>
 		</section>
 		<section @click="goTo('/home/mine')">
-			<img v-show="$route.path.indexOf('mine') !== -1" src="../../static/img/mine.svg" alt="mine">
-			<img v-show="$route.path.indexOf('mine') == -1" src="../../static/img/mine_.svg" alt="mine">
+			<img v-show="$route.path.indexOf('mine') !== -1" src="static/img/mine.svg" alt="mine">
+			<img v-show="$route.path.indexOf('mine') == -1" src="static/img/mine_.svg" alt="mine">
 			<span :class="$route.path.indexOf('mine') !== -1 ? 'setColor' : ''">我</span>
 		</section>
 	</div>

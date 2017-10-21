@@ -4,7 +4,7 @@
 	<div>
 		<section class="homeHeader">
 			<span>圈子</span>
-			<img src="../../../static/img/plus.svg" alt="search">
+			<img src="static/img/plus.svg" alt="search">
 		</section>
 		
 		<section class="tabs">
@@ -30,23 +30,23 @@
 			<div style="background-color:black;color:white;">
 				<ul>
 					<li>
-						<img src="../../../static/img/chatbubbles.svg" alt="search">
+						<img src="static/img/chatbubbles.svg" alt="search">
 						发表话题
 					</li>
 					<li>
-						<img src="../../../static/img/start.svg" alt="search">
+						<img src="static/img/start.svg" alt="search">
 						发布动态
 					</li>
 					<li>
-						<img src="../../../static/img/plusEmpty.svg" alt="search">
+						<img src="static/img/plusEmpty.svg" alt="search">
 						加入圈子
 					</li>
 					<li>
-						<img src="../../../static/img/searchFriends.svg" alt="search">
+						<img src="static/img/searchFriends.svg" alt="search">
 						发现好友
 					</li>
 					<li>
-						<img src="../../../static/img/qr.svg" alt="search">
+						<img src="static/img/qr.svg" alt="search">
 						扫一扫
 					</li>
 				</ul>

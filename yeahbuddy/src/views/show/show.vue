@@ -5,8 +5,8 @@
 	<div>
 		<section class="homeHeader">
 			<span>秀</span>
-			<img src="../../../static/img/camera.svg" alt="search">
-			<img src="../../../static/img/search.svg" alt="search">
+			<img src="static/img/camera.svg" alt="search">
+			<img src="static/img/search.svg" alt="search">
 		</section>
 		<section class="tabs">
 			<span :class="{activeShow: whichShow == 'picture'}" @click=" whichShow = 'picture'">精选的图片</span>

@@ -4,7 +4,7 @@
 	<div>
 		<section class="homeHeader">
 			<span>约</span>
-			<img src="../../../static/img/search.svg" alt="search">
+			<img src="static/img/search.svg" alt="search">
 		</section>
 		<section class="tabs">
 			<span :class="{activeShow: whichShow == 'nearCircle'}" @click="whichShow = 'nearCircle'">附近圈子</span>
