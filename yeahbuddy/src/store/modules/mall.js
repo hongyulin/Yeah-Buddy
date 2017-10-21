@@ -1,5 +1,5 @@
 export default {
-	//用于控制状态
+	// 用于控制商城中的状态
 	state: {
 
 	},

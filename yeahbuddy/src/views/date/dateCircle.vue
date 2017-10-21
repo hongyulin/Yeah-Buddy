@@ -2,27 +2,27 @@
 	<div>
 		<nav>
 			<figure>
-				<router-link>
-					<img src="static/img/date.svg" alt="附近圈子">
+				<router-link to="#">
+					<img src="static/img/" alt="附近圈子">
 					<span>附近圈子</span>
 				</router-link>
 			</figure>
 			<figure>
-				<router-link>
+				<router-link to="#">
 					<img src="static/img/" alt="同城活动">
 					<span>同城活动</span>
 				</router-link>
 				
 			</figure>
 			<figure>
-				<router-link>
+				<router-link to="#">
 					<img src="static/img/" alt="陪跑">
 					<span>陪跑</span>
 				</router-link>
 				
 			</figure>
 			<figure>
-				<router-link>
+				<router-link to="#">
 					<img src="static/img/" alt="户外会员">
 					<span>户外会员</span>
 				</router-link>
@@ -40,7 +40,20 @@
 		</section>
 		<nav>
 			<ul v-for="item in dataList">
-				<li></li>
+				<li>
+					<section>
+						<img src="static/img/.svg" alt="头像">
+					</section>
+					<section>
+						<title></title>
+						<span></span>
+						<p></p>
+					</section>
+					<section>
+						<span>{{}}.{{}}</span>
+						<button></button>
+					</section>
+				</li>
 			</ul>
 		</nav>
 	</div>
