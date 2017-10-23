@@ -5,27 +5,27 @@
 		</section>
 		<section>
 			<figure>
-				<img src="static/img/.svg" alt="">
+				<img src="static/img/showBody.svg" alt="秀身材">
 				<figcaption>秀身材</figcaption>
 			</figure>
 			<figure>
-				<img src="static/img/.svg" alt="">
+				<img src="static/img/showRecord.svg" alt="秀记录">
 				<figcaption>秀记录</figcaption>
 			</figure>
 			<figure>
-				<img src="static/img/.svg" alt="">
+				<img src="static/img/showPopular.svg" alt="人气榜">
 				<figcaption>人气榜</figcaption>
 			</figure>
 			<figure>
-				<img src="static/img/.svg" alt="">
+				<img src="static/img/trophy.svg" alt="挑战活动">
 				<figcaption>挑战活动</figcaption>
 			</figure>
 		</section>
 		<section>
-			<title>
+			<header>
 				<span>经验分享</span>
-				<img src="static/img/.svg" alt="">
-			</title>
+				<img src="static/img/right.svg" alt="right">
+			</header>
 			<ul>
 				<li v-for="">
 					<seciton>
@@ -35,11 +35,11 @@
 							<footer>
 								<img src="static/img/.svg" alt="">
 								<span>
-									<img src="static/img/.svg" alt="">
+									<img src="static/img/heart.svg" alt="赞">
 									{{}}
 								</span>
 								<span>
-									<img src="static/img/.svg" alt="">
+									<img src="static/img/comment.svg" alt="评论">
 									{{}}
 								</span>
 							</footer>
@@ -49,16 +49,16 @@
 			</ul>
 		</section>
 		<section>
-			<title>
+			<header>
 				<span>热门话题</span>
-				<img src="static/img/.svg" alt="">
-			</title>
+				<img src="static/img/right.svg" alt="right">
+			</header>
 			<ul>
 				<li v-for="">
 					<seciton>
 						<img src="static/img/.svg" alt="">
 						<div>
-							<title></title>
+							<header></header>
 							<p></p>
 							<footer>
 								<img src="static/img/.svg" alt="">
@@ -73,7 +73,7 @@
 			</ul>
 		</section>
 		<section>
-			<title>小八精选</title>
+			<header>小八精选</header>
 			<ul>
 				<!-- 中间加一些推荐 -->
 				<li v-for="">
@@ -88,7 +88,7 @@
 								{{}}
 							</span>
 							<span>
-								<img src="static/img/.svg" alt="" class="">
+								<img src="static/img/heart.svg" alt="" class="赞">
 								{{}}
 							</span>
 						</footer>

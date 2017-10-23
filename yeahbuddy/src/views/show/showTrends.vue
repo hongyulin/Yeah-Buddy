@@ -1,20 +1,20 @@
 <template>
 	<div>
 		<seciton>
-			<title>
+			<header>
 				他们刚刚在练
-				<img src="static/img/.svg" alt="">
-			</title>
+				<img src="static/img/right.svg" alt="查看全部">
+			</header>
 			<!-- 这儿放一个横向的无滚条的list -->
 		</seciton>
 		<seciton>
 			<ul>
 				<li>
 					<router-link to="#">
-						<title>
+						<header>
 							<img src="static/img/.svg" alt="" class="">
 							由@小八推荐
-						</title>
+						</header>
 						<hr>
 						<section>
 							<img src="static/img/.svg" alt="">
@@ -34,12 +34,12 @@
 							<p></p>
 							<!-- 参加的是计划的时候显示 -->
 							<div>
-								<title>
+								<header>
 									<!-- 放表情 -->
 									<img src="static/img/.svg" alt="">
 									<span>计划第{{}}天，完成</span>
 									<!-- 这儿放计划的名字 -->
-								</title>
+								</header>
 								<hr>
 								<div>
 									<span>{{}}<br>动作/组</span>
@@ -50,9 +50,9 @@
 							</div>
 						</figure>
 						<footer>
-							<span><img src="static/img/.svg" alt="">{{}}</span>
-							<span><img src="static/img/.svg" alt="">{{}}</span>
-							<span><img src="static/img/.svg" alt="">{{}}</span>
+							<span><img src="static/img/heart.svg" alt="赞">{{}}</span>
+							<span><img src="static/img/comment.svg" alt="评论">{{}}</span>
+							<span><img src="static/img/share.svg" alt="分享">{{}}</span>
 						</footer>
 						
 

@@ -13,19 +13,16 @@
 		</section>
 		<transition name="fade">
 			<section v-show="whichShow == 'nearCircle'">
-				1
 				<nearCircle></nearCircle>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'shop'">
-				2
 				<mall></mall>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'classRoom'">
-				3
 				<classRoom></classRoom>
 			</section>
 		</transition>

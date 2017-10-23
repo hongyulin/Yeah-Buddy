@@ -4,51 +4,56 @@
 			<!-- 放一个走马灯 -->
 		</section>
 		<section>
-			<router-link>
+			<router-link to="#">
 				<figure>
-					<img src="static/img/.svg" alt="">
-					<span></span>
+					<!--图片大小28 -->
+					<img src="static/img/learnCom.svg" alt="学习群">
+					<span>学习群</span>
 				</figure>
 			</router-link>
-			<router-link>
+			<router-link to="#">
 				<figure>
-					<img src="static/img/.svg" alt="">
-					<span></span>
+					<img src="static/img/lecture.svg" alt="免费讲座">
+					<span>免费讲座</span>
 				</figure>
 			</router-link>
-			<router-link>
+			<router-link to="#">
 				<figure>
-					<img src="static/img/.svg" alt="">
-					<span></span>
+					<img src="static/img/improve.svg" alt="个人提升">
+					<span>个人提升</span>
 				</figure>
 			</router-link>
 		</section>
 		<section>
-			<title>免费专区</title>
+			<header>免费专区</header>
 			<!-- 放两个类似图片上有一个覆盖层的东西，找找方便写法 -->
 		</section>
 		<section>
-			<title>
+			<header>
 				训练营
 				<router-link to="#">
-					<span>查看全部<img src="static/img/.svg" alt=""></span>
+					<!-- <span>查看全部 -->
+					<img src="static/img/right.svg" alt="查看全部">
+					<!-- </span> -->
 				</router-link>
-			</title>
+			</header>
 			<img src="static/img/.svg" alt="">
 			<img src="static/img/.svg" alt="">
 		</section>
 		<section>
-			<title>
+			<header>
 				个人提升
 				<router-link to="#">
-					<span>查看全部<img src="static/img/.svg" alt=""></span>
+					<!-- <span>查看全部 -->
+					<img src="static/img/right.svg" alt="查看全部">
+					<!-- </span> -->
 				</router-link>
-			</title>
+			</header>
 			<ul>
 				<li v-for="">
 					<div><img src="static/img/.svg" alt=""></div>
 					<div>
-						<title></title>
+						<header></header>
 						<p></p>
 						<footer>
 							<span></span>
@@ -62,7 +67,7 @@
 </template>
 <script>
 	export default{
-		name:'dateClassroom',
+		name: 'dateClassroom',
 		data(){
 			return {
 

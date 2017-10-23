@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<section>
-			<router-link>
+			<router-link to="#">
 				<!-- 搜索框点击后跳转另外一页 -->
 				<!-- 滚动后搜索框固定在顶部 -->
 				<input type="text">
@@ -19,11 +19,11 @@
 						<img src="static/img/.svg" alt="">
 					</div>
 					<div>
-						<title>
+						<header>
 							<img src="static/img/.svg" alt="">
 							<img src="static/img/.svg" alt="">
 							<span></span>
-						</title>
+						</header>
 						<span>
 							￥{{}}
 							<img src="static/img/.svg" alt="">

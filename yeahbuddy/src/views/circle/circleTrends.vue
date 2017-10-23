@@ -2,10 +2,10 @@
 	<!-- 这里面放我发布的动态，关注的人的动态，和加入的圈子的动态 -->
 	<div>
 		<section>
-			<title>
+			<header>
 				<span>推荐关注:</span>
 				<img src="static/img/.svg" alt="">
-			</title>
+			</header>
 			<hr>
 			<div>
 				<img src="static/img/.svg" alt="">
@@ -20,18 +20,18 @@
 			<ul>
 				<li v-for="">
 					<seciton>
-						<router-link>
+						<router-link to="#">
 							<img src="static/img/.svg" alt="">
 						</router-link>
 					</seciton>
 					<seciton>
-						<router-link>
+						<router-link to="#">
 							<div>
 								<span>
 									<span>{{}}昵称</span>
 									<span>{{}}小时前</span>
 								</span>
-								<img src="static/img/.svg" alt="">
+								<img src="static/img/down.svg" alt="down">
 							</div>
 							<!-- 说的内容，也可以是回复的话题 -->
 							<p>{{}}说的内容</p>
@@ -42,8 +42,8 @@
 						</router-link>
 						<div>
 							<span>{{}}标签</span>
-							<span><img src="static/img/.svg" alt="">{{}}</span>
-							<span><img src="static/img/.svg" alt="">{{}}</span>
+							<span><img src="static/img/heart.svg" alt="赞">{{}}</span>
+							<span><img src="static/img/comment.svg" alt="评论">{{}}</span>
 						</div>
 					</seciton>
 				</li>
