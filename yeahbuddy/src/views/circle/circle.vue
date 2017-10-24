@@ -52,7 +52,6 @@
 				</ul>
 			</div>
 		</section>
-		
 	</div>
 </template>
 <script>

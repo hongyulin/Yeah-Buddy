@@ -48,9 +48,9 @@
 <script>
 	export default{
 		name:'dateMall',
-		data(){
+		data: function(){
 			return {
-
+				
 			}
 		},
 		created(){

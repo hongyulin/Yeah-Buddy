@@ -4,18 +4,18 @@
 		<header>
 			<span>我</span>
 			<!-- 信息头部加上红色的数字 -->
-			<img src="static/img/.svg" alt="信息">
-			<img src="static/img/.svg" alt="设置">
+			<img src="static/img/notice.svg" alt="信息">
+			<img src="static/img/set.svg" alt="设置">
 		</header>
 		<section>
 			<img src="static/img/.svg" alt="头像">
 			<section>
 				<span>
 					{{}}
-					<img src="static/img/.svg" alt="二维码">
+					<img src="static/img/qrIcon.svg" alt="二维码">
 				</span>
 				<span>
-					{{}}粉丝 · {{}}关注 · {{}}动态
+					<!-- {{}}粉丝 · {{}}关注 · {{}}动态 -->
 				</span>
 			</section>
 			<img src="static/img/right.svg" alt="right">
@@ -27,6 +27,7 @@
 			</section>
 			<section>
 				<gifure>
+					<!-- 放字体图标 -->
 					<img src="static/img/.svg" alt="总等级">
 					<figcaption>总等级</figcaption>
 				</gifure>
@@ -49,15 +50,15 @@
 			</section>
 			<section>
 				<gifure>
-					<img src="static/img/.svg" alt="运动历史">
+					<img src="static/img/history.svg" alt="运动历史">
 					<figcaption>运动历史</figcaption>
 				</gifure>
 				<gifure>
-					<img src="static/img/.svg" alt="身体数据">
+					<img src="static/img/data.svg" alt="身体数据">
 					<figcaption>身体数据</figcaption>
 				</gifure>
 				<gifure>
-					<img src="static/img/.svg" alt="运动能力">
+					<img src="static/img/ability.svg" alt="运动能力">
 					<figcaption>运动能力</figcaption>
 				</gifure>
 			</section>

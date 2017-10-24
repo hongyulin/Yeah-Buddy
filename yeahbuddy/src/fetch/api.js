@@ -44,6 +44,12 @@ export default {
     register(params) {
         return fetch('/api/register', params)
     },
+    register(params) {
+        return fetch('/api/register', params)
+    },
+    getNearPer(params) {
+        return fetch('/api/get/nearper', params)
+    },
     /*getAge(params) {
         return fetch('/api/get/Age', params)
     },*/

@@ -63,7 +63,7 @@
 	justify-content: space-around;
     width: 100vw;
 	padding-top: .1rem;
-	background-color: rgba(50,50,50,0.1);
+	background-color: #EAEAEA;
 	section {
 		text-align: center;
 		span {

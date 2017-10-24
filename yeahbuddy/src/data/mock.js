@@ -24,11 +24,23 @@ let data = [
 		'string|1':"register success"
 	}
 ],
-/*[
-	'/api/get/Age',
+[
+	'/api/get/nearper',
 	{
-		
+		'list|30': [{
+			'id|+1': 1,
+			'img': "@dataImage('70x70', '我是头像')",
+			'nickName': "@cname()",
+			'age': "@natural(10,65)",
+			'sex|1': ['♂','♀'],
+			'level': "@natural(1,30)",
+			'step': "@float(0,10,2,2)",
+			'distance': "@float(0,30,2,2)",
+			'hours': "@natural(1,24)",
+			'follow': false,
+
+		}]
 	}
-],*/
+],
 ]
 export default data.forEach(function(element){return mock.mock(...element)})
