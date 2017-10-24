@@ -42,5 +42,14 @@ let data = [
 		}]
 	}
 ],
+[
+	'/api/get/adimg',
+	{
+		'list|3': [{
+			'swiperImg': "@dataImage('400x200', '走马灯')",
+			'adImg': "@dataImage('70x70', '课程推荐')"
+		}]
+	}
+],
 ]
 export default data.forEach(function(element){return mock.mock(...element)})

@@ -6,7 +6,7 @@
 				<!-- 滚动后搜索框固定在顶部 -->
 				<input type="text">
 			</router-link>
-			<img src="static/img/.svg" alt="">
+			<!-- <img src="static/img/.svg" alt=""> -->
 		</section>
 		<section>
 			<!-- 横向可以拖拽，点击按钮形成一个下拉选项的list -->
@@ -16,17 +16,17 @@
 			<ul>
 				<li>
 					<div>
-						<img src="static/img/.svg" alt="">
+						<!-- <img src="static/img/.svg" alt=""> -->
 					</div>
 					<div>
 						<header>
-							<img src="static/img/.svg" alt="">
-							<img src="static/img/.svg" alt="">
+							<!-- <img src="static/img/.svg" alt=""> -->
+							<!-- <img src="static/img/.svg" alt=""> -->
 							<span></span>
 						</header>
 						<span>
 							￥{{}}
-							<img src="static/img/.svg" alt="">
+							<!-- <img src="static/img/.svg" alt=""> -->
 						</span>
 						<span>
 							原价:

@@ -11,6 +11,7 @@ vue + vuex + vue-router + webpack + axios + sass
 + 实现轮播可以左右滑动，
 + 实现无滚动条better-scroll
 + 把svg图片进行压缩，放到html中提高加载速度
++ 图片大小自适应
 1. 登录
 + ~~登录页面动画，轮播~~
 + 微信，~~手机号~~，自动登录，
@@ -25,6 +26,7 @@ vue + vuex + vue-router + webpack + axios + sass
 + 附近圈子
 	+ 筛选
 	+ 底部向上拉动加载数据
+	+ 拉到地面显示一个回到顶部的按钮
 	+ 顶部乡下拉动刷新
 + 商城
 + 微课程

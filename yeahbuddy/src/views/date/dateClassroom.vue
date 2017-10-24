@@ -1,6 +1,13 @@
 <template>
 	<div>
 		<section>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" v-for="item in dataList">
+						<img :src="item.swiperImg" alt="走马灯" style="width: 100vw">
+					</div>
+				</div>
+			</div>
 			<!-- 放一个走马灯 -->
 		</section>
 		<section>
@@ -37,8 +44,8 @@
 					<!-- </span> -->
 				</router-link>
 			</header>
-			<img src="static/img/.svg" alt="">
-			<img src="static/img/.svg" alt="">
+			<!-- <img src="static/img/.svg" alt=""> -->
+			<!-- <img src="static/img/.svg" alt=""> -->
 		</section>
 		<section>
 			<header>
@@ -51,7 +58,7 @@
 			</header>
 			<ul>
 				<li v-for="">
-					<div><img src="static/img/.svg" alt=""></div>
+					<!-- <div><img src="static/img/.svg" alt=""></div> -->
 					<div>
 						<header></header>
 						<p></p>
@@ -66,20 +73,20 @@
 	</div>
 </template>
 <script>
+	import api from "../../fetch/api"
 	export default{
 		name: 'dateClassroom',
 		data(){
 			return {
-
+				dataList: []
 			}
 		},
 		created(){
 
 		},
 		mounted(){
-
+			this.getDataList()
 		},
-		
 		components:{
 
 		},
@@ -87,7 +94,19 @@
 
 		},
 		methods:{
-			
+			getDataList() {
+				api.getAdImg()
+					.then( res => {
+						this.dataList = res.list
+						new Swiper('.swiper-container', {
+							pagination: '.swiper-pagination',
+		        			loop: true,
+							autoplay: 5000,
+							// pagination: '.swiper-pagination',
+							paginationClickable: true,
+						});
+					})
+			},
 		}
 	}
 </script>

@@ -50,6 +50,9 @@ export default {
     getNearPer(params) {
         return fetch('/api/get/nearper', params)
     },
+    getAdImg(params) {
+        return fetch('/api/get/adimg', params)
+    },
     /*getAge(params) {
         return fetch('/api/get/Age', params)
     },*/

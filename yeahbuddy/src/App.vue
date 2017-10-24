@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import '../static/js/swiper-min.js'
 export default {
   name: 'app',
   data(){
@@ -22,6 +23,7 @@ export default {
 
 <style lang="scss">
 @import "../static/css/yeah-buddy-style";
+@import "../static/css/swiper-min";
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

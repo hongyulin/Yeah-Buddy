@@ -90,7 +90,6 @@
 				api.getNearPer(data)
 					.then( res => {
 						this.dataList.push(...res.list)
-						console.log(res)
 					})
 			},
 		}
@@ -117,7 +116,7 @@
 	display: flex;
 	justify-content: space-between;
 	span {
-		font-size: 16px;
+		font-size: .16rem;
 	}
 	border: {
 		top: 3vw solid #f2f2f2;
