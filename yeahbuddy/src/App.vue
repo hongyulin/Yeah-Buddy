@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import '../static/js/swiper-min.js'
 export default {
   name: 'app',
   data(){

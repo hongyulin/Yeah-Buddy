@@ -6,7 +6,12 @@
 					<div class="swiper-slide" v-for="item in dataList">
 						<img :src="item.swiperImg" alt="走马灯" style="width: 100vw">
 					</div>
+					<!-- <div class="swiper-slide">1</div> -->
+					<!-- <div class="swiper-slide">2</div> -->
+					<!-- <div class="swiper-slide">3</div> -->
+					<!-- <div class="swiper-slide">4</div> -->
 				</div>
+				<div class="swiper-pagination"></div>
 			</div>
 			<!-- 放一个走马灯 -->
 		</section>
@@ -82,10 +87,11 @@
 			}
 		},
 		created(){
-
+			this.getDataList()
 		},
 		mounted(){
-			this.getDataList()
+			
+			this.proSwiper()
 		},
 		components:{
 
@@ -98,15 +104,43 @@
 				api.getAdImg()
 					.then( res => {
 						this.dataList = res.list
-						new Swiper('.swiper-container', {
-							pagination: '.swiper-pagination',
-		        			loop: true,
-							autoplay: 5000,
-							// pagination: '.swiper-pagination',
-							paginationClickable: true,
-						});
+						
 					})
+			},
+			proSwiper() {
+				let swiper = new Swiper('.swiper-container', {
+					pagination: {
+						el: '.swiper-pagination',
+						clickable: true,
+					},
+					loop: true,
+					autoplay: {
+						delay: 2500,
+						disableOnInteraction: false,
+					},
+					paginationClickable: true,
+				});
 			},
 		}
 	}
 </script>
+<style lang="scss" scoped>
+// .swiper-container {
+//       width: 100%;
+//       height: 100%;
+//     }
+// .swiper-slide {
+// 	display: -webkit-box;
+// 	display: -ms-flexbox;
+// 	display: -webkit-flex;
+// 	display: flex;
+// 	-webkit-box-pack: center;
+// 	-ms-flex-pack: center;
+// 	-webkit-justify-content: center;
+// 	justify-content: center;
+// 	-webkit-box-align: center;
+// 	-ms-flex-align: center;
+// 	-webkit-align-items: center;
+// 	align-items: center;
+// }
+</style>
