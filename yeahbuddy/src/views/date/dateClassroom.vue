@@ -1,18 +1,14 @@
 <template>
 	<div>
 		<section>
-			<div class="swiper-container">
-				<div class="swiper-wrapper">
-					<div class="swiper-slide" v-for="item in dataList">
-						<img :src="item.swiperImg" alt="走马灯" style="width: 100vw">
-					</div>
-					<!-- <div class="swiper-slide">1</div> -->
-					<!-- <div class="swiper-slide">2</div> -->
-					<!-- <div class="swiper-slide">3</div> -->
-					<!-- <div class="swiper-slide">4</div> -->
-				</div>
-				<div class="swiper-pagination"></div>
-			</div>
+			<swiper :option="swiperOption">
+				<swiper-slide v-for="item in dataList">
+					{{item}}
+					<!-- <img :src="item.swiperImg" alt="走马灯" style="width: 100vw"> -->
+				</swiper-slide>
+				
+				<div class="swiper-pagination" slot="pagination"></div>
+			</swiper>
 			<!-- 放一个走马灯 -->
 		</section>
 		<section>
@@ -79,48 +75,56 @@
 </template>
 <script>
 	import api from "../../fetch/api"
+	import { swiper, swiperSlide } from 'vue-awesome-swiper'
 	export default{
 		name: 'dateClassroom',
 		data(){
 			return {
-				dataList: []
+				dataList: [1,2,3,4],
+				swiperOption: {
+					autoplay: 5000,
+					setWrapperSize :true,
+					pagination : '.swiper-pagination',
+					paginationClickable :true,
+					mousewheelControl : true,
+					observeParents:true,
+				},
 			}
 		},
-		created(){
+		created() {
 			this.getDataList()
 		},
-		mounted(){
-			
-			this.proSwiper()
-		},
-		components:{
+		mounted() {
 
+		},
+		components: {
+			swiper, swiperSlide
 		},
 		computed: {
 
 		},
-		methods:{
+		methods: {
 			getDataList() {
 				api.getAdImg()
 					.then( res => {
-						this.dataList = res.list
+						// this.dataList = res.list
 						
 					})
 			},
-			proSwiper() {
-				let swiper = new Swiper('.swiper-container', {
-					pagination: {
-						el: '.swiper-pagination',
-						clickable: true,
-					},
-					loop: true,
-					autoplay: {
-						delay: 2500,
-						disableOnInteraction: false,
-					},
-					paginationClickable: true,
-				});
-			},
+			// proSwiper() {
+			// 	let swiper = new Swiper('.swiper-container', {
+			// 		pagination: {
+			// 			el: '.swiper-pagination',
+			// 			clickable: true,
+			// 		},
+			// 		loop: true,
+			// 		autoplay: {
+			// 			delay: 2500,
+			// 			disableOnInteraction: false,
+			// 		},
+			// 		paginationClickable: true,
+			// 	});
+			// },
 		}
 	}
 </script>
