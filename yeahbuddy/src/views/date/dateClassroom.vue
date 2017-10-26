@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<section>
-			<swiper :option="swiperOption">
-				<swiper-slide v-for="item in dataList">
-					{{item}}
-					<!-- <img :src="item.swiperImg" alt="走马灯" style="width: 100vw"> -->
+			<swiper :options="swiperOption">
+				<swiper-slide v-for="slide in swiperSlides">
+					<img :src="slide.swiperImg" alt="走马灯" style="width: 100vw">
 				</swiper-slide>
-				
+
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
+			
 			<!-- 放一个走马灯 -->
 		</section>
 		<section>
@@ -80,10 +80,11 @@
 		name: 'dateClassroom',
 		data(){
 			return {
-				dataList: [1,2,3,4],
+				swiperSlides: [],
 				swiperOption: {
-					autoplay: 5000,
+					autoplay: 3500,
 					setWrapperSize :true,
+					direction: 'vertical',
 					pagination : '.swiper-pagination',
 					paginationClickable :true,
 					mousewheelControl : true,
@@ -92,10 +93,11 @@
 			}
 		},
 		created() {
-			this.getDataList()
+			
 		},
 		mounted() {
-
+			this.getDataList()
+			
 		},
 		components: {
 			swiper, swiperSlide
@@ -107,7 +109,7 @@
 			getDataList() {
 				api.getAdImg()
 					.then( res => {
-						// this.dataList = res.list
+						this.swiperSlides = res.list
 						
 					})
 			},
@@ -129,22 +131,5 @@
 	}
 </script>
 <style lang="scss" scoped>
-// .swiper-container {
-//       width: 100%;
-//       height: 100%;
-//     }
-// .swiper-slide {
-// 	display: -webkit-box;
-// 	display: -ms-flexbox;
-// 	display: -webkit-flex;
-// 	display: flex;
-// 	-webkit-box-pack: center;
-// 	-ms-flex-pack: center;
-// 	-webkit-justify-content: center;
-// 	justify-content: center;
-// 	-webkit-box-align: center;
-// 	-ms-flex-align: center;
-// 	-webkit-align-items: center;
-// 	align-items: center;
-// }
+
 </style>
