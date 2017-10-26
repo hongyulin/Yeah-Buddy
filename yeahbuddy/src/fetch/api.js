@@ -50,8 +50,17 @@ export default {
     getNearPer(params) {
         return fetch('/api/get/nearper', params)
     },
-    getAdImg(params) {
-        return fetch('/api/get/adimg', params)
+    getDateAd(params) {
+        return fetch('/api/get/date/adimg', params)
+    },
+    getShowAd(params) {
+        return fetch('/api/get/show/adimg', params)
+    },
+    getCircleAd(params) {
+        return fetch('/api/get/circle/adimg', params)
+    },
+    getCircleC(params) {
+        return fetch('/api/get/circle/circle', params)
     },
     /*getAge(params) {
         return fetch('/api/get/Age', params)

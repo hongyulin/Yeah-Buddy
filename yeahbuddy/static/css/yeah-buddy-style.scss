@@ -62,3 +62,24 @@ h3 {
 	50% {transform: rotate(180deg)}
 	100% {transform: rotate(360deg)}
 }
+.nav {
+	display: flex;
+	justify-content: space-around;
+	figure {
+		text-align: center;
+	}
+	margin: {
+		top: 2vh;
+	}
+	
+}
+.getMore {
+	display: flex;
+	justify-content: space-between;
+	padding: {
+		top: 2vw;
+		bottom: 2vw;
+		left: 2vw;
+		right: 2vw;
+	}
+}

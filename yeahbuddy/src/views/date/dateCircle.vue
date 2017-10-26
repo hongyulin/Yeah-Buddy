@@ -29,7 +29,7 @@
 			</figure>
 		</nav>
 		
-		<section class="nearPer">
+		<section class="nearPer getMore">
 			<span>附近人</span>
 			<div>
 				<span>筛选</span>
@@ -104,17 +104,9 @@
 		bottom: 70px;
 	}
 }
-.nav {
-	display: flex;
-	justify-content: space-around;
-	margin: {
-		top: 2vh;
-	}
-	
-}
 .nearPer {
-	display: flex;
-	justify-content: space-between;
+	// display: flex;
+	// justify-content: space-between;
 	span {
 		font-size: .16rem;
 	}
@@ -122,12 +114,12 @@
 		top: 3vw solid #f2f2f2;
 		bottom: 3vw solid #f2f2f2;
 	}
-	padding: {
-		top: 2vw;
-		bottom: 2vw;
-		left: 2vw;
-		right: 2vw;
-	}
+	// padding: {
+	// 	top: 2vw;
+	// 	bottom: 2vw;
+	// 	left: 2vw;
+	// 	right: 2vw;
+	// }
 }
 .nearContent {
 	display: flex;

@@ -1,9 +1,12 @@
 <template>
 	<div>
 		<section>
-			<!-- 走马灯 -->
+			<swiper :options="swiperOption">
+				<swiper-slide v-for="slide in swiperSlides"><img :src="slide.swiperImg" alt="走马灯" style="width: 100vw"></swiper-slide>
+				<div class="swiper-pagination" slot="pagination"></div>
+			</swiper>
 		</section>
-		<section>
+		<section class="nav">
 			<figure>
 				<img src="static/img/showBody.svg" alt="秀身材">
 				<figcaption>秀身材</figcaption>
@@ -22,7 +25,7 @@
 			</figure>
 		</section>
 		<section>
-			<header>
+			<header class="getMore">
 				<span>经验分享</span>
 				<img src="static/img/right.svg" alt="right">
 			</header>
@@ -49,7 +52,7 @@
 			</ul>
 		</section>
 		<section>
-			<header>
+			<header class="getMore">
 				<span>热门话题</span>
 				<img src="static/img/right.svg" alt="right">
 			</header>
@@ -99,18 +102,31 @@
 	</div>
 </template>
 <script>
+	import api from "../../fetch/api"
+	import { swiper, swiperSlide } from 'vue-awesome-swiper'
 	export default{
 		name:'showBoutique',
 		data(){
 			return {
-
+				swiperSlides: [],
+				swiperOption: {
+					pagination: '.swiper-pagination',
+					paginationClickable: true,
+					spaceBetween: 30,
+					centeredSlides: true,
+					autoplay: 2500,
+					loop : true,
+					autoplayDisableOnInteraction: false,
+					observer:true,//修改swiper自己或子元素时，自动初始化swiper
+    				observeParents:true,//修改swiper的父元素时，自动初始化swiper
+    			}
 			}
 		},
 		created(){
 
 		},
 		mounted(){
-
+			this.getDataList()
 		},
 		
 		components:{
@@ -120,7 +136,13 @@
 
 		},
 		methods:{
-			
+			getDataList() {
+				api.getShowAd()
+					.then( res => {
+						this.swiperSlides = res.list
+						
+					})
+			},
 		}
 	}
 </script>

@@ -1,6 +1,6 @@
 <template>
 	<!-- keep里面的我的很好， -->
-	<div>
+	<div id="mine">
 		<header>
 			<span>我</span>
 			<!-- 信息头部加上红色的数字 -->
@@ -44,11 +44,11 @@
 					<figcaption>骑行</figcaption>
 				</gifure>
 			</section>
-			<section>
+			<section class="getMore">
 				<span>我的健康数据</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section>
+			<section class="nav">
 				<gifure>
 					<img src="static/img/history.svg" alt="运动历史">
 					<figcaption>运动历史</figcaption>
@@ -62,59 +62,67 @@
 					<figcaption>运动能力</figcaption>
 				</gifure>
 			</section>
-			<section>
+			<section class="getMore">
 				<span>徽章</span>
-				<span>{{}}</span>
-				<img src="static/img/right.svg" alt="right">
+				<span>
+					{{}}
+					<img src="static/img/right.svg" alt="right">
+				</span>
 			</section>
 		</section>
 		<section>
-			<section>
+			<section class="getMore">
 				<span>运动日记</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section>
+			<section class="getMore">
 				<span>运动概况</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section>
+			<section class="getMore">
 				<span>每周目标</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section>
+			<section class="getMore">
 				<span>链接应用与设备</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
 		</section>
 		<section>
-			<section>
+			<section class="getMore">
 				<span>我的活动</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section>
+			<section class="getMore">
 				<span>我的收藏</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section>
+			<section class="getMore">
 				<span>我跑过的路线</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
 		</section>
 		<section>
-			<section>
+			<section class="getMore">
 				<span>购物车</span>
-				<span>{{}}</span>
-				<img src="static/img/right.svg" alt="right">
+				<span>
+					{{}}
+					<img src="static/img/right.svg" alt="right">
+				</span>
 			</section>
-			<section>
+			<section class="getMore">
 				<span>购买记录</span>
-				<span>{{}}</span>
-				<img src="static/img/right.svg" alt="right">
+				<span>
+					{{}}
+					<img src="static/img/right.svg" alt="right">
+				</span>
 			</section>
-			<section>
+			<section class="getMore">
 				<span>优惠券</span>
-				<span>{{}}</span>
-				<img src="static/img/right.svg" alt="right">
+				<span>
+					{{}}
+					<img src="static/img/right.svg" alt="right">
+				</span>
 			</section>
 		</section>
 	</div>
@@ -144,3 +152,10 @@
 		}
 	}
 </script>
+<style lang="scss" scoped>
+#mine {
+	margin:{
+		bottom: 10vh;
+	}
+}
+</style>

@@ -2,33 +2,28 @@
 	<div>
 		<section>
 			<swiper :options="swiperOption">
-				<swiper-slide v-for="slide in swiperSlides">
-					<img :src="slide.swiperImg" alt="走马灯" style="width: 100vw">
-				</swiper-slide>
-
+				<swiper-slide v-for="slide in swiperSlides"><img :src="slide.swiperImg" alt="走马灯" style="width: 100vw"></swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
-			
-			<!-- 放一个走马灯 -->
 		</section>
-		<section>
+		<section class="nav">
 			<router-link to="#">
 				<figure>
 					<!--图片大小28 -->
 					<img src="static/img/learnCom.svg" alt="学习群">
-					<span>学习群</span>
+					<figcaption>学习群</figcaption>
 				</figure>
 			</router-link>
 			<router-link to="#">
 				<figure>
 					<img src="static/img/lecture.svg" alt="免费讲座">
-					<span>免费讲座</span>
+					<figcaption>免费讲座</figcaption>
 				</figure>
 			</router-link>
 			<router-link to="#">
 				<figure>
 					<img src="static/img/improve.svg" alt="个人提升">
-					<span>个人提升</span>
+					<figcaption>个人提升</figcaption>
 				</figure>
 			</router-link>
 		</section>
@@ -37,7 +32,7 @@
 			<!-- 放两个类似图片上有一个覆盖层的东西，找找方便写法 -->
 		</section>
 		<section>
-			<header>
+			<header class="getMore">
 				训练营
 				<router-link to="#">
 					<!-- <span>查看全部 -->
@@ -49,7 +44,7 @@
 			<!-- <img src="static/img/.svg" alt=""> -->
 		</section>
 		<section>
-			<header>
+			<header class="getMore">
 				个人提升
 				<router-link to="#">
 					<!-- <span>查看全部 -->
@@ -82,51 +77,38 @@
 			return {
 				swiperSlides: [],
 				swiperOption: {
-					autoplay: 3500,
-					setWrapperSize :true,
-					direction: 'vertical',
-					pagination : '.swiper-pagination',
-					paginationClickable :true,
-					mousewheelControl : true,
-					observeParents:true,
-				},
+					pagination: '.swiper-pagination',
+					paginationClickable: true,
+					spaceBetween: 30,
+					centeredSlides: true,
+					autoplay: 2500,
+					loop : true,
+					autoplayDisableOnInteraction: false,
+					observer:true,//修改swiper自己或子元素时，自动初始化swiper
+    				observeParents:true,//修改swiper的父元素时，自动初始化swiper
+    			}
 			}
 		},
 		created() {
 			
 		},
 		mounted() {
-			this.getDataList()
-			
+			this.getDataList()			
 		},
 		components: {
 			swiper, swiperSlide
 		},
 		computed: {
-
+			
 		},
 		methods: {
 			getDataList() {
-				api.getAdImg()
+				api.getDateAd()
 					.then( res => {
 						this.swiperSlides = res.list
 						
 					})
 			},
-			// proSwiper() {
-			// 	let swiper = new Swiper('.swiper-container', {
-			// 		pagination: {
-			// 			el: '.swiper-pagination',
-			// 			clickable: true,
-			// 		},
-			// 		loop: true,
-			// 		autoplay: {
-			// 			delay: 2500,
-			// 			disableOnInteraction: false,
-			// 		},
-			// 		paginationClickable: true,
-			// 	});
-			// },
 		}
 	}
 </script>

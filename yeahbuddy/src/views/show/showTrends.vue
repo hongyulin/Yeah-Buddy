@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<seciton>
-			<header>
+			<header class="getMore">
 				他们刚刚在练
 				<img src="static/img/right.svg" alt="查看全部">
 			</header>

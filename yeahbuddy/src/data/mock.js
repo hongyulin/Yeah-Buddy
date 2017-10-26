@@ -43,13 +43,39 @@ let data = [
 	}
 ],
 [
-	'/api/get/adimg',
+	'/api/get/date/adimg',
 	{
 		'list|3': [{
-			'swiperImg': "@dataImage('400x200', '走马灯')",
+			'swiperImg': "@dataImage('400x200', '起桥细节详解——Levinson')",
 			'adImg': "@dataImage('70x70', '课程推荐')"
 		}]
 	}
 ],
+[
+	'/api/get/show/adimg',
+	{
+		'list|5': [{
+			'swiperImg': "@dataImage('400x200', '健身减肥啦！啊啊')",
+		}]
+	}
+],
+[
+	'/api/get/circle/adimg',
+	{
+		'list|3': [{
+			'swiperImg': "@dataImage('400x200', '挑战赛')",
+		}],
+		
+	}
+],[
+	'/api/get/circle/circle',
+	{
+		'list|1': [{
+			'shImg': "@dataImage('48x48', '上海小八圈')",
+			'runImg': "@dataImage('48x48', '跑步圈')",
+			'runeqImg': "@dataImage('48x48', '跑步装备圈')",
+		}]			
+	}
+]
 ]
 export default data.forEach(function(element){return mock.mock(...element)})
