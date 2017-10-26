@@ -8,8 +8,8 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      // component: resolve => require(['@/views/login/login'], resolve)
-      component: resolve => require(['@/views/autoplay'], resolve)
+      component: resolve => require(['@/views/login/login'], resolve)
+      // component: resolve => require(['@/views/autoplay'], resolve)
     },
     {
       path: '/loading',

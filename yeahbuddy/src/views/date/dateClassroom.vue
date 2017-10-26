@@ -27,40 +27,45 @@
 				</figure>
 			</router-link>
 		</section>
-		<section>
-			<header>免费专区</header>
+		<!-- <section> -->
+			<!-- <header>免费专区</header> -->
 			<!-- 放两个类似图片上有一个覆盖层的东西，找找方便写法 -->
-		</section>
-		<section>
+		<!-- </section> -->
+		<section class="exercise">
 			<header class="getMore">
 				训练营
 				<router-link to="#">
-					<!-- <span>查看全部 -->
 					<img src="static/img/right.svg" alt="查看全部">
-					<!-- </span> -->
 				</router-link>
 			</header>
-			<!-- <img src="static/img/.svg" alt=""> -->
-			<!-- <img src="static/img/.svg" alt=""> -->
+			<img :src="exerciseData.img_one" alt="局部塑形">
+			<img :src="exerciseData.img_two" alt="自我挑战">
 		</section>
 		<section>
 			<header class="getMore">
 				个人提升
 				<router-link to="#">
-					<!-- <span>查看全部 -->
 					<img src="static/img/right.svg" alt="查看全部">
-					<!-- </span> -->
 				</router-link>
 			</header>
 			<ul>
-				<li v-for="">
-					<!-- <div><img src="static/img/.svg" alt=""></div> -->
+				<li v-for="item in dataList" class="classInfo">
 					<div>
-						<header></header>
-						<p></p>
+						<img :src="item.classHeader" alt="课程推荐" >
+					</div>
+					<div>
+						<header class="rowEllipsis">{{item.title}}</header>
+						<p class="rowEllipsis">{{item.content}}</p>
 						<footer>
-							<span></span>
-							<span></span>
+							<span>
+								{{item.num}}订阅
+							</span>
+							<span>
+								{{item.fee}}
+							</span>
+							<span>
+								元
+							</span>
 						</footer>
 					</div>
 				</li>
@@ -75,6 +80,8 @@
 		name: 'dateClassroom',
 		data(){
 			return {
+				dataList: [],
+				exerciseData: [],
 				swiperSlides: [],
 				swiperOption: {
 					pagination: '.swiper-pagination',
@@ -103,15 +110,62 @@
 		},
 		methods: {
 			getDataList() {
-				api.getDateAd()
+				let data = {
+
+				}
+				api.getDateAd(data)
 					.then( res => {
 						this.swiperSlides = res.list
-						
+					})
+				api.getDateExercise(data)
+					.then( res => {
+						this.exerciseData = res.list
+					})
+				api.getDateClass(data)
+					.then( res => {
+						console.log(res)
+						this.dataList = res.list
 					})
 			},
 		}
 	}
 </script>
 <style lang="scss" scoped>
-
+.exercise {
+	border: {
+		top: .15rem solid #DCDCDC;
+		bottom: .15rem solid #DCDCDC;
+	}
+}
+.classInfo {
+	display: flex;
+	padding: 5vw;
+	border: {
+		bottom: 1px solid #DCDCDC;
+	}
+	header {
+		font-size: .20rem;
+		font-weight: bold;
+		width: 60vw;
+	}
+	p {
+		width: 60vw;
+		margin: {
+			top: 1vh;
+			bottom: 1vh;
+		}
+	}
+	footer {
+		span:nth-child(1) {
+			margin-right:20px;
+		}
+		span:nth-child(2) {
+		color: red;
+		}
+	}
+	img {
+		width: 30vw;
+		margin-right: 10px;
+	}
+}
 </style>

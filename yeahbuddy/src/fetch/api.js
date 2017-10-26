@@ -62,6 +62,12 @@ export default {
     getCircleC(params) {
         return fetch('/api/get/circle/circle', params)
     },
+    getDateExercise(params) {
+        return fetch('/api/get/date/exercise', params)
+    },
+    getDateClass(params) {
+        return fetch('/api/get/date/list', params)
+    },
     /*getAge(params) {
         return fetch('/api/get/Age', params)
     },*/
