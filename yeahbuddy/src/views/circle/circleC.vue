@@ -14,7 +14,7 @@
 					<img src="static/img/right.svg" alt="查看全部">
 				<!-- </span> -->
 			</header>
-			<section class="nav">
+			<section class="nav circles">
 				<figure>
 					<img :src="circleDate.shImg" alt="上海悦动圈">
 					<figcaption>上海悦动圈</figcaption>
@@ -164,7 +164,7 @@
 	}
 </script>
 <style lang="scss" scoped>
-.nav {
+.circles {
 	img {
 		border-radius: 50%;
 	}

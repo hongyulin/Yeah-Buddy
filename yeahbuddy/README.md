@@ -12,6 +12,7 @@ vue + vuex + vue-router + webpack + axios + sass
 + 实现无滚动条better-scroll
 + 把svg图片进行压缩，放到html中提高加载速度
 + 图片大小自适应
++ keeplive标签页共享同一个位置，怎么解决？
 1. 登录
 + ~~登录页面动画，轮播~~
 + 微信，~~手机号~~，自动登录，
