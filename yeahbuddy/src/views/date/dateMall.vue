@@ -1,8 +1,10 @@
 <template>
+<!-- 里面还有一个每隔几秒就出现的弹框“xxx领了xxx” -->
 	<div>
 		<section>
 			<router-link to="#">
 				<!-- 搜索框点击后跳转另外一页 -->
+				<!-- 需要保存搜索历史 -->
 				<!-- 滚动后搜索框固定在顶部 -->
 				<input type="text">
 			</router-link>
