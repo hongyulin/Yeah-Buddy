@@ -7,9 +7,9 @@
 			<img src="static/img/search.svg" alt="search">
 		</section>
 		<section class="tabs">
-			<span :class="{activeShow: whichShow == 'nearCircle'}" @click="whichShow = 'nearCircle'">附近圈子</span>
-			<span :class="{activeShow: whichShow == 'shop'}" @click="whichShow = 'shop'">商城</span>
-			<span :class="{activeShow: whichShow == 'classRoom'}" @click="whichShow = 'classRoom'">微课堂</span>
+			<span :class="{activeShow: whichShow == 'nearCircle'}" @click="whichShowFn('nearCircle')">附近圈子</span>
+			<span :class="{activeShow: whichShow == 'shop'}" @click="whichShowFn('shop')">商城</span>
+			<span :class="{activeShow: whichShow == 'classRoom'}" @click="whichShowFn('classRoom')">微课堂</span>
 		</section>
 		<transition name="fade">
 			<section v-show="whichShow == 'nearCircle'">
@@ -44,7 +44,7 @@ import mall from './dateMall'
 
 		},
 		mounted(){
-
+			
 		},
 		components: {
 			nearCircle, classRoom, mall
@@ -53,7 +53,7 @@ import mall from './dateMall'
 
 		},
 		methods: {
-
+			
 		}
 	}
 </script>
