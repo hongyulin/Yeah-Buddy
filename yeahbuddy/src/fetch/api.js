@@ -68,6 +68,12 @@ export default {
     getDateClass(params) {
         return fetch('/api/get/date/list', params)
     },
+    getGoodsList(params) {
+        return fetch('/api/get/date/goods/list', params)
+    },
+    getMallAd(params) {
+        return fetch('/api/get/date/mall/ad', params)
+    },
     /*getAge(params) {
         return fetch('/api/get/Age', params)
     },*/

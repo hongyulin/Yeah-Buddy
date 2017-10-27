@@ -62,6 +62,7 @@ h3 {
 	50% {transform: rotate(180deg)}
 	100% {transform: rotate(360deg)}
 }
+// 横向显示图片，标题
 .nav {
 	display: flex;
 	justify-content: space-around;
@@ -73,6 +74,7 @@ h3 {
 	}
 	
 }
+// 查看更多部分的样式
 .getMore {
 	display: flex;
 	justify-content: space-between;
@@ -83,8 +85,50 @@ h3 {
 		right: 2vw;
 	}
 }
+// 单行显示省略号
 .rowEllipsis {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+}
+// 头部的样式和固定
+.homeHeader {
+	width: 100vw;
+	font-size: 20px;
+	display: flex;
+	position: fixed;
+	top: 0;
+	justify-content: space-between;
+	background-color: white;
+	z-index: 1000;
+	padding: {
+		top: 10px;
+		left: 20px;
+		right: 10px;
+	}
+}
+// 切换页标签
+.tabs {
+	display: flex;
+	justify-content: space-around;
+	width: 100vw;
+	position: fixed;
+	top: 6vh;
+	background-color: white;
+	z-index: 1000;
+	span {
+		height: .4rem;
+		line-height: .4rem;
+		text-align: center;
+	}
+	.activeShow {
+		color: red;
+		border-bottom: 1px solid red;
+	}
+}
+.fadeChildren {
+	margin: {
+		top: 13vh;
+		bottom: 13vh;
+	}
 }

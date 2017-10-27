@@ -13,17 +13,17 @@
 		</section>
 		<transition name="fade">
 			<section v-show="whichShow == 'nearCircle'">
-				<nearCircle></nearCircle>
+				<nearCircle class="fadeChildren"></nearCircle>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'shop'">
-				<mall></mall>
+				<mall class="fadeChildren"></mall>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'classRoom'">
-				<classRoom></classRoom>
+				<classRoom class="fadeChildren"></classRoom>
 			</section>
 		</transition>
 		
@@ -58,30 +58,9 @@ import mall from './dateMall'
 	}
 </script>
 <style lang="scss" scoped>
-.homeHeader {
-	width: 100vw;
-	font-size: 20px;
-	display: flex;
-	justify-content: space-between;
-	padding: {
-		top: 10px;
-		left: 20px;
-		right: 10px;
-	}
-}
 .tabs {
-	display: flex;
-	justify-content: space-around;
-	margin-top: .1rem;
 	span {
-		width: 1rem; 
-		height: .4rem;
-		line-height: .4rem;
-		text-align: center;
-	}
-	.activeShow {
-		color: red;
-		border-bottom: 1px solid red;
+		width: 1rem; 	
 	}
 }
 .fade-enter-active .fade-lave-active {

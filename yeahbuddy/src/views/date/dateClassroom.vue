@@ -123,7 +123,6 @@
 					})
 				api.getDateClass(data)
 					.then( res => {
-						console.log(res)
 						this.dataList = res.list
 					})
 			},

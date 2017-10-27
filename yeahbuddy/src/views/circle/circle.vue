@@ -13,12 +13,12 @@
 		</section>
 		<transition name="fade">
 			<section v-show="whichShow == 'circle'">
-				<fCircle></fCircle>
+				<fCircle class="fadeChildren"></fCircle>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'content'">
-				<trends></trends>
+				<trends class="fadeChildren"></trends>
 			</section>
 		</transition>
 		<section>
@@ -80,30 +80,9 @@ import trends from "./circleTrends"
 	}
 </script>
 <style lang="scss" scoped>
-.homeHeader {
-	width: 100vw;
-	font-size: 20px;
-	display: flex;
-	justify-content: space-between;
-	padding: {
-		top: 10px;
-		left: 20px;
-		right: 10px;
-	}
-}
 .tabs {
-	display: flex;
-	justify-content: space-around;
-	margin-top: .1rem;
 	span {
 		width: 1.5rem; 
-		height: .4rem;
-		line-height: .4rem;
-		text-align: center;
-	}
-	.activeShow {
-		color: red;
-		border-bottom: 1px solid red;
 	}
 }
 .fade-enter-active .fade-lave-active {

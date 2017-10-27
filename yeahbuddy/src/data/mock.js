@@ -1,4 +1,5 @@
 import mock from "mockjs";
+let packPool = ['10', '20', '15', '30', '50', '66', '88', '100']
 let data = [
 [
 	'/api/checkIn',
@@ -95,6 +96,29 @@ let data = [
 			'content': '@cparagraph(5, 10)',
 			'num': '@natural(10, 2000)',
 			'fee': '@float(66, 99, 2, 2)',
+		}]
+	}
+],
+[
+	'/api/get/date/goods/list',
+	{
+		'list|20': [{
+			'goodsImg': '@dataImage("100x70", "商品")',
+			'icon': '@natural(0, 2)',
+			'title': '@ctitle(5, 15)',
+			'price': '@natural(10, 2000)',
+			'freeCarr': '@boolean(1, 9, false)',
+			'diffPrice': '@natural(50, 2000)',
+			'redPacket': "@pick(['10', '20', '15', '30', '50', '66', '88', '100'])",
+			'packetNum': '@natural(50, 3000)'
+		}]
+	}
+],
+[
+	'/api/get/date/mall/ad',
+	{
+		'list|1': [{
+			'mallAd': '@image("400x200", "#DC143C", "#ffffff", "双十一疯狂降价")'
 		}]
 	}
 ]
