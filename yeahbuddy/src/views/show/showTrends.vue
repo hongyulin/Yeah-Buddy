@@ -1,13 +1,13 @@
 <template>
 	<div>
-		<seciton>
+		<section>
 			<header class="getMore">
 				他们刚刚在练
 				<img src="static/img/right.svg" alt="查看全部">
 			</header>
 			<!-- 这儿放一个横向的无滚条的list -->
-		</seciton>
-		<seciton>
+		</section>
+		<section>
 			<ul>
 				<li>
 					<router-link to="#">
@@ -59,10 +59,10 @@
 					</router-link>
 				</li>
 			</ul>
-		</seciton>
-		<seciton>
+		</section>
+		<section>
 
-		</seciton>
+		</section>
 	</div>
 </template>
 <script>

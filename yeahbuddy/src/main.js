@@ -19,16 +19,15 @@ if ('addEventListener' in document) {
 }*/
 //没有写完
 Vue.use(vueAwesomeSwiper)
-// Vue.use()
-
+Vue.use(commonFn)
 
 Vue.config.productionTip = false
 // 注册全局函数
-Vue.prototype.whichShowFn = function(name) {
-    this.whichShow = name;
+// Vue.prototype.whichShowFn = function(name) {
+    // this.whichShow = name;
     // 解决keep-alive中多组件记录同一个滚动位置问题
-    document.documentElement.scrollTop = 0;
-}
+    // document.documentElement.scrollTop = 0;
+// }
 /*router.beforeEach((to,from,next) => {
 	if (to.mached.length == 0) {
 		next('/mobile/404');

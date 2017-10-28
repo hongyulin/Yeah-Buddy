@@ -2,7 +2,7 @@
 	<div>
 		<section>
 			<swiper :options="swiperOption">
-				<swiper-slide v-for="slide in swiperSlides"><img :src="slide.swiperImg" alt="走马灯" style="width: 100vw"></swiper-slide>
+				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index"><img :src="slide.swiperImg" alt="走马灯" style="width: 100vw"></swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
 		</section>
@@ -31,7 +31,7 @@
 			</header>
 			<ul>
 				<li v-for="">
-					<seciton>
+					<section>
 						<img src="static/img/.svg" alt="">
 						<div>
 							<p></p>
@@ -47,7 +47,7 @@
 								</span>
 							</footer>
 						</div>
-					</seciton>
+					</section>
 				</li>
 			</ul>
 		</section>
@@ -58,7 +58,7 @@
 			</header>
 			<ul>
 				<li v-for="">
-					<seciton>
+					<section>
 						<img src="static/img/.svg" alt="">
 						<div>
 							<header></header>
@@ -71,7 +71,7 @@
 								{{}}正在参与
 							</footer>
 						</div>
-					</seciton>
+					</section>
 				</li>
 			</ul>
 		</section>

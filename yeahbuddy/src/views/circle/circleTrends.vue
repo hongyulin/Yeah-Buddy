@@ -19,12 +19,12 @@
 		<section>
 			<ul>
 				<li v-for="">
-					<seciton>
+					<section>
 						<router-link to="#">
 							<img src="static/img/.svg" alt="">
 						</router-link>
-					</seciton>
-					<seciton>
+					</section>
+					<section>
 						<router-link to="#">
 							<div>
 								<span>
@@ -35,17 +35,17 @@
 							</div>
 							<!-- 说的内容，也可以是回复的话题 -->
 							<p>{{}}说的内容</p>
-							<seciton>
+							<section>
 								<!-- 发表动态的图片，如果上面是回复的话，这儿放被回复者的内容 -->
 								<img src="static/img/.svg" alt="">
-							</seciton>
+							</section>
 						</router-link>
 						<div>
 							<span>{{}}标签</span>
 							<span><img src="static/img/heart.svg" alt="赞">{{}}</span>
 							<span><img src="static/img/comment.svg" alt="评论">{{}}</span>
 						</div>
-					</seciton>
+					</section>
 				</li>
 			</ul>
 		</section>

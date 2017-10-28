@@ -12,7 +12,7 @@
 		</section>
 		<section>
 			<swiper :options="swiperOption">
-				<swiper-slide v-for="item in tagList">{{item}}</swiper-slide>
+				<swiper-slide v-for="(item, index) in tagList" :key="index">{{item}}</swiper-slide>
 			</swiper>
 			|<img src="static/img/down.svg" alt="下拉按钮">
 			<!-- 横向可以拖拽，点击按钮形成一个下拉选项的list -->
@@ -22,7 +22,7 @@
 		</section>
 		<section>
 			<ul>
-				<li v-for="item in dataList">
+				<li v-for="(item, index) in dataList" :key="index">
 					<div>
 						<img :src="item.goodsImg" alt="商品">
 					</div>

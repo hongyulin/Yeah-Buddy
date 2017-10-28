@@ -2,7 +2,7 @@
 	<div>
 		<section>
 			<swiper :options="swiperOption">
-				<swiper-slide v-for="slide in swiperSlides"><img :src="slide.swiperImg" alt="走马灯" style="width: 100vw"></swiper-slide>
+				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index"><img :src="slide.swiperImg" alt="走马灯" style="width: 100vw"></swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
 		</section>
@@ -49,7 +49,7 @@
 				</router-link>
 			</header>
 			<ul>
-				<li v-for="item in dataList" class="classInfo">
+				<li v-for="(item, index) in dataList" class="classInfo" :key="index">
 					<div>
 						<img :src="item.classHeader" alt="课程推荐" >
 					</div>
