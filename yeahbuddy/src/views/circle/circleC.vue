@@ -1,4 +1,12 @@
 <template>
+
+
+<!-- 把这儿改成地图，放附近的圈子？？？？？？？？？？？？？
+？？？？？？？？？？？？？？？？？
+？？？？？？？？？？？？？？？？？？？？？？？？？？ -->
+
+
+
 	<div>
 		<section>
 			<swiper :options="swiperOption">
@@ -69,7 +77,7 @@
 			</header>
 			<ul>
 				<li v-for="">
-					<!-- 中间夹用户推荐，，， -->
+					<!-- 中间用户推荐去掉，放几页广告，， -->
 					<header>
 						<img src="static/img/.svg" alt="">
 						<div>
@@ -81,7 +89,8 @@
 								{{}}
 							</span>
 						</div>
-						<button>关注</button>
+						<!-- 不要放关注了，这部分都是已经关注了的人的动态 -->
+						<!-- <button>关注</button> -->
 					</header>
 					<div>
 						<p></p>

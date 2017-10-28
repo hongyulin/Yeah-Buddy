@@ -173,9 +173,9 @@ let data = [
 			'exerNum|+1': 1,
 			'recommHeader': '@dataImage("30x30", "头像")',
 			'recommNick': '@ctitle(3, 7)',
-			'recommTime': '@nature(1, 300)',
-			'recommfans': '@nature(100, 1000)',
-			'recommPicked': '@nature(3, 20)',
+			'recommTime': '@natural(1, 300)',
+			'recommfans': '@natural(100, 1000)',
+			'recommPicked': '@natural(3, 20)',
 			'recommImg_one': '@dataImage("40x40", "训练照")',
 			'recommImg_two': '@dataImage("40x40", "训练照")',
 			'recommImg_three': '@dataImage("40x40", "训练照")',
@@ -186,14 +186,14 @@ let data = [
 	'/api/get/show/recommend',
 	{
 		'list|30': [{
-			'header': '@dataImage("450x45", "头像")',
+			'header': '@dataImage("40x45", "头像")',
 			'nick': '@ctitle(3, 7)',
-			'time': '@nature(1, 300)',
+			'time': '@natural(1, 300)',
 			'pic': '@dataImage("300x300", "照片")',
 			'content': '@cparagraph',
-			'heart': '@nature(1, 300)',
-			'talk': '@nature(1, 100)',
-			'share': '@nature(1, 30)',
+			'heart': '@natural(1, 300)',
+			'talk': '@natural(1, 100)',
+			'share': '@natural(1, 30)',
 		}]
 	}
 ]
