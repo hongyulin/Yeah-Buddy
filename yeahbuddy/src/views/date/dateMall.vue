@@ -64,10 +64,7 @@
 				mallAd: [],
 				tagList: ["每日精选", "美妆个护", "就爱吃", "数码家电", "日用百货", "饰品", "图文", "鞋包", "运动车载", "女士精选"],
 				swiperOption: {
-					pagination: '.swiper-pagination',
 					slidesPerView: 3,
-					paginationClickable: true,
-					spaceBetween: 30,
 					freeMode: true
 				},
 			}

@@ -30,20 +30,21 @@
 				<img src="static/img/right.svg" alt="right">
 			</header>
 			<ul>
-				<li v-for="">
+				<li v-for="(item, index) in experienceAndtalk" :key="index">
 					<section>
-						<img src="static/img/.svg" alt="">
+						<img :src="item.experienceImg" alt="经验主题">
 						<div>
-							<p></p>
+							<header>{{item.expTitle}}</header>
+							<p>{{item.expContent}}</p>
 							<footer>
-								<img src="static/img/.svg" alt="">
+								<img :src="item.expHeader" alt="头像">
 								<span>
 									<img src="static/img/heart.svg" alt="赞">
-									{{}}
+									{{item.expHeart}}
 								</span>
 								<span>
 									<img src="static/img/comment.svg" alt="评论">
-									{{}}
+									{{item.expTalk}}
 								</span>
 							</footer>
 						</div>
@@ -57,18 +58,15 @@
 				<img src="static/img/right.svg" alt="right">
 			</header>
 			<ul>
-				<li v-for="">
+				<li v-for="(item, index) in experienceAndtalk" :key="index">
 					<section>
-						<img src="static/img/.svg" alt="">
+						<img :src="item.topicImg" alt="头像">
 						<div>
-							<header></header>
-							<p></p>
+							<header>#{{item.topTitle}}#</header>
+							<p>{{item.topContent}}</p>
 							<footer>
-								<img src="static/img/.svg" alt="">
-								<img src="static/img/.svg" alt="">
-								<img src="static/img/.svg" alt="">
-								<img src="static/img/.svg" alt="">
-								{{}}正在参与
+								<img :src="item.topHeader" alt="头像">
+								{{item.topIn}}正在参与
 							</footer>
 						</div>
 					</section>
@@ -79,20 +77,67 @@
 			<header>小八精选</header>
 			<ul>
 				<!-- 中间加一些推荐 -->
-				<li v-for="">
+				<!-- 6+插入三个广告+6+一个广告+剩下的 -->
+				<li v-for="(item, index) in picked.slice(0, 6)" :key="index">
 					<section>
 						<figure>
-							<img src="static/img/.svg" alt="">
-							<figcaption></figcaption>
+							<img :src="item.pickedImg" alt="pic">
+							<figcaption>{{item.pickedContent}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img src="static/img/.svg" alt="" class="">
-								{{}}
+								<img :src="item.pickedHeader">
+								{{item.pickedNick}}
 							</span>
 							<span>
 								<img src="static/img/heart.svg" alt="" class="赞">
-								{{}}
+								{{item.pickedHeart}}
+							</span>
+						</footer>
+					</section>
+				</li>
+				<li>
+					<img :src="videoList.dance" alt="性感爵士">
+				</li>
+				<li>
+					<img :src="videoList.topic" alt="热门话题">
+					<img :src="videoList.picked" alt="热门视频">
+				</li>
+				<li v-for="(item, index) in picked.slice(6, 12)" :key="index">
+					<section>
+						<figure>
+							<img :src="item.pickedImg" alt="pic">
+							<figcaption>{{item.pickedContent}}</figcaption>
+						</figure>
+						<footer>
+							<span>
+								<img :src="item.pickedHeader">
+								{{item.pickedNick}}
+							</span>
+							<span>
+								<img src="static/img/heart.svg" alt="" class="赞">
+								{{item.pickedHeart}}
+							</span>
+						</footer>
+					</section>
+				</li>
+				<li>
+					<img :src="videoList.video" alt="精选视频">
+				</li>
+				<li v-for="(item, index) in picked.slice(12)" :key="index">
+					<section>
+						<figure>
+							<img :src="item.pickedImg" alt="pic">
+							<figcaption>{{item.pickedContent}}</figcaption>
+						</figure>
+						<footer>
+							<span>
+								<img :src="item.pickedHeader">
+								{{item.pickedNick}}
+							</span>
+							<span>
+								<img src="static/img/heart.svg" alt="" class="赞">
+								{{item.pickedHeart}}
 							</span>
 						</footer>
 					</section>
@@ -108,7 +153,10 @@
 		name:'showBoutique',
 		data(){
 			return {
+				videoList: [],
 				swiperSlides: [],
+				experienceAndtalk: [],
+				picked: [],
 				swiperOption: {
 					pagination: '.swiper-pagination',
 					paginationClickable: true,
@@ -137,10 +185,25 @@
 		},
 		methods:{
 			getDataList() {
-				api.getShowAd()
+				let data = {
+
+				}
+				api.getShowAd(data)
 					.then( res => {
 						this.swiperSlides = res.list
-						
+					})
+				api.getShowExper(data)
+					.then( res => {
+						this.experienceAndtalk = res.list
+					})
+				api.getShowPicked(data)
+					.then( res => {
+						this.picked = res.list
+					})
+				api.getShowVideo(data)
+					.then( res => {
+						console.log('1',res)
+						this.videoList = res.list
 					})
 			},
 		}

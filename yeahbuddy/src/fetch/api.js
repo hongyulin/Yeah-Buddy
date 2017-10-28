@@ -74,6 +74,23 @@ export default {
     getMallAd(params) {
         return fetch('/api/get/date/mall/ad', params)
     },
+    getShowExper(params) {
+        return fetch('/api/get/show/experience', params)
+    },
+    getShowPicked(params) {
+        return fetch('/api/get/show/picked', params)
+    },
+    getShowVideo(params) {
+        return fetch('/api/get/show/video', params)
+    },
+    getShowSwiper(params) {
+        return fetch('/api/get/show/swiper', params)
+    },
+    getShowRecommend(params) {
+        return fetch('/api/get/show/recommend', params)
+    },
+    
+    
     /*getAge(params) {
         return fetch('/api/get/Age', params)
     },*/

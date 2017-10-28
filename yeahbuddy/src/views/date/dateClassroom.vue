@@ -2,7 +2,7 @@
 	<div>
 		<section>
 			<swiper :options="swiperOption">
-				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index"><img :src="slide.swiperImg" alt="走马灯" style="width: 100vw"></swiper-slide>
+				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index"><img :src="slide.swiperImg" alt="走马灯"></swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
 		</section>
@@ -38,8 +38,8 @@
 					<img src="static/img/right.svg" alt="查看全部">
 				</router-link>
 			</header>
-			<img :src="exerciseData.img_one" alt="局部塑形">
-			<img :src="exerciseData.img_two" alt="自我挑战">
+			<img :src="exerciseData.img_one" alt="局部塑形" class="widthVw">
+			<img :src="exerciseData.img_two" alt="自我挑战" class="widthVw">
 		</section>
 		<section>
 			<header class="getMore">

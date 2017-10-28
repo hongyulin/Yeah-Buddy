@@ -55,7 +55,7 @@ let data = [
 	'/api/get/show/adimg',
 	{
 		'list|5': [{
-			'swiperImg': '@dataImage("400x200", "健身减肥啦！啊啊")',
+			'swiperImg': '@dataImage("400x200", "核心营,火热招募中")',
 		}]
 	}
 ],
@@ -82,8 +82,8 @@ let data = [
 	'/api/get/date/exercise',
 	{
 		'list|1': [{
-			'img_one': '@image("400x150", "#ffcc33", "14天局部塑形")',
-			'img_two': '@image("400x150", "#ffcc33", "极速减脂营-自我挑战版")'
+			'img_one': '@image("400x200", "#ffcc33", "14天局部塑形")',
+			'img_two': '@image("400x200", "#ffcc33", "极速减脂营-自我挑战版")'
 		}]
 	}
 ],
@@ -119,6 +119,81 @@ let data = [
 	{
 		'list|1': [{
 			'mallAd': '@image("400x200", "#DC143C", "#ffffff", "双十一疯狂降价")'
+		}]
+	}
+],
+[
+	'/api/get/show/experience',
+	{
+		'list|2': [{
+			'experienceImg': '@dataImage("100x70", "经验分享")',
+			'expTitle': '@ctitle(5, 15)',
+			'expContent': '@cparagraph(5, 8)',
+			'expHeader': '@dataImage("35x35", "头像")',
+			'expHeart': '@natural(50, 200)',
+			'expTalk': '@natural(50, 200)',
+			'topicImg': '@dataImage("100x70", "热门话题")',
+			'topTitle': '@ctitle(5, 15)',
+			'topContent': '@cparagraph(5, 8)',
+			'topHeader': '@dataImage("35x35", "头像")',
+			'topIn': '@natural(100, 2000)',
+		}]
+	}
+],
+[
+	'/api/get/show/picked',
+	{
+		'list|30': [{
+			'pickedImg': '@dataImage("100x100", "小八精选")',
+			'pickedContent': '@cparagraph(5, 8)',
+			'pickedHeader': '@dataImage("35x35", "头像")',
+			'pickedNick': '@ctitle(3, 7)',
+			'pickedHeart': '@natural(100, 2000)',
+		}]
+	}
+],
+[
+	'/api/get/show/video',
+	{
+		'list|1': [{
+			'dance': '@dataImage("400x150", "性感爵士")',
+			'topic': '@dataImage("100x70", "热门话题")',
+			'picked': '@dataImage("100x70", "热门视频")',
+			'video': '@dataImage("400x150", "精选视频")',
+		}]
+	}
+],
+[
+	'/api/get/show/swiper',
+	{
+		'list|10': [{
+			'exerImg': '@dataImage("100x100", "运动自拍")',
+			'exerHeader': '@dataImage("30x30", "头像")',
+			'exerNick': '@ctitle(3, 7)',
+			'exerNum|+1': 1,
+			'recommHeader': '@dataImage("30x30", "头像")',
+			'recommNick': '@ctitle(3, 7)',
+			'recommTime': '@nature(1, 300)',
+			'recommfans': '@nature(100, 1000)',
+			'recommPicked': '@nature(3, 20)',
+			'recommImg_one': '@dataImage("40x40", "训练照")',
+			'recommImg_two': '@dataImage("40x40", "训练照")',
+			'recommImg_three': '@dataImage("40x40", "训练照")',
+		}]
+	}
+],
+[
+	'/api/get/show/recommend',
+	{
+		'list|30': [{
+			'header': '@dataImage("450x45", "头像")',
+			'nick': '@ctitle(3, 7)',
+			'time': '@nature(1, 300)',
+			'pic': '@dataImage("300x300", "照片")',
+			'content': '@cparagraph',
+			'heart': '@nature(1, 300)',
+			'talk': '@nature(1, 100)',
+			'share': '@nature(1, 30)',
 		}]
 	}
 ]
