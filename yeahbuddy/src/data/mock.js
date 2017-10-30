@@ -64,6 +64,7 @@ let data = [
 	{
 		'list|3': [{
 			'swiperImg': '@dataImage("400x200", "挑战赛")',
+			'adImg': '@dataImage("400x200", "公益广告——关注残疾人")'
 		}],
 		
 	}
@@ -190,10 +191,58 @@ let data = [
 			'nick': '@ctitle(3, 7)',
 			'time': '@natural(1, 300)',
 			'pic': '@dataImage("300x300", "照片")',
-			'content': '@cparagraph',
+			'content': '@cparagraph(2, 4)',
 			'heart': '@natural(1, 300)',
 			'talk': '@natural(1, 100)',
 			'share': '@natural(1, 30)',
+		}]
+	}
+],
+[
+	'/api/get/circle/hot',
+	{
+		'list|30': [{
+			// 'header': '@dataImage("40x45", "头像")',
+			// 'nick': '@ctitle(3, 7)',
+			// 'sex|1': ['♂', '♀'],
+			// 'level': '@natural(1, 30)',
+			'content': '@cparagraph(2, 4)',
+			'pic_1': '@dataImage("40x45", "话题照")',
+			'pic_2': '@dataImage("40x45", "话题照")',
+			'pic_3': '@dataImage("40x45", "话题照")',
+			'location': '@county(true)',
+			'cheader': '@dataImage("20x20", "头像")',
+			'cname|1': ['生活休闲圈', '张江跑步圈', '上海暴走圈', '浦东羽毛球圈'],
+			'heart': '@natural(200, 5000)',
+			'comment': '@natural(200, 3000)',
+		}]
+	}
+],
+[
+	'/api/get/circle/follow',
+	{
+		'list|30': [{
+			'header': '@dataImage("40x45", "头像")',
+			'hostNum': '@natural(1, 30)',
+			'oriNum': '@natural(1, 30)',
+			'followState': false,
+		}]
+	}
+],
+[
+	'/api/get/circle/friends',
+	{
+		'list|30': [{
+			'header': '@dataImage("40x45", "头像")',
+			'nick': '@ctitle(3, 7)',
+			'hours': '@natural(1, 23)',
+			'content': '@cparagraph(2, 4)',
+			'pic_1': '@dataImage("40x45", "话题照")',
+			'pic_2': '@dataImage("40x45", "话题照")',
+			'pic_3': '@dataImage("40x45", "话题照")',
+			'label|1': ['健身圈','跑步圈','游泳圈','乒乓球圈','暴走圈'],
+			'heart': '@natural(1, 30)',
+			'comment': '@natural(1, 30)',
 		}]
 	}
 ]

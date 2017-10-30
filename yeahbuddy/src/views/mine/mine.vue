@@ -23,7 +23,7 @@
 		<section>
 			<section>
 				<span>总运动{{}}分钟</span>
-				<span>{{}}加入keep</span>
+				<span>{{}}加入小八</span>
 			</section>
 			<section>
 				<gifure>

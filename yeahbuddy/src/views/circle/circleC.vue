@@ -1,26 +1,17 @@
 <template>
-
-
-<!-- 把这儿改成地图，放附近的圈子？？？？？？？？？？？？？
-？？？？？？？？？？？？？？？？？
-？？？？？？？？？？？？？？？？？？？？？？？？？？ -->
-
-
-
 	<div>
 		<section>
 			<swiper :options="swiperOption">
-				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index"><img :src="slide.swiperImg" alt="走马灯" style="width: 100vw"></swiper-slide>
+				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
+					<img :src="slide.swiperImg" alt="走马灯" style="width: 100vw">
+				</swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
 		</section>
 		<section>
 			<header class="getMore">
 				<span>我的圈子</span>
-				<!-- <span> -->
-					<!-- 查看全部 -->
 					<img src="static/img/right.svg" alt="查看全部">
-				<!-- </span> -->
 			</header>
 			<section class="nav circles">
 				<figure>
@@ -44,10 +35,7 @@
 		<section>
 			<header class="getMore">
 				<span>圈子活动</span>
-				<!-- <span>
-					查看全部 -->
 					<img src="static/img/right.svg" alt="查看全部">
-				<!-- </span> -->
 			</header>
 		</section>
 		<section>
@@ -69,50 +57,134 @@
 		</section>
 		<section>
 			<header class="getMore">
-				<span>热门话题</span>
-				<!-- <span>
-					查看全部 -->
+				<span>附近圈子</span>
 					<img src="static/img/right.svg" alt="查看全部">
-				<!-- </span> -->
 			</header>
 			<ul>
-				<li v-for="">
-					<!-- 中间用户推荐去掉，放几页广告，， -->
-					<header>
-						<img src="static/img/.svg" alt="">
+				<li v-for="(item, index) in hotList.slice(0, 2)" :key="index">
+				<!-- 重点是圈子，弱化个人的信息 -->
+					<!-- <header>
+						<img :src="item.header" alt="头像">
 						<div>
 							<span>
-								{{}}
-								<img src="static/img/.svg" alt="">
+								{{item.nick}}
 							</span>
+							<span>
+								{{item.sex}}
+							</span>
+							<br>
 							<span class="">
-								{{}}
+								LV{{item.level}}
 							</span>
 						</div>
-						<!-- 不要放关注了，这部分都是已经关注了的人的动态 -->
-						<!-- <button>关注</button> -->
-					</header>
+					</header> -->
 					<div>
-						<p></p>
 						<div>
-							<img src="static/img/.svg" alt="">
-							<img src="static/img/.svg" alt="">
-							<img src="static/img/.svg" alt="">
+							<img :src="item.pic_1" alt="">
+							<img :src="item.pic_2" alt="">
+							<img :src="item.pic_3" alt="">
 						</div>
-						<span class="pisition">{{}}</span>
+						<p>{{item.content}}</p>
+						<span class="pisition">{{item.location}}</span>
 					</div>
 					<footer>
 						<span>
-							<img src="" alt="">
-							{{}}
+							<img :src="item.cheader" alt="头像">
+							<span>
+								{{item.cname}}
+								<br>
+								感兴趣的圈子	
+							</span>
+							
+						</span>
+						<div>
+							<span>
+								<img src="static/img/comment.svg" alt="评论">
+								{{item.comment}}
+							</span>
+							<button @click="applyState = true">{{applyState ?  '已申请' : '申请加入'}}</button>
+						</div>
+					</footer>
+				</li>
+				<li><img :src="swiperSlides[0].adImg" alt="公益广告"></li>
+				<li v-for="(item, index) in hotList.slice(2, 6)" :key="index">
+					<header>
+						<img :src="item.header" alt="头像">
+						<div>
+							<span>
+								{{item.nick}}
+							</span>
+							<span>
+								{{item.sex}}
+							</span>
+							<br>
+							<span class="">
+								LV{{item.levle}}
+							</span>
+						</div>
+					</header>
+					<div>
+						<p>{{item.content}}</p>
+						<div>
+							<img :src="item.pic_1" alt="">
+							<img :src="item.pic_2" alt="">
+							<img :src="item.pic_3" alt="">
+						</div>
+						<span class="pisition">{{item.location}}</span>
+					</div>
+					<footer>
+						<span>
+							<img :src="item.cheader" alt="">
+							{{item.cname}}
 						</span>
 						<span>
-							<img src="" alt="">
-							{{}}
+							<img src="static/img/heart.svg" alt="赞">
+							{{item.heart}}
 						</span>
 						<span>
-							<img src="" alt="">
-							{{}}
+							<img src="static/img/comment.svg" alt="评论">
+							{{item.comment}}
+						</span>
+					</footer>
+				</li>
+				<li><img :src="swiperSlides[1].adImg" alt="公益广告"></li>
+				<li v-for="(item, index) in hotList.slice(6)" :key="index">
+					<header>
+						<img :src="item.header" alt="头像">
+						<div>
+							<span>
+								{{item.nick}}
+							</span>
+							<span>
+								{{item.sex}}
+							</span>
+							<br>
+							<span class="">
+								LV{{item.levle}}
+							</span>
+						</div>
+					</header>
+					<div>
+						<p>{{item.content}}</p>
+						<div>
+							<img :src="item.pic_1" alt="">
+							<img :src="item.pic_2" alt="">
+							<img :src="item.pic_3" alt="">
+						</div>
+						<span class="pisition">{{item.location}}</span>
+					</div>
+					<footer>
+						<span>
+							<img :src="item.cheader" alt="">
+							{{item.cname}}
+						</span>
+						<span>
+							<img src="static/img/heart.svg" alt="赞">
+							{{item.heart}}
+						</span>
+						<span>
+							<img src="static/img/comment.svg" alt="评论">
+							{{item.comment}}
 						</span>
 					</footer>
 				</li>
@@ -127,8 +199,18 @@
 		name:'circleC',
 		data(){
 			return {
+				applyState: false,
 				circleDate: [],
-				swiperSlides: [],
+				swiperSlides: [
+					{
+						adImg: '',
+						swiperImg: '',
+					},{
+						adImg: '',
+						swiperImg: '',
+					}
+				],
+				hotList: [],
 				swiperOption: {
 					pagination: '.swiper-pagination',
 					paginationClickable: true,
@@ -163,10 +245,15 @@
 				api.getCircleAd(data)
 					.then( res => {
 						this.swiperSlides = res.list;
+						console.log(this.swiperSlides)
 					})
 				api.getCircleC(data)
 					.then( res => {
 						this.circleDate = res.list;
+					})
+				api.getHotList(data)
+					.then( res => {
+						this.hotList = res.list
 					})
 			},
 		}

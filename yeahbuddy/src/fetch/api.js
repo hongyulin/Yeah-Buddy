@@ -89,6 +89,15 @@ export default {
     getShowRecommend(params) {
         return fetch('/api/get/show/recommend', params)
     },
+    getHotList(params) {
+        return fetch('/api/get/circle/hot', params)
+    },
+    getCTFollow(params) {
+        return fetch('/api/get/circle/follow', params)
+    },
+    getCTFriend(params) {
+        return fetch('/api/get/circle/friends', params)
+    },
     
     
     /*getAge(params) {

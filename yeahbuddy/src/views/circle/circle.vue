@@ -8,8 +8,8 @@
 		</section>
 		
 		<section class="tabs">
-			<span :class="{activeShow: whichShow == 'circle'}" @click="whichShow = 'circle'">附近有哪些运动圈</span>
-			<span :class="{activeShow: whichShow == 'content'}" @click="whichShow = 'content'">动态中内容</span>
+			<span :class="{activeShow: whichShow == 'circle'}" @click="whichShowFn('circle')">附近有哪些运动圈</span>
+			<span :class="{activeShow: whichShow == 'content'}" @click="whichShowFn('content')">动态中内容</span>
 		</section>
 		<transition name="fade">
 			<section v-show="whichShow == 'circle'">

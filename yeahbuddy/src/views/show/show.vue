@@ -9,8 +9,8 @@
 			<img src="static/img/search.svg" alt="search">
 		</section>
 		<section class="tabs">
-			<span :class="{activeShow: whichShow == 'picture'}" @click=" whichShow = 'picture'">精选的图片</span>
-			<span :class="{activeShow: whichShow == 'content'}" @click=" whichShow = 'content'">动态中内容</span>
+			<span :class="{activeShow: whichShow == 'picture'}" @click=" whichShowFn('picture')">精选的图片</span>
+			<span :class="{activeShow: whichShow == 'content'}" @click=" whichShowFn('content')">动态中内容</span>
 		</section>
 		<transition name="fade">
 			<section v-show="whichShow == 'picture'">
