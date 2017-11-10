@@ -8,13 +8,16 @@
 				<!-- 滚动后搜索框固定在顶部 -->
 				<input type="text"/>
 			</router-link>
-			<img :src="mallAd.mallAd" alt="广告"> 
+			<img :src="mallAd.mallAd" alt="广告" class="widthVw"> 
 		</section>
-		<section>
+		<section class="mallSwiper">
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(item, index) in tagList" :key="index">{{item}}</swiper-slide>
 			</swiper>
-			|<img src="static/img/down.svg" alt="下拉按钮">
+			<span class="mallGetMore">
+				|&nbsp;<img src="static/img/down.svg" alt="下拉按钮">&nbsp;
+			</span>
+			
 			<!-- 横向可以拖拽，点击按钮形成一个下拉选项的list -->
 			<!-- 点击按钮的时候改变url并watch异步加载，使得无论后退还是点击时，
 			横向list中和下拉中以及下面的列表中都是同一个状态 -->
@@ -99,3 +102,22 @@
 		}
 	}
 </script>
+<style lang="scss" scoped>
+	.mallSwiper {
+		display: relative;
+	}
+	// 查看更多部分的下拉按钮
+	.mallGetMore {
+		position: relative;
+		float: right;
+		z-index:2;
+		top: -20px;
+		background-color: rgba(255,255,255,1);
+		img {
+			vertical-align: middle;
+			margin: {
+				top:1px;
+			};
+		}
+	}
+</style>
