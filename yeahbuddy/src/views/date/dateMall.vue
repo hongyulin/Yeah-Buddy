@@ -25,32 +25,41 @@
 		</section>
 		<section>
 			<ul>
-				<li v-for="(item, index) in dataList" :key="index">
+				<li v-for="(item, index) in dataList" :key="index" class="goodList widthVw">
 					<div>
 						<img :src="item.goodsImg" alt="商品">
 					</div>
 					<div>
 						<header>
-							<span v-show="item.icon == 0">天猫</span>
-							<span v-show="item.icon == 1">淘</span>
-							<span v-show="item.icon == 2">上新</span>
-							<span>{{item.title}}</span>
+							<span v-show="item.icon == 0" class="icon">天猫</span>
+							<span v-show="item.icon == 1" class="icon">淘</span>
+							<span v-show="item.icon == 2" class="icon">上新</span>
+							<span class="goodTitle">{{item.title}}</span>
 						</header>
-						<span>
-							￥{{item.price}}
+						<span class="goodPrice">
+							￥
+							<span>
+								{{item.price}}
+							</span>
 							<span v-show="item.freeCarr">包邮</span>
 						</span>
-						<span>
+						<br>
+						<span class="originPrice">
 							原价:
 							<del>{{item.price + item.diffPrice}}</del>
 						</span>
 					</div>
 					<div>
-						<div>
-							<span>￥{{item.redPacket}}</span>
+						<div class="redPackket">
+							<span>￥
+								<big>{{item.redPacket}}</big>
+								</span>
+							<br>
 							<span>拆红包</span>
 						</div>
-						<span>已抢{{item.packetNum}}件</span>
+						<span>
+							<small>已抢{{item.packetNum}}件</small>
+							</span>
 					</div>
 				</li>
 			</ul>
@@ -110,7 +119,7 @@
 	.mallGetMore {
 		position: relative;
 		float: right;
-		z-index:2;
+		z-index:4;
 		top: -20px;
 		background-color: rgba(255,255,255,1);
 		img {
@@ -120,4 +129,42 @@
 			};
 		}
 	}
+	.goodList{
+
+		display: flex;
+		justify-content: space-between;
+		header {
+			width:40vw;
+		}
+		.icon {
+			background-color:red;
+			color:white;
+		}
+		.goodTitle {
+			font-size:18px;
+		}
+		.goodPrice {
+			color: red;
+			span {
+				&:nth-child(1) {
+					font-size: 20px;
+					color:red;
+				}
+				&:nth-child(2) {
+					font-size: 12px;
+					border: 1px solid red;
+					color:red;
+				}
+				
+			}
+		}
+		.originPrice {
+			color: gray;
+		}
+		.redPackket {
+			background-color: red;
+			color: white;
+		}
+	}
+	
 </style>

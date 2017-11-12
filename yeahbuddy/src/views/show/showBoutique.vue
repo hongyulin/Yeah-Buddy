@@ -31,7 +31,7 @@
 			</header>
 			<ul>
 				<li v-for="(item, index) in experienceAndtalk" :key="index">
-					<section>
+					<section class="experience">
 						<img :src="item.experienceImg" alt="经验主题">
 						<div>
 							<header>{{item.expTitle}}</header>
@@ -209,3 +209,9 @@
 		}
 	}
 </script>
+<style lang="scss" scoped>
+.experience{
+	display: flex;
+	// flex-direction: row;
+}
+</style>

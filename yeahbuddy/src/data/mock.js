@@ -104,7 +104,7 @@ let data = [
 	'/api/get/date/goods/list',
 	{
 		'list|20': [{
-			'goodsImg': '@dataImage("100x70", "商品")',
+			'goodsImg': '@dataImage("120x100", "商品")',
 			'icon': '@natural(0, 2)',
 			'title': '@ctitle(5, 15)',
 			'price': '@natural(10, 2000)',
