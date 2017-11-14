@@ -17,10 +17,9 @@
 			<span class="mallGetMore">
 				|&nbsp;<img src="static/img/down.svg" alt="下拉按钮">&nbsp;
 			</span>
-			
-			<!-- 横向可以拖拽，点击按钮形成一个下拉选项的list -->
 			<!-- 点击按钮的时候改变url并watch异步加载，使得无论后退还是点击时，
 			横向list中和下拉中以及下面的列表中都是同一个状态 -->
+			
 			<!-- 隐藏，滚动后出现，综合排序（综合排序，价格从低到高，价格从高到底）|销量优先 -->
 		</section>
 		<section>
@@ -55,7 +54,7 @@
 								<big>{{item.redPacket}}</big>
 								</span>
 							<br>
-							<span>拆红包</span>
+							<span><small>拆红包</small></span>
 						</div>
 						<span>
 							<small>已抢{{item.packetNum}}件</small>
@@ -162,8 +161,17 @@
 			color: gray;
 		}
 		.redPackket {
+			width: 20vw;
+			text-align: center;
+			padding: 10px ;
 			background-color: red;
-			color: white;
+			span {
+				color: white;
+				&:nth-of-type(2){
+					padding: 2px;
+					border: white dashed 1px;
+				}
+			}
 		}
 	}
 	
