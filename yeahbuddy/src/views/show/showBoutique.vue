@@ -24,7 +24,7 @@
 				<figcaption>挑战活动</figcaption>
 			</figure>
 		</section>
-		<section>
+		<section class="spare_experience">
 			<header class="getMore">
 				<span>经验分享</span>
 				<img src="static/img/right.svg" alt="right">
@@ -33,11 +33,11 @@
 				<li v-for="(item, index) in experienceAndtalk" :key="index">
 					<section class="experience">
 						<img :src="item.experienceImg" alt="经验主题">
-						<div>
+						<div class="content">
 							<header>{{item.expTitle}}</header>
 							<p>{{item.expContent}}</p>
 							<footer>
-								<img :src="item.expHeader" alt="头像">
+								<img :src="item.expHeader" alt="头像" class="header">
 								<span>
 									<img src="static/img/heart.svg" alt="赞">
 									{{item.expHeart}}
@@ -52,20 +52,20 @@
 				</li>
 			</ul>
 		</section>
-		<section>
+		<section class="hot_topic">
 			<header class="getMore">
 				<span>热门话题</span>
 				<img src="static/img/right.svg" alt="right">
 			</header>
 			<ul>
 				<li v-for="(item, index) in experienceAndtalk" :key="index">
-					<section>
+					<section class="hot_topic_content">
 						<img :src="item.topicImg" alt="头像">
-						<div>
+						<div class="content">
 							<header>#{{item.topTitle}}#</header>
 							<p>{{item.topContent}}</p>
 							<footer>
-								<img :src="item.topHeader" alt="头像">
+								<img :src="item.topHeader" alt="头像"  class="header">
 								{{item.topIn}}正在参与
 							</footer>
 						</div>
@@ -75,18 +75,17 @@
 		</section>
 		<section>
 			<header>小八精选</header>
-			<ul>
-				<!-- 中间加一些推荐 -->
+			<ul class="selected_ul">
 				<!-- 6+插入三个广告+6+一个广告+剩下的 -->
 				<li v-for="(item, index) in picked.slice(0, 6)" :key="index">
-					<section>
+					<section class="selected">
 						<figure>
-							<img :src="item.pickedImg" alt="pic">
-							<figcaption>{{item.pickedContent}}</figcaption>
+							<img :src="item.pickedImg" alt="pic" class="hot_pic">
+							<figcaption class="selected_des">{{item.pickedContent}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.pickedHeader">
+								<img :src="item.pickedHeader" class="header">
 								{{item.pickedNick}}
 							</span>
 							<span>
@@ -96,22 +95,24 @@
 						</footer>
 					</section>
 				</li>
+				<!-- 中间加的推荐 -->
 				<li>
 					<img :src="videoList.dance" alt="性感爵士">
 				</li>
 				<li>
-					<img :src="videoList.topic" alt="热门话题">
-					<img :src="videoList.picked" alt="热门视频">
+					<img :src="videoList.topic" alt="热门话题" class="hot_topic_video">
+					<img :src="videoList.picked" alt="热门视频" class="hot_topic_video">
 				</li>
+
 				<li v-for="(item, index) in picked.slice(6, 12)" :key="index">
-					<section>
+					<section class="selected">
 						<figure>
-							<img :src="item.pickedImg" alt="pic">
-							<figcaption>{{item.pickedContent}}</figcaption>
+							<img :src="item.pickedImg" alt="pic" class="hot_pic">
+							<figcaption class="selected_des">{{item.pickedContent}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.pickedHeader">
+								<img :src="item.pickedHeader" class="header">
 								{{item.pickedNick}}
 							</span>
 							<span>
@@ -121,23 +122,24 @@
 						</footer>
 					</section>
 				</li>
+				<!-- 中间夹的东西 -->
 				<li>
 					<img :src="videoList.video" alt="精选视频">
 				</li>
 				<li v-for="(item, index) in picked.slice(12)" :key="index">
-					<section>
+					<section class="selected">
 						<figure>
-							<img :src="item.pickedImg" alt="pic">
-							<figcaption>{{item.pickedContent}}</figcaption>
+							<img :src="item.pickedImg" alt="pic" class="hot_pic">
+							<figcaption class="selected_des">{{item.pickedContent}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.pickedHeader">
-								{{item.pickedNick}}
+								<img :src="item.pickedHeader" class="header">
+								<p>{{item.pickedNick}}</p>
 							</span>
 							<span>
 								<img src="static/img/heart.svg" alt="" class="赞">
-								{{item.pickedHeart}}
+								<p>{{item.pickedHeart}}</p>
 							</span>
 						</footer>
 					</section>
@@ -210,8 +212,81 @@
 	}
 </script>
 <style lang="scss" scoped>
+.spare_experience {
+	border:{
+		top: 10px solid #ccc;
+		bottom: 10px solid #ccc;
+	}
+}
 .experience{
 	display: flex;
-	// flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #ccc;
+	header {
+		font-size: 20px;
+		font-weight:530;
+	}
+	p {
+		font-size: 13px;
+		margin: 5px auto;
+		display:-webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	.content {
+		width: 70vw;
+		margin: 10px;
+	}
+
+}
+.header {
+	border-radius: 50%;
+}
+.hot_topic {
+	border: {
+		bottom: 10px solid #ccc;
+	}
+	.hot_topic_content {
+		@extend .experience;
+	}
+}
+.selected {
+	text-align: center;
+	width: 46vw;
+	.hot_pic {
+		width: 45vw;
+	}
+	footer {
+		display: flex;
+		span{
+			height: 29px;
+			display: flex;
+			align-items: center;
+			// text-align: center;
+			font-size: 14px;
+		}
+	}
+	margin: {
+		top: 10px;
+	}
+	.selected_des {
+		font-size: 13px;
+		margin: 5px auto;
+		display:-webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		// width: 40vw;
+	}
+}
+.selected_ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.hot_topic_video {
+	width: 46vw;
 }
 </style>

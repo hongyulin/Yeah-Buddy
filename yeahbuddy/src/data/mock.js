@@ -127,13 +127,13 @@ let data = [
 	'/api/get/show/experience',
 	{
 		'list|2': [{
-			'experienceImg': '@dataImage("100x70", "经验分享")',
+			'experienceImg': '@dataImage("100x80", "经验分享")',
 			'expTitle': '@ctitle(5, 15)',
 			'expContent': '@cparagraph(5, 8)',
 			'expHeader': '@dataImage("35x35", "头像")',
 			'expHeart': '@natural(50, 200)',
 			'expTalk': '@natural(50, 200)',
-			'topicImg': '@dataImage("100x70", "热门话题")',
+			'topicImg': '@dataImage("100x80", "热门话题")',
 			'topTitle': '@ctitle(5, 15)',
 			'topContent': '@cparagraph(5, 8)',
 			'topHeader': '@dataImage("35x35", "头像")',
@@ -145,10 +145,10 @@ let data = [
 	'/api/get/show/picked',
 	{
 		'list|30': [{
-			'pickedImg': '@dataImage("100x100", "小八精选")',
-			'pickedContent': '@cparagraph(5, 8)',
-			'pickedHeader': '@dataImage("35x35", "头像")',
-			'pickedNick': '@ctitle(3, 7)',
+			'pickedImg': '@dataImage("130x100", "小八精选")',
+			'pickedContent': '@cparagraph(3, 4)',
+			'pickedHeader': '@dataImage("25x25", "头像")',
+			'pickedNick': '@ctitle(3, 5)',
 			'pickedHeart': '@natural(100, 2000)',
 		}]
 	}
@@ -158,8 +158,8 @@ let data = [
 	{
 		'list|1': [{
 			'dance': '@dataImage("400x150", "性感爵士")',
-			'topic': '@dataImage("100x70", "热门话题")',
-			'picked': '@dataImage("100x70", "热门视频")',
+			'topic': '@dataImage("150x70", "热门话题")',
+			'picked': '@dataImage("150x70", "热门视频")',
 			'video': '@dataImage("400x150", "精选视频")',
 		}]
 	}
