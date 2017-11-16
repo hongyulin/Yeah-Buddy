@@ -40,7 +40,7 @@
 			<ul>
 				<li v-for="item in dataList" class="nearContent" :key="item.id">
 					<section>
-						<img :src="item.img" alt="头像">
+						<img :src="item.img" alt="头像" class="header_pic">
 					</section>
 					<section class="perInfo">
 						<header>{{item.nickName}}</header>
@@ -128,7 +128,6 @@
 		bottom: 1px solid #f2f2f2;
 	}
 	img {
-		border-radius: 50%;
 		margin-right: 3vw;
 	}
 	span {

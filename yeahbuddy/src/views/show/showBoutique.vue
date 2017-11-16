@@ -2,7 +2,9 @@
 	<div>
 		<section>
 			<swiper :options="swiperOption">
-				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index"><img :src="slide.swiperImg" alt="走马灯" style="width: 100vw"></swiper-slide>
+				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
+					<img :src="slide.swiperImg" alt="走马灯" style="width: 100vw">
+				</swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
 		</section>
@@ -37,7 +39,7 @@
 							<header>{{item.expTitle}}</header>
 							<p>{{item.expContent}}</p>
 							<footer>
-								<img :src="item.expHeader" alt="头像" class="header">
+								<img :src="item.expHeader" alt="头像" class="header_pic">
 								<span>
 									<img src="static/img/heart.svg" alt="赞">
 									{{item.expHeart}}
@@ -85,7 +87,7 @@
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.pickedHeader" class="header">
+								<img :src="item.pickedHeader" class="header_pic">
 								{{item.pickedNick}}
 							</span>
 							<span>
@@ -112,7 +114,7 @@
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.pickedHeader" class="header">
+								<img :src="item.pickedHeader" class="header_pic">
 								{{item.pickedNick}}
 							</span>
 							<span>
@@ -134,11 +136,11 @@
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.pickedHeader" class="header">
+								<img :src="item.pickedHeader" class="header_pic">
 								<p>{{item.pickedNick}}</p>
 							</span>
 							<span>
-								<img src="static/img/heart.svg" alt="" class="赞">
+								<img src="static/img/heart.svg" alt="赞" >
 								<p>{{item.pickedHeart}}</p>
 							</span>
 						</footer>
@@ -240,9 +242,6 @@
 		margin: 10px;
 	}
 
-}
-.header {
-	border-radius: 50%;
 }
 .hot_topic {
 	border: {

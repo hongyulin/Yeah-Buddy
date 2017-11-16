@@ -7,12 +7,13 @@
 			</header>
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(item, index) in swiperList" :key="index">
-					<section>
+					<section class="show_swiper">
 						<img :src="item.exerImg" alt="健身照片">
-						<div>
-							<img :src="item.exerHeader" alt="头像">
+						<div clss="show_swiper_detail">
+							<img :src="item.exerHeader" alt="头像" class="header_pic">
 							<section>
 								<span>{{item.exerNick}}</span>
+								<br>
 								<!-- 大于五分钟显示几分钟前，否则显示'刚刚’,还要按照顺序 -->
 								<span>{{item.exerNum}}分钟前</span>
 							</section>
@@ -199,3 +200,12 @@
 		}
 	}
 </script>
+<style lang="scss" scoped>
+// .show_swiper {
+	// width: 40vw;
+	.show_swiper_detail {
+		display: flex;
+		flex-direction: row;
+	}
+// }
+</style>
