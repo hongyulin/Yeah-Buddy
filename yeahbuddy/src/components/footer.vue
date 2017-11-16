@@ -1,16 +1,16 @@
 <template>
 	<div class="pageTabbar">
-		<section @click="goTo('/home/show')">
+		<section @click="goTo('/home/show/boutique')">
 			<img v-show="$route.path.indexOf('show') !== -1" src="static/img/show.svg" alt="show">
 			<img v-show="$route.path.indexOf('show') == -1" src="static/img/show_.svg" alt="show">
 			<span :class="$route.path.indexOf('show') !== -1 ? 'setColor' : ''">秀</span>
 		</section>
-		<section @click="goTo('/home/date')">
+		<section @click="goTo('/home/date/mall')">
 			<img v-show="$route.path.indexOf('date') !== -1" src="static/img/date.svg" alt="date">
 			<img v-show="$route.path.indexOf('date') == -1" src="static/img/date_.svg" alt="date">
 			<span :class="$route.path.indexOf('date') !== -1 ? 'setColor' : ''">约</span>
 		</section>
-		<section @click="goTo('/home/circle')">
+		<section @click="goTo('/home/circle/circle')">
 			<img v-show="$route.path.indexOf('circle') !== -1" src="static/img/circle.svg" alt="circle">
 			<img v-show="$route.path.indexOf('circle') == -1" src="static/img/circle_.svg" alt="circle">
 			<span :class="$route.path.indexOf('circle') !== -1 ? 'setColor' : ''">圈</span>

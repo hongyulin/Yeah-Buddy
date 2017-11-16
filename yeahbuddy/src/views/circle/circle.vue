@@ -9,9 +9,12 @@
 		
 		<section class="tabs">
 			<span :class="{activeShow: whichShow == 'circle'}" @click="whichShowFn('circle')">附近有哪些运动圈</span>
-			<span :class="{activeShow: whichShow == 'content'}" @click="whichShowFn('content')">动态中内容</span>
+			<span :class="{activeShow: whichShow == 'trends'}" @click="whichShowFn('trends')">动态中内容</span>
 		</section>
-		<transition name="fade">
+		<section>
+			<router-view></router-view>
+		</section>
+		<!-- <transition name="fade">
 			<section v-show="whichShow == 'circle'">
 				<fCircle class="fadeChildren"></fCircle>
 			</section>
@@ -20,7 +23,7 @@
 			<section v-show="whichShow == 'content'">
 				<trends class="fadeChildren"></trends>
 			</section>
-		</transition>
+		</transition> -->
 		<section>
 			<!--加号中添加的内容  -->
 			
@@ -53,8 +56,8 @@
 	</div>
 </template>
 <script>
-import fCircle from "./circleC"
-import trends from "./circleTrends"
+// import fCircle from "./circleC"
+// import trends from "./circleTrends"
 	export default{
 		name: 'circle',
 		data(){
@@ -69,7 +72,7 @@ import trends from "./circleTrends"
 
 		},
 		components: {
-			fCircle, trends
+			// fCircle, trends
 		},
 		computed: {
 

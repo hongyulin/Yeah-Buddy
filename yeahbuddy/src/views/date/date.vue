@@ -7,11 +7,14 @@
 			<img src="static/img/search.svg" alt="search">
 		</section>
 		<section class="tabs">
-			<span :class="{activeShow: whichShow == 'nearCircle'}" @click="whichShowFn('nearCircle')">附近圈子</span>
-			<span :class="{activeShow: whichShow == 'shop'}" @click="whichShowFn('shop')">商城</span>
-			<span :class="{activeShow: whichShow == 'classRoom'}" @click="whichShowFn('classRoom')">微课堂</span>
+			<span :class="{activeShow: whichShow == 'cir'}" @click="whichShowFn('cir')">附近圈子</span>
+			<span :class="{activeShow: whichShow == 'mall'}" @click="whichShowFn('mall')">商城</span>
+			<span :class="{activeShow: whichShow == 'classroom'}" @click="whichShowFn('classroom')">微课堂</span>
 		</section>
-		<transition name="fade">
+		<section>
+			<router-view></router-view>
+		</section>
+		<!-- <transition name="fade">
 			<section v-show="whichShow == 'nearCircle'">
 				<nearCircle class="fadeChildren"></nearCircle>
 			</section>
@@ -25,19 +28,19 @@
 			<section v-show="whichShow == 'classRoom'">
 				<classRoom class="fadeChildren"></classRoom>
 			</section>
-		</transition>
+		</transition> -->
 		
 	</div>
 </template>
 <script>
-import nearCircle from './dateCircle'
-import classRoom from './dateClassroom'
+// import nearCircle from './dateCircle'
+// import classRoom from './dateClassroom'
 import mall from './dateMall'
 	export default{
 		name: 'date',
 		data(){
 			return {
-				whichShow: 'shop'
+				whichShow: 'mall'
 			}
 		},
 		created(){
@@ -47,7 +50,7 @@ import mall from './dateMall'
 			
 		},
 		components: {
-			nearCircle, classRoom, mall
+			// nearCircle, classRoom, mall
 		},
 		computed: {
 

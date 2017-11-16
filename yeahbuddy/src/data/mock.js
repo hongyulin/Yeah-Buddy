@@ -187,7 +187,7 @@ let data = [
 	'/api/get/show/recommend',
 	{
 		'list|30': [{
-			'header': '@dataImage("40x45", "头像")',
+			'header': '@dataImage("40x40", "头像")',
 			'nick': '@ctitle(3, 7)',
 			'time': '@natural(1, 300)',
 			'pic': '@dataImage("300x300", "照片")',

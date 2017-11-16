@@ -67,7 +67,7 @@
 							<header>#{{item.topTitle}}#</header>
 							<p>{{item.topContent}}</p>
 							<footer>
-								<img :src="item.topHeader" alt="头像"  class="header">
+								<img :src="item.topHeader" alt="头像"  class="header_pic">
 								{{item.topIn}}正在参与
 							</footer>
 						</div>

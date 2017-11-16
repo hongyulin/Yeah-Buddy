@@ -5,6 +5,7 @@
 				他们刚刚在练
 				<img src="static/img/right.svg" alt="查看全部">
 			</header>
+			
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(item, index) in swiperList" :key="index">
 					<section class="show_swiper">
@@ -28,12 +29,12 @@
 				<li v-for="(item, index) in recommendList.slice(0, 2)" :key="index">
 					<router-link to="#">
 						<header>
-							<img src="static/img/.svg" alt="icon">
+							<img src="static/img/eight.svg" alt="icon">
 							由@小八推荐
 						</header>
 						<hr>
 						<section>
-							<img :src="item.header" alt="头像">
+							<img :src="item.header" alt="头像" class="header_pic">
 							<span>
 								<!-- 放名字和时间 -->
 								{{item.nick}}
@@ -78,7 +79,7 @@
 						<swiper-slide v-for="(item, index) in swiperList" :key="index">
 							<section>
 								<header>
-									<img :src="item.recommHeader" alt="头像">
+									<img :src="item.recommHeader" alt="头像" class="header_pic">
 									<span>{{item.recommNick}}</span>
 									<img src="static/img/close.svg" alt="close">
 								</header>
@@ -100,12 +101,12 @@
 				<li v-for="(item, index) in recommendList.slice(2)" :key="index">
 					<router-link to="#">
 						<header>
-							<img src="static/img/.svg" alt="icon">
+							<img src="static/img/eight.svg" alt="icon">
 							由@小八推荐
 						</header>
 						<hr>
 						<section>
-							<img :src="item.header" alt="头像">
+							<img :src="item.header" alt="头像" class="header_pic">
 							<span>
 								<!-- 放名字和时间 -->
 								{{item.nick}}
@@ -170,10 +171,10 @@
 			}
 		},
 		created(){
-
+			this.getdataList()
 		},
 		mounted(){
-			this.getdataList()
+			
 		},
 		
 		components:{
@@ -189,7 +190,6 @@
 				}
 				api.getShowSwiper(data)
 					.then( res => {
-						console.log()
 						this.swiperList = res.list
 					})
 				api.getShowRecommend(data)

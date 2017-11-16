@@ -9,11 +9,14 @@
 			<img src="static/img/search.svg" alt="search">
 		</section>
 		<section class="tabs">
-			<span :class="{activeShow: whichShow == 'picture'}" @click=" whichShowFn('picture')">小八精选</span>
-			<span :class="{activeShow: whichShow == 'content'}" @click=" whichShowFn('content')">动态</span>
+			<span :class="{activeShow: whichShow == 'boutique'}" @click=" whichShowFn('boutique')">小八精选</span>
+			<span :class="{activeShow: whichShow == 'trends'}" @click=" whichShowFn('trends')">动态</span>
 		</section>
-		<transition name="fade">
-			<section v-show="whichShow == 'picture'">
+		<section>
+			<router-view></router-view>
+		</section>
+		<!-- <transition name="fade">
+			<section v-show="whichShow == 'boutique'">
 				<boutique class="fadeChildren"></boutique>
 			</section>
 		</transition>
@@ -21,17 +24,18 @@
 			<section v-show="whichShow == 'content'">
 				<trends class="fadeChildren"></trends>
 			</section>
-		</transition>
+		</transition> -->
 	</div>
 </template>
 <script>
-import boutique from "./showBoutique"
-import trends from "./showTrends"
+// import boutique from "./showBoutique"
+// import trends from "./showTrends"
 	export default{
 		name: 'show',
 		data(){
 			return {
-				whichShow: 'picture'
+				whichShow: 'boutique'
+				// whichShow: 'content'
 			}
 		},
 		created(){
@@ -41,7 +45,7 @@ import trends from "./showTrends"
 
 		},
 		components: {
-			boutique, trends
+
 		},
 		computed: {
 

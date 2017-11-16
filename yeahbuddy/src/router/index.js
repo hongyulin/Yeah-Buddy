@@ -22,32 +22,63 @@ export default new Router({
       component: resolve => require(['@/views/login/getUserInfo'], resolve)
     },
     {
-      path: '/home/date',
+      path: '/home',
       name: 'home',
       component: resolve => require(['@/components/layout'], resolve),
       children: [{
-        path: '/home/date',
+        path: 'date',
         name: 'date',
         meta: {keepAlive: true},
-        component: resolve => require(['@/views/date/date'], resolve)
+        component: resolve => require(['@/views/date/date'], resolve),
+        children: [{
+          path: 'cir',
+          name: 'C',
+          component: resolve => require(['@/views/date/dateCircle'], resolve)
+        },{
+          path: 'classroom',
+          name: 'classroom',
+          component: resolve => require(['@/views/date/dateClassroom'], resolve)
+        },{
+          path: 'mall',
+          name: 'mall',
+          component: resolve => require(['@/views/date/dateMall'], resolve)
+        }]
       },
       {
-        path: '/home/circle',
+        path: 'circle',
         name: 'circle',
         meta: {keepAlive: true},
-        component: resolve => require(['@/views/circle/circle'], resolve)
+        component: resolve => require(['@/views/circle/circle'], resolve),
+        children: [{
+          path: 'circle',
+          name: 'circle',
+          component: resolve => require(['@/views/circle/circleC'], resolve)
+        },{
+          path: 'trends',
+          name: 'ctrends',
+          component: resolve => require(['@/views/circle/circleTrends'], resolve)
+        }]
       },
       {
-        path: '/home/mine',
+        path: 'mine',
         name: 'mine',
         meta: {keepAlive: true},
         component: resolve => require(['@/views/mine/mine'], resolve)
       },
       {
-        path: '/home/show',
+        path: 'show',
         name: 'show',
         meta: {keepAlive: true},
-        component: resolve => require(['@/views/show/show'], resolve)
+        component: resolve => require(['@/views/show/show'], resolve),
+        children: [{
+          path: 'boutique',
+          name: 'boutique',
+          component: resolve => require(['@/views/show/showBoutique'], resolve)
+        },{
+          path: 'trends',
+          name: 'trends',
+          component: resolve => require(['@/views/show/showTrends'], resolve)
+        }]
       }]
     }
   ]
