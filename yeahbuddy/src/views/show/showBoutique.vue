@@ -99,7 +99,7 @@
 				</li>
 				<!-- 中间加的推荐 -->
 				<li>
-					<img :src="videoList.dance" alt="性感爵士">
+					<img :src="videoList.dance" alt="性感爵士" class="width_vw">
 				</li>
 				<li>
 					<img :src="videoList.topic" alt="热门话题" class="hot_topic_video">
@@ -126,7 +126,7 @@
 				</li>
 				<!-- 中间夹的东西 -->
 				<li>
-					<img :src="videoList.video" alt="精选视频">
+					<img :src="videoList.video" alt="精选视频" class="width_vw">
 				</li>
 				<li v-for="(item, index) in picked.slice(12)" :key="index">
 					<section class="selected">
@@ -215,7 +215,7 @@
 </script>
 <style lang="scss" scoped>
 .spare_experience {
-	border:{
+	border: {
 		top: 10px solid #ccc;
 		bottom: 10px solid #ccc;
 	}

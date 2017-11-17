@@ -1,4 +1,5 @@
 <template>
+<!-- 悦动圈里面的圈子 -->
 	<div>
 		<section>
 			<swiper :options="swiperOption">
@@ -35,8 +36,13 @@
 		<section>
 			<header class="get_more">
 				<span>圈子活动</span>
-					<img src="static/img/right.svg" alt="查看全部">
+				<img src="static/img/right.svg" alt="查看全部">
 			</header>
+			<ul>
+				<!-- 这儿需要返回图片，是在fetch中， -->
+				<li><img src="" alt="圈子活动"></li>
+				<li><img src="" alt="圈子活动"></li>
+			</ul>
 		</section>
 		<section>
 			<header>精选内容</header>
@@ -58,7 +64,7 @@
 		<section>
 			<header class="get_more">
 				<span>附近圈子</span>
-					<img src="static/img/right.svg" alt="查看全部">
+				<img src="static/img/right.svg" alt="查看全部">
 			</header>
 			<ul>
 				<li v-for="(item, index) in hotList.slice(0, 2)" :key="index">

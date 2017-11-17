@@ -140,7 +140,7 @@
 			color:white;
 		}
 		.goodTitle {
-			font-size:18px;
+			font-size:0.16rem;
 		}
 		.goodPrice {
 			color: red;

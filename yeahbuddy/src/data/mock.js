@@ -177,9 +177,9 @@ let data = [
 			'recommTime': '@natural(1, 300)',
 			'recommfans': '@natural(100, 1000)',
 			'recommPicked': '@natural(3, 20)',
-			'recommImg_one': '@dataImage("40x40", "训练照")',
-			'recommImg_two': '@dataImage("40x40", "训练照")',
-			'recommImg_three': '@dataImage("40x40", "训练照")',
+			'recommImg_one': '@dataImage("50x40", "训练照")',
+			'recommImg_two': '@dataImage("50x40", "训练照")',
+			'recommImg_three': '@dataImage("50x40", "训练照")',
 		}]
 	}
 ],
@@ -189,8 +189,8 @@ let data = [
 		'list|30': [{
 			'header': '@dataImage("40x40", "头像")',
 			'nick': '@ctitle(3, 7)',
-			'time': '@natural(1, 300)',
-			'pic': '@dataImage("300x300", "照片")',
+			'time': '@datetime("MM-dd HH:mm")',
+			'pic': '@dataImage("400x250", "照片")',
 			'content': '@cparagraph(2, 4)',
 			'heart': '@natural(1, 300)',
 			'talk': '@natural(1, 100)',

@@ -14,22 +14,6 @@
 		<section>
 			<router-view class="fade_children"></router-view>
 		</section>
-		<!-- <transition name="fade">
-			<section v-show="whichShow == 'nearCircle'">
-				<nearCircle class="fade_children"></nearCircle>
-			</section>
-		</transition>
-		<transition name="fade">
-			<section v-show="whichShow == 'shop'">
-				<mall class="fade_children"></mall>
-			</section>
-		</transition>
-		<transition name="fade">
-			<section v-show="whichShow == 'classRoom'">
-				<classRoom class="fade_children"></classRoom>
-			</section>
-		</transition> -->
-		
 	</div>
 </template>
 <script>
