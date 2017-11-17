@@ -10,7 +10,7 @@
 			<img v-show="$route.path.indexOf('date') == -1" src="static/img/date_.svg" alt="date">
 			<span :class="$route.path.indexOf('date') !== -1 ? 'setColor' : ''">约</span>
 		</section>
-		<section @click="goTo('/home/circle/circle')">
+		<section @click="goTo('/home/circle/sportcir')">
 			<img v-show="$route.path.indexOf('circle') !== -1" src="static/img/circle.svg" alt="circle">
 			<img v-show="$route.path.indexOf('circle') == -1" src="static/img/circle_.svg" alt="circle">
 			<span :class="$route.path.indexOf('circle') !== -1 ? 'setColor' : ''">圈</span>

@@ -31,8 +31,8 @@ export default new Router({
         meta: {keepAlive: true},
         component: resolve => require(['@/views/date/date'], resolve),
         children: [{
-          path: 'cir',
-          name: 'C',
+          path: 'near',
+          name: 'near',
           component: resolve => require(['@/views/date/dateCircle'], resolve)
         },{
           path: 'classroom',
@@ -50,8 +50,8 @@ export default new Router({
         meta: {keepAlive: true},
         component: resolve => require(['@/views/circle/circle'], resolve),
         children: [{
-          path: 'circle',
-          name: 'circle',
+          path: 'sportcir',
+          name: 'sportcir',
           component: resolve => require(['@/views/circle/circleC'], resolve)
         },{
           path: 'trends',
@@ -75,8 +75,8 @@ export default new Router({
           name: 'boutique',
           component: resolve => require(['@/views/show/showBoutique'], resolve)
         },{
-          path: 'trends',
-          name: 'trends',
+          path: 'state',
+          name: 'state',
           component: resolve => require(['@/views/show/showTrends'], resolve)
         }]
       }]

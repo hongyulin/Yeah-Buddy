@@ -32,17 +32,17 @@
 			<!-- 放两个类似图片上有一个覆盖层的东西，找找方便写法 -->
 		<!-- </section> -->
 		<section class="exercise">
-			<header class="getMore">
+			<header class="get_more">
 				训练营
 				<router-link to="#">
 					<img src="static/img/right.svg" alt="查看全部">
 				</router-link>
 			</header>
-			<img :src="exerciseData.img_one" alt="局部塑形" class="widthVw">
-			<img :src="exerciseData.img_two" alt="自我挑战" class="widthVw">
+			<img :src="exerciseData.img_one" alt="局部塑形" class="width_vw">
+			<img :src="exerciseData.img_two" alt="自我挑战" class="width_vw">
 		</section>
 		<section>
-			<header class="getMore">
+			<header class="get_more">
 				个人提升
 				<router-link to="#">
 					<img src="static/img/right.svg" alt="查看全部">
@@ -54,8 +54,8 @@
 						<img :src="item.classHeader" alt="课程推荐" >
 					</div>
 					<div>
-						<header class="rowEllipsis">{{item.title}}</header>
-						<p class="rowEllipsis">{{item.content}}</p>
+						<header class="row_ellipsis">{{item.title}}</header>
+						<p class="row_ellipsis">{{item.content}}</p>
 						<footer>
 							<span>
 								{{item.num}}订阅
@@ -143,7 +143,7 @@
 		bottom: 1px solid #DCDCDC;
 	}
 	header {
-		font-size: .20rem;
+		font-size: .18rem;
 		font-weight: bold;
 		width: 60vw;
 	}

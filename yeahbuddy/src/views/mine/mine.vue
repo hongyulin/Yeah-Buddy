@@ -44,7 +44,7 @@
 					<figcaption>骑行</figcaption>
 				</gifure>
 			</section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>我的健康数据</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
@@ -62,7 +62,7 @@
 					<figcaption>运动能力</figcaption>
 				</gifure>
 			</section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>徽章</span>
 				<span>
 					{{}}
@@ -71,53 +71,53 @@
 			</section>
 		</section>
 		<section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>运动日记</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>运动概况</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>每周目标</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>链接应用与设备</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
 		</section>
 		<section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>我的活动</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>我的收藏</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>我跑过的路线</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
 		</section>
 		<section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>购物车</span>
 				<span>
 					{{}}
 					<img src="static/img/right.svg" alt="right">
 				</span>
 			</section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>购买记录</span>
 				<span>
 					{{}}
 					<img src="static/img/right.svg" alt="right">
 				</span>
 			</section>
-			<section class="getMore">
+			<section class="get_more">
 				<span>优惠券</span>
 				<span>
 					{{}}

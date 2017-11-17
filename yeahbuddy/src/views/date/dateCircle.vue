@@ -29,7 +29,7 @@
 			</figure>
 		</nav>
 		
-		<section class="nearPer getMore">
+		<section class="nearPer get_more">
 			<span>附近人</span>
 			<div>
 				<span>筛选</span>

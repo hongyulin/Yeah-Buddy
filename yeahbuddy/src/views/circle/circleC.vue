@@ -9,7 +9,7 @@
 			</swiper>
 		</section>
 		<section>
-			<header class="getMore">
+			<header class="get_more">
 				<span>我的圈子</span>
 					<img src="static/img/right.svg" alt="查看全部">
 			</header>
@@ -33,7 +33,7 @@
 			</section>
 		</section>
 		<section>
-			<header class="getMore">
+			<header class="get_more">
 				<span>圈子活动</span>
 					<img src="static/img/right.svg" alt="查看全部">
 			</header>
@@ -56,7 +56,7 @@
 			</section>
 		</section>
 		<section>
-			<header class="getMore">
+			<header class="get_more">
 				<span>附近圈子</span>
 					<img src="static/img/right.svg" alt="查看全部">
 			</header>

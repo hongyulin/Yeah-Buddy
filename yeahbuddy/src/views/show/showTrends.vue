@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<section>
-			<header class="getMore">
+			<header class="get_more">
 				他们刚刚在练
 				<img src="static/img/right.svg" alt="查看全部">
 			</header>
@@ -13,7 +13,7 @@
 						<div clss="show_swiper_detail">
 							<img :src="item.exerHeader" alt="头像" class="header_pic">
 							<section>
-								<span>{{item.exerNick}}</span>
+								<span id="test">{{item.exerNick}}</span>
 								<br>
 								<!-- 大于五分钟显示几分钟前，否则显示'刚刚’,还要按照顺序 -->
 								<span>{{item.exerNum}}分钟前</span>
@@ -161,7 +161,7 @@
 				swiperList: [],
 				recommendList: [],
 				swiperOption: {
-					slidesPerView: 3,
+					slidesPerView: 2.5,
 					freeMode: true
 				},
 				swiperOptionR: {
@@ -201,11 +201,9 @@
 	}
 </script>
 <style lang="scss" scoped>
-// .show_swiper {
-	// width: 40vw;
-	.show_swiper_detail {
-		display: flex;
-		flex-direction: row;
-	}
-// }
+.show_swiper_detail{
+	display: flex;
+	flex-direction: row;
+}
+	
 </style>

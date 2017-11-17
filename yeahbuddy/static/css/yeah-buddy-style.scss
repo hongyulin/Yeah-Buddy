@@ -40,7 +40,7 @@ h3 {
 	position: relative;
 	margin:0 auto;
 }
-.spinImg{
+.spin_img{
 	width: 50px;
 	height: 50px;
 	position: absolute;
@@ -49,15 +49,15 @@ h3 {
 	background-image: url(/static/img/loading.svg); 
 	background-size: 100% 100%;
 }
-.spinCircle{
+.spin_circle{
 	width: 70px;
 	height: 70px;
 	display:block;
 	background-image: url(/static/img/circle.png);
 	background-size: 100% 100%;
-	animation: spinCircleRotate linear 1s infinite;
+	animation: spin_circleRotate linear 1s infinite;
 }
-@keyframes spinCircleRotate{
+@keyframes spin_circleRotate{
 	0% {transform: rotate(0deg)}
 	50% {transform: rotate(180deg)}
 	100% {transform: rotate(360deg)}
@@ -74,11 +74,11 @@ h3 {
 	}
 	
 }
-.widthVw {
+.width_vw {
 	width: 100vw;
 }
 // 查看更多部分的样式
-.getMore {
+.get_more {
 	display: flex;
 	justify-content: space-between;
 	padding: {
@@ -89,13 +89,13 @@ h3 {
 	}
 }
 // 单行显示省略号
-.rowEllipsis {
+.row_ellipsis {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 }
 // 头部的样式和固定
-.homeHeader {
+.home_header {
 	width: 100vw;
 	height: 6vh;
 	font-size: 20px;
@@ -130,12 +130,14 @@ h3 {
 		border-bottom: 1px solid red;
 	}
 }
-.fadeChildren {
+// router-view,避免头部尾部被遮住
+.fade_children {
 	margin: {
 		top: 13vh;
 		bottom: 13vh;
 	}
 }
+// 把头像变成圆的
 .header_pic {
 	border-radius: 50%;
 }

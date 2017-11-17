@@ -8,7 +8,7 @@
 				<!-- 滚动后搜索框固定在顶部 -->
 				<input type="text"/>
 			</router-link>
-			<img :src="mallAd.mallAd" alt="广告" class="widthVw"> 
+			<img :src="mallAd.mallAd" alt="广告" class="width_vw"> 
 		</section>
 		<section class="mallSwiper">
 			<swiper :options="swiperOption">
@@ -24,7 +24,7 @@
 		</section>
 		<section>
 			<ul>
-				<li v-for="(item, index) in dataList" :key="index" class="goodList widthVw">
+				<li v-for="(item, index) in dataList" :key="index" class="goodList width_vw">
 					<div>
 						<img :src="item.goodsImg" alt="商品">
 					</div>
@@ -129,9 +129,9 @@
 		}
 	}
 	.goodList{
-
 		display: flex;
 		justify-content: space-between;
+		margin-top: 10px;
 		header {
 			width:40vw;
 		}

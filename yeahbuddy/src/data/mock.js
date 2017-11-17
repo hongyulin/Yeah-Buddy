@@ -168,7 +168,7 @@ let data = [
 	'/api/get/show/swiper',
 	{
 		'list|10': [{
-			'exerImg': '@dataImage("100x100", "运动自拍")',
+			'exerImg': '@dataImage("120x100", "运动自拍")',
 			'exerHeader': '@dataImage("30x30", "头像")',
 			'exerNick': '@ctitle(3, 7)',
 			'exerNum|+1': 1,

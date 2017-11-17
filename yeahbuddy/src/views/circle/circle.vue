@@ -2,26 +2,26 @@
 	<!-- 悦动里面的圈子，这里面的动态是自己的，和关注的人的，还有圈子里面的动态，非选择性展示 -->
 	<!-- 圈子，动态 -->
 	<div>
-		<section class="homeHeader">
+		<section class="home_header">
 			<span>圈子</span>
 			<img src="static/img/plus.svg" alt="search">
 		</section>
 		
 		<section class="tabs">
-			<span :class="{activeShow: whichShow == 'circle'}" @click="whichShowFn('circle')">附近有哪些运动圈</span>
-			<span :class="{activeShow: whichShow == 'trends'}" @click="whichShowFn('trends')">动态中内容</span>
+			<span :class="{activeShow: $route.path.indexOf('sportcir') !== -1 }" @click="whichShowFn('sportcir')">运动圈</span>
+			<span :class="{activeShow: $route.path.indexOf('trends') !== -1 }" @click="whichShowFn('trends')">动态</span>
 		</section>
 		<section>
-			<router-view></router-view>
+			<router-view class="fade_children"></router-view>
 		</section>
 		<!-- <transition name="fade">
 			<section v-show="whichShow == 'circle'">
-				<fCircle class="fadeChildren"></fCircle>
+				<fCircle class="fade_children"></fCircle>
 			</section>
 		</transition>
 		<transition name="fade">
 			<section v-show="whichShow == 'content'">
-				<trends class="fadeChildren"></trends>
+				<trends class="fade_children"></trends>
 			</section>
 		</transition> -->
 		<section>

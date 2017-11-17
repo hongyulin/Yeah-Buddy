@@ -27,7 +27,7 @@
 			</figure>
 		</section>
 		<section class="spare_experience">
-			<header class="getMore">
+			<header class="get_more">
 				<span>经验分享</span>
 				<img src="static/img/right.svg" alt="right">
 			</header>
@@ -55,7 +55,7 @@
 			</ul>
 		</section>
 		<section class="hot_topic">
-			<header class="getMore">
+			<header class="get_more">
 				<span>热门话题</span>
 				<img src="static/img/right.svg" alt="right">
 			</header>
@@ -76,7 +76,7 @@
 			</ul>
 		</section>
 		<section>
-			<header>小八精选</header>
+			<header class="get_more">小八精选</header>
 			<ul class="selected_ul">
 				<!-- 6+插入三个广告+6+一个广告+剩下的 -->
 				<li v-for="(item, index) in picked.slice(0, 6)" :key="index">
@@ -226,7 +226,7 @@
 	align-items: center;
 	border-bottom: 1px solid #ccc;
 	header {
-		font-size: 20px;
+		font-size: 0.18rem;
 		font-weight:530;
 	}
 	p {
