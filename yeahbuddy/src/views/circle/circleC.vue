@@ -33,19 +33,19 @@
 				</figure>
 			</section>
 		</section>
-		<section>
+		<section class="circle_active_box">
 			<header class="get_more">
 				<span>圈子活动</span>
 				<img src="static/img/right.svg" alt="查看全部">
 			</header>
-			<ul>
+			<ul class="circle_active">
 				<!-- 这儿需要返回图片，是在fetch中， -->
-				<li><img src="" alt="圈子活动"></li>
-				<li><img src="" alt="圈子活动"></li>
+				<li><img :src="activeList.left" alt="圈子活动"></li>
+				<li><img :src="activeList.right" alt="圈子活动"></li>
 			</ul>
 		</section>
-		<section>
-			<header>精选内容</header>
+		<section class="selected_content">
+			<header class="get_more">精选内容</header>
 			<section class="nav">
 				<figure>
 					<img src="static/img/sportEncyclopedias.svg" alt="运动百科">
@@ -67,7 +67,7 @@
 				<img src="static/img/right.svg" alt="查看全部">
 			</header>
 			<ul>
-				<li v-for="(item, index) in hotList.slice(0, 2)" :key="index">
+				<li v-for="(item, index) in hotList.slice(0, 2)" :key="index" class="near_circle">
 				<!-- 重点是圈子，弱化个人的信息 -->
 					<!-- <header>
 						<img :src="item.header" alt="头像">
@@ -84,37 +84,34 @@
 							</span>
 						</div>
 					</header> -->
-					<div>
-						<div>
-							<img :src="item.pic_1" alt="">
-							<img :src="item.pic_2" alt="">
-							<img :src="item.pic_3" alt="">
+					<div class="near_active_content">
+						<p class="near_active_content">{{item.content}}</p>
+						<div class="near_active_pic">
+							<img :src="item.pic_1" alt="附近圈子1">
+							<img :src="item.pic_2" alt="附近圈子2">
+							<img :src="item.pic_3" alt="附近圈子3">
 						</div>
-						<p>{{item.content}}</p>
 						<span class="pisition">{{item.location}}</span>
 					</div>
-					<footer>
+					<footer class="near_active_footer">
 						<span>
-							<img :src="item.cheader" alt="头像">
+							<img :src="item.cheader" alt="头像" class="header_pic">
 							<span>
 								{{item.cname}}
-								<br>
-								感兴趣的圈子	
-							</span>
-							
+							</span>							
 						</span>
 						<div>
 							<span>
 								<img src="static/img/comment.svg" alt="评论">
 								{{item.comment}}
 							</span>
-							<button @click="applyState = true">{{applyState ?  '已申请' : '申请加入'}}</button>
+							<button @click="applyState = true" class="apply_join">{{applyState ?  '已申请' : '申请加入'}}</button>
 						</div>
 					</footer>
 				</li>
-				<li><img :src="swiperSlides[0].adImg" alt="公益广告"></li>
-				<li v-for="(item, index) in hotList.slice(2, 6)" :key="index">
-					<header>
+				<li><img :src="swiperSlides[0].adImg" alt="公益广告" class="public_welfare"></li>
+				<li v-for="(item, index) in hotList.slice(2, 6)" :key="index" class="near_circle">
+					<!-- <header>
 						<img :src="item.header" alt="头像">
 						<div>
 							<span>
@@ -128,34 +125,35 @@
 								LV{{item.levle}}
 							</span>
 						</div>
-					</header>
-					<div>
-						<p>{{item.content}}</p>
-						<div>
-							<img :src="item.pic_1" alt="">
-							<img :src="item.pic_2" alt="">
-							<img :src="item.pic_3" alt="">
+					</header> -->
+					<div class="near_active_content">
+						<p class="near_active_content">{{item.content}}</p>
+						<div class="near_active_pic">
+							<img :src="item.pic_1" alt="附近活动pic">
+							<img :src="item.pic_2" alt="附近活动pic">
+							<img :src="item.pic_3" alt="附近活动pic">
 						</div>
 						<span class="pisition">{{item.location}}</span>
 					</div>
-					<footer>
+					<footer  class="near_active_footer">
 						<span>
-							<img :src="item.cheader" alt="">
+							<img :src="item.cheader" alt="圈子头像" class="header_pic">
 							{{item.cname}}
 						</span>
-						<span>
-							<img src="static/img/heart.svg" alt="赞">
-							{{item.heart}}
-						</span>
-						<span>
-							<img src="static/img/comment.svg" alt="评论">
-							{{item.comment}}
-						</span>
+						<div>
+							<span>
+								<img src="static/img/comment.svg" alt="评论">
+								<span>
+									{{item.comment}}
+								</span>
+							</span>
+							<button @click="applyState = true" class="apply_join">{{applyState ?  '已申请' : '申请加入'}}</button>
+						</div>
 					</footer>
-				</li>
-				<li><img :src="swiperSlides[1].adImg" alt="公益广告"></li>
-				<li v-for="(item, index) in hotList.slice(6)" :key="index">
-					<header>
+				</li>  
+				<li><img :src="swiperSlides[1].adImg" alt="公益广告" class="public_welfare"></li>
+				<li v-for="(item, index) in hotList.slice(6)" :key="index" class="near_circle">
+					<!-- <header>
 						<img :src="item.header" alt="头像">
 						<div>
 							<span>
@@ -169,29 +167,29 @@
 								LV{{item.levle}}
 							</span>
 						</div>
-					</header>
-					<div>
-						<p>{{item.content}}</p>
-						<div>
-							<img :src="item.pic_1" alt="">
-							<img :src="item.pic_2" alt="">
-							<img :src="item.pic_3" alt="">
+					</header> -->
+					<div class="near_active_content">
+						<p class="near_active_content">{{item.content}}</p>
+						<div class="near_active_pic">
+							<img :src="item.pic_1" alt="附近活动pic">
+							<img :src="item.pic_2" alt="附近活动pic">
+							<img :src="item.pic_3" alt="附近活动pic">
 						</div>
 						<span class="pisition">{{item.location}}</span>
 					</div>
-					<footer>
+					<footer  class="near_active_footer">
 						<span>
-							<img :src="item.cheader" alt="">
+							<img :src="item.cheader" alt="圈子头像" class="header_pic">
 							{{item.cname}}
 						</span>
-						<span>
-							<img src="static/img/heart.svg" alt="赞">
-							{{item.heart}}
-						</span>
-						<span>
-							<img src="static/img/comment.svg" alt="评论">
-							{{item.comment}}
-						</span>
+						<div>
+							<span>
+								<img src="static/img/comment.svg" alt="评论">
+								{{item.comment}}
+							</span>
+							<button @click="applyState = true" class="apply_join">{{applyState ?  '已申请' : '申请加入'}}</button>
+						</div>
+						
 					</footer>
 				</li>
 			</ul>
@@ -207,6 +205,7 @@
 			return {
 				applyState: false,
 				circleDate: [],
+				activeList: [],
 				swiperSlides: [
 					{
 						adImg: '',
@@ -261,6 +260,11 @@
 					.then( res => {
 						this.hotList = res.list
 					})
+				api.getCircleActive()
+					.then( res => {
+						this.activeList = res.list;
+						console.log("activeList",this.activeList[0])
+					})
 			},
 		}
 	}
@@ -270,5 +274,57 @@
 	img {
 		border-radius: 50%;
 	}
+}
+.circle_active {
+	display: flex;
+	img {
+		width: 48vw;
+		margin: auto 1vw;
+	}
+}
+.near_active_content {
+	width:96vw;
+	margin: auto 2vw;
+	.near_active_pic {
+		display: flex;
+		justify-content: space-between;
+		img {
+			width:30vw;
+		}
+	}
+	.near_active_content {
+		// text-overflow: ellipsis;
+		// 这儿放两行加省略号
+	}
+}
+.near_active_footer {
+	display: flex;
+	justify-content:space-between;
+	width: 96vw;
+	margin: 1vw 2vw;
+	.apply_join {
+		background-color: white;
+		width: 20vw;
+		height: 8vw;
+		border: 1px solid red;
+		border-radius: 20px;
+		margin-left: .2rem;
+	}
+}
+.circle_active_box {
+	border-top: 10px solid #ccc;	
+}
+.near_circle {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+.selected_content {
+	@extend .circle_active_box;
+	border-bottom: 10px solid #ccc;
+	padding-bottom: 10px;
+}
+.public_welfare {
+	width: 100vw;
 }
 </style>

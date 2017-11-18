@@ -207,9 +207,9 @@ let data = [
 			// 'sex|1': ['♂', '♀'],
 			// 'level': '@natural(1, 30)',
 			'content': '@cparagraph(2, 4)',
-			'pic_1': '@dataImage("40x45", "话题照")',
-			'pic_2': '@dataImage("40x45", "话题照")',
-			'pic_3': '@dataImage("40x45", "话题照")',
+			'pic_1': '@dataImage("200x70", "话题照")',
+			'pic_2': '@dataImage("200x70", "话题照")',
+			'pic_3': '@dataImage("200x70", "话题照")',
 			'location': '@county(true)',
 			'cheader': '@dataImage("20x20", "头像")',
 			'cname|1': ['生活休闲圈', '张江跑步圈', '上海暴走圈', '浦东羽毛球圈'],
@@ -221,7 +221,7 @@ let data = [
 [
 	'/api/get/circle/follow',
 	{
-		'list|30': [{
+		'list|1': [{
 			'header': '@dataImage("40x45", "头像")',
 			'hostNum': '@natural(1, 30)',
 			'oriNum': '@natural(1, 30)',
@@ -237,14 +237,24 @@ let data = [
 			'nick': '@ctitle(3, 7)',
 			'hours': '@natural(1, 23)',
 			'content': '@cparagraph(2, 4)',
-			'pic_1': '@dataImage("40x45", "话题照")',
-			'pic_2': '@dataImage("40x45", "话题照")',
-			'pic_3': '@dataImage("40x45", "话题照")',
+			'pic_1': '@dataImage("120x80", "话题照")',
+			'pic_2': '@dataImage("120x80", "话题照")',
+			'pic_3': '@dataImage("120x80", "话题照")',
 			'label|1': ['健身圈','跑步圈','游泳圈','乒乓球圈','暴走圈'],
 			'heart': '@natural(1, 30)',
 			'comment': '@natural(1, 30)',
 		}]
 	}
+],
+[
+	'/api/get/circle/active',
+	{
+		'list|1': [{
+			'left': '@dataImage("200x100", "活动-left")',
+			'right': '@dataImage("200x100", "活动-right")',
+		}]
+	}
+	
 ]
 ]
 export default data.forEach(function(element){return mock.mock(...element)})

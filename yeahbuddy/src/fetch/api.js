@@ -98,6 +98,9 @@ export default {
     getCTFriend(params) {
         return fetch('/api/get/circle/friends', params)
     },
+    getCircleActive(params) {
+        return fetch('/api/get/circle/active', params)
+    },
     
     
     /*getAge(params) {
