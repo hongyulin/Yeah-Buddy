@@ -25,26 +25,27 @@
 			<img src="static/img/right.svg" alt="right">
 		</section>
 		<section>
-			<section>
+			<section class="level_title">
 				<span>总运动{{dataList.min}}分钟</span>
 				<span>{{dataList.join_time}}加入小八</span>
 			</section>
-			<section>
+			<section class="levels">
 				<figure>
 					<!-- 放字体图标 -->
-					<img src="static/img/.svg" alt="总等级">
+					<!-- 字体版权问题 -->
+					<img src="static/img/TO.PNG" alt="总等级">
 					<figcaption>总等级</figcaption>
 				</figure>
 				<figure>
-					<img src="static/img/.svg" alt="健身">
+					<img src="static/img/WO.PNG" alt="健身">
 					<figcaption>健身</figcaption>
 				</figure>
 				<figure>
-					<img src="static/img/.svg" alt="跑步">
+					<img src="static/img/RO.PNG" alt="跑步">
 					<figcaption>跑步</figcaption>
 				</figure>
 				<figure>
-					<img src="static/img/.svg" alt="骑行">
+					<img src="static/img/CO.PNG" alt="骑行">
 					<figcaption>骑行</figcaption>
 				</figure>
 			</section>
@@ -52,7 +53,7 @@
 				<span>我的健康数据</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
-			<section class="nav">
+			<section class="nav body_data">
 				<figure>
 					<img src="static/img/history.svg" alt="运动历史">
 					<figcaption>运动历史</figcaption>
@@ -193,4 +194,36 @@ import api from '../../fetch/api'
 	}
 	height: 20vh;
 }
+.level_title {
+	margin: {
+		top: 5vw;
+		left: 2vw;
+	}
+
+	span:first-child {
+		font-size: .18rem;
+		font-weight: 900;
+	}
+	span:nth-child(2){
+		font-size: .11rem;
+	}
+}
+.levels {
+	display: flex;
+	margin: 5vw auto 3vw 0;
+	padding-bottom: 10vw;
+	border-bottom: 1px solid #ccc;
+	img {
+		width: 23vw;
+	}
+	figcaption {
+		text-align:center;
+	}
+	
+}
+.body_data {
+	padding-bottom: 5vw;
+	border-bottom: 1px solid #ccc;
+}
+
 </style>
