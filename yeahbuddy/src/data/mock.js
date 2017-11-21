@@ -260,8 +260,17 @@ let data = [
 	'api/get/mine/data',
 	{
 		'list|1': [{
+			'header': '@dataImage("100x100", "头像")',
+			'nick': '@ctitle(3, 7)',
 			'min': '@natural(20,50)',
-			'buddy': '@datetime("YYYY-MM-dd")',
+			'join_time': '@datetime("yyyy-MM-dd")',
+			'badge': '@natural(2, 8)',
+			'shop_car': '@natural(2, 8)',
+			'shop_record': '@natural(2, 8)',
+			'shop_ticker': '@natural(2, 8)',
+			'fans': '@natural(2, 8)',
+			'follow': '@natural(2, 8)',
+			'trends': '@natural(2, 8)',
 		}]
 	}
 ]

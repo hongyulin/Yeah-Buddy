@@ -10,23 +10,24 @@
 			</div>
 			
 		</header>
-		<section>
-			<img src="static/img/.svg" alt="头像">
+		<section class="abstract">
+			<img :src="dataList.header" alt="头像" class="header_pic">
 			<section>
 				<span>
-					{{}}
+					{{dataList.nick}}
 					<img src="static/img/qrIcon.svg" alt="二维码">
 				</span>
+				<br>
 				<span>
-					<!-- {{}}粉丝 · {{}}关注 · {{}}动态 -->
+					{{dataList.fans}}粉丝 · {{dataList.follow}}关注 · {{dataList.trends}}动态
 				</span>
 			</section>
 			<img src="static/img/right.svg" alt="right">
 		</section>
 		<section>
 			<section>
-				<span>总运动{{}}分钟</span>
-				<span>{{}}加入小八</span>
+				<span>总运动{{dataList.min}}分钟</span>
+				<span>{{dataList.join_time}}加入小八</span>
 			</section>
 			<section>
 				<figure>
@@ -68,7 +69,7 @@
 			<section class="get_more">
 				<span>徽章</span>
 				<span>
-					{{}}
+					{{dataList.badge}}
 					<img src="static/img/right.svg" alt="right">
 				</span>
 			</section>
@@ -109,21 +110,21 @@
 			<section class="get_more">
 				<span>购物车</span>
 				<span>
-					{{}}
+					{{dataList.shop_car}}
 					<img src="static/img/right.svg" alt="right">
 				</span>
 			</section>
 			<section class="get_more">
 				<span>购买记录</span>
 				<span>
-					{{}}
+					{{dataList.shop_record}}
 					<img src="static/img/right.svg" alt="right">
 				</span>
 			</section>
 			<section class="get_more">
 				<span>优惠券</span>
 				<span>
-					{{}}
+					{{dataList.shop_ticker}}
 					<img src="static/img/right.svg" alt="right">
 				</span>
 			</section>
@@ -131,11 +132,12 @@
 	</div>
 </template>
 <script>
+import api from '../../fetch/api'
 	export default{
 		name: 'mine',
 		data(){
 			return {
-
+				dataList: []
 			}
 		},
 		created(){
@@ -159,7 +161,8 @@
 				}
 				api.mineData(data)
 					.then( res => {
-
+						this.dataList = res.list;
+						console.log(this.dataList)
 					})
 			}
 		}
@@ -179,5 +182,15 @@
 	justify-content: space-between;
 	height: 7vh;
 	line-height: 7vh;
+}
+.abstract {
+	background-color: #846a79;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	span {
+		color: white;
+	}
+	height: 20vh;
 }
 </style>
