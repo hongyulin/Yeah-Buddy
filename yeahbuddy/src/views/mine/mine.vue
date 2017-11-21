@@ -1,11 +1,14 @@
 <template>
 	<!-- keep里面的我的很好， -->
 	<div id="mine">
-		<header>
+		<header class="header">
 			<span>我</span>
 			<!-- 信息头部加上红色的数字 -->
-			<img src="static/img/notice.svg" alt="信息">
-			<img src="static/img/set.svg" alt="设置">
+			<div>
+				<img src="static/img/notice.svg" alt="信息">
+				<img src="static/img/set.svg" alt="设置">	
+			</div>
+			
 		</header>
 		<section>
 			<img src="static/img/.svg" alt="头像">
@@ -26,41 +29,41 @@
 				<span>{{}}加入小八</span>
 			</section>
 			<section>
-				<gifure>
+				<figure>
 					<!-- 放字体图标 -->
 					<img src="static/img/.svg" alt="总等级">
 					<figcaption>总等级</figcaption>
-				</gifure>
-				<gifure>
+				</figure>
+				<figure>
 					<img src="static/img/.svg" alt="健身">
 					<figcaption>健身</figcaption>
-				</gifure>
-				<gifure>
+				</figure>
+				<figure>
 					<img src="static/img/.svg" alt="跑步">
 					<figcaption>跑步</figcaption>
-				</gifure>
-				<gifure>
+				</figure>
+				<figure>
 					<img src="static/img/.svg" alt="骑行">
 					<figcaption>骑行</figcaption>
-				</gifure>
+				</figure>
 			</section>
 			<section class="get_more">
 				<span>我的健康数据</span>
 				<img src="static/img/right.svg" alt="right">
 			</section>
 			<section class="nav">
-				<gifure>
+				<figure>
 					<img src="static/img/history.svg" alt="运动历史">
 					<figcaption>运动历史</figcaption>
-				</gifure>
-				<gifure>
+				</figure>
+				<figure>
 					<img src="static/img/data.svg" alt="身体数据">
 					<figcaption>身体数据</figcaption>
-				</gifure>
-				<gifure>
+				</figure>
+				<figure>
 					<img src="static/img/ability.svg" alt="运动能力">
 					<figcaption>运动能力</figcaption>
-				</gifure>
+				</figure>
 			</section>
 			<section class="get_more">
 				<span>徽章</span>
@@ -139,7 +142,9 @@
 
 		},
 		mounted(){
-
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+			this.getDataList();
 		},
 		components: {
 
@@ -148,14 +153,31 @@
 
 		},
 		methods: {
+			getDataList() {
+				let data = {
 
+				}
+				api.mineData(data)
+					.then( res => {
+
+					})
+			}
 		}
 	}
 </script>
 <style lang="scss" scoped>
 #mine {
-	margin:{
+	width: 96vw;
+	margin: {
 		bottom: 10vh;
+		left: 2vw;
+		right: 2vw;
 	}
+}
+.header {
+	display: flex;
+	justify-content: space-between;
+	height: 7vh;
+	line-height: 7vh;
 }
 </style>

@@ -100,8 +100,10 @@ export default {
     },
     getCircleActive(params) {
         return fetch('/api/get/circle/active', params)
-    },
-    
+    }, 
+    mineData(params) {
+        return fetch('api/get/mine/data', params)
+    }
     
     /*getAge(params) {
         return fetch('/api/get/Age', params)

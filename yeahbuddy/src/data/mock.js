@@ -255,6 +255,15 @@ let data = [
 		}]
 	}
 	
+],
+[
+	'api/get/mine/data',
+	{
+		'list|1': [{
+			'min': '@natural(20,50)',
+			'buddy': '@datetime("YYYY-MM-dd")',
+		}]
+	}
 ]
 ]
 export default data.forEach(function(element){return mock.mock(...element)})
