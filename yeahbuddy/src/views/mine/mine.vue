@@ -33,19 +33,19 @@
 				<figure>
 					<!-- 放字体图标 -->
 					<!-- 字体版权问题 -->
-					<img src="static/img/TO.PNG" alt="总等级">
+					<img src="static/img/to.png" alt="总等级">
 					<figcaption>总等级</figcaption>
 				</figure>
 				<figure>
-					<img src="static/img/WO.PNG" alt="健身">
+					<img src="static/img/wo.png" alt="健身">
 					<figcaption>健身</figcaption>
 				</figure>
 				<figure>
-					<img src="static/img/RO.PNG" alt="跑步">
+					<img src="static/img/ro.png" alt="跑步">
 					<figcaption>跑步</figcaption>
 				</figure>
 				<figure>
-					<img src="static/img/CO.PNG" alt="骑行">
+					<img src="static/img/co.png" alt="骑行">
 					<figcaption>骑行</figcaption>
 				</figure>
 			</section>
@@ -67,7 +67,7 @@
 					<figcaption>运动能力</figcaption>
 				</figure>
 			</section>
-			<section class="get_more">
+			<section class="get_more chunk">
 				<span>徽章</span>
 				<span>
 					{{dataList.badge}}
@@ -75,7 +75,7 @@
 				</span>
 			</section>
 		</section>
-		<section>
+		<section class="chunk">
 			<section class="get_more">
 				<span>运动日记</span>
 				<img src="static/img/right.svg" alt="right">
@@ -93,7 +93,7 @@
 				<img src="static/img/right.svg" alt="right">
 			</section>
 		</section>
-		<section>
+		<section class="chunk">
 			<section class="get_more">
 				<span>我的活动</span>
 				<img src="static/img/right.svg" alt="right">
@@ -107,7 +107,7 @@
 				<img src="static/img/right.svg" alt="right">
 			</section>
 		</section>
-		<section>
+		<section class="chunk">
 			<section class="get_more">
 				<span>购物车</span>
 				<span>
@@ -215,6 +215,7 @@ import api from '../../fetch/api'
 	border-bottom: 1px solid #ccc;
 	img {
 		width: 23vw;
+		height: 12vh;
 	}
 	figcaption {
 		text-align:center;
@@ -224,6 +225,14 @@ import api from '../../fetch/api'
 .body_data {
 	padding-bottom: 5vw;
 	border-bottom: 1px solid #ccc;
+}
+.chunk {
+	border-bottom: 10px solid #f2f2f2;
+	section {
+		border-bottom: 1px solid #f2f2f2;
+		height: 12vw;
+		line-height: 8vw;
+	}
 }
 
 </style>

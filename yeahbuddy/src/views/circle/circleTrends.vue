@@ -116,7 +116,7 @@
 }
 .for_shadow {
 	// border: 1px solid gray;
-	border-bottom: 1vh solid #ccc;
+	border-bottom: 1vh solid #e6e6e6;
 }
 .recommend_header {
 	display: flex;

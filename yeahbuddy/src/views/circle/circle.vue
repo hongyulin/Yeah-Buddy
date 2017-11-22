@@ -4,7 +4,7 @@
 	<div>
 		<section class="home_header">
 			<span>圈子</span>
-			<img src="static/img/plus.svg" alt="search">
+			<img src="static/img/plus.svg" @click="plus_chunk = !plus_chunk" alt="search">
 		</section>
 		
 		<section class="tabs">
@@ -24,31 +24,35 @@
 				<trends class="fade_children"></trends>
 			</section>
 		</transition> -->
-		<section>
+		<section v-show="plus_chunk" class="plus">
 			<!--加号中添加的内容  -->
 			
 			<!--style提取出来  -->
-			<div style="background-color:black;color:white;">
+			<div class="plus_content">
 				<ul>
 					<li>
 						<img src="static/img/chatbubbles.svg" alt="search">
-						发表话题
+						<span>发表话题</span>
 					</li>
+					<hr>
 					<li>
 						<img src="static/img/start.svg" alt="search">
-						发布动态
+						<span>发布动态</span>
 					</li>
+					<hr>
 					<li>
 						<img src="static/img/plusEmpty.svg" alt="search">
-						加入圈子
+						<span>加入圈子</span>
 					</li>
+					<hr>
 					<li>
 						<img src="static/img/searchFriends.svg" alt="search">
-						发现好友
+						<span>发现好友</span>
 					</li>
+					<hr>
 					<li>
 						<img src="static/img/qr.svg" alt="search">
-						扫一扫
+						<span>扫一扫</span>
 					</li>
 				</ul>
 			</div>
@@ -62,7 +66,8 @@
 		name: 'circle',
 		data(){
 			return {
-				whichShow: "circle"
+				whichShow: "circle",
+				plus_chunk: false
 			}
 		},
 		created(){
@@ -94,5 +99,42 @@
 .fade-enter .fade-leave-to {
 	transform: translateX(.1rem);
 	opacity: 0;
+}
+.home_header {
+	img {
+		width: 7vw;
+	}
+}
+.plus {
+	position: absolute;
+	top: 9vh;
+	right: 5px;
+	z-index: 1000;
+	.plus_content {
+		width: 30vw;
+		padding: {
+			top: .1rem;
+			bottom: .15rem;
+			left: .1rem;
+			right: .1rem;
+		}
+		background-color: #4e4e4e;
+		color:white;
+		border-radius: .1rem;
+		span {
+			color: white;
+			font-size: .13rem;
+		}
+		img {
+			height: 5vw;
+			margin-right: .1rem;
+		}
+		hr {
+			margin: {
+				top: .1rem;
+				bottom: .1rem;
+			}
+		}
+	}
 }
 </style>
