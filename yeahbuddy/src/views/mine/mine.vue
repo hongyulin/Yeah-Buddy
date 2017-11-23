@@ -163,7 +163,6 @@ import api from '../../fetch/api'
 				api.mineData(data)
 					.then( res => {
 						this.dataList = res.list;
-						console.log(this.dataList)
 					})
 			}
 		}

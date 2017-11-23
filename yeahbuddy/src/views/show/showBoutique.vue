@@ -206,7 +206,6 @@
 					})
 				api.getShowVideo(data)
 					.then( res => {
-						console.log('1',res)
 						this.videoList = res.list
 					})
 			},

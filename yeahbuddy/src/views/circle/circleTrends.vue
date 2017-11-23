@@ -90,7 +90,6 @@
 				api.getCTFollow(data)
 					.then( res => {
 						this.follow = res.list
-						console.log(this.follow)
 					})
 			},
 			getDataList() {

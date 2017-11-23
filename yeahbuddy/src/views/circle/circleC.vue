@@ -57,7 +57,7 @@
 				</figure>
 				<figure>
 					<img src="static/img/story.svg" alt="悦友故事">
-					<figcaption>悦友故事</figcaption>
+					<figcaption>八友故事</figcaption>
 				</figure>
 			</section>
 		</section>
@@ -250,7 +250,6 @@
 				api.getCircleAd(data)
 					.then( res => {
 						this.swiperSlides = res.list;
-						console.log(this.swiperSlides)
 					})
 				api.getCircleC(data)
 					.then( res => {
@@ -263,7 +262,6 @@
 				api.getCircleActive()
 					.then( res => {
 						this.activeList = res.list;
-						console.log("activeList",this.activeList[0])
 					})
 			},
 		}
