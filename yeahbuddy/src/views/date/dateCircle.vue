@@ -24,7 +24,7 @@
 			<figure>
 				<router-link to="#">
 					<img src="static/img/vipIcon.svg" alt="户外会员">
-					<figcaption>户外会员</figcaption>
+					<figcaption>成为会员</figcaption>
 				</router-link>
 			</figure>
 		</nav>

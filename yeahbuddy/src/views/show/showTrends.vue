@@ -257,9 +257,12 @@ hr {
 .recommend {
 	border: 1px solid #e6e6e6;
 	text-align: center;
+	padding: 0.1rem;
 	margin: {
-		top:.2rem;
-		bottom:.1rem;
+		top: 0.2rem;
+		bottom: 0.1rem;
+		left: 0.1rem;
+		right: 0.1rem;
 	}
 	.recommend_pic_date {
 		display:flex;

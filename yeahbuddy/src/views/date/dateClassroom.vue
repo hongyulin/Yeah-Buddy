@@ -135,6 +135,14 @@
 		top: .15rem solid #DCDCDC;
 		bottom: .15rem solid #DCDCDC;
 	}
+	margin: {
+		top: .2rem;
+		bottom: .2rem;
+	}
+	padding: {
+		top: .1rem;
+		bottom: .1rem;
+	}
 }
 .classInfo {
 	display: flex;

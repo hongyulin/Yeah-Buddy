@@ -214,6 +214,13 @@
 </script>
 <style lang="scss" scoped>
 .spare_experience {
+	margin: {
+		top: .2rem;
+		bottom: .1rem;
+	}
+	padding: {
+		top: .1rem;
+	}
 	border: {
 		top: 10px solid #ccc;
 		bottom: 10px solid #ccc;
@@ -246,6 +253,7 @@
 	border: {
 		bottom: 10px solid #ccc;
 	}
+	margin-bottom: .1rem;
 	.hot_topic_content {
 		@extend .experience;
 	}

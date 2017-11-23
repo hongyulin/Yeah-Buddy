@@ -310,7 +310,11 @@
 	}
 }
 .circle_active_box {
-	border-top: 10px solid #ccc;	
+	border-top: 10px solid #ccc;
+	margin: {
+		top: .15rem;
+		bottom: .15rem;
+	}	
 }
 .near_circle {
 	margin-bottom: 10px;
