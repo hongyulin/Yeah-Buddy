@@ -2,13 +2,13 @@ import mock from "mockjs";
 let packPool = ['10', '20', '15', '30', '50', '66', '88', '100']
 let data = [
 [
-	'/api/checkIn',
+	'/api/level0/checkIn',
 	{
 		'string|1' : 'success'
 	}
 ],
 [
-	'/api/checkInByWechat',
+	'/api/level0/checkInByWechat',
 	{
 		'string|1' : 'successBywechat'
 	}
@@ -20,13 +20,13 @@ let data = [
 	}
 ],
 [
-	'/api/register',
+	'/api/level0/register',
 	{
 		'string|1':'register success'
 	}
 ],
 [
-	'/api/get/nearper',
+	'/api/level1/get/nearper',
 	{
 		'list|30': [{
 			'id|+1': 1,
@@ -44,7 +44,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/date/adimg',
+	'/api/level1/get/date/adimg',
 	{
 		'list|3': [{
 			'swiperImg': '@dataImage("400x200", "起桥细节详解——Levinson")',
@@ -52,7 +52,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/show/adimg',
+	'/api/level1/get/show/adimg',
 	{
 		'list|5': [{
 			'swiperImg': '@dataImage("400x200", "核心营,火热招募中")',
@@ -60,7 +60,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/circle/adimg',
+	'/api/level1/get/circle/adimg',
 	{
 		'list|3': [{
 			'swiperImg': '@dataImage("400x200", "挑战赛")',
@@ -70,7 +70,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/circle/circle',
+	'/api/level1/get/circle/circle',
 	{
 		'list|1': [{
 			'shImg': '@dataImage("48x48", "上海小八圈")',
@@ -80,7 +80,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/date/exercise',
+	'/api/level1/get/date/exercise',
 	{
 		'list|1': [{
 			'img_one': '@image("400x200", "#ffcc33", "14天局部塑形")',
@@ -89,7 +89,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/date/list',
+	'/api/level1/get/date/list',
 	{
 		'list|20': [{
 			'classHeader': '@dataImage("100x70", "课程推荐")',
@@ -101,7 +101,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/date/goods/list',
+	'/api/level1/get/date/goods/list',
 	{
 		'list|20': [{
 			'goodsImg': '@dataImage("120x100", "商品")',
@@ -116,7 +116,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/date/mall/ad',
+	'/api/level1/get/date/mall/ad',
 	{
 		'list|1': [{
 			'mallAd': '@image("400x200", "#DC143C", "#ffffff", "双十一疯狂降价")'
@@ -124,7 +124,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/show/experience',
+	'/api/level1/get/show/experience',
 	{
 		'list|2': [{
 			'experienceImg': '@dataImage("100x80", "经验分享")',
@@ -142,7 +142,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/show/picked',
+	'/api/level1/get/show/picked',
 	{
 		'list|30': [{
 			'pickedImg': '@dataImage("130x100", "小八精选")',
@@ -154,7 +154,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/show/video',
+	'/api/level1/get/show/video',
 	{
 		'list|1': [{
 			'dance': '@dataImage("400x150", "性感爵士")',
@@ -165,7 +165,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/show/swiper',
+	'/api/level1/get/show/swiper',
 	{
 		'list|10': [{
 			'exerImg': '@dataImage("120x100", "运动自拍")',
@@ -184,7 +184,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/show/recommend',
+	'/api/level1/get/show/recommend',
 	{
 		'list|30': [{
 			'header': '@dataImage("40x40", "头像")',
@@ -199,7 +199,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/circle/hot',
+	'/api/level1/get/circle/hot',
 	{
 		'list|30': [{
 			// 'header': '@dataImage("40x45", "头像")',
@@ -219,7 +219,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/circle/follow',
+	'/api/level1/get/circle/follow',
 	{
 		'list|1': [{
 			'header': '@dataImage("40x45", "头像")',
@@ -230,7 +230,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/circle/friends',
+	'/api/level1/get/circle/friends',
 	{
 		'list|30': [{
 			'header': '@dataImage("40x45", "头像")',
@@ -247,7 +247,7 @@ let data = [
 	}
 ],
 [
-	'/api/get/circle/active',
+	'/api/level1/get/circle/active',
 	{
 		'list|1': [{
 			'left': '@dataImage("200x100", "活动-left")',
