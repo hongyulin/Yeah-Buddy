@@ -92,7 +92,7 @@
 					mobile: this.mobile,
 					idCode: this.idCode
 				}
-				api.checkIn(data)
+				api.checkIn()
 					.then(res => {
 						if (res.string == 'success') {
 							localStorage.setItem("loginSuccess", true)

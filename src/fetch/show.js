@@ -1,7 +1,7 @@
 import axios from "./public";
 export default {
     getShowAd(params) {
-        return axios.get('/api/level1/get/show/adimg', params);
+        return axios.get('/api/level1/ads', params);
     },
     getShowExper(params) {
         return axios.get('/api/level1/experience', params);
@@ -13,10 +13,10 @@ export default {
         return axios.get('/api/level1/choice', params);
     },
     getShowVideo(params) {
-        return axios.get('/api/level1/get/show/video', params);
+        return axios.get('/api/level1/ads', params);
     },
     getShowSwiper(params) {
-        return axios.get('/api/level1/get/show/swiper', params);
+        return axios.get('/api/level1/recent/exercise', params);
     },
     getShowRecommend(params) {
         return axios.get('/api/level1/recommend', params);

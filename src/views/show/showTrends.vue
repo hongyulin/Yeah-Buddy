@@ -80,7 +80,7 @@
 
 				<li>
 					<swiper :options="swiperOptionR">
-						<swiper-slide v-for="(item, index) in swiperList" :key="index">
+						<swiper-slide v-for="(item, index) in recommendUser" :key="index">
 							<section class="recommend">
 								<header class="recommend_header">
 									<div>
@@ -162,11 +162,13 @@
 </template>
 <script>
 	import api from "../../fetch/show"
+	import circle_recommend from "../../fetch/circle"
 	export default{
 		name:'showTrends',
 		data(){
 			return {
 				swiperList: [],
+				recommendUser: [],
 				recommendList: [],
 				swiperOption: {
 					slidesPerView: 2.5,
@@ -196,10 +198,18 @@
 				let data = {
 
 				}
+				let data1 = {
+					type: "choice_recommend"
+				}
 				api.getShowSwiper(data)
 					.then( res => {
 						this.swiperList = res.list
 					})
+				circle_recommend.getRecommendUser(data1)
+					.then( res => {
+						this.recommendUser = res.list
+					})
+				
 				api.getShowRecommend(data)
 					.then( res => {
 						this.recommendList = res.list

@@ -52,7 +52,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/show/adimg',
+	'/api/level1/ads?type=show_ad',
 	{
 		'list|5': [{
 			'swiperImg': '@dataImage("400x200", "核心营,火热招募中")',
@@ -172,7 +172,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/show/video',
+	'/api/level1/ads?type=video_ad',
 	{
 		'list|1': [{
 			'dance': '@dataImage("400x150", "性感爵士")',
@@ -183,7 +183,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/show/swiper',
+	'/api/level1/recent/exercise',
 	{
 		'list|10': [{
 			'exerImg': '@dataImage("120x100", "运动自拍")',
@@ -237,13 +237,32 @@ let data = [
 	}
 ],
 [
-	'/api/level1/recommend/user',
+	'/api/level1/recommend/user?type=circle_recommend',
 	{
 		'list|1': [{
 			'header': '@dataImage("40x45", "头像")',
 			'hostNum': '@natural(1, 30)',
 			'oriNum': '@natural(1, 30)',
 			'followState': false,
+		}]
+	}
+],
+[
+	'/api/level1/recommend/user?type=choice_recommend',
+	{
+		'list|10': [{
+			'exerImg': '@dataImage("120x100", "运动自拍")',
+			'exerHeader': '@dataImage("30x30", "头像")',
+			'exerNick': '@ctitle(3, 7)',
+			'exerNum|+1': 1,
+			'recommHeader': '@dataImage("30x30", "头像")',
+			'recommNick': '@ctitle(3, 7)',
+			'recommTime': '@natural(1, 300)',
+			'recommfans': '@natural(100, 1000)',
+			'recommPicked': '@natural(3, 20)',
+			'recommImg_one': '@dataImage("50x40", "训练照")',
+			'recommImg_two': '@dataImage("50x40", "训练照")',
+			'recommImg_three': '@dataImage("50x40", "训练照")',
 		}]
 	}
 ],

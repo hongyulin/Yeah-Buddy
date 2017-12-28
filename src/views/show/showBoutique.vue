@@ -190,10 +190,16 @@
 		},
 		methods:{
 			getDataList() {
-				let data = {
-
+				let data1 = {
+					type: "show_ad"
 				}
-				api.getShowAd(data)
+				let data2 = {
+					type: "video_ad"
+				}
+				let data = {
+					
+				}
+				api.getShowAd(data1)
 					.then( res => {
 						this.swiperSlides = res.list
 					})
@@ -209,7 +215,7 @@
 					.then( res => {
 						this.picked = res.list
 					})
-				api.getShowVideo(data)
+				api.getShowVideo(data2)
 					.then( res => {
 						this.videoList = res.list
 					})

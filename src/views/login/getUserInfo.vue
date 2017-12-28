@@ -332,7 +332,7 @@ export default {
 				nickName: this.info.nickName,
 				header: this.info.header
 			};
-			api.register(data)
+			api.register()
 				.then(res => {
 					
 					//this.$router.push()

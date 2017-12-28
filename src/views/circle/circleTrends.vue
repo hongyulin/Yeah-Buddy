@@ -85,7 +85,7 @@
 		methods:{
 			getFollow() {
 				let data = {
-
+					type: "circle_recommend"
 				}
 				api.getRecommendUser(data)
 					.then( res => {
