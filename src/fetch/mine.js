@@ -1,6 +1,6 @@
-import fetch from "./public"
+import axios from "./public";
 export default {
     mineData(params) {
-        return fetch('api/get/mine/data', params)
-    }
+        return axios.get('/api/level1/get/mine/data', params);
+    },
 }

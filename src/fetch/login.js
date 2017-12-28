@@ -1,12 +1,12 @@
-import fetch from "./public"
+import axios from "./public";
 export default {
     checkIn(params) {
-        return fetch('/api/level1/checkIn', params)
+        return axios.get('/api/level0/checkin', params);
     },
     checkInByWechat(params) {
-        return fetch('/api/level1/checkInByWechat', params)
+        return axios.get('/api/level0/checkin/bywechat', params);
     },
     register(params) {
-        return fetch('/api/level1/register', params)
+        return axios.get('/api/level0/register', params);
     },
 }

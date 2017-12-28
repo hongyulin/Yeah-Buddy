@@ -133,7 +133,7 @@
 	</div>
 </template>
 <script>
-import api from '../../fetch/date'
+import api from '../../fetch/mine'
 	export default{
 		name: 'mine',
 		data(){
@@ -158,7 +158,7 @@ import api from '../../fetch/date'
 		methods: {
 			getDataList() {
 				let data = {
-
+					
 				}
 				api.mineData(data)
 					.then( res => {

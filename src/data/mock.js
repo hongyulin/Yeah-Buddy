@@ -2,13 +2,13 @@ import mock from "mockjs";
 let packPool = ['10', '20', '15', '30', '50', '66', '88', '100']
 let data = [
 [
-	'/api/level0/checkIn',
+	'/api/level0/checkin',
 	{
 		'string|1' : 'success'
 	}
 ],
 [
-	'/api/level0/checkInByWechat',
+	'/api/level0/checkin/bywechat',
 	{
 		'string|1' : 'successBywechat'
 	}

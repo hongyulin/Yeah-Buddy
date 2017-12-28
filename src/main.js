@@ -5,7 +5,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/index'
-import data from './data/mock'
+// import data from './data/mock'
 import vueAwesomeSwiper from 'vue-awesome-swiper'
 import commonFn from './views/common/common'
 
