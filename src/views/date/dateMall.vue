@@ -96,9 +96,9 @@
 		methods:{
 			getDataList() {
 				let data = {
-
+					type: "mall_ad"
 				}
-				api.getGoodsList(data)
+				api.getGoodsList()
 					.then( res => {
 						this.dataList = res.list;
 					})

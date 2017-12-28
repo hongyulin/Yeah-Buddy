@@ -26,7 +26,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/nearper',
+	'/api/level1/nearperson',
 	{
 		'list|30': [{
 			'id|+1': 1,
@@ -44,7 +44,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/date/adimg',
+	'/api/level1/ads?type=date_ad',
 	{
 		'list|3': [{
 			'swiperImg': '@dataImage("400x200", "起桥细节详解——Levinson")',
@@ -70,7 +70,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/circle/circle',
+	'/api/level1/mycircle',
 	{
 		'list|1': [{
 			'shImg': '@dataImage("48x48", "上海小八圈")',
@@ -80,7 +80,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/date/exercise',
+	'/api/level1/ads?type=date_exercise',
 	{
 		'list|1': [{
 			'img_one': '@image("400x200", "#ffcc33", "14天局部塑形")',
@@ -89,7 +89,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/date/list',
+	'/api/level1/course',
 	{
 		'list|20': [{
 			'classHeader': '@dataImage("100x70", "课程推荐")',
@@ -101,7 +101,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/date/goods/list',
+	'/api/level1/goods',
 	{
 		'list|20': [{
 			'goodsImg': '@dataImage("120x100", "商品")',
@@ -116,7 +116,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/date/mall/ad',
+	'/api/level1/ads?type=mall_ad',
 	{
 		'list|1': [{
 			'mallAd': '@image("400x200", "#DC143C", "#ffffff", "双十一疯狂降价")'
@@ -124,7 +124,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/show/experience',
+	'/api/level1/experience',
 	{
 		'list|2': [{
 			'experienceImg': '@dataImage("100x80", "经验分享")',
@@ -142,7 +142,25 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/show/picked',
+	'/api/level1/topic',
+	{
+		'list|2': [{
+			'experienceImg': '@dataImage("100x80", "经验分享")',
+			'expTitle': '@ctitle(5, 15)',
+			'expContent': '@cparagraph(5, 8)',
+			'expHeader': '@dataImage("35x35", "头像")',
+			'expHeart': '@natural(50, 200)',
+			'expTalk': '@natural(50, 200)',
+			'topicImg': '@dataImage("100x80", "热门话题")',
+			'topTitle': '@ctitle(5, 15)',
+			'topContent': '@cparagraph(5, 8)',
+			'topHeader': '@dataImage("35x35", "头像")',
+			'topIn': '@natural(100, 2000)',
+		}]
+	}
+],
+[
+	'/api/level1/choice',
 	{
 		'list|30': [{
 			'pickedImg': '@dataImage("130x100", "小八精选")',
@@ -184,7 +202,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/show/recommend',
+	'/api/level1/recommend',
 	{
 		'list|30': [{
 			'header': '@dataImage("40x40", "头像")',
@@ -199,7 +217,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/circle/hot',
+	'/api/level1/near/circle',
 	{
 		'list|30': [{
 			// 'header': '@dataImage("40x45", "头像")',
@@ -219,7 +237,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/circle/follow',
+	'/api/level1/recommend/user',
 	{
 		'list|1': [{
 			'header': '@dataImage("40x45", "头像")',
@@ -230,7 +248,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/circle/friends',
+	'/api/level1/circle/trends',
 	{
 		'list|30': [{
 			'header': '@dataImage("40x45", "头像")',
@@ -247,7 +265,7 @@ let data = [
 	}
 ],
 [
-	'/api/level1/get/circle/active',
+	'/api/level1/ads?type=circle_active',
 	{
 		'list|1': [{
 			'left': '@dataImage("200x100", "活动-left")',

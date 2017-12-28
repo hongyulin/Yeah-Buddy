@@ -32,7 +32,7 @@
 				<img src="static/img/right.svg" alt="right">
 			</header>
 			<ul>
-				<li v-for="(item, index) in experienceAndtalk" :key="index">
+				<li v-for="(item, index) in experience" :key="index">
 					<section class="experience">
 						<img :src="item.experienceImg" alt="经验主题">
 						<div class="content">
@@ -60,7 +60,7 @@
 				<img src="static/img/right.svg" alt="right">
 			</header>
 			<ul>
-				<li v-for="(item, index) in experienceAndtalk" :key="index">
+				<li v-for="(item, index) in topic" :key="index">
 					<section class="hot_topic_content">
 						<img :src="item.topicImg" alt="头像">
 						<div class="content">
@@ -159,7 +159,8 @@
 			return {
 				videoList: [],
 				swiperSlides: [],
-				experienceAndtalk: [],
+				experience: [],
+				topic: [],
 				picked: [],
 				swiperOption: {
 					pagination: '.swiper-pagination',
@@ -198,7 +199,11 @@
 					})
 				api.getShowExper(data)
 					.then( res => {
-						this.experienceAndtalk = res.list
+						this.experience = res.list
+					})
+				api.getShowTopic(data)
+					.then( res => {
+						this.topic = res.list
 					})
 				api.getShowPicked(data)
 					.then( res => {

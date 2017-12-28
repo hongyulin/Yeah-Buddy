@@ -4,19 +4,19 @@ export default {
         return axios.get('/api/level1/get/circle/adimg', params);
     },
     getCircleC(params) {
-        return axios.get('/api/level1/get/circle/circle', params);
+        return axios.get('/api/level1/mycircle', params);
     },
     getNearList(params) {
-        return axios.get('/api/level1/get/circle/hot', params);
+        return axios.get('/api/level1/near/circle', params);
     },
     getCircleActive(params) {
-        return axios.get('/api/level1/get/circle/active', params);
+        return axios.get('/api/level1/ads', params);
     }, 
     getRecommendUser(params) {
-        return axios.get('/api/level1/get/circle/follow', params);
+        return axios.get('/api/level1/recommend/user', params);
     },
     getCircleTrends(params) {
-        return axios.get('/api/level1/get/circle/friends', params);
+        return axios.get('/api/level1/circle/trends', params);
     },
 
 }

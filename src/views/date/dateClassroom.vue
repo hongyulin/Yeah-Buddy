@@ -111,17 +111,21 @@
 		methods: {
 			getDataList() {
 				let data = {
-
+					type: "date_ad"
+				}
+				let data2 = {
+					type: "date_exercise"
 				}
 				api.getDateAd(data)
 					.then( res => {
 						this.swiperSlides = res.list
 					})
-				api.getDateExercise(data)
+				
+				api.getDateExercise(data2)
 					.then( res => {
 						this.exerciseData = res.list
 					})
-				api.getDateClass(data)
+				api.getDateClass()
 					.then( res => {
 						this.dataList = res.list
 					})

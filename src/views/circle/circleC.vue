@@ -199,21 +199,21 @@
 		methods:{
 			getDataList() {
 				let data = {
-
+					type: "circle_active"
 				}
-				api.getCircleAd(data)
+				api.getCircleAd()
 					.then( res => {
 						this.swiperSlides = res.list;
 					})
-				api.getCircleC(data)
+				api.getCircleC()
 					.then( res => {
 						this.circleDate = res.list;
 					})
-				api.getNearList(data)
+				api.getNearList()
 					.then( res => {
 						this.nearList = res.list
 					})
-				api.getCircleActive()
+				api.getCircleActive(data)
 					.then( res => {
 						this.activeList = res.list;
 					})
