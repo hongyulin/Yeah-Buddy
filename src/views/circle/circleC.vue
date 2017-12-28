@@ -67,7 +67,7 @@
 				<img src="static/img/right.svg" alt="查看全部">
 			</header>
 			<ul>
-				<li v-for="(item, index) in hotList.slice(0, 2)" :key="index" class="near_circle">
+				<li v-for="(item, index) in nearList.slice(0, 2)" :key="index" class="near_circle">
 					<div class="near_active_content">
 						<p class="near_active_content">{{item.content}}</p>
 						<div class="near_active_pic">
@@ -94,7 +94,7 @@
 					</footer>
 				</li>
 				<li><img :src="swiperSlides[0].adImg" alt="公益广告" class="public_welfare"></li>
-				<li v-for="(item, index) in hotList.slice(2, 6)" :key="index" class="near_circle">
+				<li v-for="(item, index) in nearList.slice(2, 6)" :key="index" class="near_circle">
 					<div class="near_active_content">
 						<p class="near_active_content">{{item.content}}</p>
 						<div class="near_active_pic">
@@ -121,7 +121,7 @@
 					</footer>
 				</li>  
 				<li><img :src="swiperSlides[1].adImg" alt="公益广告" class="public_welfare"></li>
-				<li v-for="(item, index) in hotList.slice(6)" :key="index" class="near_circle">
+				<li v-for="(item, index) in nearList.slice(6)" :key="index" class="near_circle">
 					<div class="near_active_content">
 						<p class="near_active_content">{{item.content}}</p>
 						<div class="near_active_pic">
@@ -169,7 +169,7 @@
 						swiperImg: '',
 					}
 				],
-				hotList: [],
+				nearList: [],
 				swiperOption: {
 					pagination: '.swiper-pagination',
 					paginationClickable: true,
@@ -209,9 +209,9 @@
 					.then( res => {
 						this.circleDate = res.list;
 					})
-				api.getHotList(data)
+				api.getNearList(data)
 					.then( res => {
-						this.hotList = res.list
+						this.nearList = res.list
 					})
 				api.getCircleActive()
 					.then( res => {

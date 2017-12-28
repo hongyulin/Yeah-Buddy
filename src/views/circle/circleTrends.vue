@@ -21,7 +21,7 @@
 		<hr class="for_shadow">
 		<section>
 			<ul>
-				<li v-for="(item, index) in friendList" :key="index" class="people_trends">
+				<li v-for="(item, index) in trendsList" :key="index" class="people_trends">
 					<section class="people_trends_header">
 						<router-link to="#">
 							<img :src="item.header" alt="头像" class="header_pic">
@@ -65,7 +65,7 @@
 		data(){
 			return {
 				follow: [],
-				friendList: [],
+				trendsList: [],
 			}
 		},
 		created(){
@@ -87,7 +87,7 @@
 				let data = {
 
 				}
-				api.getCTFollow(data)
+				api.getRecommendUser(data)
 					.then( res => {
 						this.follow = res.list
 					})
@@ -96,9 +96,9 @@
 				let data = {
 					
 				}
-				api.getCTFriend(data)
+				api.getCircleTrends(data)
 					.then( res => {
-						this.friendList = res.list
+						this.trendsList = res.list
 					})
 			},
 			takeFollow() {

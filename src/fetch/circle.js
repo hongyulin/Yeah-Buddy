@@ -6,16 +6,16 @@ export default {
     getCircleC(params) {
         return axios.get('/api/level1/get/circle/circle', params);
     },
-    getHotList(params) {
+    getNearList(params) {
         return axios.get('/api/level1/get/circle/hot', params);
     },
     getCircleActive(params) {
         return axios.get('/api/level1/get/circle/active', params);
     }, 
-    getCTFollow(params) {
+    getRecommendUser(params) {
         return axios.get('/api/level1/get/circle/follow', params);
     },
-    getCTFriend(params) {
+    getCircleTrends(params) {
         return axios.get('/api/level1/get/circle/friends', params);
     },
 

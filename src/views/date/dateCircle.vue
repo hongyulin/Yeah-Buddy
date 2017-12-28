@@ -85,7 +85,7 @@
 		methods:{
 			getDataList() {
 				let data = {
-					num: 100
+					// num: 100
 				}
 				api.getNearPer(data)
 					.then( res => {
