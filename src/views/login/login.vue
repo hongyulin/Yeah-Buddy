@@ -2,7 +2,7 @@
 <template>
 	<div>
 		<div class="videoWrap" v-show="pageVideoShow">
-			<video src="static/openVideo.mp4" muted autoplay="autoplay" loop="loop" class="videoStyle"></video>
+			<video src="http://p28s6jgcp.bkt.clouddn.com/openVideo.mp4" muted autoplay="autoplay" loop="loop" class="videoStyle"></video>
 			<div class="videoBg">
 				<div id="logo">
 					<img src="static/img/logo.svg" alt="logo">
