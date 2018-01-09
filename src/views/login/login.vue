@@ -92,8 +92,10 @@
 					mobile: this.mobile,
 					idCode: this.idCode
 				}
+				console.log(data)
 				api.checkIn()
 					.then(res => {
+						console.log(res);
 						if (res.string == 'success') {
 							localStorage.setItem("loginSuccess", true)
 							this.$router.push({
@@ -226,6 +228,7 @@
 			display: block;
 			text-align: center;
 			line-height: 1px;
+			font-size: 0.1rem;
 			border: {
 				left: solid 1.3rem #808080;
 				right: solid 1.3rem #808080;

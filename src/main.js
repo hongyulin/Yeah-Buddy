@@ -1,13 +1,12 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-require('swiper/dist/css/swiper.css')
-import Vue from 'vue'
-import App from './App'
-import router from './router'
-import store from './store/index'
-import data from './data/mock'
-import vueAwesomeSwiper from 'vue-awesome-swiper'
-import commonFn from './views/common/common'
+require('swiper/dist/css/swiper.css');
+import Vue from 'vue';
+import App from './App';
+import router from './router';
+import store from './store/index';
+// 接口没有写的时候用于测试的假数据
+// import data from './data/mock';
+import vueAwesomeSwiper from 'vue-awesome-swiper';
+import commonFn from './views/common/common';
 
 /*双击事件*/
 /*import FastClick from 'fastclick'
@@ -18,10 +17,10 @@ if ('addEventListener' in document) {
     }, false);
 }*/
 //没有写完
-Vue.use(vueAwesomeSwiper)
-Vue.use(commonFn)
+Vue.use(vueAwesomeSwiper);
+Vue.use(commonFn);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 // 注册全局函数
 // Vue.prototype.whichShowFn = function(name) {
     // this.whichShow = name;
@@ -42,4 +41,4 @@ new Vue({
   store,
   template: '<App/>',
   components: { App }
-})
+});
