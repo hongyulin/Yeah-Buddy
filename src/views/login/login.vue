@@ -42,7 +42,7 @@
 	</div>
 </template>
 <script>
-	import api from '../../fetch/login'
+	import api from '../../fetch/login';
 	export default{
 		name:'login',
 		data(){
@@ -70,12 +70,12 @@
 		methods: {
 			getIdCodeFn(){
 				this.sendTime = 60;
-				this.getIdCode = `已发送${this.sendTime}秒`
+				this.getIdCode = `已发送${this.sendTime}秒`;
 				let timer = setInterval(() => {
-					this.getIdCode = `已发送${this.sendTime--}秒`
+					this.getIdCode = `已发送${this.sendTime--}秒`;
 					if(this.sendTime == -2){
 						clearInterval(timer);
-						this.getIdCode = '获取验证码'
+						this.getIdCode = '获取验证码';
 					}
 				},1000)
 			},
@@ -84,23 +84,25 @@
 				this.pageMobileShow = true;
 			},
 			tourist(){
-				this.$router.push('/home')
-				localStorage.setItem("loginSuccess", false)
+				this.$router.push('/home');
+				localStorage.setItem("loginSuccess", false);
 			},
 			checkIn(){
 				let data = {
 					mobile: this.mobile,
 					idCode: this.idCode
 				}
-				console.log(data)
-				api.checkIn()
+				api.checkIn(data)
 					.then(res => {
-						console.log(res);
-						if (res.string == 'success') {
-							localStorage.setItem("loginSuccess", true)
-							this.$router.push({
-								path:'/getUserInfo'
-							})
+						if (res.status == 'success') {
+							localStorage.setItem("loginSuccess", true);
+							let userInfo = res.userInfo;
+							if(!userInfo.sex){
+								this.$router.push('/getUserInfo');
+							}else{
+								this.$router.push('/home/date/mall');
+							}
+							
 						}
 					})
 					/*.catch((error) => {

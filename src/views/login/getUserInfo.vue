@@ -148,13 +148,13 @@ export default {
 	name: 'getUserInfo',
 	data() {
 		return {
-			nickNameShow: false,
+			nickNameShow: true,
 			sexShow: false,
 			levelShow: false,
 			BFPShow: false,
 			targetShow: false,
 			limbsShow: false,
-			AWHShow: true,
+			AWHShow: false,
 			yearShow: false,
 			monthShow: false,
 			dayShow: false,
@@ -192,8 +192,6 @@ export default {
 		this.insertWeight();
 		this.insertHeight();
 		document.getElementsByTagName("select").onblur= ()=>(console.log("152"))
-		
-		
 	},
 	components: {
 		tips
