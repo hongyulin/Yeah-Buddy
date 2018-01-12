@@ -4,14 +4,14 @@
 		<section id="nickName" v-show="nickNameShow">
 			<div class="header">
 				<router-link to="/" slot="left">
-					<img src="static/img/left.svg" alt="goBack">
+					<img :src="headerImg" alt="goBack">
 				</router-link>
 			</div>
 			
 			<div class="infoBody">
 				<h1>上传头像</h1>
 				<div class="avatarGroup">
-					<input type="file" class="upload">
+					<input type="file" class="upload" @change="uploadImg">
 					<img src="static/img/headPortrait.svg" alt="headPortrait"/>
 				</div>
 				<div class="nickname">
@@ -109,20 +109,14 @@
 					<select size="5" v-show="yearShow" v-model="info.year" @change="yearShow = false;" @blur="yearShow = false;">
 						<option v-for="(item, index) in yearSlotList" :value="item" :key="index">{{item}}</option>
 					</select>
-					<!-- <label> -->
 						<span @click="monthShow = true">{{info.month}}月</span>
 						<select size="4" v-show="monthShow" v-model="info.month" @change="monthShow = false;" @blur="monthShow = false;">
 							<option v-for="(item, index) in monthSlotList" :value="item" :key="index">{{item}}</option>
 						</select>
-					<!-- </label> -->
-					
-					<!-- <label> -->
 						<span @click="insertDay">{{info.day}}日</span>
 						<select size="4" v-show="dayShow" v-model="info.day" @change="daySlotList = [];dayShow = false;" @blur="dayShow = false;">
 							<option v-for="(item, index) in daySlotList" :value="item" :key="index">{{item}}</option>
-						</select>
-					<!-- </label> -->
-					
+						</select>					
 				</label>
 				<label>身高
 					<span @click="heightShow = true;">{{info.height}}cm</span>
@@ -148,6 +142,7 @@ export default {
 	name: 'getUserInfo',
 	data() {
 		return {
+			headerImg: "static/img/left.svg",
 			nickNameShow: true,
 			sexShow: false,
 			levelShow: false,
@@ -338,6 +333,18 @@ export default {
 					this.sexShow = true;
 				}, res => {
 					
+				})
+		},
+		async uploadImg(){
+			let data = {
+				img: document.querySelector(".upload").files[0]
+			}
+			api.uploadImg(data)
+				.then(res => {
+					this.headerImg = res.imgPath;
+				})
+				.catch(err => {
+					throw new Error(err);
 				})
 		},
 
