@@ -18,7 +18,7 @@
 					<h3>昵称</h3>
 					<input v-model="info.nickName">
 				</div>
-				<span>昵称请控制在4-30个字符，支持中文、数字、横线和减号</span>
+				<span class="nicknamedes">昵称请控制在4-30个字符，支持中文、数字、横线和减号</span>
 				<button @click="toRegister" class="button">注册</button>
 			</div>
 		</section>
@@ -337,7 +337,7 @@ export default {
 		},
 		async uploadImg(){
 			let data = {
-				img: document.querySelector(".upload").files[0]
+				img: document.querySelector(".upload")[0].files[0]
 			}
 			api.uploadImg(data)
 				.then(res => {
@@ -374,6 +374,9 @@ export default {
 		text-align: right;
 		width: .8rem;
 		height: .5rem;
+	}
+	.nicknamedes {
+		width: 90vw;
 	}
 	select {
 		position: fixed;
@@ -416,4 +419,5 @@ export default {
 		}
 	}
 }
+
 </style>
