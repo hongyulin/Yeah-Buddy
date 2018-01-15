@@ -11,7 +11,7 @@
 			<div class="infoBody">
 				<h1>上传头像</h1>
 				<div class="avatarGroup">
-					<input type="file" class="upload" @change="uploadImg">
+					<input type="file" class="upload" name="file" @change="uploadImg($event)">
 					<img src="static/img/headPortrait.svg" alt="headPortrait"/>
 				</div>
 				<div class="nickname">
@@ -136,8 +136,9 @@
 	</div>
 </template>
 <script>
-import api from '../../fetch/login'
-import tips from "../../components/tips.vue"
+import api from '../../fetch/login';
+import tips from "../../components/tips.vue";
+import axios from "axios";
 export default {
 	name: 'getUserInfo',
 	data() {
@@ -335,11 +336,18 @@ export default {
 					
 				})
 		},
-		async uploadImg(){
-			let data = {
-				img: document.querySelector(".upload")[0].files[0]
-			}
-			api.uploadImg(data)
+		async uploadImg(event){
+			let data = new FormData();
+			// data.append("files", event.target.files[0]);
+			data.append("files", "11");
+			
+			let config = {
+	            headers: {
+	                'Content-Type': 'application/x-www-form-urlencoded'  
+	            }
+	        };
+			axios.post("/api/level0/uploadimg", data, config)
+			// api.uploadImg(data,config)
 				.then(res => {
 					this.headerImg = res.imgPath;
 				})

@@ -9,7 +9,7 @@ export default {
     register(params) {
         return axios.get('/api/level0/register', params);
     },
-    uploadImg(params) {
-        return axios.post('/api/level0/uploadimg', params)
+    uploadImg(params, config) {
+        return axios.post('/api/level0/uploadimg', params, config)
     }
 }
