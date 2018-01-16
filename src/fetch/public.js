@@ -6,9 +6,11 @@ axios.defaults.headers.post['Content-Type'] = 'application/json;chartset=UTF-8';
 axios.defaults.baseURL = '';
 
 axios.interceptors.request.use((config) => {
+    // 在这儿加上登录拦截。
     if(config.method  === 'post')
     {
-        config.data = qs.parse(config.data);
+        //上传头像时使用formData，所以下面要注释掉。
+        // config.data = qs.parse(config.data);
     }
     return config;
 },(error) =>{     

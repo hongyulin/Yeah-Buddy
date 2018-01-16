@@ -4,7 +4,7 @@
 		<section id="nickName" v-show="nickNameShow">
 			<div class="header">
 				<router-link to="/" slot="left">
-					<img :src="headerImg" alt="goBack">
+					<img src="static/img/left.svg" alt="goBack">
 				</router-link>
 			</div>
 			
@@ -12,7 +12,7 @@
 				<h1>上传头像</h1>
 				<div class="avatarGroup">
 					<input type="file" class="upload" name="file" @change="uploadImg($event)">
-					<img src="static/img/headPortrait.svg" alt="headPortrait"/>
+					<img :src="headerImg" alt="headPortrait" />
 				</div>
 				<div class="nickname">
 					<h3>昵称</h3>
@@ -143,7 +143,7 @@ export default {
 	name: 'getUserInfo',
 	data() {
 		return {
-			headerImg: "static/img/left.svg",
+			headerImg: "static/img/headPortrait.svg",
 			nickNameShow: true,
 			sexShow: false,
 			levelShow: false,
@@ -336,20 +336,13 @@ export default {
 					
 				})
 		},
-		async uploadImg(event){
+		uploadImg(event){
 			let data = new FormData();
-			// data.append("files", event.target.files[0]);
-			data.append("files", "11");
-			
-			let config = {
-	            headers: {
-	                'Content-Type': 'application/x-www-form-urlencoded'  
-	            }
-	        };
-			axios.post("/api/level0/uploadimg", data, config)
-			// api.uploadImg(data,config)
+			data.append("file", event.target.files[0]);
+			data.append("type", "header-img");
+			api.uploadImg(data)
 				.then(res => {
-					this.headerImg = res.imgPath;
+					this.headerImg = "http://p24g7dbyx.bkt.clouddn.com/" + res.message;
 				})
 				.catch(err => {
 					throw new Error(err);
@@ -371,6 +364,7 @@ export default {
 	background-color: white;
 	border: 1px solid red;
 	color: red;
+	
 }
 
 .infoBody {
@@ -409,6 +403,10 @@ export default {
 		flex-direction: row;
 		margin: 0.2rem 0;
 		align-items: center;
+		img {
+			height: 18vh;
+			border-radius: 50%;
+		}
 	}
 	button {
 		margin-top: 0.6rem;
