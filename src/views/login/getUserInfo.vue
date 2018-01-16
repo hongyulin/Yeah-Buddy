@@ -378,7 +378,10 @@ export default {
 		height: .5rem;
 	}
 	.nicknamedes {
-		width: 90vw;
+		font-size: .1rem;
+		color: #ccc;
+		text-align: center;
+		width: 80vw;
 	}
 	select {
 		position: fixed;
