@@ -7,6 +7,8 @@ axios.defaults.baseURL = '';
 
 axios.interceptors.request.use((config) => {
     // 在这儿加上登录拦截。
+    config.headers.token = localStorage.getItem("token");
+    
     if(config.method  === 'post')
     {
         //上传头像时使用formData，所以下面要注释掉。

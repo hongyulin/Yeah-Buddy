@@ -12,14 +12,14 @@
 				<h1>上传头像</h1>
 				<div class="avatarGroup">
 					<input type="file" class="upload" name="file" @change="uploadImg($event)">
-					<img :src="headerImg" alt="headPortrait" />
+					<img :src="info.headerImg" alt="headPortrait" />
 				</div>
 				<div class="nickname">
 					<h3>昵称</h3>
 					<input v-model="info.nickName">
 				</div>
 				<span class="nicknamedes">昵称请控制在4-30个字符，支持中文、数字、横线和减号</span>
-				<button @click="toRegister" class="button">注册</button>
+				<button @click="register" class="button">注册</button>
 			</div>
 		</section>
 		<!-- 如下内容可以把数据抽出来，用一个v-for加show来列表渲染lhy -->
@@ -143,7 +143,7 @@ export default {
 	name: 'getUserInfo',
 	data() {
 		return {
-			headerImg: "static/img/headPortrait.svg",
+			
 			nickNameShow: true,
 			sexShow: false,
 			levelShow: false,
@@ -165,6 +165,7 @@ export default {
 			showTips:false,
 			info: {
 				header: '../..static/img/logo.svg',
+				headerImg: "static/img/headPortrait.svg",
 				nickName: '',
 				sex: '',
 				level: '',
@@ -321,17 +322,19 @@ export default {
 			};
 			
 		},
-		toRegister() {
+		register() {
+			let id_json = JSON.parse(localStorage.userInfo);
 			let data = {
 				nickName: this.info.nickName,
-				header: this.info.header
+				headerImg: this.info.headerImg,
+				user_id: id_json.id
 			};
-			api.register()
+			console.log(data);
+			api.register(data)
 				.then(res => {
 					
-					//this.$router.push()
-					this.nickNameShow = false;
-					this.sexShow = true;
+					// this.nickNameShow = false;
+					// this.sexShow = true;
 				}, res => {
 					
 				})
@@ -342,7 +345,7 @@ export default {
 			data.append("type", "header-img");
 			api.uploadImg(data)
 				.then(res => {
-					this.headerImg = "http://p24g7dbyx.bkt.clouddn.com/" + res.message;
+					this.info.headerImg = "http://p24g7dbyx.bkt.clouddn.com/" + res.message;
 				})
 				.catch(err => {
 					throw new Error(err);

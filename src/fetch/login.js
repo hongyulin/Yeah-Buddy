@@ -7,7 +7,7 @@ export default {
         return axios.get('/api/level0/checkin/bywechat', params);
     },
     register(params) {
-        return axios.get('/api/level0/register', params);
+        return axios.post('/api/level0/register', params);
     },
     uploadImg(params) {
         return axios.post('/api/level0/uploadimg', params)

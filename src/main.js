@@ -27,14 +27,15 @@ Vue.config.productionTip = false;
     // 解决keep-alive中多组件记录同一个滚动位置问题
     // document.documentElement.scrollTop = 0;
 // }
-/*router.beforeEach((to,from,next) => {
-	if (to.mached.length == 0) {
-		next('/mobile/404');
-	} else {
-		next()
-	}
-})*/
+// router.beforeEach((to, from, next) => {
+// 	if (to.mached.length == 0) {
+// 		next('/mobile/404');
+// 	} else {
+// 		next()
+// 	}
+// })
 /* eslint-disable no-new */
+
 new Vue({
   el: '#app',
   router,

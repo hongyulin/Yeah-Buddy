@@ -59,7 +59,7 @@
 
 		},
 		mounted(){
-			
+			this.checkIn();
 		},
 		components: {
 
@@ -87,7 +87,7 @@
 				this.$router.push('/home');
 				localStorage.setItem("loginSuccess", false);
 			},
-			checkIn(){
+			checkIn(){				
 				let data = {
 					mobile: this.mobile,
 					idCode: this.idCode
@@ -96,10 +96,11 @@
 					.then(res => {
 						if (res.status == 'success') {
 							localStorage.setItem("loginSuccess", true);
-							let userInfo = res.userInfo;
-							if(!userInfo.sex){
+							localStorage.setItem("userInfo", JSON.stringify(res.userInfo));
+							if(!res.is_register){
 								this.$router.push('/getUserInfo');
 							}else{
+								localStorage.setItem("token",res.token)
 								this.$router.push('/home/date/mall');
 							}
 							
