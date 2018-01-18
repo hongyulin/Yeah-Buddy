@@ -11,5 +11,8 @@ export default {
     },
     uploadImg(params) {
         return axios.post('/api/level0/uploadimg', params)
+    },
+    updataInfo(params) {
+        return axios.post("/api/level0/updatainfo" ,params)
     }
 }

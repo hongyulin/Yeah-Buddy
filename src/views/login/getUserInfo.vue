@@ -41,16 +41,16 @@
 			<div class="infoBody">
 				<h2>你的健身基础？</h2>
 				<button  @click="goNext('levelShow','beginner')" class="button">入门\
-					<span>很久没有运动，需要通过适应性训练打好基础</span>
+					<span class="nicknamedes">很久没有运动，需要通过适应性训练打好基础</span>
 				</button>
 				<button  @click="goNext('levelShow','primary')" class="button">初级\
-					<span>偶尔运动，可以正式开始训练</span>
+					<span class="nicknamedes">偶尔运动，可以正式开始训练</span>
 				</button>
 				<button  @click="goNext('levelShow','medium')" class="button">中级\
-					<span>体能不错，希望进行稍有强度的训练</span>
+					<span class="nicknamedes">体能不错，希望进行稍有强度的训练</span>
 				</button>
 				<button  @click="goNext('levelShow','senior')" class="button">高级\
-					<span>训练规律，经验丰富，能进行高强度的许梿</span>
+					<span class="nicknamedes">训练规律，经验丰富，能进行高强度的许梿</span>
 				</button>
 			</div>
 		</section>
@@ -143,7 +143,6 @@ export default {
 	name: 'getUserInfo',
 	data() {
 		return {
-			
 			nickNameShow: true,
 			sexShow: false,
 			levelShow: false,
@@ -252,12 +251,12 @@ export default {
 					this.limbsShow = false;
 					this.AWHShow = true;
 					this.info.limbs = val;
-					this.insertList()
 					break;
 				case "AWHShow":
 					localStorage.info = JSON.stringify(this.info);
 					this.showTips = true;
-					this.message = "注册成功";
+					this.message = "信息已完善";
+					this.updataInfo();
 					setTimeout(() => {
 						this.showTips = false;
 						this.$router.push('/home/date/mall');
@@ -329,14 +328,24 @@ export default {
 				headerImg: this.info.headerImg,
 				user_id: id_json.id
 			};
-			console.log(data);
 			api.register(data)
 				.then(res => {
-					
-					// this.nickNameShow = false;
-					// this.sexShow = true;
+					if(res.message == "success"){
+						this.message = "注册成功";
+						this.showTips = true;
+						this.nickNameShow = false;
+						this.sexShow = true;
+						setTimeout(() => {
+							this.showTips = false;
+						}, 500)
+						
+					}
 				}, res => {
-					
+					this.message = "注册失败";
+					this.showTips = true;
+					setTimeout(() => {
+						this.showTips = false;
+					}, 500)
 				})
 		},
 		uploadImg(event){
@@ -351,6 +360,15 @@ export default {
 					throw new Error(err);
 				})
 		},
+		updataInfo(){
+			let data = this.info;
+			let id_json = JSON.parse(localStorage.userInfo);
+			data.user_id = id_json.id;
+			api.updataInfo(data)
+				.then( res => {
+
+				})
+		}
 
 	}
 }
@@ -367,7 +385,6 @@ export default {
 	background-color: white;
 	border: 1px solid red;
 	color: red;
-	
 }
 
 .infoBody {
@@ -378,13 +395,13 @@ export default {
 		display: inline-block;
 		text-align: right;
 		width: .8rem;
-		height: .5rem;
+		// height: .5rem;
 	}
 	.nicknamedes {
 		font-size: .1rem;
 		color: #ccc;
 		text-align: center;
-		width: 80vw;
+		width: 75vw;
 	}
 	select {
 		position: fixed;
