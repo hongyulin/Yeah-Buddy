@@ -254,14 +254,7 @@ export default {
 					break;
 				case "AWHShow":
 					localStorage.info = JSON.stringify(this.info);
-					this.showTips = true;
-					this.message = "信息已完善";
 					this.updataInfo();
-					setTimeout(() => {
-						this.showTips = false;
-						this.$router.push('/home/date/mall');
-					}, 1000);
-					
 					break;
 			}
 		},
@@ -366,7 +359,21 @@ export default {
 			data.user_id = id_json.id;
 			api.updataInfo(data)
 				.then( res => {
-
+					if(res.message == "success"){
+						this.showTips = true;
+						this.message = "信息已完善";
+						setTimeout(() => {
+							this.showTips = false;
+							this.$router.push('/home/date/mall');
+						}, 1000);
+					}
+				})
+				.catch(err => {
+					this.showTips = true;
+					this.message = "请重新填写";
+					setTimeout(() => {
+						this.showTips = false;
+					}, 1000);
 				})
 		}
 

@@ -16,7 +16,7 @@ export default {
         return axios.get('/api/level1/goods', params);
     },
     getMallAd(params) {
-        return axios.get('/api/level1/ads', params);
+        return axios.get('/api/level1/mall_ads?type=SHOP_AD');
     },
 
 }

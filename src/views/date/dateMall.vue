@@ -8,7 +8,7 @@
 				<!-- 滚动后搜索框固定在顶部 -->
 				<input type="text"/>
 			</router-link>
-			<img :src="mallAd.mallAd" alt="广告" class="width_vw"> 
+			<img :src="mallAd" alt="广告" class="width_vw"> 
 		</section>
 		<section class="mallSwiper">
 			<swiper :options="swiperOption">
@@ -19,45 +19,44 @@
 			</span>
 			<!-- 点击按钮的时候改变url并watch异步加载，使得无论后退还是点击时，
 			横向list中和下拉中以及下面的列表中都是同一个状态 -->
-			
 			<!-- 隐藏，滚动后出现，综合排序（综合排序，价格从低到高，价格从高到底）|销量优先 -->
 		</section>
 		<section>
 			<ul>
 				<li v-for="(item, index) in dataList" :key="index" class="goodList width_vw">
 					<div>
-						<img :src="item.goodsImg" alt="商品">
+						<img :src="item.img" alt="商品">
 					</div>
 					<div>
 						<header>
 							<span v-show="item.icon == 0" class="icon">天猫</span>
 							<span v-show="item.icon == 1" class="icon">淘</span>
 							<span v-show="item.icon == 2" class="icon">上新</span>
-							<span class="goodTitle">{{item.title}}</span>
+							<span class="goodTitle">{{item.name}}</span>
 						</header>
 						<span class="goodPrice">
 							￥
 							<span>
-								{{item.price}}
+								{{item.dis_price}}
 							</span>
-							<span v-show="item.freeCarr">包邮</span>
+							<span v-show="item.free_post">包邮</span>
 						</span>
 						<br>
 						<span class="originPrice">
 							原价:
-							<del>{{item.price + item.diffPrice}}</del>
+							<del>{{item.ori_price}}</del>
 						</span>
 					</div>
 					<div>
 						<div class="redPackket">
 							<span>￥
-								<big>{{item.redPacket}}</big>
+								<big>{{item.red_packet.money}}</big>
 								</span>
 							<br>
 							<span><small>拆红包</small></span>
 						</div>
 						<span>
-							<small>已抢{{item.packetNum}}件</small>
+							<small>已抢{{item.red_packet.send_num}}件</small>
 							</span>
 					</div>
 				</li>
@@ -71,12 +70,13 @@
 		name:'dateMall',
 		data: function(){
 			return {
-				dataList: [],
-				mallAd: [],
-				tagList: ["每日精选", "美妆个护", "就爱吃", "数码家电", "日用百货", "饰品", "图文", "鞋包", "运动车载", "女士精选"],
+				pageIndex:  1,
+				dataList: 	[],
+				mallAd: 	"",
+				tagList: 	["每日精选", "美妆个护", "就爱吃", "数码家电", "日用百货", "饰品", "图文", "鞋包", "运动车载", "女士精选"],
 				swiperOption: {
-					slidesPerView: 3,
-					freeMode: true
+					slidesPerView: 	3,
+					freeMode: 		true
 				},
 			}
 		},
@@ -84,7 +84,7 @@
 
 		},
 		mounted(){
-			this.getDataList()
+			this.intiData();
 		},
 		
 		components:{
@@ -94,19 +94,35 @@
 
 		},
 		methods:{
-			getDataList() {
+			intiData(){
+				this.getMallList();
+				setTimeout(() => {
+					this.getAdList();
+				}, 500);
+			},
+
+			getMallList(){
 				let data = {
-					type: "mall_ad"
+					pageIndex: this.pageIndex,
+					pageSize: 15
 				}
-				api.getGoodsList()
+				api.getGoodsList(data)
 					.then( res => {
-						this.dataList = res.list;
+						this.dataList = res.message;
+					}).catch(err => {
+						console.log(err)
 					})
-				api.getMallAd(data)
+			},
+
+			getAdList(){
+				api.getMallAd()
 					.then( res => {
-						this.mallAd = res.list;
+						this.mallAd = res.message.img;
 					})
-			}
+					.catch(err => {
+						console.log(err)
+					})
+			},
 		}
 	}
 </script>
@@ -174,5 +190,4 @@
 			}
 		}
 	}
-	
 </style>
