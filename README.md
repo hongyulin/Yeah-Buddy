@@ -12,8 +12,8 @@ vue + vuex + vue-router + webpack + axios + sass
 + 实现无滚动条better-scroll
 + 把svg图片进行压缩，放到html中提高加载速度
 + 图片大小自适应
-+ 异步分批加载
-+ keeplive标签页共享同一个位置，怎么解决？
++ 可视区域加载
++ ~~keeplive标签页共享同一个位置，怎么解决？~~
 1. 登录
 + ~~登录页面动画，轮播~~
 + 微信，~~手机号~~，自动登录，
@@ -25,7 +25,8 @@ vue + vuex + vue-router + webpack + axios + sass
 	+ 
 + （加标签，加搜索）
 3. 约
-+ 附近圈子
++ 附近
+	+附近人的实现？
 	+ 筛选
 	+ 底部向上拉动加载数据
 	+ 拉到地面显示一个回到顶部的按钮

@@ -40,18 +40,18 @@
 			<ul>
 				<li v-for="item in dataList" class="nearContent" :key="item.id">
 					<section>
-						<img :src="item.img" alt="头像" class="header_pic">
+						<img :src="item.header_img + '?imageView2/2/w/150/h/150'" alt="头像" class="header_pic">
 					</section>
 					<section class="perInfo">
-						<header>{{item.nickName}}</header>
+						<header>{{item.name}}</header>
 						<div>
-							<span class="sex">{{item.sex}}&nbsp;{{item.age}}</span>
+							<span class="sex">{{item.info.sex}}&nbsp;{{item.age}}</span>
 							<span class="lev">lv{{item.level}}</span>
 						</div>
-						<p>最近7天走了{{item.step}}步</p>
+						<p>最近7天走了{{item.step_Num}}步</p>
 					</section>
 					<section class="follow">
-						<span>{{item.distance}}Km·{{item.hours}}小时前</span>
+						<span>{{item.distance}}Km·{{item.login_time}}小时前</span>
 						<button @click="item.follow = !item.follow" :class="item.follow ? 'noFollow' : ''">{{item.follow ? "取消" : "关注"}}</button>
 					</section>
 				</li>
@@ -66,6 +66,7 @@
 		name:'dateVircle',
 		data(){
 			return {
+				pageIndex: 1,
 				dataList: [],
 			}
 		},
@@ -85,11 +86,15 @@
 		methods:{
 			getDataList() {
 				let data = {
-					// num: 100
+					pageSize: 15,
+					pageIndex: this.pageIndex,
 				}
 				api.getNearPer(data)
 					.then( res => {
-						this.dataList.push(...res.list)
+						this.dataList.push(...res.message);
+					})
+					.catch((err) => {
+						console.log(err);
 					})
 			},
 		}

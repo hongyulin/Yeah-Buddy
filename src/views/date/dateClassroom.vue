@@ -2,7 +2,9 @@
 	<div>
 		<section>
 			<swiper :options="swiperOption">
-				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index"><img :src="slide.swiperImg" alt="走马灯"></swiper-slide>
+				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
+					<img :src="slide.img" alt="走马灯">
+				</swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
 		</section>
@@ -38,8 +40,8 @@
 					<img src="static/img/right.svg" alt="查看全部">
 				</router-link>
 			</header>
-			<img :src="exerciseData.img_one" alt="局部塑形" class="width_vw">
-			<img :src="exerciseData.img_two" alt="自我挑战" class="width_vw">
+			<img :src="exerciseData[0].img" alt="局部塑形" class="width_vw">
+			<img :src="exerciseData[1].img" alt="自我挑战" class="width_vw">
 		</section>
 		<section>
 			<header class="get_more">
@@ -51,17 +53,17 @@
 			<ul>
 				<li v-for="(item, index) in dataList" class="classInfo" :key="index">
 					<div>
-						<img :src="item.classHeader" alt="课程推荐" >
+						<img :src="item.header_img" alt="课程推荐" >
 					</div>
 					<div>
 						<header class="row_ellipsis">{{item.title}}</header>
-						<p class="row_ellipsis">{{item.content}}</p>
+						<p class="row_ellipsis">{{item.describe}}</p>
 						<footer>
 							<span>
-								{{item.num}}订阅
+								{{item.subscribe}}订阅
 							</span>
 							<span>
-								{{item.fee}}
+								{{item.price}}
 							</span>
 							<span>
 								元
@@ -80,8 +82,9 @@
 		name: 'dateClassroom',
 		data(){
 			return {
+				pageIndex: 1,
 				dataList: [],
-				exerciseData: [],
+				exerciseData: ["",""],
 				swiperSlides: [],
 				swiperOption: {
 					pagination: '.swiper-pagination',
@@ -100,7 +103,7 @@
 			
 		},
 		mounted() {
-			this.getDataList()			
+			this.initData()			
 		},
 		components: {
 			swiper, swiperSlide
@@ -109,25 +112,33 @@
 			
 		},
 		methods: {
-			getDataList() {
+			initData(){
+				this.getAds("CLASS_AD");
+				this.getAds("TRAIN_AD");
+				this.getClass();
+			},
+			getAds(type){
 				let data = {
-					type: "date_ad"
+					type: type
 				}
-				let data2 = {
-					type: "date_exercise"
+				api.getAds(data)
+					.then( res => {
+						if(type == "CLASS_AD"){
+							this.swiperSlides = res.message;
+						}else if(type == "TRAIN_AD"){
+							this.exerciseData = res.message;
+						}
+					})
+			},
+
+			getClass(){
+				let data = {
+					pageIndex: this.pageIndex,
+					pageSize: 15,
 				}
-				api.getDateAd(data)
-					.then( res => {
-						this.swiperSlides = res.list
-					})
-				
-				api.getDateExercise(data2)
-					.then( res => {
-						this.exerciseData = res.list
-					})
-				api.getDateClass()
-					.then( res => {
-						this.dataList = res.list
+				api.getDateClass(data)
+					.then(res => {
+						this.dataList = res.message;
 					})
 			},
 		}

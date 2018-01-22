@@ -115,9 +115,12 @@
 			},
 
 			getAdList(){
-				api.getMallAd()
+				let data = {
+					type: "SHOP_AD"
+				}
+				api.getAds(data)
 					.then( res => {
-						this.mallAd = res.message.img;
+						this.mallAd = res.message[0].img;
 					})
 					.catch(err => {
 						console.log(err)

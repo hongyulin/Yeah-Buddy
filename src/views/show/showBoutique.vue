@@ -3,7 +3,7 @@
 		<section>
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
-					<img :src="slide.swiperImg" alt="走马灯" style="width: 100vw">
+					<img :src="slide.img" alt="走马灯" style="width: 100vw">
 				</swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
@@ -151,8 +151,9 @@
 	</div>
 </template>
 <script>
-	import api from "../../fetch/show"
-	import { swiper, swiperSlide } from 'vue-awesome-swiper'
+	import api from "../../fetch/show";
+	import adApi from "../../fetch/date"
+	import { swiper, swiperSlide } from 'vue-awesome-swiper';
 	export default{
 		name:'showBoutique',
 		data(){
@@ -179,7 +180,7 @@
 
 		},
 		mounted(){
-			this.getDataList()
+			this.initData()
 		},
 		
 		components:{
@@ -189,35 +190,55 @@
 
 		},
 		methods:{
-			getDataList() {
-				let data1 = {
-					type: "show_ad"
-				}
-				let data2 = {
-					type: "video_ad"
-				}
+			initData(){
+				this.getAds("CHIOCE_AD");
+				this.getAds("CHIOCE_VIDEO");
+				this.getChoice();
+				this.getTopic();
+				this.getExperience();
+			},
+
+			getAds(type){
 				let data = {
-					
+					type: type
 				}
-				api.getShowAd(data1)
-					.then( res => {
-						this.swiperSlides = res.list
+				adApi.getAds(data)
+					.then(res => {
+						if(type == "CHIOCE_AD"){
+							this.swiperSlides = res.message;
+						}else if(type == "CHIOCE_VIDEO"){
+							this.videoList = res.list;
+						}	
 					})
-				api.getShowExper(data)
-					.then( res => {
-						this.experience = res.list
-					})
-				api.getShowTopic(data)
-					.then( res => {
-						this.topic = res.list
-					})
+			},
+
+			getChoice(){
+				let data = {
+
+				}
 				api.getShowPicked(data)
 					.then( res => {
 						this.picked = res.list
 					})
-				api.getShowVideo(data2)
+			},
+
+			getTopic(){
+				let data = {
+
+				}
+				api.getShowTopic(data)
 					.then( res => {
-						this.videoList = res.list
+						this.topic = res.list
+					})
+			},
+
+			getExperience(){
+				let data = {
+
+				}
+				api.getShowExper(data)
+					.then( res => {
+						this.experience = res.list
 					})
 			},
 		}
