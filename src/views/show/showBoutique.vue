@@ -82,17 +82,17 @@
 				<li v-for="(item, index) in picked.slice(0, 6)" :key="index">
 					<section class="selected">
 						<figure>
-							<img :src="item.pickedImg" alt="pic" class="hot_pic">
-							<figcaption class="selected_des">{{item.pickedContent}}</figcaption>
+							<img :src="item.img" alt="pic" class="hot_pic">
+							<figcaption class="selected_des">{{item.description}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.pickedHeader" class="header_pic">
-								{{item.pickedNick}}
+								<img :src="item.header_img + '?imageView2/2/w/150/h/150'" class="header_pic">
+								{{item.name}}
 							</span>
 							<span>
 								<img src="static/img/heart.svg" alt="" class="赞">
-								{{item.pickedHeart}}
+								{{item.likes}}
 							</span>
 						</footer>
 					</section>
@@ -109,17 +109,17 @@
 				<li v-for="(item, index) in picked.slice(6, 12)" :key="index">
 					<section class="selected">
 						<figure>
-							<img :src="item.pickedImg" alt="pic" class="hot_pic">
-							<figcaption class="selected_des">{{item.pickedContent}}</figcaption>
+							<img :src="item.img" alt="pic" class="hot_pic">
+							<figcaption class="selected_des">{{item.description}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.pickedHeader" class="header_pic">
-								{{item.pickedNick}}
+								<img :src="item.header_img" class="header_pic">
+								{{item.name}}
 							</span>
 							<span>
 								<img src="static/img/heart.svg" alt="" class="赞">
-								{{item.pickedHeart}}
+								{{item.likes}}
 							</span>
 						</footer>
 					</section>
@@ -131,17 +131,17 @@
 				<li v-for="(item, index) in picked.slice(12)" :key="index">
 					<section class="selected">
 						<figure>
-							<img :src="item.pickedImg" alt="pic" class="hot_pic">
-							<figcaption class="selected_des">{{item.pickedContent}}</figcaption>
+							<img :src="item.img" alt="pic" class="hot_pic">
+							<figcaption class="selected_des">{{item.description}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.pickedHeader" class="header_pic">
-								<p>{{item.pickedNick}}</p>
+								<img :src="item.header_img" class="header_pic">
+								<p>{{item.name}}</p>
 							</span>
 							<span>
 								<img src="static/img/heart.svg" alt="赞" >
-								<p>{{item.pickedHeart}}</p>
+								<p>{{item.likes}}</p>
 							</span>
 						</footer>
 					</section>
@@ -158,6 +158,7 @@
 		name:'showBoutique',
 		data(){
 			return {
+				pageIndex: 1,
 				videoList: [],
 				swiperSlides: [],
 				experience: [],
@@ -214,31 +215,35 @@
 
 			getChoice(){
 				let data = {
-
+					pageIndex: this.pageIndex,
+					pageSize: 15,
 				}
 				api.getShowPicked(data)
 					.then( res => {
-						this.picked = res.list
+						this.picked = res.message;
+					})
+					.catch(err => {
+						console.log(err);
 					})
 			},
 
 			getTopic(){
-				let data = {
-
-				}
 				api.getShowTopic(data)
 					.then( res => {
-						this.topic = res.list
+						this.topic = res.message;
+					})
+					.catch(err => {
+						console.log(err);
 					})
 			},
 
 			getExperience(){
-				let data = {
-
-				}
 				api.getShowExper(data)
 					.then( res => {
-						this.experience = res.list
+						this.experience = res.message;
+					})
+					.catch(err => {
+						console.log(err);
 					})
 			},
 		}
