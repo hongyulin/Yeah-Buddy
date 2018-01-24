@@ -228,7 +228,7 @@
 			},
 
 			getTopic(){
-				api.getShowTopic(data)
+				api.getShowTopic()
 					.then( res => {
 						this.topic = res.message;
 					})
@@ -238,7 +238,7 @@
 			},
 
 			getExperience(){
-				api.getShowExper(data)
+				api.getShowExper()
 					.then( res => {
 						this.experience = res.message;
 					})

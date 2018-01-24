@@ -167,6 +167,8 @@
 		name:'showTrends',
 		data(){
 			return {
+				pageIndex: 1,
+				swiperIndex: 1,
 				swiperList: [],
 				recommendUser: [],
 				recommendList: [],
@@ -181,10 +183,10 @@
 			}
 		},
 		created(){
-			this.getdataList()
+			
 		},
 		mounted(){
-			
+			this.init();
 		},
 		
 		components:{
@@ -194,27 +196,40 @@
 
 		},
 		methods:{
-			getdataList() {
+			init(){
+				this.getExeriseRec();
+				this.getRecomUser();
+				this.getRecom();
+			},
+			getExeriseRec(){
 				let data = {
-
-				}
-				let data1 = {
-					type: "choice_recommend"
+					pageIndex: this.swiperIndex,
+					pageSise: 15,
 				}
 				api.getShowSwiper(data)
 					.then( res => {
-						this.swiperList = res.list
+						this.swiperList = res.message;
 					})
-				circle_recommend.getRecommendUser(data1)
-					.then( res => {
-						this.recommendUser = res.list
-					})
-				
+			},
+
+			getRecomUser(){
+				circle_recommend.getRecommendUser()
+				.then( res => {
+					this.recommendUser = res.message;
+				})
+			},
+			
+			getRecom(){
+				let data = {
+					pageIndex: this.pageIndex,
+					pageSise: 15,
+				}
 				api.getShowRecommend(data)
-					.then( res => {
-						this.recommendList = res.list
-					})
-			}
+				.then( res => {
+					this.recommendList = res.message;
+				})
+			},
+				
 		}
 	}
 </script>
