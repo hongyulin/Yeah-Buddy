@@ -4,7 +4,7 @@ export default {
         return axios.get('/api/level1/get/circle/adimg', params);
     },
     getCircleC(params) {
-        return axios.get('/api/level1/mycircle', params);
+        return axios.post('/api/level1/mycircle', params);
     },
     getNearList(params) {
         return axios.get('/api/level1/near/circle', params);

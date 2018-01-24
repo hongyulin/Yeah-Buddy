@@ -151,8 +151,9 @@
 	</div>
 </template>
 <script>
-	import api from "../../fetch/circle"
-	import { swiper, swiperSlide } from 'vue-awesome-swiper'
+	import api from "../../fetch/circle";
+	import adApi from "../../fetch/date";
+	import { swiper, swiperSlide } from 'vue-awesome-swiper';
 	export default{
 		name:'circleC',
 		data(){
@@ -187,7 +188,7 @@
 
 		},
 		mounted(){
-			this.getDataList()
+			this.init();
 		},
 		
 		components:{
@@ -197,27 +198,66 @@
 
 		},
 		methods:{
-			getDataList() {
+			init(){
+				this.getAds("ACTIVE");
+				this.getAds("CHALLENGE");
+				this.getAds("WELFARE");
+				this.getCirList();
+				setTimeout(() => {
+					this.getMyCircle();
+				},1000)
+				
+			},
+			getAds(type){
 				let data = {
-					type: "circle_active"
+					type: type
 				}
-				api.getCircleAd()
+				adApi.getAds(data)
 					.then( res => {
-						this.swiperSlides = res.list;
+						if(type == "ACTIVE"){
+							this.activeList = res.message;
+						}else if(type == "CHALLENGE"){
+							this.swiperSlides = res.message;
+						}else if(type == "WELFARE"){
+
+						}
 					})
-				api.getCircleC()
-					.then( res => {
-						this.circleDate = res.list;
-					})
-				api.getNearList()
-					.then( res => {
-						this.nearList = res.list
-					})
-				api.getCircleActive(data)
-					.then( res => {
-						this.activeList = res.list;
+					.catch( err => {
+						console.log(err)
 					})
 			},
+
+			getCirList(){
+				let data = {
+					pageIndex: this.pageIndex,
+					pageSize: 15
+				}
+				api.getNearList()
+					.then( res => {
+						// 附近圈子。
+						this.nearList = res.message
+					})
+					.catch( err => {
+						console.log(err)
+					})
+			},
+
+			getMyCircle(){
+				let id_json = JSON.parse(localStorage.userInfo);
+				let user_id = id_json.id;
+				let data = {
+					id: user_id
+				}
+				api.getCircleC(data)
+					.then( res => {
+						// 我的圈子
+						this.circleDate = res.message;
+					})
+					.catch( err => {
+						console.log(err)
+					})
+			},
+
 		}
 	}
 </script>

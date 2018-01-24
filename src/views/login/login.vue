@@ -95,6 +95,7 @@
 				api.checkIn(data)
 					.then(res => {
 						if (res.status == 'success') {
+							console.log(res);
 							localStorage.setItem("loginSuccess", true);
 							localStorage.setItem("userInfo", JSON.stringify(res.userInfo));
 							if(!res.is_register){
@@ -105,6 +106,9 @@
 							}
 							
 						}
+					})
+					.catch( err => {
+						console.log(err)
 					})
 					/*.catch((error) => {
 						let e =error.response.data.Message||error.response.data.message
@@ -140,6 +144,9 @@
 				.then(res => {
 					alert("尚未开发")/*待开发lhy*/
 				})
+				.catch( err => {
+						console.log(err)
+					})
 			}
 		}
 	}

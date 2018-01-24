@@ -157,12 +157,17 @@ import api from '../../fetch/mine'
 		},
 		methods: {
 			getDataList() {
+				let id_json = JSON.parse(localStorage.userInfo);
+				let user_id = id_json.id;
 				let data = {
-					
+					id: user_id
 				}
 				api.mineData(data)
 					.then( res => {
-						this.dataList = res.list;
+						this.dataList = res.message;
+					})
+					.catch(err => {
+						console.log(err);
 					})
 			}
 		}

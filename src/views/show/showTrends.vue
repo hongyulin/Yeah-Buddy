@@ -210,13 +210,19 @@
 					.then( res => {
 						this.swiperList = res.message;
 					})
+					.catch( err => {
+						console.log(err)
+					})
 			},
 
 			getRecomUser(){
 				circle_recommend.getRecommendUser()
-				.then( res => {
-					this.recommendUser = res.message;
-				})
+					.then( res => {
+						this.recommendUser = res.message;
+					})
+					.catch( err => {
+							console.log(err)
+						})
 			},
 			
 			getRecom(){
@@ -225,9 +231,12 @@
 					pageSise: 15,
 				}
 				api.getShowRecommend(data)
-				.then( res => {
-					this.recommendList = res.message;
-				})
+					.then( res => {
+						this.recommendList = res.message;
+					})
+					.catch( err => {
+							console.log(err)
+						})
 			},
 				
 		}

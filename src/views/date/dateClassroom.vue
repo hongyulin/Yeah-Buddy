@@ -129,6 +129,9 @@
 							this.exerciseData = res.message;
 						}
 					})
+					.catch( err => {
+						console.log(err)
+					})
 			},
 
 			getClass(){
@@ -139,6 +142,9 @@
 				api.getDateClass(data)
 					.then(res => {
 						this.dataList = res.message;
+					})
+					.catch( err => {
+						console.log(err)
 					})
 			},
 		}

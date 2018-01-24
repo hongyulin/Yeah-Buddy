@@ -152,7 +152,7 @@
 </template>
 <script>
 	import api from "../../fetch/show";
-	import adApi from "../../fetch/date"
+	import adApi from "../../fetch/date";
 	import { swiper, swiperSlide } from 'vue-awesome-swiper';
 	export default{
 		name:'showBoutique',
@@ -210,6 +210,9 @@
 						}else if(type == "CHIOCE_VIDEO"){
 							this.videoList = res.list;
 						}	
+					})
+					.catch( err => {
+						console.log(err)
 					})
 			},
 

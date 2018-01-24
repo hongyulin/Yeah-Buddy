@@ -64,6 +64,7 @@
 		name:'circleTrends',
 		data(){
 			return {
+				pageIndex: 1,
 				follow: [],
 				trendsList: [],
 			}
@@ -72,8 +73,8 @@
 
 		},
 		mounted(){
-			this.getFollow();
-			this.getDataList();
+			this.init();
+			
 		},
 		
 		components:{
@@ -83,22 +84,30 @@
 
 		},
 		methods:{
+			init(){
+				this.getFollow();
+				this.getDataList();
+			},
 			getFollow() {
-				let data = {
-					type: "circle_recommend"
-				}
-				api.getRecommendUser(data)
+				api.getRecommendUser()
 					.then( res => {
-						this.follow = res.list
+						this.follow = res.message;
+					})
+					.catch( err => {
+						console.log(err)
 					})
 			},
 			getDataList() {
 				let data = {
-					
+					pageIndex: this.pageIndex,
+					pageSize: 15,
 				}
 				api.getCircleTrends(data)
 					.then( res => {
-						this.trendsList = res.list
+						this.trendsList = res.message
+					})
+					.catch( err => {
+						console.log(err)
 					})
 			},
 			takeFollow() {
