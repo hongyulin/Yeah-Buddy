@@ -167,7 +167,7 @@ import api from '../../fetch/mine'
 						this.dataList = res.message;
 					})
 					.catch(err => {
-						console.log(err);
+						console.log("err:",err);
 					})
 			}
 		}
