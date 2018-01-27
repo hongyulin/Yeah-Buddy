@@ -193,10 +193,18 @@
 		methods:{
 			initData(){
 				this.getAds("CHIOCE_AD");
-				this.getAds("CHIOCE_VIDEO");
-				this.getChoice();
-				this.getTopic();
-				this.getExperience();
+				setTimeout(() => {
+					this.getAds("CHIOCE_VIDEO");
+				},400);
+				setTimeout(() => {
+					this.getChoice();
+				},800);
+				setTimeout(() => {
+					this.getTopic();
+				},1200);
+				setTimeout(() => {
+					this.getExperience();
+				},1600);
 			},
 
 			getAds(type){

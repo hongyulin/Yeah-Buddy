@@ -11,22 +11,22 @@
 			
 		</header>
 		<section class="abstract">
-			<img :src="dataList.header" alt="头像" class="header_pic">
+			<img :src="dataList.header_img + '?imageView2/2/w/100/h/100'" alt="头像" class="header_pic">
 			<section>
 				<span>
-					{{dataList.nick}}
+					{{dataList.name}}
 					<img src="static/img/qrIcon.svg" alt="二维码">
 				</span>
 				<br>
 				<span>
-					{{dataList.fans}}粉丝 · {{dataList.follow}}关注 · {{dataList.trends}}动态
+					{{dataList.fans}}粉丝 · {{dataList.following.length}}关注 · {{dataList.trends_new}}动态
 				</span>
 			</section>
 			<img src="static/img/right.svg" alt="right">
 		</section>
 		<section>
 			<section class="level_title">
-				<span>总运动{{dataList.min}}分钟</span>
+				<span>总运动{{dataList.exercise_time}}分钟</span>
 				<span>{{dataList.join_time}}加入小八</span>
 			</section>
 			<section class="levels">
@@ -111,21 +111,27 @@
 			<section class="get_more">
 				<span>购物车</span>
 				<span>
-					{{dataList.shop_car}}
+					<span v-show="dataList.shop_car_new != 0">
+						{{dataList.shop_car_new}}
+					</span>
 					<img src="static/img/right.svg" alt="right">
 				</span>
 			</section>
 			<section class="get_more">
 				<span>购买记录</span>
 				<span>
-					{{dataList.shop_record}}
+					<span v-show="dataList.shop_record_new != 0">
+						{{dataList.shop_record_new}}
+					</span>
 					<img src="static/img/right.svg" alt="right">
 				</span>
 			</section>
 			<section class="get_more">
 				<span>优惠券</span>
 				<span>
-					{{dataList.shop_ticker}}
+					<span v-show="dataList.shop_ticker_new != 0">
+						{{dataList.shop_ticker_new}}
+					</span>
 					<img src="static/img/right.svg" alt="right">
 				</span>
 			</section>
@@ -138,7 +144,9 @@ import api from '../../fetch/mine'
 		name: 'mine',
 		data(){
 			return {
-				dataList: []
+				dataList: {
+
+				}
 			}
 		},
 		created(){
@@ -164,7 +172,8 @@ import api from '../../fetch/mine'
 				}
 				api.mineData(data)
 					.then( res => {
-						this.dataList = res.message;
+						this.dataList = res.message[0];
+						this.dataList.join_time = this.dataList.join_time.split("T")[0];
 					})
 					.catch(err => {
 						console.log("err:",err);

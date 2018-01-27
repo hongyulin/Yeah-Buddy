@@ -9,10 +9,10 @@
 			</header>
 			<hr>
 			<div class="recommend_content">
-				<img :src="follow.header" alt="头像" class="header_pic">
+				<img :src="follow.header_img" alt="头像" class="header_pic">
 				<div>
-					<span>{{follow.hostNum}}[热门印花赛圈主]</span><br>
-					<span>成功组织{{follow.oriNum}}次印花赛</span>
+					<span>{{follow.host_num}}[热门印花赛圈主]</span><br>
+					<span>成功组织{{follow.activity_host}}次印花赛</span>
 				</div>
 				<button @click="takeFollow" class="follow">{{follow.followState ? '已关注':'未关注'}}</button>
 				<!-- 点击加关注后变成已关注，然后来新的推荐 -->
@@ -24,31 +24,31 @@
 				<li v-for="(item, index) in trendsList" :key="index" class="people_trends">
 					<section class="people_trends_header">
 						<router-link to="#">
-							<img :src="item.header" alt="头像" class="header_pic">
+							<img :src="item.header_img + '?imageView2/2/w/50/h/50'" alt="头像" class="header_pic">
 						</router-link>
 					</section>
 					<section>
 						<router-link to="#">
 							<div class="people_trends_time">
 								<span>
-									<span class="people_trends_nick">{{item.nick}}</span><br>
-									<span class="people_trends_timer">{{item.hours}}小时前</span>
+									<span class="people_trends_nick">{{item.name}}</span><br>
+									<span class="people_trends_timer">{{item.time}}小时前</span>
 								</span>
 								<img src="static/img/down.svg" alt="down">
 							</div>
-							<p>{{item.content}}</p>
+							<p>{{item.description}}</p>
 							<section class="peopel_trends_contend_pic">
-								<img :src="item.pic_1" alt="内容照">
-								<img :src="item.pic_2" alt="内容照">
-								<img :src="item.pic_3" alt="内容照">
+								<img :src="item.img[0] + '?imageView2/5/w/100/h/150'" alt="内容照">
+								<img :src="item.img[1] + '?imageView2/5/w/100/h/150'" alt="内容照">
+								<img :src="item.img[2] + '?imageView2/5/w/100/h/150'" alt="内容照">
 							</section>
 						</router-link>
 						<div class="people_trends_commend">
-							<span>圈子:{{item.label}}</span>
+							<span>圈子:{{item.circle_name}}</span>
 							<div>
-								<span><img src="static/img/heart.svg" alt="赞">{{item.heart}}</span>
+								<span><img src="static/img/heart.svg" alt="赞">{{item.likes}}</span>
 								&nbsp;
-								<span><img src="static/img/comment.svg" alt="评论">{{item.comment}}</span>
+								<span><img src="static/img/comment.svg" alt="评论">{{item.talk_num}}</span>
 							</div>
 							
 						</div>
@@ -89,9 +89,12 @@
 				this.getDataList();
 			},
 			getFollow() {
-				api.getRecommendUser()
+				let data = {
+					num: 1
+				}
+				api.getRecommendUser(data)
 					.then( res => {
-						this.follow = res.message;
+						this.follow = res.message[0];
 					})
 					.catch( err => {
 						console.log(err)
@@ -146,7 +149,7 @@
 		height: 8vw;
 		border: 1px solid red;
 		border-radius: 20px;
-		margin-left: 23vw;
+		margin-left: 20vw;
 	}
 }
 .people_trends {

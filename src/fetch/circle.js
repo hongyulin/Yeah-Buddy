@@ -13,7 +13,7 @@ export default {
         return axios.get('/api/level1/ads', params);
     }, 
     getRecommendUser(params) {
-        return axios.get('/api/level1/recommend/user', params);
+        return axios.post('/api/level1/recommend/user', params);
     },
     getCircleTrends(params) {
         return axios.get('/api/level1/circle/trends', params);

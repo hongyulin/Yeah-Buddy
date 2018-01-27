@@ -216,7 +216,10 @@
 			},
 
 			getRecomUser(){
-				circle_recommend.getRecommendUser()
+				let data = {
+					num: 15
+				}
+				circle_recommend.getRecommendUser(data)
 					.then( res => {
 						this.recommendUser = res.message;
 					})

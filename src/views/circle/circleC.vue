@@ -4,7 +4,7 @@
 		<section>
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
-					<img :src="slide.swiperImg" alt="走马灯" style="width: 100vw">
+					<img :src="slide.img" alt="走马灯" style="width: 100vw">
 				</swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
@@ -16,16 +16,16 @@
 			</header>
 			<section class="nav circles">
 				<figure>
-					<img :src="circleDate.shImg" alt="上海悦动圈">
-					<figcaption>上海悦动圈</figcaption>
+					<img :src="circleDate[0].header_img + '?imageView2/2/w/80/h/80'" alt="上海悦动圈">
+					<figcaption>{{circleDate[0].name}}</figcaption>
 				</figure>
 				<figure>
-					<img :src="circleDate.runImg" alt="跑步装备圈">
-					<figcaption>跑步装备圈</figcaption>
+					<img :src="circleDate[1].header_img + '?imageView2/2/w/80/h/80'" alt="跑步装备圈">
+					<figcaption>{{circleDate[1].name}}</figcaption>
 				</figure>
 				<figure>
-					<img :src="circleDate.runeqImg" alt="跑步圈">
-					<figcaption>跑步圈</figcaption>
+					<img :src="circleDate[2].header_img + '?imageView2/2/w/80/h/80'" alt="跑步圈">
+					<figcaption>{{circleDate[2].name}}</figcaption>
 				</figure>
 				<figure>
 					<img src="static/img/apply.svg" alt="加入圈子">
@@ -40,8 +40,8 @@
 			</header>
 			<ul class="circle_active">
 				<!-- 这儿需要返回图片，是在fetch中， -->
-				<li><img :src="activeList.left" alt="圈子活动"></li>
-				<li><img :src="activeList.right" alt="圈子活动"></li>
+				<li><img :src="activeList[0].img[0]" alt="圈子活动"></li>
+				<li><img :src="activeList[1].img[0]" alt="圈子活动"></li>
 			</ul>
 		</section>
 		<section class="selected_content">
@@ -69,19 +69,19 @@
 			<ul>
 				<li v-for="(item, index) in nearList.slice(0, 2)" :key="index" class="near_circle">
 					<div class="near_active_content">
-						<p class="near_active_content">{{item.content}}</p>
+						<p class="near_active_content">{{item.description}}</p>
 						<div class="near_active_pic">
-							<img :src="item.pic_1" alt="附近圈子1">
-							<img :src="item.pic_2" alt="附近圈子2">
-							<img :src="item.pic_3" alt="附近圈子3">
+							<img :src="item.img[0] + '?imageView2/1/w/80/h/120'" alt="附近圈子1">
+							<img :src="item.img[1] + '?imageView2/1/w/80/h/120'" alt="附近圈子2">
+							<img :src="item.img[2] + '?imageView2/1/w/80/h/120'" alt="附近圈子3">
 						</div>
-						<span class="pisition">{{item.location}}</span>
+						<span class="pisition">{{item.address}}</span>
 					</div>
 					<footer class="near_active_footer">
 						<span>
-							<img :src="item.cheader" alt="头像" class="header_pic">
+							<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
 							<span>
-								{{item.cname}}
+								{{item.name}}
 							</span>							
 						</span>
 						<div>
@@ -93,21 +93,21 @@
 						</div>
 					</footer>
 				</li>
-				<li><img :src="swiperSlides[0].adImg" alt="公益广告" class="public_welfare"></li>
+				<li><img :src="welfare[0].img + '?imageView2/1/w/200/h/100'" alt="公益广告" class="public_welfare"></li>
 				<li v-for="(item, index) in nearList.slice(2, 6)" :key="index" class="near_circle">
 					<div class="near_active_content">
-						<p class="near_active_content">{{item.content}}</p>
+						<p class="near_active_content">{{item.description}}</p>
 						<div class="near_active_pic">
-							<img :src="item.pic_1" alt="附近活动pic">
-							<img :src="item.pic_2" alt="附近活动pic">
-							<img :src="item.pic_3" alt="附近活动pic">
+							<img :src="item.img[0] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
+							<img :src="item.img[1] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
+							<img :src="item.img[2] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
 						</div>
-						<span class="pisition">{{item.location}}</span>
+						<span class="pisition">{{item.address}}</span>
 					</div>
 					<footer  class="near_active_footer">
 						<span>
-							<img :src="item.cheader" alt="圈子头像" class="header_pic">
-							{{item.cname}}
+							<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="圈子头像" class="header_pic">
+							{{item.name}}
 						</span>
 						<div>
 							<span>
@@ -120,21 +120,21 @@
 						</div>
 					</footer>
 				</li>  
-				<li><img :src="swiperSlides[1].adImg" alt="公益广告" class="public_welfare"></li>
+				<li><img :src="welfare[1].img" alt="公益广告" class="public_welfare"></li>
 				<li v-for="(item, index) in nearList.slice(6)" :key="index" class="near_circle">
 					<div class="near_active_content">
-						<p class="near_active_content">{{item.content}}</p>
+						<p class="near_active_content">{{item.description}}</p>
 						<div class="near_active_pic">
-							<img :src="item.pic_1" alt="附近活动pic">
-							<img :src="item.pic_2" alt="附近活动pic">
-							<img :src="item.pic_3" alt="附近活动pic">
+							<img :src="item.img[0] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
+							<img :src="item.img[1] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
+							<img :src="item.img[2] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
 						</div>
-						<span class="pisition">{{item.location}}</span>
+						<span class="pisition">{{item.address}}</span>
 					</div>
 					<footer  class="near_active_footer">
 						<span>
-							<img :src="item.cheader" alt="圈子头像" class="header_pic">
-							{{item.cname}}
+							<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="圈子头像" class="header_pic">
+							{{item.name}}
 						</span>
 						<div>
 							<span>
@@ -170,6 +170,7 @@
 						swiperImg: '',
 					}
 				],
+				welfare:[],
 				nearList: [],
 				swiperOption: {
 					pagination: '.swiper-pagination',
@@ -200,12 +201,19 @@
 		methods:{
 			init(){
 				this.getAds("ACTIVE");
-				this.getAds("CHALLENGE");
-				this.getAds("WELFARE");
-				this.getCirList();
+				setTimeout(() => {
+					this.getAds("CHALLENGE");
+				},400);
+				setTimeout(() => {
+					this.getAds("WELFARE");
+				},800);
+				setTimeout(() => {
+					this.getCirList();
+				},1000)
 				setTimeout(() => {
 					this.getMyCircle();
-				},1000)
+				},1400)
+				
 				
 			},
 			getAds(type){
@@ -219,7 +227,7 @@
 						}else if(type == "CHALLENGE"){
 							this.swiperSlides = res.message;
 						}else if(type == "WELFARE"){
-
+							this.welfare = res.message;
 						}
 					})
 					.catch( err => {
