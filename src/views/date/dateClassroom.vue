@@ -3,7 +3,7 @@
 		<section>
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
-					<img :src="slide.img" alt="走马灯">
+					<img :src="slide.img" alt="走马灯" class="swiperImg">
 				</swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
@@ -151,6 +151,10 @@
 	}
 </script>
 <style lang="scss" scoped>
+.swiperImg {
+	width: 100vw;
+	height: 30vh;
+}
 .exercise {
 	border: {
 		top: .15rem solid #DCDCDC;

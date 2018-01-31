@@ -4,7 +4,7 @@
 		<section>
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
-					<img :src="slide.img" alt="走马灯" style="width: 100vw">
+					<img :src="slide.img" alt="走马灯" class="swiperImg">
 				</swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
@@ -78,8 +78,8 @@
 						<span class="pisition">{{item.address}}</span>
 					</div>
 					<footer class="near_active_footer">
-						<span>
-							<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
+						<span class="test">
+							<img :src="item.header_img + '?imageView2/2/w/40/h/40'" alt="头像" class="header_pic">
 							<span>
 								{{item.name}}
 							</span>							
@@ -106,8 +106,11 @@
 					</div>
 					<footer  class="near_active_footer">
 						<span>
-							<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="圈子头像" class="header_pic">
-							{{item.name}}
+							<img :src="item.header_img + '?imageView2/2/w/40/h/40'" alt="圈子头像" class="header_pic">
+							<span>
+								{{item.name}}
+							</span>
+							
 						</span>
 						<div>
 							<span>
@@ -133,7 +136,7 @@
 					</div>
 					<footer  class="near_active_footer">
 						<span>
-							<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="圈子头像" class="header_pic">
+							<img :src="item.header_img + '?imageView2/2/w/40/h/40'" alt="圈子头像" class="header_pic">
 							{{item.name}}
 						</span>
 						<div>
@@ -278,6 +281,10 @@
 	}
 </script>
 <style lang="scss" scoped>
+.swiperImg {
+	width: 100vw;
+	height: 30vh;
+}
 .circles {
 	img {
 		border-radius: 50%;
@@ -306,6 +313,17 @@
 	}
 }
 .near_active_footer {
+	.test {
+		display: flex;
+		align-items: center;
+		span {
+			display: inline-block;
+			width: 100vw;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+	}
 	display: flex;
 	justify-content:space-between;
 	width: 96vw;

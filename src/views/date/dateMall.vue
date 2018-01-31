@@ -25,7 +25,7 @@
 			<ul>
 				<li v-for="(item, index) in dataList" :key="index" class="goodList width_vw">
 					<div>
-						<img :src="item.img" alt="商品">
+						<img :src="item.img + '?imageView2/2/w/120/h/120'" alt="商品">
 					</div>
 					<div>
 						<header>

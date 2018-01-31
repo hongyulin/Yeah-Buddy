@@ -40,7 +40,7 @@
 			<ul>
 				<li v-for="item in dataList" class="nearContent" :key="item.id">
 					<section>
-						<img :src="item.header_img + '?imageView2/2/w/150/h/150'" alt="头像" class="header_pic">
+						<img :src="item.header_img + '?imageView2/2/w/100/h/100'" alt="头像" class="header_pic">
 					</section>
 					<section class="perInfo">
 						<header>{{item.name}}</header>
@@ -51,7 +51,10 @@
 						<p>最近7天走了{{item.step_Num}}步</p>
 					</section>
 					<section class="follow">
-						<span>{{item.distance}}Km·{{item.login_time}}小时前</span>
+						<span>
+						<!-- {{item.distance}} -->
+						0.5
+						Km·{{item.login_time}}小时前</span>
 						<button @click="item.follow = !item.follow" :class="item.follow ? 'noFollow' : ''">{{item.follow ? "取消" : "关注"}}</button>
 					</section>
 				</li>
@@ -91,7 +94,16 @@
 				}
 				api.getNearPer(data)
 					.then( res => {
-						this.dataList.push(...res.message);
+						let resData = res.message;
+						for(let item in resData){
+							let temTime = resData[item].login_time;
+							temTime = (new Date()) - (new Date(temTime));
+							// 毫秒化为小时并取小数点后一位。
+							temTime = Math.round(temTime/1000/60/60*10)/10;
+							console.log(temTime);
+							resData[item].login_time = temTime;
+						}
+						this.dataList.push(...resData);
 					})
 					.catch((err) => {
 						console.log(err);
