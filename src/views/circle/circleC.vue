@@ -159,7 +159,11 @@
 		data(){
 			return {
 				applyState: false,
-				circleDate: [],
+				circleDate: [
+					"",
+					"",
+					""
+				],
 				activeList: [],
 				swiperSlides: [
 					{
@@ -171,7 +175,11 @@
 					}
 				],
 				welfare:[],
-				nearList: [],
+				nearList: [
+					"",
+					"",
+					"",
+				],
 				swiperOption: {
 					pagination: '.swiper-pagination',
 					paginationClickable: true,

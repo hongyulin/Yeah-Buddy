@@ -9,16 +9,16 @@
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(item, index) in swiperList" :key="index">
 					<section class="show_swiper">
-						<img :src="item.exerImg" alt="健身照片">
+						<img :src="item.self_img[0]" alt="健身照片">
 						<!-- 独立出来的样式会被覆盖掉 -->
 						<div style="display:flex;justify-content: space-around;align-items:center;">
 							
-							<img :src="item.exerHeader" alt="头像" class="header_pic">
+							<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
 							<section>
-								<span style="font-size:.13rem;">{{item.exerNick}}</span>
+								<span style="font-size:.13rem;">{{item.name}}</span>
 								<br>
 								<!-- 大于五分钟显示几分钟前，否则显示'刚刚’,还要按照顺序 -->
-								<span style="font-size:.13rem;">{{item.exerNum}}分钟前</span>
+								<span style="font-size:.13rem;">{{item.login_time}}分钟前</span>
 							</section>
 							<img src="static/img/heart.svg" alt="赞">
 						</div>
@@ -37,10 +37,10 @@
 						<hr>
 						<section class="content_pic">
 							<div>
-								<img :src="item.header" alt="头像" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
 								<span>
 									<!-- 放名字和时间 -->
-									{{item.nick}}
+									{{item.name}}
 									<br>
 									{{item.time}}
 								</span>
@@ -48,83 +48,7 @@
 							<button class="follow">+关注</button>
 						</section>
 						<figure class="content">
-							<img :src="item.pic" alt="锻炼照" class="exercise_pic">
-							<figcaption>{{item.content}}</figcaption>
-							<!-- 文章时候显示 -->
-							<!-- <span v-show="">{{item.}}次阅览</span> -->
-							<p>{{item.content}}</p>
-							<!-- 参加的是计划的时候显示 -->
-							<div>
-								<header>
-									<!-- 放表情 -->
-									<!-- <img :src="item." alt=""> -->
-									<!-- <span>计划第{{item.}}天，完成</span> -->
-									<!-- 这儿放计划的名字 -->
-								</header>
-								<hr>
-								<div>
-									<!-- <span>{{item.}}<br>动作/组</span> -->
-									<!-- <span>{{item.}}<br>本次训练/分钟</span> -->
-									<!-- <span>{{item.}}<br>本次燃脂/千卡</span> -->
-								</div>
-								<!-- <span>打卡第{{item.}}天</span> -->
-							</div>
-						</figure>
-						<footer class="content_footer">
-							<span><img src="static/img/heart.svg" alt="赞">{{item.heart}}</span>|
-							<span><img src="static/img/comment.svg" alt="评论">{{item.talk}}</span>|
-							<span><img src="static/img/share.svg" alt="分享">{{item.share}}</span>
-						</footer>
-					</router-link>
-				</li>
-
-				<li>
-					<swiper :options="swiperOptionR">
-						<swiper-slide v-for="(item, index) in recommendUser" :key="index">
-							<section class="recommend">
-								<header class="recommend_header">
-									<div>
-										<img :src="item.recommHeader" alt="头像" class="header_pic">
-										<span>{{item.recommNick}}</span>
-									</div>
-									<img src="static/img/close.svg" alt="close">
-								</header>
-								<div class="recommend_pic_date">
-									<span class="recommend_date">{{item.recommTime}}<br>训练分钟</span>
-									<span class="recommend_date">{{item.recommfans}}<br>粉丝</span>
-									<span class="recommend_date">{{item.recommPicked}}<br>精选</span>
-								</div>
-								<div class="recommend_pic_date">
-									<img :src="item.recommImg_one" alt="训练照">
-									<img :src="item.recommImg_two" alt="训练照">
-									<img :src="item.recommImg_three" alt="训练照">
-								</div>
-								<button class="follow">+关注</button>
-							</section>
-						</swiper-slide>
-					</swiper>
-				</li>
-				<li v-for="(item, index) in recommendList.slice(2)" :key="index">
-					<router-link to="#">
-						<header class="content_title">
-							<img src="static/img/eight.svg" alt="icon">
-							由@小八推荐
-						</header>
-						<hr>
-						<section class="content_pic">
-							<div>
-								<img :src="item.header" alt="头像" class="header_pic">
-								<span>
-									<!-- 放名字和时间 -->
-									{{item.nick}}
-									<br>
-									{{item.time}}
-								</span>
-							</div>
-							<button class="follow">+关注</button>
-						</section>
-						<figure class="content">
-							<img :src="item.pic" alt="锻炼照" class="exercise_pic">
+							<img :src="item.img" alt="锻炼照" class="exercise_pic">
 							<figcaption>{{item.content}}</figcaption>
 							<!-- 文章时候显示 -->
 							<!-- <span v-show="">{{item.}}次阅览</span> -->
@@ -147,9 +71,85 @@
 							</div>
 						</figure>
 						<footer class="content_footer">
-							<span><img src="static/img/heart.svg" alt="赞">{{item.heart}}</span>|
-							<span><img src="static/img/comment.svg" alt="评论">{{item.talk}}</span>|
-							<span><img src="static/img/share.svg" alt="分享">{{item.share}}</span>
+							<span><img src="static/img/heart.svg" alt="赞">{{item.likes}}</span>|
+							<span><img src="static/img/comment.svg" alt="评论">{{item.talk_num}}</span>|
+							<span><img src="static/img/share.svg" alt="分享">{{item.share_num}}</span>
+						</footer>
+					</router-link>
+				</li>
+
+				<li>
+					<swiper :options="swiperOptionR">
+						<swiper-slide v-for="(item, index) in recommendUser" :key="index">
+							<section class="recommend">
+								<header class="recommend_header">
+									<div>
+										<img :src="item.header_img  + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
+										<span>{{item.name}}</span>
+									</div>
+									<img src="static/img/close.svg" alt="close">
+								</header>
+								<div class="recommend_pic_date">
+									<span class="recommend_date">{{item.exercise_time}}<br>训练分钟</span>
+									<span class="recommend_date">{{item.fans_num}}<br>粉丝</span>
+									<span class="recommend_date">{{item.choice_num}}<br>精选</span>
+								</div>
+								<div class="recommend_pic_date">
+									<img :src="item.img[0]" alt="训练照">
+									<img :src="item.img[1]" alt="训练照">
+									<img :src="item.img[2]" alt="训练照">
+								</div>
+								<button class="follow">+关注</button>
+							</section>
+						</swiper-slide>
+					</swiper>
+				</li>
+				<li v-for="(item, index) in recommendList.slice(2)" :key="index">
+					<router-link to="#">
+						<header class="content_title">
+							<img src="static/img/eight.svg" alt="icon">
+							由@小八推荐
+						</header>
+						<hr>
+						<section class="content_pic">
+							<div>
+								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
+								<span>
+									<!-- 放名字和时间 -->
+									{{item.name}}
+									<br>
+									{{item.time}}
+								</span>
+							</div>
+							<button class="follow">+关注</button>
+						</section>
+						<figure class="content">
+							<img :src="item.img" alt="锻炼照" class="exercise_pic">
+							<figcaption>{{item.content}}</figcaption>
+							<!-- 文章时候显示 -->
+							<!-- <span v-show="">{{item.}}次阅览</span> -->
+							<!-- <p>{{item.content}}</p> -->
+							<!-- 参加的是计划的时候显示 -->
+							<div>
+								<header>
+									<!-- 放表情 -->
+									<!-- <img :src="item." alt=""> -->
+									<!-- <span>计划第{{item.}}天，完成</span> -->
+									<!-- 这儿放计划的名字 -->
+								</header>
+								<hr>
+								<div>
+									<!-- <span>{{item.}}<br>动作/组</span> -->
+									<!-- <span>{{item.}}<br>本次训练/分钟</span> -->
+									<!-- <span>{{item.}}<br>本次燃脂/千卡</span> -->
+								</div>
+								<!-- <span>打卡第{{item.}}天</span> -->
+							</div>
+						</figure>
+						<footer class="content_footer">
+							<span><img src="static/img/heart.svg" alt="赞">{{item.likes}}</span>|
+							<span><img src="static/img/comment.svg" alt="评论">{{item.talk_num}}</span>|
+							<span><img src="static/img/share.svg" alt="分享">{{item.share_num}}</span>
 						</footer>
 					</router-link>
 				</li>
@@ -169,8 +169,16 @@
 			return {
 				pageIndex: 1,
 				swiperIndex: 1,
-				swiperList: [],
-				recommendUser: [],
+				swiperList: [
+					{
+						self_img: [""],
+					}
+				],
+				recommendUser: [
+					{
+						img: ["","",""],
+					}
+				],
 				recommendList: [],
 				swiperOption: {
 					slidesPerView: 2.5,
@@ -183,10 +191,10 @@
 			}
 		},
 		created(){
-			
+			this.init();
 		},
 		mounted(){
-			this.init();
+			
 		},
 		
 		components:{
@@ -198,13 +206,18 @@
 		methods:{
 			init(){
 				this.getExeriseRec();
-				this.getRecomUser();
-				this.getRecom();
+				setTimeout(() => {
+					this.getRecomUser();
+				}, 400);
+				setTimeout(() => {
+					this.getRecom();
+				}, 800);
+				
 			},
 			getExeriseRec(){
 				let data = {
 					pageIndex: this.swiperIndex,
-					pageSise: 15,
+					pageSise: 10,
 				}
 				api.getShowSwiper(data)
 					.then( res => {

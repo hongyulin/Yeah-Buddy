@@ -34,19 +34,19 @@
 			<ul>
 				<li v-for="(item, index) in experience" :key="index">
 					<section class="experience">
-						<img :src="item.experienceImg" alt="经验主题">
+						<img :src="item.img" alt="经验主题">
 						<div class="content">
-							<header>{{item.expTitle}}</header>
-							<p>{{item.expContent}}</p>
+							<header>{{item.title}}</header>
+							<p>{{item.description}}</p>
 							<footer>
-								<img :src="item.expHeader" alt="头像" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
 								<span>
 									<img src="static/img/heart.svg" alt="赞">
-									{{item.expHeart}}
+									{{item.likes}}
 								</span>
 								<span>
 									<img src="static/img/comment.svg" alt="评论">
-									{{item.expTalk}}
+									{{item.talk_num}}
 								</span>
 							</footer>
 						</div>
@@ -62,13 +62,13 @@
 			<ul>
 				<li v-for="(item, index) in topic" :key="index">
 					<section class="hot_topic_content">
-						<img :src="item.topicImg" alt="头像">
+						<img :src="item.header_img" alt="头像">
 						<div class="content">
-							<header>#{{item.topTitle}}#</header>
-							<p>{{item.topContent}}</p>
+							<header>#{{item.title}}#</header>
+							<p>{{item.description}}</p>
 							<footer>
-								<img :src="item.topHeader" alt="头像"  class="header_pic">
-								{{item.topIn}}正在参与
+								<img :src="item.img + '?imageView2/2/w/80/h/80'" alt="头像"  class="header_pic">
+								{{item.partake}}正在参与
 							</footer>
 						</div>
 					</section>
@@ -102,8 +102,8 @@
 					<img :src="videoList.dance" alt="性感爵士" class="width_vw">
 				</li>
 				<li>
-					<img :src="videoList.topic" alt="热门话题" class="hot_topic_video">
-					<img :src="videoList.picked" alt="热门视频" class="hot_topic_video">
+					<img :src="videoList[0].img" alt="热门话题" class="hot_topic_video">
+					<img :src="videoList[1].img" alt="热门视频" class="hot_topic_video">
 				</li>
 
 				<li v-for="(item, index) in picked.slice(6, 12)" :key="index">
@@ -114,7 +114,7 @@
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.header_img" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" class="header_pic">
 								{{item.name}}
 							</span>
 							<span>
@@ -136,7 +136,7 @@
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.header_img" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" class="header_pic">
 								<p>{{item.name}}</p>
 							</span>
 							<span>
@@ -216,7 +216,7 @@
 						if(type == "CHIOCE_AD"){
 							this.swiperSlides = res.message;
 						}else if(type == "CHIOCE_VIDEO"){
-							this.videoList = res.list;
+							this.videoList = res.message;
 						}	
 					})
 					.catch( err => {

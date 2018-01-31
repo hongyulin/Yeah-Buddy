@@ -145,7 +145,16 @@ import api from '../../fetch/mine'
 		data(){
 			return {
 				dataList: {
-
+					following: "",
+					header_img: "",
+					name: "",
+					fans: "",
+					trends_new: "",
+					shop_ticker_new: "",
+					shop_record_new: "",
+					exercise_time: "",
+					join_time: "",
+					badge: "",
 				}
 			}
 		},
