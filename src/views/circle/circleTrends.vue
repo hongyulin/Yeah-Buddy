@@ -49,6 +49,7 @@
 								<span><img src="static/img/heart.svg" alt="赞">{{item.likes}}</span>
 								&nbsp;
 								<span><img src="static/img/comment.svg" alt="评论">{{item.talk_num}}</span>
+								&nbsp;
 							</div>
 							
 						</div>
@@ -163,7 +164,7 @@
 		display: flex;
 		// justify-content: space-between;
 		img {
-			margin: auto 1px;
+			margin: 10px 1px;
 			width: 27vw;
 		}
 		

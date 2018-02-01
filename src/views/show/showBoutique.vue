@@ -34,12 +34,12 @@
 			<ul>
 				<li v-for="(item, index) in experience" :key="index">
 					<section class="experience">
-						<img :src="item.img" alt="经验主题">
+						<img :src="item.img" alt="经验主题" class="experience_content_img">
 						<div class="content">
 							<header>{{item.title}}</header>
 							<p>{{item.description}}</p>
 							<footer>
-								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/50/h/50'" alt="头像" class="header_pic">
 								<span>
 									<img src="static/img/heart.svg" alt="赞">
 									{{item.likes}}
@@ -62,12 +62,12 @@
 			<ul>
 				<li v-for="(item, index) in topic" :key="index">
 					<section class="hot_topic_content">
-						<img :src="item.header_img" alt="头像">
+						<img :src="item.header_img + '?imageView2/2/w/50/h/50'" alt="头像">
 						<div class="content">
 							<header>#{{item.title}}#</header>
 							<p>{{item.description}}</p>
 							<footer>
-								<img :src="item.img + '?imageView2/2/w/80/h/80'" alt="头像"  class="header_pic">
+								<img :src="item.img + '?imageView2/2/w/50/h/50'" alt="头像"  class="header_pic">
 								{{item.partake}}正在参与
 							</footer>
 						</div>
@@ -87,7 +87,7 @@
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.header_img + '?imageView2/2/w/150/h/150'" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/50/h/50'" class="header_pic">
 								{{item.name}}
 							</span>
 							<span>
@@ -114,7 +114,7 @@
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/50/h/50'" class="header_pic">
 								{{item.name}}
 							</span>
 							<span>
@@ -136,7 +136,7 @@
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/50/h/50'" class="header_pic">
 								<p>{{item.name}}</p>
 							</span>
 							<span>
@@ -277,8 +277,13 @@
 .experience{
 	display: flex;
 	justify-content: space-between;
+	flex-direction: column;
 	align-items: center;
 	border-bottom: 1px solid #ccc;
+	.experience_content_img {
+		width: 100vw;
+		height: 40vh;
+	}
 	header {
 		font-size: 0.18rem;
 		font-weight:530;
@@ -304,6 +309,7 @@
 	margin-bottom: .1rem;
 	.hot_topic_content {
 		@extend .experience;
+		flex-direction: row;
 	}
 }
 .selected {

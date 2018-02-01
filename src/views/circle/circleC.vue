@@ -16,15 +16,15 @@
 			</header>
 			<section class="nav circles">
 				<figure>
-					<img :src="circleDate[0].header_img + '?imageView2/2/w/80/h/80'" alt="上海悦动圈">
+					<img :src="circleDate[0].header_img + '?imageView2/2/w/50/h/50'" alt="上海悦动圈">
 					<figcaption>{{circleDate[0].name}}</figcaption>
 				</figure>
 				<figure>
-					<img :src="circleDate[1].header_img + '?imageView2/2/w/80/h/80'" alt="跑步装备圈">
+					<img :src="circleDate[1].header_img + '?imageView2/2/w/50/h/50'" alt="跑步装备圈">
 					<figcaption>{{circleDate[1].name}}</figcaption>
 				</figure>
 				<figure>
-					<img :src="circleDate[2].header_img + '?imageView2/2/w/80/h/80'" alt="跑步圈">
+					<img :src="circleDate[2].header_img + '?imageView2/2/w/50/h/50'" alt="跑步圈">
 					<figcaption>{{circleDate[2].name}}</figcaption>
 				</figure>
 				<figure>
@@ -78,7 +78,7 @@
 						<span class="pisition">{{item.address}}</span>
 					</div>
 					<footer class="near_active_footer">
-						<span class="test">
+						<span class="img_and_name">
 							<img :src="item.header_img + '?imageView2/2/w/40/h/40'" alt="头像" class="header_pic">
 							<span>
 								{{item.name}}
@@ -105,7 +105,7 @@
 						<span class="pisition">{{item.address}}</span>
 					</div>
 					<footer  class="near_active_footer">
-						<span>
+						<span class="img_and_name">
 							<img :src="item.header_img + '?imageView2/2/w/40/h/40'" alt="圈子头像" class="header_pic">
 							<span>
 								{{item.name}}
@@ -135,7 +135,7 @@
 						<span class="pisition">{{item.address}}</span>
 					</div>
 					<footer  class="near_active_footer">
-						<span>
+						<span class="img_and_name">
 							<img :src="item.header_img + '?imageView2/2/w/40/h/40'" alt="圈子头像" class="header_pic">
 							{{item.name}}
 						</span>
@@ -313,12 +313,12 @@
 	}
 }
 .near_active_footer {
-	.test {
+	.img_and_name {
 		display: flex;
 		align-items: center;
 		span {
 			display: inline-block;
-			width: 100vw;
+			width: 40vw;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
