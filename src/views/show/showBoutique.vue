@@ -82,12 +82,12 @@
 				<li v-for="(item, index) in picked.slice(0, 6)" :key="index">
 					<section class="selected">
 						<figure>
-							<img :src="item.img" alt="pic" class="hot_pic">
+							<img :src="item.img + '?imageView2/5/W/150/h/150'" alt="pic" class="hot_pic">
 							<figcaption class="selected_des">{{item.description}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.header_img + '?imageView2/2/w/50/h/50'" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/30/h/30'" class="header_pic">
 								{{item.name}}
 							</span>
 							<span>
@@ -99,7 +99,7 @@
 				</li>
 				<!-- 中间加的推荐 -->
 				<li>
-					<img :src="videoList.dance" alt="性感爵士" class="width_vw">
+					<img :src="jazz" alt="性感爵士" class="width_vw jazz_video">
 				</li>
 				<li>
 					<img :src="videoList[0].img" alt="热门话题" class="hot_topic_video">
@@ -109,12 +109,12 @@
 				<li v-for="(item, index) in picked.slice(6, 12)" :key="index">
 					<section class="selected">
 						<figure>
-							<img :src="item.img" alt="pic" class="hot_pic">
+							<img :src="item.img + '?imageView2/5/W/150/h/150'" alt="pic" class="hot_pic">
 							<figcaption class="selected_des">{{item.description}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.header_img + '?imageView2/2/w/50/h/50'" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/30/h/30'" class="header_pic">
 								{{item.name}}
 							</span>
 							<span>
@@ -126,17 +126,17 @@
 				</li>
 				<!-- 中间夹的东西 -->
 				<li>
-					<img :src="videoList.video" alt="精选视频" class="width_vw">
+					<img :src="chioceVideo" alt="精选视频" class="width_vw jazz_video">
 				</li>
 				<li v-for="(item, index) in picked.slice(12)" :key="index">
 					<section class="selected">
 						<figure>
-							<img :src="item.img" alt="pic" class="hot_pic">
+							<img :src="item.img + '?imageView2/5/W/150/h/150'" alt="pic" class="hot_pic">
 							<figcaption class="selected_des">{{item.description}}</figcaption>
 						</figure>
 						<footer>
 							<span>
-								<img :src="item.header_img + '?imageView2/2/w/50/h/50'" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/30/h/30'" class="header_pic">
 								<p>{{item.name}}</p>
 							</span>
 							<span>
@@ -158,6 +158,8 @@
 		name:'showBoutique',
 		data(){
 			return {
+				chioceVideo: "",
+				jazz: "",
 				pageIndex: 1,
 				videoList: [],
 				swiperSlides: [],
@@ -195,7 +197,13 @@
 				this.getAds("CHIOCE_AD");
 				setTimeout(() => {
 					this.getAds("CHIOCE_VIDEO");
+				},200);
+				setTimeout(() => {
+					this.getAds("JAZZ");
 				},400);
+				setTimeout(() => {
+					this.getAds("CHIOCE_VIDEO_PARTY2");
+				},600);
 				setTimeout(() => {
 					this.getChoice();
 				},800);
@@ -217,7 +225,11 @@
 							this.swiperSlides = res.message;
 						}else if(type == "CHIOCE_VIDEO"){
 							this.videoList = res.message;
-						}	
+						}else if (type == "JAZZ") {
+							this.jazz = res.message[0].img[0];
+						}else if (type == "CHIOCE_VIDEO_PARTY2") {
+							this.chioceVideo = res.message[0].img[0];
+						}
 					})
 					.catch( err => {
 						console.log(err)
@@ -227,7 +239,7 @@
 			getChoice(){
 				let data = {
 					pageIndex: this.pageIndex,
-					pageSize: 15,
+					pageSize: 16,
 				}
 				api.getShowPicked(data)
 					.then( res => {
@@ -297,7 +309,7 @@
 		overflow: hidden;
 	}
 	.content {
-		width: 70vw;
+		width: 95vw;
 		margin: 10px;
 	}
 
@@ -315,11 +327,16 @@
 .selected {
 	text-align: center;
 	width: 46vw;
+	height: 38vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	.hot_pic {
 		width: 45vw;
 	}
 	footer {
 		display: flex;
+		justify-content: space-between;
 		span{
 			height: 29px;
 			display: flex;
@@ -334,6 +351,7 @@
 	.selected_des {
 		font-size: 13px;
 		margin: 5px auto;
+		text-align: left;
 		display:-webkit-box;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
@@ -348,5 +366,8 @@
 }
 .hot_topic_video {
 	width: 46vw;
+}
+.jazz_video{
+	margin: 10px auto auto;
 }
 </style>

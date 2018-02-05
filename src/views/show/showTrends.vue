@@ -48,12 +48,8 @@
 							<button class="follow">+关注</button>
 						</section>
 						<figure class="content">
-							<img :src="item.img" alt="锻炼照" class="exercise_pic">
+							<img :src="item.img + '?imageView2/2/w/400/h/400'" alt="锻炼照" class="exercise_pic">
 							<figcaption>{{item.content}}</figcaption>
-							<!-- 文章时候显示 -->
-							<!-- <span v-show="">{{item.}}次阅览</span> -->
-							<!-- <p>{{item.content}}</p> -->
-							<!-- 参加的是计划的时候显示 -->
 							<div>
 								<header>
 									<!-- 放表情 -->
@@ -95,9 +91,9 @@
 									<span class="recommend_date">{{item.choice_num}}<br>精选</span>
 								</div>
 								<div class="recommend_pic_date">
-									<img :src="item.img[0]" alt="训练照">
-									<img :src="item.img[1]" alt="训练照">
-									<img :src="item.img[2]" alt="训练照">
+									<img :src="item.img[0]+ '?imageView2/2/w/150/h/150'" alt="训练照">
+									<img :src="item.img[1]+ '?imageView2/2/w/150/h/150'" alt="训练照">
+									<img :src="item.img[2]+ '?imageView2/2/w/150/h/150'" alt="训练照">
 								</div>
 								<button class="follow">+关注</button>
 							</section>
@@ -124,7 +120,7 @@
 							<button class="follow">+关注</button>
 						</section>
 						<figure class="content">
-							<img :src="item.img" alt="锻炼照" class="exercise_pic">
+							<img :src="item.img + '?imageView2/2/w/400/h/400'" alt="锻炼照" class="exercise_pic">
 							<figcaption>{{item.content}}</figcaption>
 							<!-- 文章时候显示 -->
 							<!-- <span v-show="">{{item.}}次阅览</span> -->
