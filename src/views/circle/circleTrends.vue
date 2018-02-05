@@ -108,7 +108,16 @@
 				}
 				api.getCircleTrends(data)
 					.then( res => {
-						this.trendsList = res.message
+						let resData = res.message;
+						for(let item in resData){
+							let temTime = resData[item].time;
+							temTime = (new Date()) - (new Date(temTime));
+							// 毫秒化为小时并取小数点后一位。
+							temTime = Math.round(temTime/1000/60/60*10)/10;
+							console.log(temTime);
+							resData[item].time = temTime;
+						}
+						this.trendsList = resData
 					})
 					.catch( err => {
 						console.log(err)

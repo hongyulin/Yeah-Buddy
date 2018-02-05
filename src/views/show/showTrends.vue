@@ -9,11 +9,11 @@
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(item, index) in swiperList" :key="index">
 					<section class="show_swiper">
-						<img :src="item.self_img[0]" alt="健身照片">
+						<img :src="item.self_img[0] + '?imageView2/2/w/130/h/130'" alt="健身照片">
 						<!-- 独立出来的样式会被覆盖掉 -->
 						<div style="display:flex;justify-content: space-around;align-items:center;">
 							
-							<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
+							<img :src="item.header_img + '?imageView2/2/w/50/h/50'" alt="头像" class="header_pic">
 							<section>
 								<span style="font-size:.13rem;">{{item.name}}</span>
 								<br>
@@ -37,7 +37,7 @@
 						<hr>
 						<section class="content_pic">
 							<div>
-								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/60/h/60'" alt="头像" class="header_pic">
 								<span>
 									<!-- 放名字和时间 -->
 									{{item.name}}
@@ -80,7 +80,7 @@
 							<section class="recommend">
 								<header class="recommend_header">
 									<div>
-										<img :src="item.header_img  + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
+										<img :src="item.header_img  + '?imageView2/2/w/60/h/60'" alt="头像" class="header_pic">
 										<span>{{item.name}}</span>
 									</div>
 									<img src="static/img/close.svg" alt="close">
@@ -91,9 +91,9 @@
 									<span class="recommend_date">{{item.choice_num}}<br>精选</span>
 								</div>
 								<div class="recommend_pic_date">
-									<img :src="item.img[0]+ '?imageView2/2/w/150/h/150'" alt="训练照">
-									<img :src="item.img[1]+ '?imageView2/2/w/150/h/150'" alt="训练照">
-									<img :src="item.img[2]+ '?imageView2/2/w/150/h/150'" alt="训练照">
+									<img :src="item.img[0]+ '?imageView2/2/w/80/h/80'" alt="训练照">
+									<img :src="item.img[1]+ '?imageView2/2/w/80/h/80'" alt="训练照">
+									<img :src="item.img[2]+ '?imageView2/2/w/80/h/80'" alt="训练照">
 								</div>
 								<button class="follow">+关注</button>
 							</section>
@@ -109,7 +109,7 @@
 						<hr>
 						<section class="content_pic">
 							<div>
-								<img :src="item.header_img + '?imageView2/2/w/80/h/80'" alt="头像" class="header_pic">
+								<img :src="item.header_img + '?imageView2/2/w/60/h/60'" alt="头像" class="header_pic">
 								<span>
 									<!-- 放名字和时间 -->
 									{{item.name}}
@@ -213,11 +213,20 @@
 			getExeriseRec(){
 				let data = {
 					pageIndex: this.swiperIndex,
-					pageSise: 10,
+					pageSize: 10,
 				}
 				api.getShowSwiper(data)
 					.then( res => {
-						this.swiperList = res.message;
+						let resData = res.message;
+						for(let item in resData){
+							let temTime = resData[item].login_time;
+							temTime = (new Date()) - (new Date(temTime));
+							
+							temTime = Math.round(temTime/1000/60);
+							console.log(temTime);
+							resData[item].login_time = temTime;
+						}
+						this.swiperList = resData;
 					})
 					.catch( err => {
 						console.log(err)
@@ -244,7 +253,14 @@
 				}
 				api.getShowRecommend(data)
 					.then( res => {
-						this.recommendList = res.message;
+						let resData = res.message;
+						for(let item in resData){
+							let temTime = resData[item].time;
+							temTime = temTime.split("T")[0];
+							console.log(temTime);
+							resData[item].time = temTime;
+						}
+						this.recommendList = resData;
 					})
 					.catch( err => {
 							console.log(err)
@@ -287,6 +303,10 @@
 	figcaption, .exercise_pic {
 		width: 96vw;
 		margin: auto 2vw;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
 	}
 }
 .content_footer {
