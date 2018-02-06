@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
 		<section>
 			<header class="get_more">
 				他们刚刚在练
@@ -28,7 +28,7 @@
 		</section>
 		<section>
 			<ul>
-				<li v-for="(item, index) in recommendList.slice(0, 2)" :key="index">
+				<li v-for="(item, index) in recommendList.slice(0, 2)" :key="item.id">
 					<router-link to="#">
 						<header class="content_title">
 							<img src="static/img/eight.svg" alt="icon">
@@ -100,7 +100,7 @@
 						</swiper-slide>
 					</swiper>
 				</li>
-				<li v-for="(item, index) in recommendList.slice(2)" :key="index">
+				<li v-for="(item, index) in recommendList.slice(2)" :key="item.id">
 					<router-link to="#">
 						<header class="content_title">
 							<img src="static/img/eight.svg" alt="icon">
@@ -163,7 +163,9 @@
 		name:'showTrends',
 		data(){
 			return {
-				pageIndex: 1,
+				finish: false,
+				busy: false,
+				pageIndex: 0,
 				swiperIndex: 1,
 				swiperList: [
 					{
@@ -205,10 +207,6 @@
 				setTimeout(() => {
 					this.getRecomUser();
 				}, 400);
-				setTimeout(() => {
-					this.getRecom();
-				}, 800);
-				
 			},
 			getExeriseRec(){
 				let data = {
@@ -221,9 +219,7 @@
 						for(let item in resData){
 							let temTime = resData[item].login_time;
 							temTime = (new Date()) - (new Date(temTime));
-							
 							temTime = Math.round(temTime/1000/60);
-							console.log(temTime);
 							resData[item].login_time = temTime;
 						}
 						this.swiperList = resData;
@@ -249,22 +245,35 @@
 			getRecom(){
 				let data = {
 					pageIndex: this.pageIndex,
-					pageSize: 15,
+					pageSize: 3,
 				}
 				api.getShowRecommend(data)
 					.then( res => {
 						let resData = res.message;
+						if (resData.length == 0) {
+							this.finish = true;
+						}
 						for(let item in resData){
 							let temTime = resData[item].time;
 							temTime = temTime.split("T")[0];
-							console.log(temTime);
 							resData[item].time = temTime;
 						}
-						this.recommendList = resData;
+						this.recommendList.push(...resData);
+						this.busy = false;
 					})
 					.catch( err => {
 							console.log(err)
 						})
+			},
+
+			loadMore(){
+				if (!this.finish) {
+					this.pageIndex += 1;
+					this.busy = true;
+					this.getRecom();
+				}else{
+					return;
+				}
 			},
 				
 		}

@@ -4,7 +4,7 @@
 		<section>
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
-					<img :src="slide.img" alt="走马灯" class="swiperImg">
+					<img :src="slide ? slide.img : ''" alt="走马灯" class="swiperImg">
 				</swiper-slide>
 				<div class="swiper-pagination" slot="pagination"></div>
 			</swiper>
@@ -40,8 +40,8 @@
 			</header>
 			<ul class="circle_active">
 				<!-- 这儿需要返回图片，是在fetch中， -->
-				<li><img :src="activeList[0].img[0]" alt="圈子活动"></li>
-				<li><img :src="activeList[1].img[0]" alt="圈子活动"></li>
+				<li><img :src="activeList[0] ? activeList[0].img[0] : ''" alt="圈子活动"></li>
+				<li><img :src="activeList[1] ? activeList[1].img[0] : ''" alt="圈子活动"></li>
 			</ul>
 		</section>
 		<section class="selected_content">
@@ -67,13 +67,13 @@
 				<img src="static/img/right.svg" alt="查看全部">
 			</header>
 			<ul>
-				<li v-for="(item, index) in nearList.slice(0, 2)" :key="index" class="near_circle">
+				<li v-for="(item, index) in nearList.slice(0, 2)" :key="item.id" class="near_circle">
 					<div class="near_active_content">
 						<p class="near_active_content">{{item.description}}</p>
 						<div class="near_active_pic">
-							<img :src="item.img[0] + '?imageView2/1/w/80/h/120'" alt="附近圈子1">
-							<img :src="item.img[1] + '?imageView2/1/w/80/h/120'" alt="附近圈子2">
-							<img :src="item.img[2] + '?imageView2/1/w/80/h/120'" alt="附近圈子3">
+							<img :src="item ? item.img[0] + '?imageView2/1/w/80/h/120': ''" alt="附近圈子1">
+							<img :src="item ? item.img[1] + '?imageView2/1/w/80/h/120': ''" alt="附近圈子2">
+							<img :src="item ? item.img[2] + '?imageView2/1/w/80/h/120': ''" alt="附近圈子3">
 						</div>
 						<span class="pisition">{{item.address}}</span>
 					</div>
@@ -93,14 +93,14 @@
 						</div>
 					</footer>
 				</li>
-				<li><img :src="welfare[0].img + '?imageView2/1/w/200/h/100'" alt="公益广告" class="public_welfare"></li>
-				<li v-for="(item, index) in nearList.slice(2, 6)" :key="index" class="near_circle">
+				<li><img :src="welfare[0] ? welfare[0].img + '?imageView2/1/w/400/h/300' : ''" alt="公益广告" class="public_welfare"></li>
+				<li v-for="(item, index) in nearList.slice(2, 6)" :key="item.id" class="near_circle">
 					<div class="near_active_content">
 						<p class="near_active_content">{{item.description}}</p>
 						<div class="near_active_pic">
-							<img :src="item.img[0] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
-							<img :src="item.img[1] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
-							<img :src="item.img[2] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
+							<img :src="item ? item.img[0] + '?imageView2/1/w/80/h/120': ''" alt="附近活动pic">
+							<img :src="item ? item.img[1] + '?imageView2/1/w/80/h/120': ''" alt="附近活动pic">
+							<img :src="item ? item.img[2] + '?imageView2/1/w/80/h/120': ''" alt="附近活动pic">
 						</div>
 						<span class="pisition">{{item.address}}</span>
 					</div>
@@ -123,14 +123,14 @@
 						</div>
 					</footer>
 				</li>  
-				<li><img :src="welfare[1].img" alt="公益广告" class="public_welfare"></li>
-				<li v-for="(item, index) in nearList.slice(6)" :key="index" class="near_circle">
+				<li><img :src="welfare[1] ? welfare[1].img + '?imageView2/1/w/400/h/300' : ''" alt="公益广告" class="public_welfare"></li>
+				<li v-for="(item, index) in nearList.slice(6)" :key="item.id" class="near_circle">
 					<div class="near_active_content">
 						<p class="near_active_content">{{item.description}}</p>
 						<div class="near_active_pic">
-							<img :src="item.img[0] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
-							<img :src="item.img[1] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
-							<img :src="item.img[2] + '?imageView2/1/w/80/h/120'" alt="附近活动pic">
+							<img :src="item ?item.img[0] + '?imageView2/1/w/80/h/120': ''" alt="附近活动pic">
+							<img :src="item ?item.img[1] + '?imageView2/1/w/80/h/120': ''" alt="附近活动pic">
+							<img :src="item ?item.img[2] + '?imageView2/1/w/80/h/120': ''" alt="附近活动pic">
 						</div>
 						<span class="pisition">{{item.address}}</span>
 					</div>
@@ -182,9 +182,7 @@
 				],
 				welfare:[],
 				nearList: [
-					"",
-					"",
-					"",
+					
 				],
 				swiperOption: {
 					pagination: '.swiper-pagination',
@@ -251,7 +249,7 @@
 					pageIndex: this.pageIndex,
 					pageSize: 10
 				}
-				api.getNearList()
+				api.getNearList(data)
 					.then( res => {
 						// 附近圈子。
 						if (res.message.length == 0) {

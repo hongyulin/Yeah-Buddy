@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
 		<section>
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
@@ -79,7 +79,7 @@
 			<header class="get_more">小八精选</header>
 			<ul class="selected_ul">
 				<!-- 6+插入三个广告+6+一个广告+剩下的 -->
-				<li v-for="(item, index) in picked.slice(0, 6)" :key="index">
+				<li v-for="(item, index) in picked.slice(0, 6)" :key="item.id">
 					<section class="selected">
 						<figure>
 							<img :src="item.img + '?imageView2/5/W/150/h/150'" alt="pic" class="hot_pic">
@@ -102,11 +102,11 @@
 					<img :src="jazz" alt="性感爵士" class="width_vw jazz_video">
 				</li>
 				<li>
-					<img :src="videoList[0].img" alt="热门话题" class="hot_topic_video">
-					<img :src="videoList[1].img" alt="热门视频" class="hot_topic_video">
+					<img :src="videoList[0] ? videoList[0].img : ''" alt="热门话题" class="hot_topic_video">
+					<img :src="videoList[1] ? videoList[1].img : ''" alt="热门视频" class="hot_topic_video">
 				</li>
 
-				<li v-for="(item, index) in picked.slice(6, 12)" :key="index">
+				<li v-for="(item, index) in picked.slice(6, 12)" :key="item.id">
 					<section class="selected">
 						<figure>
 							<img :src="item.img + '?imageView2/5/W/150/h/150'" alt="pic" class="hot_pic">
@@ -128,7 +128,7 @@
 				<li>
 					<img :src="chioceVideo" alt="精选视频" class="width_vw jazz_video">
 				</li>
-				<li v-for="(item, index) in picked.slice(12)" :key="index">
+				<li v-for="(item, index) in picked.slice(12)" :key="item.id">
 					<section class="selected">
 						<figure>
 							<img :src="item.img + '?imageView2/5/W/150/h/150'" alt="pic" class="hot_pic">
@@ -158,9 +158,11 @@
 		name:'showBoutique',
 		data(){
 			return {
+				finish: false,
+				busy: false,
 				chioceVideo: "",
 				jazz: "",
-				pageIndex: 1,
+				pageIndex: 0,
 				videoList: [],
 				swiperSlides: [],
 				experience: [],
@@ -205,14 +207,11 @@
 					this.getAds("CHIOCE_VIDEO_PARTY2");
 				},600);
 				setTimeout(() => {
-					this.getChoice();
+					this.getTopic();
 				},800);
 				setTimeout(() => {
-					this.getTopic();
-				},1200);
-				setTimeout(() => {
 					this.getExperience();
-				},1600);
+				},1000);
 			},
 
 			getAds(type){
@@ -239,11 +238,16 @@
 			getChoice(){
 				let data = {
 					pageIndex: this.pageIndex,
-					pageSize: 16,
+					pageSize: 12,
 				}
 				api.getShowPicked(data)
 					.then( res => {
-						this.picked = res.message;
+						if (res.message.length == 0) {
+							this.finish = true;
+						}
+
+						this.picked.push(...res.message);
+						this.busy = false;
 					})
 					.catch(err => {
 						console.log(err);
@@ -268,6 +272,16 @@
 					.catch(err => {
 						console.log(err);
 					})
+			},
+
+			loadMore(){
+				if (!this.finish) {
+					this.pageIndex += 1;
+					this.busy = true;
+					this.getChoice();
+				}else{
+					return;
+				}
 			},
 		}
 	}

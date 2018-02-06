@@ -105,7 +105,6 @@
 							temTime = (new Date()) - (new Date(temTime));
 							// 毫秒化为小时并取小数点后一位。
 							temTime = Math.round(temTime/1000/60/60*10)/10;
-							console.log(temTime);
 							resData[item].login_time = temTime;
 						}
 						this.dataList.push(...resData);
