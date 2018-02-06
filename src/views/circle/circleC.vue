@@ -1,6 +1,6 @@
 <template>
 <!-- 悦动圈里面的圈子 -->
-	<div>
+	<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
 		<section>
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
@@ -161,6 +161,9 @@
 		name:'circleC',
 		data(){
 			return {
+				finish: false,
+				busy: false,
+				pageIndex: 0,
 				applyState: false,
 				circleDate: [
 					"",
@@ -219,11 +222,8 @@
 					this.getAds("WELFARE");
 				},800);
 				setTimeout(() => {
-					this.getCirList();
-				},1000)
-				setTimeout(() => {
 					this.getMyCircle();
-				},1400)
+				},1000)
 				
 				
 			},
@@ -249,12 +249,16 @@
 			getCirList(){
 				let data = {
 					pageIndex: this.pageIndex,
-					pageSize: 15
+					pageSize: 10
 				}
 				api.getNearList()
 					.then( res => {
 						// 附近圈子。
-						this.nearList = res.message
+						if (res.message.length == 0) {
+							this.finish = true;
+						}
+						this.nearList.push(...res.message);
+						this.busy = false;
 					})
 					.catch( err => {
 						console.log(err)
@@ -275,6 +279,16 @@
 					.catch( err => {
 						console.log(err)
 					})
+			},
+
+			loadMore(){
+				if (!this.finish) {
+					this.pageIndex += 1;
+					this.busy = true;
+					this.getCirList();
+				}else{
+					return;
+				}
 			},
 
 		}

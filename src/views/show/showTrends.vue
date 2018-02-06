@@ -249,7 +249,7 @@
 			getRecom(){
 				let data = {
 					pageIndex: this.pageIndex,
-					pageSise: 15,
+					pageSize: 15,
 				}
 				api.getShowRecommend(data)
 					.then( res => {

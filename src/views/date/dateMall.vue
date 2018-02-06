@@ -1,6 +1,6 @@
 <template>
 <!-- 里面还有一个每隔几秒就出现的弹框“xxx领了xxx” -->
-	<div>
+	<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
 		<section>
 			<router-link to="#">
 				<!-- 搜索框点击后跳转另外一页 -->
@@ -70,7 +70,9 @@
 		name:'dateMall',
 		data: function(){
 			return {
-				pageIndex:  1,
+				finish:     false,
+				busy:       false,
+				pageIndex:  0,
 				dataList: 	[],
 				mallAd: 	"",
 				tagList: 	["每日精选", "美妆个护", "就爱吃", "数码家电", "日用百货", "饰品", "图文", "鞋包", "运动车载", "女士精选"],
@@ -95,7 +97,6 @@
 		},
 		methods:{
 			intiData(){
-				this.getMallList();
 				setTimeout(() => {
 					this.getAdList();
 				}, 500);
@@ -104,11 +105,16 @@
 			getMallList(){
 				let data = {
 					pageIndex: this.pageIndex,
-					pageSize: 15
+					pageSize: 10
 				}
 				api.getGoodsList(data)
 					.then( res => {
-						this.dataList = res.message;
+						if (res.message.length == 0) {
+							this.finish = true;
+						}
+						this.busy = false;
+						this.dataList.push(...res.message);
+						
 					}).catch(err => {
 						console.log(err)
 					})
@@ -125,6 +131,16 @@
 					.catch(err => {
 						console.log(err)
 					})
+			},
+
+			loadMore(){
+				if (!this.finish) {
+					this.busy = true;
+					this.pageIndex += 1;
+					this.getMallList();
+				}else{
+					return;
+				}
 			},
 		}
 	}

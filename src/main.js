@@ -7,6 +7,8 @@ import store from './store/index';
 // import data from './data/mock';
 import vueAwesomeSwiper from 'vue-awesome-swiper';
 import commonFn from './views/common/common';
+import infiniteScroll from 'vue-infinite-scroll';
+
 
 /*双击事件*/
 /*import FastClick from 'fastclick'
@@ -19,7 +21,7 @@ if ('addEventListener' in document) {
 //没有写完
 Vue.use(vueAwesomeSwiper);
 Vue.use(commonFn);
-
+Vue.use(infiniteScroll);
 Vue.config.productionTip = false;
 // 注册全局函数
 // Vue.prototype.whichShowFn = function(name) {

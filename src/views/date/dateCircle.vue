@@ -1,6 +1,6 @@
 <template>
 	<!-- 主要为附近有那些运动圈 -->
-	<div id="dateCircle">
+	<div id="dateCircle" v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
 		<nav class="nav">
 			<figure>
 				<router-link to="#">
@@ -69,15 +69,17 @@
 		name:'dateVircle',
 		data(){
 			return {
-				pageIndex: 1,
-				dataList: [],
+				finish:    false,
+				busy:      false,
+				pageIndex: 0,
+				dataList:  [],
 			}
 		},
 		created(){
 
 		},
 		mounted(){
-			this.getDataList()
+			// this.getDataList()
 		},
 		
 		components:{
@@ -89,12 +91,15 @@
 		methods:{
 			getDataList() {
 				let data = {
-					pageSize: 15,
+					pageSize: 10,
 					pageIndex: this.pageIndex,
 				}
 				api.getNearPer(data)
 					.then( res => {
 						let resData = res.message;
+						if (resData.length == 0) {
+							this.finish = true;
+						}
 						for(let item in resData){
 							let temTime = resData[item].login_time;
 							temTime = (new Date()) - (new Date(temTime));
@@ -104,11 +109,21 @@
 							resData[item].login_time = temTime;
 						}
 						this.dataList.push(...resData);
+						this.busy = false;
 					})
 					.catch((err) => {
 						console.log(err);
 					})
 			},
+			loadMore(){
+				if (!this.finish) {
+					this.pageIndex += 1;
+					this.busy = true;
+					this.getDataList();
+				}else{
+					return;
+				}
+			}
 		}
 	}
 </script>

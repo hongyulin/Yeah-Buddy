@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
 		<section>
 			<swiper :options="swiperOption">
 				<swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
@@ -82,7 +82,9 @@
 		name: 'dateClassroom',
 		data(){
 			return {
-				pageIndex: 1,
+				finish: false,
+				busy: false,
+				pageIndex: 0,
 				dataList: [],
 				exerciseData: ["",""],
 				swiperSlides: [],
@@ -113,9 +115,12 @@
 		},
 		methods: {
 			initData(){
-				this.getAds("CLASS_AD");
-				this.getAds("TRAIN_AD");
-				this.getClass();
+				setTimeout(() => {
+					this.getAds("CLASS_AD");
+				},300);
+				setTimeout(() => {
+					this.getAds("TRAIN_AD");
+				},300);
 			},
 			getAds(type){
 				let data = {
@@ -137,15 +142,29 @@
 			getClass(){
 				let data = {
 					pageIndex: this.pageIndex,
-					pageSize: 15,
+					pageSize: 10,
 				}
 				api.getDateClass(data)
 					.then(res => {
-						this.dataList = res.message;
+						if (res.message.length == 0) {
+							this.finish = true;
+						}
+						this.dataList.push(...res.message);
+						this.busy = false;
 					})
 					.catch( err => {
 						console.log(err)
 					})
+			},
+
+			loadMore(){
+				if (!this.finish) {
+					this.pageIndex += 1;
+					this.busy = true;
+					this.getClass();
+				}else{
+					return;
+				}
 			},
 		}
 	}

@@ -1,7 +1,7 @@
 <template>
 	<!-- 悦动圈里面的动态 -->
 	<!-- 这里面放我发布的动态，关注的人的动态，和加入的圈子的动态 -->
-	<div>
+	<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="0">
 		<section class="recommend">
 			<header class="recommend_header">
 				<span>推荐关注:</span>
@@ -65,7 +65,9 @@
 		name:'circleTrends',
 		data(){
 			return {
-				pageIndex: 1,
+				finish: false,
+				busy: false,
+				pageIndex: 0,
 				follow: [],
 				trendsList: [],
 			}
@@ -75,7 +77,6 @@
 		},
 		mounted(){
 			this.init();
-			
 		},
 		
 		components:{
@@ -86,8 +87,10 @@
 		},
 		methods:{
 			init(){
-				this.getFollow();
-				this.getDataList();
+				setTimeout(() => {
+					this.getFollow();
+				},300)
+				
 			},
 			getFollow() {
 				let data = {
@@ -104,11 +107,14 @@
 			getDataList() {
 				let data = {
 					pageIndex: this.pageIndex,
-					pageSize: 15,
+					pageSize: 10,
 				}
 				api.getCircleTrends(data)
 					.then( res => {
 						let resData = res.message;
+						if (resData.length == 0) {
+							this.finish = true;
+						}
 						for(let item in resData){
 							let temTime = resData[item].time;
 							temTime = (new Date()) - (new Date(temTime));
@@ -117,7 +123,8 @@
 							console.log(temTime);
 							resData[item].time = temTime;
 						}
-						this.trendsList = resData
+						this.trendsList.push(...resData);
+						this.busy = false;
 					})
 					.catch( err => {
 						console.log(err)
@@ -126,7 +133,17 @@
 			takeFollow() {
 				this.follow.followState = true;
 				this.getFollow();
-			}
+			},
+
+			loadMore(){
+				if (!this.finish) {
+					this.pageIndex += 1;
+					this.busy = true;
+					this.getDataList();
+				}else{
+					return;
+				}
+			},
 		}
 	}
 </script>
