@@ -1,0 +1,143 @@
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    color: #333;
+	font-weight: normal;
+	font-size: .16rem;
+    font-family: "Microsoft Yahei";
+    box-sizing: border-box;
+    -webkit-tap-highlight-color:transparent;
+	-webkit-font-smoothing: antialiased;
+	outline: none;
+    &:hover{
+        outline: none;
+	};
+	&:focus{
+        outline: none;
+	};
+}
+figcaption {
+	font-size: 0.14rem;
+}
+h1 {
+	font-size: .32rem;
+	margin: .1rem 0;
+}
+h2 {
+	font-size: .24rem;
+	margin: .1rem 0;
+}
+h3 {
+	font-size: .18rem;
+	margin: .1rem 0;
+}
+.spin{
+	width: 70px;
+	position: relative;
+	margin:0 auto;
+}
+.spin_img{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-image: url(/static/img/loading.svg); 
+	background-size: 100% 100%;
+}
+.spin_circle{
+	width: 70px;
+	height: 70px;
+	display:block;
+	background-image: url(/static/img/circle.png);
+	background-size: 100% 100%;
+	animation: spin_circleRotate linear 1s infinite;
+}
+@keyframes spin_circleRotate{
+	0% {transform: rotate(0deg)}
+	50% {transform: rotate(180deg)}
+	100% {transform: rotate(360deg)}
+}
+// 横向显示图片，标题
+.nav {
+	display: flex;
+	justify-content: space-around;
+	figure {
+		text-align: center;
+	}
+	margin: {
+		top: 2vh;
+	}
+	
+}
+.width_vw {
+	width: 100vw;
+}
+// 查看更多部分的样式
+.get_more {
+	display: flex;
+	justify-content: space-between;
+	padding: {
+		top: 2vw;
+		bottom: 2vw;
+		left: 2vw;
+		right: 2vw;
+	}
+}
+// 单行显示省略号
+.row_ellipsis {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+// 头部的样式和固定
+.home_header {
+	width: 100vw;
+	height: 6vh;
+	font-size: 20px;
+	display: flex;
+	position: fixed;
+	top: 0;
+	justify-content: space-between;
+	background-color: white;
+	z-index: 1000;
+	padding: {
+		top: 10px;
+		left: 20px;
+		right: 10px;
+	}
+}
+// 切换页标签
+.tabs {
+	display: flex;
+	justify-content: space-around;
+	width: 100vw;
+	position: fixed;
+	top: 6vh;
+	background-color: white;
+	z-index: 1000;
+	span {
+		height: .4rem;
+		line-height: .4rem;
+		text-align: center;
+	}
+	.activeShow {
+		color: red;
+		border-bottom: 1px solid red;
+	}
+}
+// router-view,避免头部尾部被遮住
+.fade_children {
+	margin: {
+		top: 13vh;
+		bottom: 13vh;
+	}
+}
+// 把头像变成圆的
+.header_pic {
+	border-radius: 50%;
+}
