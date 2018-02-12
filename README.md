@@ -1,5 +1,5 @@
 # yeahbuddy
-决定开始搞一个大项目了 
+详情见 [http://yb.levinson.cn](http://yb.levinson.cn) 
 ### 技术栈： 
 vue + vuex + vue-router + webpack + axios + sass
 
