@@ -1,5 +1,5 @@
 # yeahbuddy
-详情见 [http://yb.levinson.cn](http://yb.levinson.cn) 
+详情见 [http://yb.levinson.cn](http://yb.levinson.cn) ,F12手机模式观看。
 ### 技术栈： 
 vue + vuex + vue-router + webpack + axios + sass
 
